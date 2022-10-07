@@ -20,5 +20,8 @@
   "homepage": "https://github.com/nihruk/cds#readme",
   "dependencies": {
     "bootstrap": "^5.2.2"
+  },
+  "devDependencies": {
+    "parcel": "^2.7.0"
   }
 }
