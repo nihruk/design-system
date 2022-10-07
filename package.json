@@ -18,10 +18,16 @@
     "url": "https://github.com/nihruk/cds/issues"
   },
   "homepage": "https://github.com/nihruk/cds#readme",
+  "source": "./src/index.html",
+  "scripts": {
+    "dev": "parcel",
+    "build": "parcel build"
+  },
   "dependencies": {
     "bootstrap": "^5.2.2"
   },
   "devDependencies": {
+    "@parcel/transformer-sass": "^2.7.0",
     "parcel": "^2.7.0"
   }
 }
