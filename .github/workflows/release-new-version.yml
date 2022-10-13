@@ -1,0 +1,50 @@
+name: Release new version
+
+on:
+  workflow_dispatch:
+    inputs:
+      version_number:
+        description: 'Version number (Semantic Versioning 2: https://semver.org/)'
+        required: true
+        type: string
+      commit:
+        description: 'Hash of the commit to release'
+        required: true
+        type: string
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the source code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ inputs.commit }}
+
+      - name: Update package.json with the version number
+        run: |
+          | VERSION='${{ inputs.version_number }}' jq '.version=$ENV.VERSION' ./package.json > ./package.json
+
+      - name: Commit the changes
+        run: |
+          git add package.json && git commit -m "Release version v${{ inputs.version_number }}"
+
+      - name: Tag the commit
+        run: |
+          git tag v${{ inputs.version_number }}
+
+      - name: Push the tag
+        run: |
+          git push origin v${{ inputs.version_number }}
+
+      - name: Create the release
+        run: |
+          gh release create v${{ inputs.version_number }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Push the npm package
+        run: |
+          npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_ACCESS_TOKEN }}
