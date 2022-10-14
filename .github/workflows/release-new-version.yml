@@ -21,6 +21,12 @@ jobs:
         with:
           ref: ${{ inputs.commit }}
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          registry-uri: 'https://registry.npmjs.org'
+
       - name: Configure Git
         run: |
           git config user.email 'enquiries@nihr.ac.uk' && \
