@@ -30,6 +30,10 @@ jobs:
         run: |
           cat ./package.json | VERSION='${{ inputs.version_number }}' jq '.version=$ENV.VERSION' > ./package.json
 
+      - name: Debug updating package.json with the version number
+        run: |
+          cat ./package.json | VERSION='${{ inputs.version_number }}' jq '.version=$ENV.VERSION'
+
       - name: Debug the updated package.json
         run: |
           cat ./package.json
