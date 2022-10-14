@@ -23,7 +23,7 @@ jobs:
 
       - name: Update package.json with the version number
         run: |
-          | VERSION='${{ inputs.version_number }}' jq '.version=$ENV.VERSION' ./package.json > ./package.json
+          VERSION='${{ inputs.version_number }}' jq '.version=$ENV.VERSION' ./package.json > ./package.json
 
       - name: Commit the changes
         run: |
