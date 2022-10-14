@@ -21,6 +21,11 @@ jobs:
         with:
           ref: ${{ inputs.commit }}
 
+      - name: Configure Git
+        run: |
+          git config user.email 'enquiries@nihr.ac.uk' && \
+          git config user.name 'NIHR'
+
       - name: Update package.json with the version number
         run: |
           VERSION='${{ inputs.version_number }}' jq '.version=$ENV.VERSION' ./package.json > ./package.json
@@ -29,17 +34,9 @@ jobs:
         run: |
           git add package.json && git commit -m "Release version v${{ inputs.version_number }}"
 
-      - name: Tag the commit
-        run: |
-          git tag v${{ inputs.version_number }}
-
-      - name: Push the tag
-        run: |
-          git push origin v${{ inputs.version_number }}
-
       - name: Create the release
         run: |
-          gh release create v${{ inputs.version_number }}
+          gh release create --target ${{ inputs.commit }} v${{ inputs.version_number }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
