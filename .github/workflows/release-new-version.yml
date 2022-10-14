@@ -30,6 +30,10 @@ jobs:
         run: |
           VERSION='${{ inputs.version_number }}' jq '.version=$ENV.VERSION' ./package.json > ./package.json
 
+      - name: Debug the updated package.json
+        run: |
+          cat ./package.json
+
       - name: Commit the changes
         run: |
           git add package.json && git commit -m "Release version v${{ inputs.version_number }}"
