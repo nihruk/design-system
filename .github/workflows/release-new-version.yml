@@ -26,17 +26,9 @@ jobs:
           git config user.email 'enquiries@nihr.ac.uk' && \
           git config user.name 'NIHR'
 
-      - name: Debug updating package.json with the version number
-        run: |
-          cat ./package.json | VERSION='${{ inputs.version_number }}' jq '.version=$ENV.VERSION'
-
       - name: Update package.json with the version number
         run: |
-          cat ./package.json | VERSION='${{ inputs.version_number }}' jq '.version=$ENV.VERSION' > ./package.json
-
-      - name: Debug the updated package.json
-        run: |
-          cat ./package.json
+          cat ./package.json | VERSION='${{ inputs.version_number }}' jq '.version=$ENV.VERSION' | tee ./package.json
 
       - name: Commit the changes
         run: |
