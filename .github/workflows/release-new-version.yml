@@ -40,9 +40,13 @@ jobs:
         run: |
           git add package.json && git commit -m "Release version v${{ inputs.version_number }}"
 
+      - name: Determine the release commit hash
+        run: |
+          echo "release_tag=$(git log -n 1 --pretty=tformat:"%H")" >> $GITHUB_ENV
+
       - name: Create the release
         run: |
-          gh release create --target ${{ inputs.commit }} v${{ inputs.version_number }}
+          gh release create --target ${{ env.release_tag }} v${{ inputs.version_number }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
