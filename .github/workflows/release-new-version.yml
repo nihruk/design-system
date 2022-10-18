@@ -43,7 +43,7 @@ jobs:
           git checkout -b v${{ inputs.version_number }}-release
           git add package.json
           git commit -m "Release version v${{ inputs.version_number }}"
-          git push origin/v${{ inputs.version_number }}-release
+          git push origin v${{ inputs.version_number }}-release
 
       - name: Determine the release commit hash
         run: |
