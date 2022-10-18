@@ -29,19 +29,20 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config user.email 'enquiries@nihr.ac.uk' && \
+          git config user.email 'enquiries@nihr.ac.uk'
           git config user.name 'NIHR'
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/$GITHUB_REPOSITORY
 
       - name: Update package.json with the version number
         run: |
           cat ./package.json | VERSION='${{ inputs.version_number }}' jq '.version=$ENV.VERSION' | tee ./package.json
 
       - name: Commit and push the changes
+        # Create a release branch, so we do not pollute the original branch with the release commit.
         run: |
-          # Create a release branch, so we do not pollute the original branch with the release commit.
-          git checkout -b v${{ inputs.version_number }}-release && \
-          git add package.json && \
-          git commit -m "Release version v${{ inputs.version_number }}" && \
+          git checkout -b v${{ inputs.version_number }}-release
+          git add package.json
+          git commit -m "Release version v${{ inputs.version_number }}"
           git push origin/v${{ inputs.version_number }}-release
 
       - name: Determine the release commit hash
