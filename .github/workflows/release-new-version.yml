@@ -60,3 +60,7 @@ jobs:
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPMJS_ACCESS_TOKEN }}
+
+      - name: Clean up
+        run: |
+          git push origin --delete v${{ inputs.version_number }}-release
