@@ -36,9 +36,13 @@ jobs:
         run: |
           cat ./package.json | VERSION='${{ inputs.version_number }}' jq '.version=$ENV.VERSION' | tee ./package.json
 
-      - name: Commit the changes
+      - name: Commit and push the changes
         run: |
-          git add package.json && git commit -m "Release version v${{ inputs.version_number }}"
+          # Create a release branch, so we do not pollute the original branch with the release commit.
+          git checkout -b v${{ inputs.version_number }}-release && \
+          git add package.json && \
+          git commit -m "Release version v${{ inputs.version_number }}" && \
+          git push origin/v${{ inputs.version_number }}-release
 
       - name: Determine the release commit hash
         run: |
