@@ -24,4 +24,9 @@ Run `npm run test`.
 Run `npm run fix`.
 
 ## Copyright
+
 Copyright (C) 2017 Crown Copyright (National Institute for Health and Care Research)
+
+## Dev
+
+npm start

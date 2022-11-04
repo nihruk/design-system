@@ -1,0 +1,156 @@
+// Colours
+
+$text: #050b15;
+$navy: #193e72;
+$coral: #ea5d4e;
+$grey: #acbcc4;
+$orange: #f29330;
+$yellow: #fed47a;
+$aqua: #2ea9b0;
+$green: #45a86c;
+$purple: #6567ad;
+
+// $nihr-colors: (
+//   'navy-base': $navy,
+//   'coral-base': $coral,
+//   'orange-base': $orange,
+//   'yellow-base': $yellow,
+//   'aqua-base': $aqua,
+//   'green-base': $green,
+//   'purple-base': $purple
+// );
+
+$orange-20: #fdebd8;
+$orange-40: #fcd6b0;
+$orange-60: #f9c187;
+$orange-80: #f6ab5d;
+$orange-100: $orange;
+
+$grey-5: #fcfcfd;
+$grey-10: #f6f7f8;
+$grey-20: #eff1f3;
+$grey-40: #dfe3e7;
+$grey-60: #ced6db;
+$grey-80: #bdc9cf;
+$grey-100: $grey;
+
+$navy-20: #d0d0e0;
+$navy-40: #a2a4c1;
+$navy-60: #747ca3;
+$navy-80: #475989;
+$navy-100: $navy;
+$navy-120: #11294b;
+$navy-140: #050b15;
+
+$coral-20: #fce3da;
+$coral-40: #f8c5b6;
+$coral-60: #f3a491;
+$coral-80: #ef826e;
+$coral-100: $coral;
+$coral-120: #e64132;
+$coral-140: #b62316;
+
+$yellow-20: #fff6e6;
+$yellow-40: #ffe5b3;
+$yellow-60: #ffe5b3;
+$yellow-80: #ffdc98;
+$yellow-100: $yellow;
+$yellow-120: #fcc54a;
+$yellow-140: #fcbc31;
+
+$green-20: #e2eee3;
+$green-40: #a1caa6;
+$green-60: #9bcbd0;
+$green-80: #79b989;
+$green-100: $green;
+
+$purple-20: #e0dff1;
+$purple-40: #c1bfe1;
+$purple-60: #a2a0d0;
+$purple-80: #8482be;
+$purple-100: $purple;
+
+$aqua-20: #e1eef0;
+$aqua-40: #c1dde0;
+$aqua-60: #9bcbd0;
+$aqua-80: #6fbac0;
+$aqua-100: $aqua;
+
+$aquas: (
+  'aqua-20': $aqua-20,
+  'aqua-40': $aqua-40,
+  'aqua-60': $aqua-60,
+  'aqua-80': $aqua-80,
+  'aqua-100': $aqua
+) !default;
+
+$purples: (
+  'purple-20': $purple-20,
+  'purple-40': $purple-40,
+  'purple-60': $purple-60,
+  'purple-80': $purple-80,
+  'purple-100': $purple
+) !default;
+
+$greens: (
+  'green-20': $green-20,
+  'green-40': $green-40,
+  'green-60': $green-60,
+  'green-80': $green-80,
+  'green-100': $green
+) !default;
+
+$oranges: (
+  'orange-20': $orange-20,
+  'orange-40': $orange-40,
+  'orange-60': $orange-60,
+  'orange-80': $orange-80,
+  'orange-100': $orange
+) !default;
+
+$yellows: (
+  'yellow-20': $yellow-20,
+  'yellow-40': $yellow-40,
+  'yellow-60': $yellow-60,
+  'yellow-80': $yellow-80,
+  'yellow-100': $yellow-100,
+  'yellow-120': $yellow-120,
+  'yellow-140': $yellow-140
+) !default;
+
+$greys: (
+  'grey-5': $grey-5,
+  'grey-10': $grey-10,
+  'grey-20': $grey-20,
+  'grey-40': $grey-40,
+  'grey-60': $grey-60,
+  'grey-80': $grey-80,
+  'grey-100': $grey-100
+) !default;
+
+$navys: (
+  'navy-20': $navy-20,
+  'navy-40': $navy-40,
+  'navy-60': $navy-60,
+  'navy-80': $navy-80,
+  'navy-100': $navy-100,
+  'navy-120': $navy-120,
+  'navy-140': $navy-140
+) !default;
+
+$corals: (
+  'coral-20': $coral-20,
+  'coral-40': $coral-40,
+  'coral-60': $coral-60,
+  'coral-80': $coral-80,
+  'coral-100': $coral-100,
+  'coral-120': $coral-120,
+  'coral-140': $coral-140
+) !default;
+
+$primary: $navy;
+$secondary: $navy-120;
+$danger: $coral;
+$success: $green;
+$warning: $yellow;
+$info: $aqua;

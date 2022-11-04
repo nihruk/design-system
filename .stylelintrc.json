@@ -1,3 +1,15 @@
 {
-  "extends": "stylelint-config-standard"
+  "extends": "stylelint-config-standard",
+  "customSyntax": "postcss-scss",
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "annotation-no-unknown": [true, { "ignoreAnnotations": ["default"] }],
+    "at-rule-no-unknown": null,
+    "no-empty-source": null,
+    "function-no-unknown": null,
+    "scss/at-rule-no-unknown": true,
+    "scss/function-no-unknown": null,
+    "scss/selector-no-redundant-nesting-selector": true,
+    "string-quotes": "single"
+  }
 }
