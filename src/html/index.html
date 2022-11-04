@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{> header/head title="Common Design System - NIHR "}}
+  <body class="bg-grey-10">
+    <!-- Header -->
+    {{> header/header-with-search }} {{> header/navbar }}
+    <!-- Main Content -->
+    <main>
+      <div class="container">
+        <h1>NIHR - Common Design System CDS</h1>
+        <p><strong>Usage description:</strong></p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores assumenda magni
+          dignissimos harum quibusdam! Nihil aliquam explicabo dolore sequi, labore placeat quidem
+          ipsum corrupti cumque. Nemo ipsam doloremque impedit sit?
+        </p>
+        <div class="row">
+          <div class="col-md-6">
+            <h2>Component list</h2>
+            <ul class="list-group">
+              <li class="list-group-item">
+                <a href="{{webRoot}}/pages/header.html">Header - Component</a>
+              </li>
+              <li class="list-group-item">
+                <a href="{{webRoot}}/pages/search.html">Search - Component</a>
+              </li>
+              <li class="list-group-item">
+                <a href="{{webRoot}}/pages/explore-other-sites.html"
+                  >Explore Other Sites - Component</a
+                >
+              </li>
+              <li class="list-group-item">
+                <a href="{{webRoot}}/pages/nihr-newsletter.html">NIHR Newsletter - Component</a>
+              </li>
+              <li class="list-group-item">
+                <a href="{{webRoot}}/pages/footer.html">Footer - Component</a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h2>Element list</h2>
+
+            <ul class="list-group">
+              <li class="list-group-item">
+                <a href="{{webRoot}}/pages/buttons.html">Buttons</a>
+              </li>
+              <li class="list-group-item">
+                <a href="{{webRoot}}/pages/alerts.html">Alerts</a>
+              </li>
+              <li class="list-group-item">
+                <a href="{{webRoot}}/pages/forms.html">Forms</a>
+              </li>
+              <li class="list-group-item">
+                <a href="{{webRoot}}/pages/grid.html">Grid</a>
+              </li>
+              <li class="list-group-item">
+                <a href="{{webRoot}}/pages/typography.html">Typography</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- /Main Content -->
+
+    <!-- Explore other sites -->
+    {{> components/explore-other-sites }}
+
+    <!-- NIHR Newsletter -->
+    {{> components/nihr-newsletter }}
+
+    <!-- Footer -->
+    {{> footer/footer }}
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{> header/head title="Search Component - NIHR Common Design System"}}
+  <body class="bg-grey-10">
+    <!-- Header -->
+    {{> header/header }} {{> header/navbar }}
+    <!-- Main Content -->
+    <main>
+      <div class="container">
+        <h1>Search Component</h1>
+
+        <p><strong>Usage description:</strong></p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores assumenda magni
+          dignissimos harum quibusdam! Nihil aliquam explicabo dolore sequi, labore placeat quidem
+          ipsum corrupti cumque. Nemo ipsam doloremque impedit sit?
+        </p>
+        <br />
+        <h6>Large Search Component</h6>
+
+        {{> components/search-component-large }}
+        <br />
+        <br />
+        <h6>Header with Search Component</h6>
+      </div>
+      <!-- / container -->
+
+      {{> header/header-with-search }}
+    </main>
+    <!-- / Main Content -->
+    <!-- Footer -->
+    {{> footer/footer }}
+  </body>
+</html>

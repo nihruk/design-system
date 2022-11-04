@@ -1,0 +1,31 @@
+@import '~bootstrap/scss/utilities';
+
+$all-colors: map-merge-multiple($corals, $navys, $greys);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    'color':
+    map-merge(
+      map-get($utilities, 'color'),
+      (
+        values:
+        map-merge(
+          map-get(map-get($utilities, 'color'), 'values'),
+          ($all-colors)
+        )
+      )
+    ),
+    'background-color':
+    map-merge(
+      map-get($utilities, 'background-color'),
+      (
+        values:
+        map-merge(
+          map-get(map-get($utilities, 'background-color'), 'values'),
+          ($all-colors)
+        )
+      )
+    )
+  )
+);

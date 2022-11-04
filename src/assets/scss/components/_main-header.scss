@@ -1,0 +1,15 @@
+.main-header {
+  .main-logo {
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .search-component {
+    margin: 1rem 0 0;
+
+    @include media-breakpoint-up(md) {
+      margin: 0;
+    }
+  }
+}
