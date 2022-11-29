@@ -1,7 +1,7 @@
 .search-component {
   .input-group-lg {
     .form-control {
-      height: 4rem;
+      height: 4rem !important;
       padding-top: 1.125rem; // 18px
       padding-bottom: 1.125rem; // 18px
       padding-left: 2rem;
@@ -9,10 +9,10 @@
     // Close/Cancel Search  Button
     .btn-close {
       position: absolute;
-      top: 18px;
+      top: 20px !important;
 
       @include media-breakpoint-up(lg) {
-        top: 20px;
+        top: 20px !important;
       }
 
       right: 65px;
