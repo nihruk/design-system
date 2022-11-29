@@ -7,7 +7,7 @@
     <!-- Main Content -->
     <main>
       <div class="container">
-        <h1>Search Component</h1>
+        <h1>Search Elements</h1>
 
         <p><strong>Usage description:</strong></p>
         <p>
@@ -16,19 +16,23 @@
           ipsum corrupti cumque. Nemo ipsam doloremque impedit sit?
         </p>
         <br />
-        <h6>Large Search Component</h6>
+        <h5>Default Search</h5>
 
-        {{> components/search-component-large }}
+        {{> components/search-component }}
+
         <br />
+
+        <h5>Large Search</h5>
+
+        {{> components/search-component-featured }}
         <br />
-        <h6>Header with Search Component</h6>
+
+        <h5>Header with Search</h5>
       </div>
       <!-- / container -->
 
       {{> header/header-with-search }}
     </main>
     <!-- / Main Content -->
-    <!-- Footer -->
-    {{> footer/footer }}
   </body>
 </html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{> header/head title="Search Component - NIHR Common Design System"}}
+  <body class="bg-grey-10">
+    <!-- Header -->
+    {{> header/header }} {{> header/navbar }}
+    <!-- Main Content -->
+    <main>
+      <div class="container">
+        <br />
+        <h1>Search Components</h1>
+
+        <h5>Featured Search</h5>
+        <p><strong>Usage:</strong> Funding & Awards</p>
+      </div>
+      <!-- / container -->
+
+      <!--Featured Search Component-->
+
+      <section class="full-width-container-wrapper py-5 bg-primary text-white">
+        <div class="container-md">
+          <div class="justify-content-center row">
+            <div class="text-center col-xl-7">
+              <h1 class="fw-bold text-white">NIHR Funding and Awards</h1>
+              <p class="mb-5">
+                Search for and analyse information on NIHR supported activity in health and care
+                research, including expenditure and research findings
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- container-md-->
+        <div class="container">
+          {{> components/search-component-featured }}
+
+          <div class="search-controls">
+            <div class="col">
+              <button type="button" role="button" class="csvButton disabled btn btn-primary">
+                Download Results
+              </button>
+              <div role="group" class="dropdown btn-group">
+                <button
+                  type="button"
+                  id="bg-nested-dropdown"
+                  aria-expanded="false"
+                  class="dropdown-toggle btn btn-primary"
+                >
+                  Shortlist
+                </button>
+              </div>
+              <a href="#"><button type="button" class="btn btn-primary">Advanced Search</button></a>
+            </div>
+          </div>
+        </div>
+        <!-- container-->
+      </section>
+      <!-- sction-->
+
+      <!-- Featured Search Component end-->
+
+      <div class="container">
+        <br />
+
+        <h5>Featured Inner Search</h5>
+        <p><strong>Usage:</strong> Funding & Awards</p>
+      </div>
+      <!-- / container -->
+
+      <!--Featured Search Component-->
+
+      <section class="full-width-container-wrapper py-5 bg-primary text-white">
+        <div class="container">
+          {{> components/search-component-featured }}
+
+          <div class="search-controls">
+            <div class="col">
+              <button type="button" role="button" class="csvButton disabled btn btn-primary">
+                Download Results
+              </button>
+              <div role="group" class="dropdown btn-group">
+                <button
+                  type="button"
+                  id="bg-nested-dropdown"
+                  aria-expanded="false"
+                  class="dropdown-toggle btn btn-primary"
+                >
+                  Shortlist
+                </button>
+              </div>
+              <a href="#"><button type="button" class="btn btn-primary">Advanced Search</button></a>
+            </div>
+          </div>
+        </div>
+        <!-- container-->
+      </section>
+      <!-- sction-->
+
+      <!-- Featured Inner Search Component end-->
+    </main>
+    <!-- / Main Content -->
+  </body>
+</html>
