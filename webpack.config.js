@@ -176,7 +176,20 @@ const wPackConfig = {
     new PurgeCSSPlugin({
       paths: glob.sync([`${purgeCSSPaths.src}/**/*`, `${purgeCSSPaths.partials}/**/*`], {
         nodir: true
-      })
+      }),
+      safelist: {
+        greedy: [
+          /show$/,
+          /collapsing$/,
+          /aos/,
+          /data/,
+          /reveal/,
+          /show-filters/,
+          /modal/,
+          /collapse/,
+          /slideout/
+        ]
+      }
     })
   ]
 };
