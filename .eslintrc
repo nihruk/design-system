@@ -10,12 +10,5 @@
     "requireConfigFile": false,
     "sourceType": "module",
     "allowImportExportEverywhere": true
-  },
-  "rules": {
-    "no-sparse-arrays": 0,
-    "no-unused-vars": "off",
-    "no-prototype-builtins": "off",
-    "no-self-assign": "off",
-    "no-cond-assign": "off"
   }
 }
