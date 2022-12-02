@@ -33,13 +33,14 @@ jobs:
           node-version: ${{ matrix.nodejs }}
 
       - name: Get the npm cache directory
-        run: echo "npm_cache_dir=$(npm config get cache)" >> $GITHUB_ENV
-        shell: bash
+        id: npm-cache-dir
+        run: |
+          echo "::set-output name=dir::$(npm config get cache)"
 
       - name: Cache npm
         uses: actions/cache@v3
         with:
-          path: ${{ env.npm_cache_dir }}
+          path: ${{ steps.npm-cache-dir.outputs.dir }}
           key: npm-${{ hashFiles('./package.json') }}
           restore-keys: |
             npm-

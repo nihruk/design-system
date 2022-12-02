@@ -1,0 +1,11 @@
+@import './main-header';
+@import './main-navigation';
+@import './search-component';
+@import './explore-our-other-sites';
+@import './nihr-newsletter';
+@import './footer';
+
+// creating custom xs buttons
+.btn-xs {
+  @include button-size($btn-padding-y-xs, $btn-padding-x-xs, $btn-font-size-xs, $btn-border-radius);
+}

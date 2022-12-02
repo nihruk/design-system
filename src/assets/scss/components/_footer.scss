@@ -1,0 +1,79 @@
+#main-footer {
+  padding: 3rem 0 1.5rem;
+
+  @include media-breakpoint-up(lg) {
+    padding: 6rem 0 1rem;
+  }
+
+  background-color: $navy;
+
+  p {
+    color: #fff;
+  }
+
+  ul {
+    padding: 0 0 1rem;
+    margin: 0 0 1rem;
+
+    li {
+      list-style: none;
+
+      a {
+        padding: 10px 0;
+        display: block;
+        color: #fff;
+      }
+    }
+  }
+
+  hr {
+    border-color: #fff;
+    margin: 3rem 0;
+    display: block;
+  }
+
+  .social-media-links {
+    margin: 0;
+    padding: 0;
+    display: flex;
+
+    li {
+      list-style: none;
+      margin-right: 15px;
+
+      a {
+        background-color: #fff;
+        border-radius: 50%;
+        color: $navy;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        width: 48px;
+        height: 48px;
+        border: none;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .funded-by-department-of-health-and-social-care-logo {
+    color: #fff;
+  }
+
+  .bottom-nav {
+    @include media-breakpoint-up(lg) {
+      display: flex;
+    }
+
+    li {
+      color: #fff;
+      padding: 0.5rem 0;
+      margin: 0 1rem 0 0;
+
+      a {
+        padding: 0;
+      }
+    }
+  }
+}

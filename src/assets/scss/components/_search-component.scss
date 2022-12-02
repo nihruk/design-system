@@ -1,0 +1,96 @@
+.search-component {
+  .input-group-lg {
+    .form-control {
+      height: 4rem !important;
+      padding-top: 1.125rem; // 18px
+      padding-bottom: 1.125rem; // 18px
+      padding-left: 2rem;
+    }
+    // Close/Cancel Search  Button
+    .btn-close {
+      position: absolute;
+      top: 20px !important;
+
+      @include media-breakpoint-up(lg) {
+        top: 20px !important;
+      }
+
+      right: 65px;
+    }
+    // Search Button with magnifier icons
+    .btn {
+      margin-left: -57px !important;
+
+      i {
+        font-size: 24px;
+      }
+    }
+  }
+
+  .input-group {
+    position: relative;
+
+    .form-control {
+      height: 3rem;
+      padding: 0.75rem 80px 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 37px !important;
+
+      ::placeholder {
+        color: $navy !important;
+      }
+    }
+    // Close/Cancel Search  Button
+    .btn-close {
+      position: absolute;
+      top: 12px;
+
+      @include media-breakpoint-up(lg) {
+        top: 12px;
+      }
+
+      right: 60px;
+    }
+
+    // Search Button with magnifier icons
+    .btn {
+      margin-left: -50px !important;
+      position: relative;
+      z-index: 999;
+      padding: 0.5rem 1rem;
+      background-color: transparent;
+      border: none;
+
+      &:focus {
+        box-shadow: none;
+        border: none;
+      }
+
+      &::before {
+        position: absolute;
+        content: '';
+        width: 1px;
+        left: 0;
+        top: 8px;
+        bottom: 8px;
+        border-left: 1px solid rgb(0 0 0 / 20%);
+      }
+
+      i {
+        color: $navy-100;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .inner-addon {
+    display: block;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+.search-controls {
+  margin: 1rem 0 0;
+  text-align: right;
+}
