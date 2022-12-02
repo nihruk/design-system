@@ -35,6 +35,9 @@ const paths = {
 
 // Main webpack config options.
 const wPackConfig = {
+  output: {
+        hashFunction: "xxhash64"
+    },
   entry: {
     libs: [paths.src.scss + '/libs.scss'],
     theme: [paths.src.js + '/theme.js', paths.src.scss + '/theme.scss']
