@@ -40,8 +40,7 @@ const wPackConfig = {
     theme: [paths.src.js + '/theme.js', paths.src.scss + '/theme.scss']
   },
   output: {
-    filename: paths.dist.js + '/[name].bundle.js',
-    hashFunction: "sha256"
+    filename: paths.dist.js + '/[name].bundle.js'
   },
   devtool: 'source-map',
   mode: 'development',
