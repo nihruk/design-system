@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{> header/head title="Forms - NIHR Common Design System"}}
+  <body class="bg-grey-10">
+    <!-- Header -->
+    {{> header/header }} {{> header/navbar }}
+    <!-- Main Content -->
+    <main>
+      <div class="container">
+        <h1>Search filters</h1>
+
+        <p><strong>Usage:</strong> Funding & Awards</p>
+        <p>
+          <a
+            class="btn btn-outline-secondary btn-sm"
+            href="https://nihr.atlassian.net/wiki/spaces/CDS/pages/122945537/Search+filters"
+            >Confluence / Search filters <i class="fa-solid fa-up-right-from-square"></i
+          ></a>
+        </p>
+        <hr />
+
+        <div class="row">
+          <div class="col-md-6">
+            <div class="component-body">
+              <!-- component starts -->
+
+              {{> components/search-filters }}
+
+              <!-- component ends -->
+            </div>
+          </div>
+          <!-- .col -->
+        </div>
+        <!-- .row -->
+      </div>
+      <!-- ./container -->
+    </main>
+    <!-- /Main Content -->
+    <!-- Footer -->
+    {{> footer/footer-scripts }}
+  </body>
+</html>
