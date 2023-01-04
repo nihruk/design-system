@@ -20,7 +20,7 @@
   "homepage": "https://github.com/nihruk/cds#readme",
   "scripts": {
     "start": "webpack-dev-server --open",
-    "build": "del-cli dist && webpack -p",
+    "build": "del-cli dist && webpack -p --openssl-legacy-provider",
     "test-lint-css": "./node_modules/.bin/stylelint --allow-empty-input \"**/*.scss\"",
     "test-lint-js": "./node_modules/.bin/eslint .",
     "test-lint": "npm run test-lint-css && npm run test-lint-js",
