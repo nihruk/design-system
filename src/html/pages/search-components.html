@@ -7,15 +7,63 @@
     <!-- Main Content -->
     <main>
       <div class="container">
-        <br />
-        <h1>Search Components</h1>
+        <h1>Search Bar</h1>
+        <p>
+          <a
+            class="btn btn-outline-secondary btn-sm"
+            href="https://nihr.atlassian.net/wiki/spaces/CDS/pages/123994113/Search+bar"
+            >Confluence / Search Bar <i class="fa-solid fa-up-right-from-square"></i>
+          </a>
+        </p>
 
-        <h5>Featured Search</h5>
-        <p><strong>Usage:</strong> Funding & Awards</p>
+        <hr />
+
+        <div class="pt-3 pb-3">
+          <h2>Journals Library</h2>
+          <h6><strong>Featured Search</strong></h6>
+          <p><strong>Set pleaceholder text:</strong> Search the Journals Library site</p>
+        </div>
       </div>
       <!-- / container -->
 
-      <!--Featured Search Component-->
+      <!-- JL / Featured Search Component-->
+
+      <section class="full-width-container-wrapper py-5 bg-primary text-white">
+        <div class="container-md">
+          <div class="justify-content-center row">
+            <div class="text-center col-xl-7">
+              <h1 class="fw-bold text-white">NIHR Journals Library</h1>
+              <p class="mb-5">
+                The NIHR Journals Library provides a full account of NIHR-funded research in its
+                open access, peer reviewed journals.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- container-md-->
+        <div class="container">
+          {{> components/search-component-featured }}
+
+          <div class="search-controls">
+            <div class="col">
+              <a href="#"><button type="button" class="btn btn-primary">Advanced Search</button></a>
+            </div>
+          </div>
+        </div>
+        <!-- container-->
+      </section>
+      <!-- sction-->
+
+      <!-- JL / Featured Search Component end-->
+
+      <div class="container pt-5 pb-5">
+        <h2>Funding & Awards</h2>
+        <h6><strong>Featured Search</strong></h6>
+        <p><strong>Set pleaceholder text:</strong> Search for Awards and Outputs</p>
+      </div>
+      <!-- / container -->
+
+      <!-- FA / Featured Search Component-->
 
       <section class="full-width-container-wrapper py-5 bg-primary text-white">
         <div class="container-md">
@@ -56,13 +104,11 @@
       </section>
       <!-- sction-->
 
-      <!-- Featured Search Component end-->
+      <!-- FA / Featured Search Component end-->
 
-      <div class="container">
-        <br />
-
-        <h5>Featured Inner Search</h5>
-        <p><strong>Usage:</strong> Funding & Awards</p>
+      <div class="container pt-5 pb-5">
+        <h6>Inner Search</h6>
+        <p><strong>Set pleaceholder text:</strong> Search for Awards and Outputs</p>
       </div>
       <!-- / container -->
 
@@ -96,6 +142,14 @@
       <!-- sction-->
 
       <!-- Featured Inner Search Component end-->
+
+      <div class="container pt-5 pb-5">
+        <h2>Corporate</h2>
+        <p><strong>Set pleaceholder text:</strong> Search nihr.ac.uk</p>
+      </div>
+      <!-- / container -->
+
+      {{> header/header-with-search }}
     </main>
     <!-- / Main Content -->
     <!-- Footer -->
