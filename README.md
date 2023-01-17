@@ -1,6 +1,6 @@
-## NIHR Common Design System (CDS)
+## NIHR Design System for the NIHR
 
-This is a library that implements the NIHR [Common Design System](https://nihr.atlassian.net/wiki/spaces/CDS) on top of
+This is a library that documents the Design System for the NIHR, and provides a default implementation on top of
 [Bootstrap](https://getbootstrap.com/).
 
 ### Usage
