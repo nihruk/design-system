@@ -164,6 +164,24 @@ p {
   }
 }
 
+ul:not(.navbar-nav, .dropdown-menu, .list-group) {
+  margin-bottom: 1.5rem; // 24px
+
+  li {
+    font-size: 1.125rem; // 18px
+    line-height: 1.333; // 24px
+
+    @include media-breakpoint-up(lg) {
+      font-size: 1.375rem; // 22px
+      line-height: 1.4545; // 32px
+    }
+  }
+}
+
+img {
+  margin-bottom: 1.5rem; // 24px
+}
+
 main {
   padding: 2rem 0;
 }
