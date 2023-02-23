@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{> header/head title="Footer Component - Design System for the NIHR"}}
+  <body class="bg-grey-10">
+    <!-- Header -->
+    {{> header/header }} {{> header/navbar }}
+    <!-- Main Content -->
+    <main>
+      <div class="container">
+        <h1>Footer Component</h1>
+
+        <p>
+          <a
+            class="btn btn-outline-secondary btn-sm"
+            href="https://nihr.atlassian.net/wiki/spaces/CDS/pages/123994121/Footer"
+            >Confluence / Footer <i class="fa-solid fa-up-right-from-square"></i>
+          </a>
+        </p>
+
+        <hr />
+      </div>
+      <!-- / container -->
+    </main>
+    <!-- / Main Content -->
+
+    <!-- Footer Component -->
+    <div class="component-wrapper">{{> footer/footer-component }}</div>
+
+    <!-- Footer -->
+    {{> footer/footer-scripts }}
+  </body>
+</html>

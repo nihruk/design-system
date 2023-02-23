@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{> header/head title="Search Component - Design System for the NIHR"}}
+  <body class="bg-grey-10">
+    <!-- Header -->
+    {{> header/header }} {{> header/navbar }}
+    <!-- Main Content -->
+    <main>
+      <div class="container">
+        <h1>Search Input</h1>
+
+        <p>
+          <a
+            class="btn btn-outline-secondary btn-sm"
+            href="https://nihr.atlassian.net/wiki/spaces/CDS/pages/123994113/Search+bar"
+            >Confluence / Search Bar <i class="fa-solid fa-up-right-from-square"></i>
+          </a>
+        </p>
+
+        <hr />
+        <br />
+        <h5>Default Search</h5>
+
+        <div class="component-wrapper p-3">{{> components/sm-search-component }}</div>
+
+        <br />
+
+        <h5>Large Search</h5>
+
+        <div class="component-wrapper p-3">{{> components/lg-search-component }}</div>
+        <br />
+      </div>
+      <!-- / container -->
+    </main>
+    <!-- / Main Content -->
+    <!-- Footer -->
+    {{> footer/footer-scripts }}
+  </body>
+</html>

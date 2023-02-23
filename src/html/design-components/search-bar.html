@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{> header/head title="Search Component - Design System for the NIHR"}}
+  <body class="bg-grey-10">
+    <!-- Header -->
+    {{> header/header }} {{> header/navbar }}
+    <!-- Main Content -->
+    <main>
+      <div class="container">
+        <h1>Search bar</h1>
+        <p>
+          The search bar is a common component across all NIHR sites; Corporate, Funding and Awards,
+          Journals Library and BPoR.
+        </p>
+
+        <h4>Corporate</h4>
+
+        <img
+          src="{{webRoot}}/assets/images/search-bar/corporate.png"
+          alt=""
+          class="img-fluid mt-3s component-wrapper"
+        />
+
+        <h4>Funding & Awards</h4>
+
+        <img
+          src="{{webRoot}}/assets/images/search-bar/fa.png"
+          alt=""
+          class="img-fluid mt-3s component-wrapper"
+        />
+        <h4>Journals Library</h4>
+
+        <img
+          src="{{webRoot}}/assets/images/search-bar/jl.png"
+          alt=""
+          class="img-fluid mt-3s component-wrapper"
+        />
+
+        <h4>Zeplin link</h4>
+
+        <p><a href="https://zpl.io/2jZJX5v">https://zpl.io/2jZJX5v</a></p>
+
+        <h4>Intended behaviour</h4>
+        <p>
+          A search bar is usually made up of two UI elements: an input field, and a button. However,
+          the design of a search bar has a significant effect on how fast users can find the
+          information that they are looking for on your site.
+        </p>
+        <p><strong> Display your search bar prominently </strong></p>
+        <p>
+          Make your website search bar easily discoverable by displaying it prominently on your
+          site. The discoverability of your search box is even more important on ecommerce sites or
+          booking sites where users rely on search to navigate the
+        </p>
+
+        <h4>When to use this component</h4>
+
+        <p>
+          The thinking and psychology behind search bar use is that it helps users find information
+          quickly. Search bars are useful in complex content-heavy sites that have more than 100
+          pages. In the Business to Consumer (B2C) sector, search bars are used in large e-commerce
+          sites, news sites, deals sites, and booking sites to help users find information easily.
+          They are also used in large Business to Business (B2B) sites that have many customer
+          segments and product lines. If you have a small site that has few pages, a search bar
+          might not be required but you will need it as the site grows.
+        </p>
+
+        <h4>When not to use this component</h4>
+
+        <p>
+          <a href="http://socialtriggers.com/search-form-blog/"
+            >Smaller websites are better without search</a
+          >. When a site has a limited amount of content (e.g. fewer than 100-200 pages), there’s no
+          need for search.
+        </p>
+
+        <h3 class="mt-3">Corporate</h3>
+        <p><strong>Set pleaceholder text to:</strong> Search nihr.ac.uk</p>
+      </div>
+      <!-- / container -->
+
+      <div class="component-wrapper">{{> header/header-with-search }}</div>
+
+      <div class="container mt-5">
+        <h3 class="mt-3">Funding & Awards</h3>
+        <h4>Hero search</h4>
+        <p><strong>Set pleaceholder text to:</strong> Search nihr.ac.uk</p>
+      </div>
+
+      <div class="component-wrapper">{{> components/lg-search-component-fa }}</div>
+
+      <div class="container mt-5">
+        <h3 class="mt-3">Funding & Awards</h3>
+        <h4>Inner page search</h4>
+        <p><strong>Set pleaceholder text to:</strong> Search nihr.ac.uk</p>
+      </div>
+
+      <div class="component-wrapper">{{> components/lg-search-inner-page-component }}</div>
+
+      <div class="container mt-5">
+        <h3 class="mt-3">Journals Library</h3>
+        <h4>Hero search</h4>
+        <p><strong>Set pleaceholder text to:</strong> Search nihr.ac.uk</p>
+      </div>
+
+      <div class="component-wrapper">{{> components/lg-search-component-jl }}</div>
+    </main>
+    <!-- / Main Content -->
+    <!-- Footer -->
+    {{> footer/footer-scripts }}
+  </body>
+</html>
