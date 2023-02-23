@@ -178,6 +178,10 @@ ul:not(.navbar-nav, .dropdown-menu, .list-group) {
   }
 }
 
+header img {
+  margin-bottom: 0;
+}
+
 img {
   margin-bottom: 1.5rem; // 24px
 }
@@ -188,6 +192,10 @@ main {
 
 .list-group {
   margin-bottom: 1.5rem;
+}
+
+.component-wrapper {
+  border: 1px dashed #7b61ff;
 }
 
 // Integrated classes
