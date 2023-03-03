@@ -1,7 +1,7 @@
 ## Design System for the NIHR
 
-This is a library that documents the Design System for the NIHR, and provides a default implementation on top of
-[Bootstrap](https://getbootstrap.com/).
+This is a library that documents the [Design System for the NIHR](https://design-system.nihr.ac.uk/), and provides a
+default implementation on top of [Bootstrap](https://getbootstrap.com/).
 
 ### Usage
 

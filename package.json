@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/nihruk/design-system/issues"
   },
-  "homepage": "https://github.com/nihruk/design-system#readme",
+  "homepage": "https://design-system.nihr.ac.uk/",
   "scripts": {
     "start": "webpack-dev-server --open",
     "build": "del-cli dist && webpack -p",
