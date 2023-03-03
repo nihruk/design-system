@@ -1,12 +1,12 @@
 {
-  "name": "@nihruk/cds",
+  "name": "@nihruk/design-system",
   "description": "Design System for the NIHR",
   "author": "National Institute for Health and Care Research",
   "license": "MIT",
   "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nihruk/cds.git"
+    "url": "git+https://github.com/nihruk/design-system.git"
   },
   "keywords": [
     "nihr",
@@ -15,9 +15,9 @@
     "system"
   ],
   "bugs": {
-    "url": "https://github.com/nihruk/cds/issues"
+    "url": "https://github.com/nihruk/design-system/issues"
   },
-  "homepage": "https://github.com/nihruk/cds#readme",
+  "homepage": "https://github.com/nihruk/design-system#readme",
   "scripts": {
     "start": "webpack-dev-server --open",
     "build": "del-cli dist && webpack -p",
