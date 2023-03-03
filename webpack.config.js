@@ -1,13 +1,14 @@
 const path = require('path');
 var glob = require('glob-all');
 const webpack = require('webpack');
-const HandlebarsPlugin = require('handlebars-webpack-plugin');
-const FixStyleOnlyEntriesPlugin = require('webpack-fix-style-only-entries');
+const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const PurgeCSSPlugin = require('purgecss-webpack-plugin');
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const {PurgeCSSPlugin} = require('purgecss-webpack-plugin');
+const Handlebars = require("handlebars");
+const fs = require("fs");
 
 //PurgeCSS Paths
 const purgeCSSPaths = {
@@ -22,22 +23,42 @@ const paths = {
     scss: './src/assets/scss',
     fonts: './src/assets/fonts',
     js: './src/assets/js',
-    favicon: './src/assets/favicon'
+    favicon: './src/assets/favicon',
+    html: path.join(__dirname, 'src', 'html'),
+    partials: path.join(__dirname, 'src', 'partials'),
   },
   dist: {
     imgs: './assets/images',
     css: './assets/css',
     fonts: './assets/fonts',
     js: './assets/js',
-    favicon: './assets/favicon'
+    favicon: './assets/favicon',
+    html: path.join(__dirname, 'dist'),
   }
 };
+
+function registerPartialsDirectory(directoryPath, directoryNameParts = []) {
+  fs.readdirSync(directoryPath)
+    .forEach((filename) => {
+      if (fs.statSync(path.join(directoryPath, filename)).isDirectory()) {
+        return registerPartialsDirectory(
+            path.join(directoryPath, filename),
+            [...directoryNameParts, filename],
+            )
+      }
+      Handlebars.registerPartial(
+          [...directoryNameParts, filename.slice(0, -5)].join('/'),
+          fs.readFileSync(path.join(directoryPath, filename), 'utf8'),
+      );
+    });
+}
+registerPartialsDirectory(paths.src.partials)
 
 // Main webpack config options.
 const wPackConfig = {
   entry: {
     libs: [paths.src.scss + '/libs.scss'],
-    theme: [paths.src.js + '/theme.js', paths.src.scss + '/theme.scss']
+    theme: [paths.src.js + '/theme.js', paths.src.scss + '/theme.scss'],
   },
   output: {
     filename: paths.dist.js + '/[name].bundle.js'
@@ -89,23 +110,7 @@ const wPackConfig = {
       }
     },
     minimizer: [
-      new OptimizeCssAssetsPlugin({
-        cssProcessorOptions: {
-          map: {
-            inline: false
-          }
-        },
-        cssProcessorPluginOptions: {
-          preset: [
-            'default',
-            {
-              discardComments: {
-                removeAll: true
-              }
-            }
-          ]
-        }
-      }),
+      new CssMinimizerPlugin(),
       new TerserPlugin({
         extractComments: false,
         terserOptions: {
@@ -134,42 +139,15 @@ const wPackConfig = {
           from: paths.src.favicon,
           to: paths.dist.favicon,
           noErrorOnMissing: true
+        },
+        {
+          from: paths.src.html,
+          to: paths.dist.html,
+          transform: (content) => Handlebars.compile(content.toString())()
         }
       ]
     }),
-    new HandlebarsPlugin({
-      entry: path.join(process.cwd(), 'src', 'html', '**', '*.html'),
-      output: path.join(process.cwd(), 'dist', '[path]', '[name].html'),
-      partials: [path.join(process.cwd(), 'src', 'partials', '**', '*.{html,svg}')],
-      helpers: {
-        webRoot: function () {
-          return '{{webRoot}}';
-        },
-        config: function (data) {
-          return data;
-        },
-        ifEquals: function (arg1, arg2, options) {
-          if (arg1 === arg2) {
-            return options.fn(this);
-          }
-          return options.inverse(this);
-        },
-        log: function (data) {
-          console.log(data);
-        },
-        limit: function (arr, limit) {
-          if (!Array.isArray(arr)) {
-            return [];
-          }
-          return arr.slice(0, limit);
-        }
-      },
-      onBeforeSave: function (Handlebars, res, file) {
-        const elem = file.split('//').pop().split('/').length;
-        return res.split('{{webRoot}}').join('.'.repeat(elem));
-      }
-    }),
-    new FixStyleOnlyEntriesPlugin(),
+    new RemoveEmptyScriptsPlugin(),
     new MiniCssExtractPlugin({
       filename: paths.dist.css + '/[name].bundle.css'
     }),
