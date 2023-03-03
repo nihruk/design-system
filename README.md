@@ -1,4 +1,4 @@
-## NIHR Design System for the NIHR
+## Design System for the NIHR
 
 This is a library that documents the Design System for the NIHR, and provides a default implementation on top of
 [Bootstrap](https://getbootstrap.com/).
@@ -12,7 +12,7 @@ This is a library that documents the Design System for the NIHR, and provides a 
 
 #### Installation
 
-Run `npm install @nihruk/cds` in your existing project.
+Run `npm install @nihruk/design-system` in your existing project.
 
 ### Development
 
