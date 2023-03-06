@@ -27,7 +27,8 @@
     "test-lint-css": "stylelint --allow-empty-input \"**/*.scss\"",
     "test-lint-js": "eslint .",
     "test-lint": "npm run test-lint-css && npm run test-lint-js",
-    "test": "npm run test-lint",
+    "test-build": "npm run build",
+    "test": "npm run test-lint && npm run test-build",
     "fix-css": "stylelint --fix --allow-empty-input \"**/*.scss\"",
     "fix-js": "eslint --fix .",
     "fix": "npm run fix-css && npm run fix-js"
