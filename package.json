@@ -18,6 +18,9 @@
     "url": "https://github.com/nihruk/design-system/issues"
   },
   "homepage": "https://design-system.nihr.ac.uk/",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "start": "webpack-dev-server --open",
     "build": "del-cli dist && webpack -p",
