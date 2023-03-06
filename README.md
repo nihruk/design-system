@@ -7,7 +7,7 @@ default implementation on top of [Bootstrap](https://getbootstrap.com/).
 
 #### Requirements
 
-- [Node.js](https://nodejs.org/) 16 or newer
+- [Node.js](https://nodejs.org/) 18 or newer
 - npm or a compatible package manager
 
 #### Installation
