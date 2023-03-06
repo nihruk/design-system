@@ -21,12 +21,12 @@
   "scripts": {
     "start": "webpack-dev-server --open",
     "build": "del-cli dist && webpack -p",
-    "test-lint-css": "./node_modules/.bin/stylelint --allow-empty-input \"**/*.scss\"",
-    "test-lint-js": "./node_modules/.bin/eslint .",
+    "test-lint-css": "stylelint --allow-empty-input \"**/*.scss\"",
+    "test-lint-js": "eslint .",
     "test-lint": "npm run test-lint-css && npm run test-lint-js",
     "test": "npm run test-lint",
-    "fix-css": "./node_modules/.bin/stylelint --fix --allow-empty-input \"**/*.scss\"",
-    "fix-js": "./node_modules/.bin/eslint --fix .",
+    "fix-css": "stylelint --fix --allow-empty-input \"**/*.scss\"",
+    "fix-js": "eslint --fix .",
     "fix": "npm run fix-css && npm run fix-js"
   },
   "devDependencies": {
