@@ -55,6 +55,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Install the npm package
+        run: npm install
+
       - name: Build the npm package
         run: npm run build
 
