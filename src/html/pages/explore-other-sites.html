@@ -1,20 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-  {{> header/head title="Explore Other Sites Component - Design System for the NIHR"}}
+  {{> header/head title="Signposting Funding & Awards and Journals Library - Design System for the
+  NIHR"}}
   <body class="bg-grey-10">
     <!-- Header -->
     {{> header/header }} {{> header/navbar }}
     <!-- Main Content -->
     <main>
       <div class="container">
-        <h1>Explore Other Sites - Component</h1>
+        <h1>Signposting Funding & Awards and Journals Library</h1>
+
         <p>
-          <a class="btn btn-outline-secondary btn-sm disabled" href="#"
-            >Confluence / Explore Other Sites <i class="fa-solid fa-up-right-from-square"></i>
-          </a>
+          The user needs to browse related content on another service site (Journals Library or/and
+          Fundraising & Awards)
         </p>
 
-        <hr />
+        <img
+          src="{{webRoot}}/assets/images/explore-other-sites/all cards.png"
+          alt=""
+          class="img-fluid mt-3s component-wrapper p-3 bg-white"
+        />
+
+        <h2>Zeplin link</h2>
+
+        <p><a href="https://zeplin.com/123123123xxx">https://zeplin.com/123123123xxx</a></p>
+
+        <h2>Intended behaviour</h2>
+
+        <p>
+          Use to gather various pieces of information about a single subject to form one coherent
+          piece of content.
+        </p>
+
+        <p>Cards are better suited when users browse for information than when they search.</p>
+
+        <p>
+          Cards work best for collections of heterogeneous items (when not all the content is of the
+          same basic type). When to use this component
+        </p>
+
+        <h2>When to use this component</h2>
+
+        <p>
+          <strong
+            >IMPORTANT Use this component primarily on Funding and Awards and Journals Library.
+          </strong>
+        </p>
+        <p>
+          Browsing is a large part of interaction, and users want to be able to quickly scan large
+          portions of content and dive deep into their interests. Users can experience difficulty
+          browsing text-heavy sites as displaying extra details for each item can clutter the screen
+          and prevent efficient scanning.
+        </p>
+        <p>
+          Cards are great for showcasing aggregated elements whose size or supported actions vary.
+          Each card serves as an entry point to more detailed information, so it shouldn’t be
+          overloaded with extraneous information or actions. They are dismissible, swipeable,
+          sortable, and filterable.
+        </p>
+        <p>
+          Cards allow you to present a heavy dose of content in a small and digestible manner: they
+          divide all available content into meaningful sections, present a summary and link to
+          additional details. A single card is a container that displays various parts of related
+          information, from which users can get even more information.
+        </p>
+        <h2>When not to use this component</h2>
+
+        <p>
+          <strong>Strict order</strong>. When you have a strict order in which you want users to
+          scan the content. Card layouts typically deemphasize ranking of content as they don’t
+          provide obvious information about the order in which content should be viewed on a page.
+          As a result, there’s little hierarchy in the visual information presented. Cards can make
+          all content look similar, which can make it hard (or even impossible) for users to easily
+          discern the ranking importance of content.
+        </p>
+        <p>
+          <strong>
+            Do not use on the Corporate site unless you are signposting content on another service
+            site such as Journals Library and Funding & Awards.
+          </strong>
+        </p>
       </div>
       <!-- / container -->
 
