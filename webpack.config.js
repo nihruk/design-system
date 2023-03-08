@@ -77,7 +77,6 @@ const wPackConfig = {
           {
             loader: 'css-loader',
             options: {
-              url: false,
               sourceMap: true
             }
           },
@@ -96,6 +95,13 @@ const wPackConfig = {
             }
           }
         ]
+      },
+      {
+        test: /\.(ttf|woff2)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: path.join(paths.dist.fonts, '[name][ext]'),
+        }
       }
     ]
   },
@@ -125,11 +131,6 @@ const wPackConfig = {
     new webpack.ProgressPlugin(),
     new CopyPlugin({
       patterns: [
-        {
-          from: paths.src.fonts,
-          to: paths.dist.fonts,
-          noErrorOnMissing: true
-        },
         {
           from: paths.src.imgs,
           to: paths.dist.imgs,
