@@ -68,19 +68,19 @@ module.exports = (env, args) => {
             {
               loader: 'css-loader',
               options: {
-                sourceMap: !production
+                sourceMap: true
               }
             },
             {
               loader: 'resolve-url-loader',
               options: {
-                sourceMap: !production
+                sourceMap: true
               }
             },
             {
               loader: 'postcss-loader',
               options: {
-                sourceMap: !production,
+                sourceMap: true,
                 postcssOptions: {
                   plugins: [
                       'autoprefixer',
@@ -92,7 +92,7 @@ module.exports = (env, args) => {
             {
               loader: 'sass-loader',
               options: {
-                sourceMap: !production,
+                sourceMap: true,
                 sassOptions: {
                   indentWidth: 4,
                   outputStyle: production ? 'compressed' : 'expanded',
@@ -107,6 +107,14 @@ module.exports = (env, args) => {
           type: 'asset/resource',
           generator: {
             outputPath: path.join('assets', 'images'),
+          }
+        },
+        {
+          test: /\.(ttf|woff2?)$/,
+          type: 'asset/resource',
+          generator: {
+            outputPath: path.join('assets', 'fonts'),
+            publicPath: 'assets/fonts/',
             filename: '[name][ext]',
           }
         }
