@@ -113,15 +113,6 @@ module.exports = (env, args) => {
       ]
     },
     optimization: {
-      splitChunks: {
-        cacheGroups: {
-          vendor: {
-            test: /[\\/](node_modules)[\\/].+\.js$/,
-            name: 'vendor',
-            chunks: 'all'
-          }
-        }
-      },
       minimizer: [
         new CssMinimizerPlugin(),
         new TerserPlugin({
