@@ -46,6 +46,22 @@ module.exports = (env, args) => {
     module: {
       rules: [
         {
+          test: /\.(js)$/,
+          use: [
+            {
+              loader: 'babel-loader',
+              options: {
+                cacheDirectory: true,
+                presets: [
+                  [
+                    '@babel/preset-env',
+                  ]
+                ]
+              }
+            },
+          ]
+        },
+        {
           test: /\.(sass|scss|css)$/,
           use: [
             {
