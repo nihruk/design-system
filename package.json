@@ -51,7 +51,6 @@
     "mini-css-extract-plugin": "^2.7.2",
     "postcss-loader": "^7.0.2",
     "postcss-scss": "^4.0.6",
-    "purgecss-webpack-plugin": "^5.0.0",
     "sass": "^1.58.3",
     "sass-loader": "^13.2.0",
     "style-loader": "^3.3.1",
