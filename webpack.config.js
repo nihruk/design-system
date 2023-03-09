@@ -54,122 +54,129 @@ function registerPartialsDirectory(directoryPath, directoryNameParts = []) {
 }
 registerPartialsDirectory(paths.src.partials)
 
-// Main webpack config options.
-const wPackConfig = {
-  entry: {
-    libs: [paths.src.scss + '/libs.scss'],
-    theme: [paths.src.js + '/theme.js', paths.src.scss + '/theme.scss'],
-  },
-  output: {
-    filename: paths.dist.js + '/[name].bundle.js'
-  },
-  devtool: 'source-map',
-  mode: 'development',
-  module: {
-    rules: [
-      {
-        test: /\.(sass|scss|css)$/,
-        include: path.resolve(__dirname, paths.src.scss.slice(2)),
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              url: false,
-              sourceMap: true
-            }
-          },
-          {
-            loader: 'postcss-loader'
-          },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-              sassOptions: {
-                indentWidth: 4,
-                outputStyle: 'expanded',
-                sourceComments: true
+module.exports = (env, args) => {
+  const production = args.mode === 'production'
+  const configuration = {
+    entry: {
+      libs: [paths.src.scss + '/libs.scss'],
+      theme: [paths.src.js + '/theme.js', paths.src.scss + '/theme.scss'],
+    },
+    output: {
+      filename: paths.dist.js + '/[name].bundle.js'
+    },
+    mode: args.mode,
+    module: {
+      rules: [
+        {
+          test: /\.(sass|scss|css)$/,
+          include: path.resolve(__dirname, paths.src.scss.slice(2)),
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader
+            },
+            {
+              loader: 'css-loader',
+              options: {
+                url: false,
+                sourceMap: !production
+              }
+            },
+            {
+              loader: 'postcss-loader',
+              options: {
+                sourceMap: !production,
+              },
+            },
+            {
+              loader: 'sass-loader',
+              options: {
+                sourceMap: !production,
+                sassOptions: {
+                  indentWidth: 4,
+                  outputStyle: production ? 'compressed' : 'expanded',
+                  sourceComments: !production
+                }
               }
             }
+          ]
+        }
+      ]
+    },
+    optimization: {
+      splitChunks: {
+        cacheGroups: {
+          vendor: {
+            test: /[\\/](node_modules)[\\/].+\.js$/,
+            name: 'vendor',
+            chunks: 'all'
+          }
+        }
+      },
+      minimizer: [
+        new CssMinimizerPlugin(),
+        new TerserPlugin({
+          extractComments: false,
+          terserOptions: {
+            output: {
+              comments: false
+            }
+          }
+        })
+      ]
+    },
+    plugins: [
+      new webpack.ProgressPlugin(),
+      new CopyPlugin({
+        patterns: [
+          {
+            from: paths.src.fonts,
+            to: paths.dist.fonts,
+            noErrorOnMissing: true
+          },
+          {
+            from: paths.src.imgs,
+            to: paths.dist.imgs,
+            noErrorOnMissing: true
+          },
+          {
+            from: paths.src.favicon,
+            to: paths.dist.favicon,
+            noErrorOnMissing: true
+          },
+          {
+            from: paths.src.html,
+            to: paths.dist.html,
+            transform: (content) => Handlebars.compile(content.toString())()
           }
         ]
-      }
-    ]
-  },
-  optimization: {
-    splitChunks: {
-      cacheGroups: {
-        vendor: {
-          test: /[\\/](node_modules)[\\/].+\.js$/,
-          name: 'vendor',
-          chunks: 'all'
-        }
-      }
-    },
-    minimizer: [
-      new CssMinimizerPlugin(),
-      new TerserPlugin({
-        extractComments: false,
-        terserOptions: {
-          output: {
-            comments: false
-          }
+      }),
+      new RemoveEmptyScriptsPlugin(),
+      new MiniCssExtractPlugin({
+        filename: paths.dist.css + '/[name].bundle.css'
+      }),
+      new PurgeCSSPlugin({
+        paths: glob.sync([`${purgeCSSPaths.src}/**/*`, `${purgeCSSPaths.partials}/**/*`], {
+          nodir: true
+        }),
+        safelist: {
+          greedy: [
+            /show$/,
+            /collapsing$/,
+            /aos/,
+            /data/,
+            /reveal/,
+            /show-filters/,
+            /modal/,
+            /collapse/,
+            /slideout/
+          ]
         }
       })
     ]
-  },
-  plugins: [
-    new webpack.ProgressPlugin(),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: paths.src.fonts,
-          to: paths.dist.fonts,
-          noErrorOnMissing: true
-        },
-        {
-          from: paths.src.imgs,
-          to: paths.dist.imgs,
-          noErrorOnMissing: true
-        },
-        {
-          from: paths.src.favicon,
-          to: paths.dist.favicon,
-          noErrorOnMissing: true
-        },
-        {
-          from: paths.src.html,
-          to: paths.dist.html,
-          transform: (content) => Handlebars.compile(content.toString())()
-        }
-      ]
-    }),
-    new RemoveEmptyScriptsPlugin(),
-    new MiniCssExtractPlugin({
-      filename: paths.dist.css + '/[name].bundle.css'
-    }),
-    new PurgeCSSPlugin({
-      paths: glob.sync([`${purgeCSSPaths.src}/**/*`, `${purgeCSSPaths.partials}/**/*`], {
-        nodir: true
-      }),
-      safelist: {
-        greedy: [
-          /show$/,
-          /collapsing$/,
-          /aos/,
-          /data/,
-          /reveal/,
-          /show-filters/,
-          /modal/,
-          /collapse/,
-          /slideout/
-        ]
-      }
-    })
-  ]
-};
+  }
+  if (!production) {
+    configuration.devtool = 'eval-source-map'
+  }
 
-module.exports = wPackConfig;
+  return configuration
+}
