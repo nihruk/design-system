@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{> header/head title="Typography - Design System for the NIHR"}}
+  <body class="bg-grey-10">
+    <!-- Header -->
+    {{> header/header }} {{> header/navbar }}
+    <!-- Main Content -->
+    <main>
+      <div class="container">
+        <h1>Typography</h1>
+
+        <h2>Using our NIHR typeface</h2>
+
+        <p>
+          Lato is our corporate typeface family - an open source (free) collection of typefaces
+          alongside Google and the Sans Serif collection. There are ten variations of the Lato
+          typeface selected as part of NIHR's visual identity.
+        </p>
+        <p>
+          Lato-Regular and Lato-Light work well for display copy and body text for print-on-demand
+          or digital documents and the Web. Lato-Black can be used for headings and subheadings.
+          Lato-Hairline may be used for decorative and formal purposes, such as invitations to
+          special events. Lato-Hairline is not to be used as body text or in all caps.
+        </p>
+        <p>
+          Bold and Italic variations of the typefacescan be used as described in NIHR’s
+          <a href="https://www.comms.nihr.ac.uk/content/written-content/a-z-style-guide.htm"
+            >style guide</a
+          >.
+        </p>
+        <p>
+          Lato is the typeface of choice when designing websites and when designing print-on-demand
+          and digital communication materials.
+        </p>
+        <p>
+          Arial is to be used as a generic typeface back-up. If Lato is not available, Arial can be
+          used for correspondence, business documents and emails. Arial can also be used when
+          writing on external web platforms, such as Eventbrite.
+        </p>
+        <p>The recommended font size for text is 16 points.</p>
+        <p>
+          Our
+          <a
+            href="https://drive.google.com/drive/folders/1HZLbitteckDo6Z5AUTbiXx0sZ7VhpcDL?usp=sharing"
+            >selected typefaces</a
+          >
+          can be downloaded from the NIHR Hub.
+        </p>
+
+        <p>Spacing is everything in UI design.</p>
+
+        <ul>
+          <li>It improves data consumption through better legibility</li>
+          <li>It provides customers with a more consistent user experience</li>
+          <li>It eliminates guesswork and decision fatigue whilst designing and developing</li>
+          <li>It drives consistent scalability</li>
+          <li>It conveys meaning by giving elements a visual hierarchy</li>
+          <li>If you’re a designer, your output will just… look better.</li>
+        </ul>
+
+        <p>
+          To begin, set out base numbers for your grid. We use material design principles so
+          divisions of 8: 8px / 16px / 24px / 32px / 40px / 48px / 56px and so on for all padding /
+          margin between elements (sometimes 4px if you need to go in tight).
+        </p>
+
+        <p>
+          So the layout for a set of elelments; H1, p tag, text/input field and cta could be
+          vertically like this
+        </p>
+
+        <img
+          src="{{webRoot}}/assets/images/typography/1.png"
+          alt=""
+          class="img-fluid mt-3s component-wrapper"
+        />
+
+        <p>You can see that the line heights, heights and all spacing is scaled by 8</p>
+
+        <img
+          src="{{webRoot}}/assets/images/typography/scale.png"
+          alt=""
+          class="img-fluid mt-3s component-wrapper"
+        />
+
+        <br />
+
+        <img
+          src="{{webRoot}}/assets/images/typography/line heights.png"
+          alt=""
+          class="img-fluid mt-3s component-wrapper"
+        />
+
+        <img
+          src="{{webRoot}}/assets/images/typography/paragraphs.png"
+          alt=""
+          class="img-fluid mt-3s component-wrapper"
+        />
+
+        <p>These are the font values for mobile and desktop with vertical rhythm applied</p>
+
+        <div class="component-wrapper p-5 bg-white mt-5">{{> components/typography }}</div>
+        <!-- /component-wrapper -->
+      </div>
+      <!-- /container -->
+    </main>
+    <!-- /Main Content -->
+    <!-- Footer -->
+    {{> footer/footer-scripts }}
+  </body>
+</html>

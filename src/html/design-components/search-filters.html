@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{> header/head title="Forms - Design System for the NIHR"}}
+  <body class="bg-grey-10">
+    <!-- Header -->
+    {{> header/header }} {{> header/navbar }}
+    <!-- Main Content -->
+    <main>
+      <div class="container">
+        <h1>Search filters</h1>
+
+        <p>
+          Search filters narrow down results by common characteristics such as price, colour, or
+          popularity.
+        </p>
+
+        <img
+          src="{{webRoot}}/assets/images/search-filters/image-20220908-072436.png"
+          alt=""
+          class="img-fluid mt-3s component-wrapper"
+        />
+        <h2>Zeplin link</h2>
+
+        <p><a href="https://zpl.io/Q0OjNnx">https://zpl.io/Q0OjNnx</a></p>
+
+        <h2>Intended behaviou</h2>
+
+        <p>
+          Filters narrow down results by common characteristics such as price, colour, or
+          popularity. However, we should also include filters that vary according to the category or
+          page the user is on.Category-specific filters also have the advantage of being an
+          education point for people who have less experience with the content being displayed.
+          Decisions might not be taken based on a single data point. Whether we know exactly what we
+          want (we're interested in a restaurant that has tables outside, and allows pets, and has
+          vegetarian options), or we only know what we don't want (we're not interested in a
+          restaurant with loud music), it makes sense to allow for multiple filters to be selected
+          at once. This will allow the user to narrow down their search quickly and more
+          comfortably.
+        </p>
+
+        <p>
+          Allowing multiple selections also works better for slower connections. It is frustrating
+          to have the intention of selecting two or more filters, only to see the page reload
+          painstakingly slow with each selection.
+        </p>
+
+        <h2>When to use this component</h2>
+        <p>
+          When you want a user to narrow down high volumes of content and to surface the most
+          relevant results.
+        </p>
+
+        <h2>When not to use this component</h2>
+        <p>If the above criteria isn't met.</p>
+
+        <div class="bg-white p-5 mt-5 component-wrapper">
+          <div class="component-body">
+            <!-- component starts -->{{> components/search-filters }}
+            <!-- component ends -->
+          </div>
+        </div>
+      </div>
+      <!-- ./container -->
+    </main>
+    <!-- /Main Content -->
+
+    <!-- Footer -->
+    {{> footer/footer-scripts }}
+  </body>
+</html>

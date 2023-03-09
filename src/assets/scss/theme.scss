@@ -171,12 +171,38 @@ p {
   }
 }
 
+ul:not(.navbar-nav, .dropdown-menu, .list-group) {
+  margin-bottom: 1.5rem; // 24px
+
+  li {
+    font-size: 1.125rem; // 18px
+    line-height: 1.333; // 24px
+
+    @include media-breakpoint-up(lg) {
+      font-size: 1.375rem; // 22px
+      line-height: 1.4545; // 32px
+    }
+  }
+}
+
+img {
+  margin-bottom: 1.5rem; // 24px
+}
+
+header img {
+  margin-bottom: 0;
+}
+
 main {
   padding: 2rem 0;
 }
 
 .list-group {
   margin-bottom: 1.5rem;
+}
+
+.component-wrapper {
+  border: 1px dashed #7b61ff;
 }
 
 // Integrated classes
