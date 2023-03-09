@@ -22,8 +22,8 @@
     "node": ">=18"
   },
   "scripts": {
-    "start": "webpack-dev-server --open",
-    "build": "del-cli dist && webpack",
+    "start": "webpack-dev-server --mode development --open",
+    "build": "del-cli dist && webpack --mode production",
     "test-lint-css": "stylelint --allow-empty-input \"**/*.scss\"",
     "test-lint-js": "eslint .",
     "test-lint": "npm run test-lint-css && npm run test-lint-js",
