@@ -7,6 +7,8 @@ const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const Handlebars = require("handlebars");
 const fs = require("fs");
+const postcssPresetEnv = require('postcss-preset-env');
+
 
 function registerPartialsDirectory(directoryPath, directoryNameParts = []) {
   fs.readdirSync(directoryPath)
@@ -60,6 +62,12 @@ module.exports = (env, args) => {
               loader: 'postcss-loader',
               options: {
                 sourceMap: !production,
+                postcssOptions: {
+                  plugins: [
+                      'autoprefixer',
+                      postcssPresetEnv(),
+                  ],
+                },
               },
             },
             {
