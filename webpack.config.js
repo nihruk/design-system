@@ -9,13 +9,12 @@ const Handlebars = require("handlebars");
 const fs = require("fs");
 const postcssPresetEnv = require('postcss-preset-env');
 
-
 function registerPartialsDirectory(directoryPath, directoryNameParts = []) {
   fs.readdirSync(directoryPath)
     .forEach((filename) => {
       if (fs.statSync(path.resolve(directoryPath, filename)).isDirectory()) {
         return registerPartialsDirectory(
-            path.join(directoryPath, filename),
+            path.resolve(directoryPath, filename),
             [...directoryNameParts, filename],
             )
       }
@@ -31,16 +30,15 @@ module.exports = (env, args) => {
   const production = args.mode === 'production'
   const configuration = {
     entry: {
-      libs: [
+      'design-system': [
           path.resolve(__dirname, 'src', 'assets', 'scss', 'libs.scss'),
-      ],
-      theme: [
           path.resolve(__dirname, 'src', 'assets', 'js', 'theme.js'),
           path.resolve(__dirname, 'src', 'assets', 'scss', 'theme.scss'),
       ],
     },
     output: {
-      filename: path.join('assets', 'js', '[name].bundle.js')
+      path: path.resolve(__dirname, 'dist'),
+      filename: '[name].bundle.js',
     },
     mode: args.mode,
     module: {
@@ -70,7 +68,12 @@ module.exports = (env, args) => {
             {
               loader: 'css-loader',
               options: {
-                url: false,
+                sourceMap: !production
+              }
+            },
+            {
+              loader: 'resolve-url-loader',
+              options: {
                 sourceMap: !production
               }
             },
@@ -98,6 +101,14 @@ module.exports = (env, args) => {
               }
             }
           ]
+        },
+        {
+          test: /\.(png|gif|jpg|jpeg)$/,
+          type: 'asset/resource',
+          generator: {
+            outputPath: path.join('assets', 'images'),
+            filename: '[name][ext]',
+          }
         }
       ]
     },
@@ -125,18 +136,22 @@ module.exports = (env, args) => {
     },
     plugins: [
       new webpack.ProgressPlugin(),
+      new RemoveEmptyScriptsPlugin(),
       new CopyPlugin({
         patterns: [
           {
             from: path.resolve(__dirname, 'src', 'html'),
             to: path.resolve(__dirname, 'dist'),
             transform: (content) => Handlebars.compile(content.toString())()
+          },
+          {
+            from: path.resolve(__dirname, 'src', 'assets', 'images'),
+            to: path.resolve(__dirname, 'dist', 'assets', 'images'),
           }
         ]
       }),
-      new RemoveEmptyScriptsPlugin(),
       new MiniCssExtractPlugin({
-        filename: path.join('assets', 'css', '[name].bundle.css'),
+        filename: '[name].bundle.css',
       }),
     ]
   }
