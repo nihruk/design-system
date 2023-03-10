@@ -24,7 +24,7 @@ function registerPartialsDirectory(directoryPath, directoryNameParts = []) {
       );
     });
 }
-registerPartialsDirectory(path.resolve(__dirname, 'src', 'partials'))
+registerPartialsDirectory(path.resolve(__dirname, 'src', 'docs', 'partials'))
 
 module.exports = (env, args) => {
   const production = args.mode === 'production'
@@ -139,13 +139,9 @@ module.exports = (env, args) => {
       new CopyPlugin({
         patterns: [
           {
-            from: path.resolve(__dirname, 'src', 'html'),
+            from: path.resolve(__dirname, 'src', 'docs', 'www'),
             to: path.resolve(__dirname, 'dist'),
-            transform: (content) => Handlebars.compile(content.toString())()
-          },
-          {
-            from: path.resolve(__dirname, 'src', 'assets', 'images'),
-            to: path.resolve(__dirname, 'dist', 'assets', 'images'),
+            transform: (content, filename) => filename.endsWith('.html') ? Handlebars.compile(content.toString())() : content
           }
         ]
       }),
