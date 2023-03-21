@@ -30,7 +30,7 @@ Run `npm run fix`.
 
 #### Dev
 
-Run `npm run start` to run dev server on http://localhost:8080/
+Run `npm run docs` to start a local dev server hosting the built documentation site.
 
 Run `npm run build` to build project to dist folder
 

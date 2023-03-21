@@ -22,7 +22,7 @@
     "node": ">=18"
   },
   "scripts": {
-    "start": "webpack serve --mode development --open",
+    "docs": "webpack serve --mode development --open",
     "build": "del-cli dist && webpack --mode production",
     "test-lint-css": "stylelint --allow-empty-input \"**/*.scss\"",
     "test-lint-js": "eslint .",

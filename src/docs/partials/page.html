@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{> header/head }}
+  <body class="bg-grey-10">
+    {{> header/header title=title }} {{> header/navbar }}
+    <main>
+      <div class="container">
+        <h1{{#if visuallyHideTitle}} class="visually-hidden"{{/if}}>{{#if title}}{{ title }}{{^}}Design System for the NIHR{{/if}}</h1>
+          {{> @partial-block}}
+      </div>
+    </main>
+    {{> footer }}
+  </body>
+</html>

@@ -1,0 +1,269 @@
+{{#> page title="Button" }}
+  <p>
+    Use buttons to help users carry out an action on a page like starting an application or
+    saving their progress.
+  </p>
+
+  <div class="card p-5 bg-yellow-20">
+    <p>
+      <i class="fa-solid fa-circle-info"></i>
+      The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except where:
+    </p>
+    <ul>
+      <li>
+        <strong>Spacing:</strong> The
+        <a href="https://www.w3.org/TR/WCAG22/#dfn-targets">target offset</a> is at least 24
+        CSS pixels to every adjacent target;
+      </li>
+
+      <li>
+        <strong>Equivalent:</strong> The function can be achieved through a different control
+        on the same page that has an area of at least 24 by 24 CSS pixels;
+      </li>
+
+      <li>
+        <strong>User agent control:</strong> The size of the target is determined by the user
+        agent and is not modified by the author;
+      </li>
+
+      <li>
+        <strong>Essential:</strong> A particular presentation of the target is essential or is
+        legally required for the information being conveyed.
+      </li>
+    </ul>
+    <p>
+      Note: Targets that allow for values to be selected spatially based on position within
+      the target are considered one target for the purpose of the success criterion. Examples
+      include sliders with granular values, color pickers displaying a gradient of colors, or
+      editable areas where you position the cursor.
+    </p>
+
+    <p>We have 2 buttons</p>
+  </div>
+
+  <div class="row mt-5">
+    <p>We have 2 buttons</p>
+    <div class="col">
+      <h6>Primary</h6>
+      <div class="component-wrapper p-3 bg-white">
+        <button type="button" class="btn btn-primary">Button</button>
+      </div>
+    </div>
+    <div class="col">
+      <h6>Secondary</h6>
+      <div class="component-wrapper p-3 bg-white">
+        <button type="button" class="btn btn-outline-primary">Button</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <p>Primary buttons have four states</p>
+    <div class="col">
+      <h6>Default</h6>
+      <div class="component-wrapper p-3 bg-white">
+        <button type="button" class="btn btn-primary">Button</button>
+      </div>
+    </div>
+    <div class="col">
+      <h6>Hover</h6>
+      <div class="component-wrapper p-3 bg-white">
+        <button type="button" class="btn btn-secondary">Button</button>
+      </div>
+    </div>
+    <div class="col">
+      <h6>Disabled</h6>
+      <div class="component-wrapper p-3 bg-white">
+        <button type="button" class="btn btn-primary" disabled>Button</button>
+      </div>
+    </div>
+    <div class="col">
+      <h6>Destructive</h6>
+      <div class="component-wrapper p-3 bg-white">
+        <button type="button" class="btn btn-danger">Button</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <p>Secondary buttons have four states</p>
+    <div class="col">
+      <h6>Default</h6>
+      <div class="component-wrapper p-3 bg-white">
+        <button type="button" class="btn btn-outline-primary">Button</button>
+      </div>
+    </div>
+    <div class="col">
+      <h6>Hover</h6>
+      <div class="component-wrapper p-3 bg-white">
+        <button type="button" class="btn btn-outline-secondary">Button</button>
+      </div>
+    </div>
+    <div class="col">
+      <h6>Disabled</h6>
+      <div class="component-wrapper p-3 bg-white">
+        <button type="button" class="btn btn-outline-primary" disabled>Button</button>
+      </div>
+    </div>
+    <div class="col">
+      <h6>Destructive</h6>
+      <div class="component-wrapper p-3 bg-white">
+        <button type="button" class="btn btn-outline-danger">Button</button>
+      </div>
+    </div>
+  </div>
+
+  <h4 class="mt-5">When to use a primary button</h4>
+
+  <p>
+    Use a primary button to help users carry out an action on a page like starting an
+    application or saving their progress.
+  </p>
+  <p>A form always has a default button for it’s main action; Submit, continue, next.</p>
+  <p>More about when to use and not use buttons.</p>
+
+  <h4>When to use a secondary button</h4>
+
+  <p>
+    Use a secondary button on pages that have more than 1 action or when users aren't noticing
+    standard link text.
+  </p>
+  <p>More about when to use and not use buttons.</p>
+  <div class="component-wrapper bg-white p-3 mb-3">
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-outline-primary">
+        <i class="fa-regular fa-comment-dots"></i> Comment
+      </button>
+      <button type="button" class="btn btn-outline-primary">
+        <i class="fa-solid fa-plus"></i> Create issue
+      </button>
+    </div>
+  </div>
+  <h2 class="mt-5">White button on solid background colour (reverse button)</h2>
+
+  <h4>When to use a white button on solid background colour</h4>
+
+  <p>
+    White buttons on solid background colour are good on components like interruption cards
+    where link text, primary and secondary buttons would be lost.
+  </p>
+  <p>More about when to use and not use buttons.</p>
+
+  <h2>When to use buttons</h2>
+  <p>Use buttons to start or save transactional journeys.</p>
+
+  <h2>When not to use buttons</h2>
+
+  <p>Do not use buttons as links:</p>
+
+  <ul>
+    <li>to pages which aren't part of your user journey</li>
+    <li>from 1 flat content page to another</li>
+    <li>to external websites</li>
+  </ul>
+
+  <p>
+    Try not to have multiple buttons on 1 page. Follow <a href="GOV.UK">GOV.UK</a> guidance on
+    <a
+      href="https://www.gov.uk/service-manual/design/form-structure#start-with-one-thing-per-page"
+    >
+      One thing per page</a
+    >.
+  </p>
+
+  <h2>How to use buttons</h2>
+
+  <p>
+    The
+    <a href="https://design-system.service.gov.uk/components/button/">GOV.UK Design System</a>
+    suggests using a button to help users carry out an action on a page like starting an
+    application or saving their progress.
+  </p>
+  <p>
+    Write button text in sentence case and describe the action the button performs. For
+    example "Save and continue" or "Start now".
+  </p>
+  <p>Align the primary action button to the left edge of your form.</p>
+
+  <div class="card p-5 bg-yellow-20 mt-3 mb-3">
+    <p>
+      <strong><i class="fa-solid fa-circle-info"></i> Disabled buttons</strong>
+    </p>
+
+    <p>
+      Disabled buttons have poor contrast and can confuse some users. Only use them if user
+      research shows it makes things easier for users to understand.
+    </p>
+  </div>
+
+  <h3>Accessibility</h3>
+
+  <p>Make sure the text you use describes the action.</p>
+
+  <p>
+    All 3 active buttons pass AAA guidelines for colour contrast. The colour contrast ratio
+    between text and background colour is as follows:
+  </p>
+
+  <ul>
+    <li>primary button 5.12:1</li>
+    <li>secondary button 7.75:1</li>
+    <li>white button on solid background colour 14.42:1</li>
+  </ul>
+
+  <p>
+    Please note that the disabled versions of the 3 buttons do not meet accessibility colour
+    contrast ratios. If your team has discovered a user need for disabled buttons, use them
+    carefully and test them with users with access needs.
+  </p>
+
+  <h2>Research</h2>
+  <p>
+    We based our buttons on the <a href="GOV.UK">GOV.UK</a> designs. But because our logo is a
+    blue rectangle and a number of our components (including panel headings) have squared
+    edges, we decided that <a href="GOV.UK">GOV.UK</a> buttons didn’t stand out enough. The
+    square buttons didn't look clickable next to the other square components.
+  </p>
+
+  <p>
+    We made the buttons more "buttony" by rounding the corners (adding corner radiuses). There
+    is research to suggest that rounded corners make things more clickable.
+  </p>
+
+  <div class="component-wrapper bg-white">
+    <div class="container pt-5 pb-5">
+      <p><strong>Large size buttons</strong></p>
+
+      <button type="button" class="btn btn-primary btn-lg">Button</button>
+      <button type="button" class="btn btn-secondary btn-lg">Button</button>
+      <button type="button" class="btn btn-lg" disabled>Button</button>
+      <button type="button" class="btn btn-danger btn-lg">Button</button>
+      <button type="button" class="btn btn-link btn-lg">Button</button>
+      <br /><br />
+
+      <p><strong>Default size buttons</strong></p>
+
+      <button type="button" class="btn btn-primary">Button</button>
+      <button type="button" class="btn btn-secondary">Button</button>
+      <button type="button" class="btn btn" disabled>Button</button>
+      <button type="button" class="btn btn-danger">Button</button>
+      <button type="button" class="btn btn-link">Button</button>
+      <br /><br />
+      <p><strong>Small size buttons</strong></p>
+
+      <button type="button" class="btn btn-primary btn-sm">Button</button>
+      <button type="button" class="btn btn-secondary btn-sm">Button</button>
+      <button type="button" class="btn btn-sm" disabled>Button</button>
+      <button type="button" class="btn btn-danger btn-sm">Button</button>
+      <button type="button" class="btn btn-link btn-sm">Button</button>
+      <br /><br />
+      <p><strong>Extra small size buttons</strong></p>
+
+      <button type="button" class="btn btn-primary btn-xs">Button</button>
+      <button type="button" class="btn btn-secondary btn-xs">Button</button>
+      <button type="button" class="btn btn-xs" disabled>Button</button>
+      <button type="button" class="btn btn-danger btn-xs">Button</button>
+      <button type="button" class="btn btn-link btn-xs">Button</button>
+    </div>
+  </div>
+{{/page}}
