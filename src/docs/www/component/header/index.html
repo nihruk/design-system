@@ -1,25 +1,4 @@
 {{#> page title="Header" }}
-    <p>Corporate</p>
-    <img
-      src="{{webRoot}}/_docs_assets/images/component/header/header-main-corporate.png"
-      alt=""
-      class="img-fluid bg-white"
-    />
-
-    <p>Funding & Awards</p>
-    <img
-      src="{{webRoot}}/_docs_assets/images/component/header/header-main-funding and awards.png"
-      alt=""
-      class="img-fluid bg-white bg-white"
-    />
-
-    <p>Journals Library</p>
-    <img
-      src="{{webRoot}}/_docs_assets/images/component/header/header-main-journals library.png"
-      alt=""
-      class="img-fluid bg-white"
-    />
-
     <h2 class="mt-3">Zeplin link</h2>
 
     <p><a href="https://zpl.io/dxW4JGe ">https://zpl.io/dxW4JGe</a></p>
@@ -27,45 +6,27 @@
     <h2>Intended behaviour</h2>
 
     <p>
-      The header consists of our logo and a search bar. Clicking the logo will take you back to
-      the main corporate site www.nihr.ac.uk
+      The header consists of the NIHR logo and an optional search bar. The logo is also a link back to the current
+        site's front page. Entering a search query will return results.
     </p>
-
-    <p>Entering a search query will return results</p>
 
     <h2>When to use this component</h2>
 
     <p>
-      You must use the NIHR header at the top of every page if your service is being hosted on
-      one of these domains:
+        Every site that uses the Design System must use the Header.
     </p>
 
-    <ul>
-      <li>Corporate</li>
-      <li>Funding and Awards</li>
-      <li>Journals Library</li>
-    </ul>
-  </div>
+    <h2>Examples</h2>
 
-  <div class="container mt-5">
-    <h3 class="mt-3">Corporate</h3>
-    <h4>Header with search</h4>
-    <p><strong>Set pleaceholder text to:</strong> Search nihr.ac.uk</p>
-  </div>
+    <h3>From nihr.ac.uk</h3>
 
-  <div class="component-wrapper mt-5">{{> header/header-with-search }}</div>
+    <div class="component-wrapper mt-5">{{> header/header-with-search }}</div>
 
-  <div class="container mt-5">
-    <h3 class="mt-3">Journals Library</h3>
-    <h4>Header</h4>
-  </div>
+    <h3>From the Journals Library</h3>
 
-  <div class="component-wrapper mt-5">{{> header/header }}</div>
+    <div class="component-wrapper mt-5">{{> header/header }}</div>
 
-  <div class="container mt-5">
-    <h3 class="mt-3">Funding and Awards</h3>
-    <h4>Header</h4>
-  </div>
+    <h3>From Funding and Awards</h3>
 
-  <div class="component-wrapper mt-5">{{> header/header }}</div>
+    <div class="component-wrapper mt-5">{{> header/header }}</div>
 {{/page}}
