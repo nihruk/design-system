@@ -36,4 +36,4 @@ Run `npm run build` to build project to dist folder
 
 ## Copyright
 
-Copyright (C) 2017 Crown Copyright (National Institute for Health and Care Research)
+Crown Copyright (National Institute for Health and Care Research)
