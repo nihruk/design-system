@@ -1,46 +1,37 @@
 const path = require('path');
 const webpack = require('webpack');
-const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const glob = require('glob-all');
+const HtmlBundlerPlugin = require('html-bundler-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const Handlebars = require("handlebars");
-const fs = require("fs");
 const postcssPresetEnv = require('postcss-preset-env');
 
-function registerPartialsDirectory(directoryPath, directoryNameParts = []) {
-  fs.readdirSync(directoryPath)
-    .forEach((filename) => {
-      if (fs.statSync(path.resolve(directoryPath, filename)).isDirectory()) {
-        return registerPartialsDirectory(
-            path.resolve(directoryPath, filename),
-            [...directoryNameParts, filename],
-            )
-      }
-      Handlebars.registerPartial(
-          [...directoryNameParts, filename.slice(0, -5)].join('/'),
-          fs.readFileSync(path.resolve(directoryPath, filename), 'utf8'),
-      );
-    });
-}
-registerPartialsDirectory(path.resolve(__dirname, 'src', 'partials'))
+const PATHS = {
+  pages: path.join(__dirname, 'src/html/'),
+  partials: path.join(__dirname, 'src/partials/'),
+};
+
+// Create the entry object containing pages located in src/html/ directory.
+const entry = glob.sync(path.join(PATHS.pages, '/**/*.html')).reduce((entry, file) => {
+  const name = path.relative(PATHS.pages, file).replace(/\.html$/, '');
+  entry[name] = file;
+  return entry;
+}, {});
 
 module.exports = (env, args) => {
   const production = args.mode === 'production'
   const configuration = {
-    entry: {
-      'design-system': [
-          path.resolve(__dirname, 'src', 'assets', 'scss', 'libs.scss'),
-          path.resolve(__dirname, 'src', 'assets', 'js', 'theme.js'),
-          path.resolve(__dirname, 'src', 'assets', 'scss', 'theme.scss'),
-      ],
-    },
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: '[name].bundle.js',
     },
     mode: args.mode,
+    resolve: {
+      alias: {
+        '@images': path.join(__dirname, 'src/assets/images'),
+        '@styles': path.join(__dirname, 'src/assets/scss'),
+        '@scripts': path.join(__dirname, 'src/assets/js'),
+      }
+    },
     module: {
       rules: [
         {
@@ -62,9 +53,6 @@ module.exports = (env, args) => {
         {
           test: /\.(sass|scss|css)$/,
           use: [
-            {
-              loader: MiniCssExtractPlugin.loader
-            },
             {
               loader: 'css-loader',
               options: {
@@ -107,6 +95,7 @@ module.exports = (env, args) => {
           type: 'asset/resource',
           generator: {
             outputPath: path.join('assets', 'images'),
+            filename: '[name][ext]',
           }
         },
         {
@@ -135,27 +124,40 @@ module.exports = (env, args) => {
     },
     plugins: [
       new webpack.ProgressPlugin(),
-      new RemoveEmptyScriptsPlugin(),
-      new CopyPlugin({
-        patterns: [
-          {
-            from: path.resolve(__dirname, 'src', 'html'),
-            to: path.resolve(__dirname, 'dist'),
-            transform: (content) => Handlebars.compile(content.toString())()
+      new HtmlBundlerPlugin({
+        entry,
+        js: {
+          // output filename of extracted JS
+          filename: 'assets/js/[name].[contenthash:8].js',
+        },
+        css: {
+          // output filename of extracted CSS
+          filename: 'assets/css/[name].[contenthash:8].css',
+        },
+        loaderOptions: {
+          preprocessor: 'handlebars',
+          preprocessorOptions: {
+            partials: [PATHS.partials],
           },
-          {
-            from: path.resolve(__dirname, 'src', 'assets', 'images'),
-            to: path.resolve(__dirname, 'dist', 'assets', 'images'),
-          }
-        ]
-      }),
-      new MiniCssExtractPlugin({
-        filename: '[name].bundle.css',
+        },
       }),
     ]
   }
   if (!production) {
     configuration.devtool = 'eval-source-map'
+
+    // enable live reload
+    configuration.devServer = {
+      static: {
+        directory: path.join(__dirname, 'dist'),
+      },
+      watchFiles: {
+        paths: ['src/**/*.*'],
+        options: {
+          usePolling: true,
+        },
+      },
+    }
   }
 
   return configuration
