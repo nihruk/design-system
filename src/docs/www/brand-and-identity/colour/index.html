@@ -40,136 +40,370 @@
 {% endmacro %}
 
 {% block content %}
-  <p>Always use the NIHR colour palette.</p>
-  <h2>Colour contrast</h2>
-
   <p>
-    You must make sure that the contrast ratio of text and interactive elements in your
-    service meets
-    <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum"
-      >level AA of the Web Content Accessibility Guidelines (WCAG 2.1)</a
-    >.
+    Our palette consists of nine colours, including NIHR Navy, our <a href="#color-navy">primary colour</a>. Use NIHR
+    Navy as your main colour, and evoke a sense of balance and harmony when using this with the
+    <a href="#colors-secondary">secondary colour palette</a>. Ensure colour combinations with text are
+    <a href="#color-accessibility">accessible</a>.
   </p>
 
-  <h2>Using our colour palette</h2>
-  <p>
-    Our palette consists of eight colours, including NIHR Navy, our
-    <a href="https://www.comms.nihr.ac.uk/visual-identity/colour-palette.htm#Primary"
-      >primary colour</a
-    >.
-  </p>
-  <p>
-    Use NIHR Navy as your main colour, and evoke a sense of balance and harmony when using
-    this with the
-    <a href="https://www.comms.nihr.ac.uk/visual-identity/colour-palette.htm#secondary"
-      >secondary colour palette</a
-    >. Ensure colour combinations with text are
-    <a href="https://www.comms.nihr.ac.uk/visual-identity/colour-palette.htm#accessibility"
-      >accessible</a
-    >.
-  </p>
+  <h2>Primary colours</h2>
 
-  <h2>Colour palette</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>100%</th>
+        <th>80%</th>
+        <th>60%</th>
+        <th>40%</th>
+        <th>20%</th>
+      </tr>
+    </thead>
+    <tr>
+      <th>
+        <p class="h3" id="color-navy">NIHR Navy</p>
+        {{ pantoneSpecifications('7687 C') }}
+        {{ cmykSpecifications(100, 80, 27, 11) }}
+      </th>
+      <td>
+        {{ rgbSpecifications(25, 62, 114) }}
+        {{ hexSpecifications('1D1D1B') }}
+        <div class="ds-color-sample" style="background-color: #193E72;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(71, 89, 137) }}
+        {{ hexSpecifications('475989') }}
+        <div class="ds-color-sample" style="background-color: #475989;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(116, 124, 163) }}
+        {{ hexSpecifications('747CA3') }}
+        <div class="ds-color-sample" style="background-color: #747CA3;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(162, 164, 193) }}
+        {{ hexSpecifications('A2A4C1') }}
+        <div class="ds-color-sample" style="background-color: #A2A4C1;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(208, 208, 224) }}
+        {{ hexSpecifications('D0D0E0') }}
+        <div class="ds-color-sample" style="background-color: #D0D0E0;"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <p class="h3">NIHR Black</p>
+        {{ cmykSpecifications(74, 65, 63, 81) }}
+      </th>
+      <td>
+        {{ rgbSpecifications(29, 29, 27) }}
+        {{ hexSpecifications('1D1D1B') }}
+        <div class="ds-color-sample" style="background-color: #1D1D1B;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(87, 86, 86) }}
+        {{ hexSpecifications('575656') }}
+        <div class="ds-color-sample" style="background-color: #575656;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(135, 135, 134) }}
+        {{ hexSpecifications('878786') }}
+        <div class="ds-color-sample" style="background-color: #878786;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(179, 178, 178) }}
+        {{ hexSpecifications('B3B2B2') }}
+        <div class="ds-color-sample" style="background-color: #B3B2B2;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(218, 218, 218) }}
+        {{ hexSpecifications('DADADA') }}
+        <div class="ds-color-sample" style="background-color: #DADADA;"></div>
+      </td>
+    </tr>
+  </table>
 
+  <h3>When to use primary colours</h3>
   <ul>
-    <li>For accuracy, use the specific Pantone, CMYK, RGB or Hex code</li>
     <li>
-      Download a copy of the
-      <a
-        href="https://drive.google.com/file/d/1V23oytk2evdL8G7zYyysn8LB3-CxHKKc/view?usp=sharing"
-        >colour palette</a
-      >
+      The primary colour, NIHR Navy, is to be used throughout NIHR communications channels.
+    </li>
+    <li>
+      Using our primary colour consistently and appropriately helps to reinforce our identity.
+    </li>
+    <li>
+      Aim to use NIHR Navy on approximately one third of the area of your materials, including
+      design and text.
+    </li>
+    <li>
+      NIHR Navy or standard black on white background is to be used for body text.
+    </li>
+    <li>
+      Tints of NIHR Navy can be used on design as a detail, provided the solid colour is present
+      on approximately one third of coloured areas, including coloured font.
     </li>
   </ul>
 
+  <h2 id="colors-secondary">Secondary colours</h2>
+
   <table class="table">
-  <thead>
+    <thead>
+      <tr>
+        <th></th>
+        <th>100%</th>
+        <th>80%</th>
+        <th>60%</th>
+        <th>40%</th>
+        <th>20%</th>
+      </tr>
+    </thead>
     <tr>
-      <th></th>
-      <th>100%</th>
-      <th>80%</th>
-      <th>60%</th>
-      <th>40%</th>
-      <th>20%</th>
+      <th>
+        <p class="h3">Coral</p>
+        {{ pantoneSpecifications('7416 C') }}
+        {{ cmykSpecifications(1, 75, 66, 0) }}
+      </th>
+      <td>
+        {{ rgbSpecifications(234, 93, 78) }}
+        {{ hexSpecifications('EA5D4E') }}
+        <div class="ds-color-sample" style="background-color: #EA5D4E;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(239, 130, 110) }}
+        {{ hexSpecifications('EF826E') }}
+        <div class="ds-color-sample" style="background-color: #EF826E;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(243, 164, 145) }}
+        {{ hexSpecifications('F3A491') }}
+        <div class="ds-color-sample" style="background-color: #F3A491;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(248, 197, 182) }}
+        {{ hexSpecifications('F8C5B6') }}
+        <div class="ds-color-sample" style="background-color: #F8C5B6;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(252, 227, 218) }}
+        {{ hexSpecifications('FCE3DA') }}
+        <div class="ds-color-sample" style="background-color: #FCE3DA;"></div>
+      </td>
     </tr>
-  </thead>
-  <tr>
-    <th>
-      <p class="h4">NIHR Navy</p>
-      {{ pantoneSpecifications('7687 C') }}
-      {{ cmykSpecifications(100, 80, 27, 11) }}
-    </th>
-    <td>
-      {{ rgbSpecifications(25, 62, 114) }}
-      {{ hexSpecifications('1D1D1B') }}
-      <div class="ds-color-sample" style="background-color: #193E72;"></div>
-    </td>
-    <td>
-      {{ rgbSpecifications(71, 89, 137) }}
-      {{ hexSpecifications('475989') }}
-      <div class="ds-color-sample" style="background-color: #475989;"></div>
-    </td>
-    <td>
-      {{ rgbSpecifications(116, 124, 163) }}
-      {{ hexSpecifications('747CA3') }}
-      <div class="ds-color-sample" style="background-color: #747CA3;"></div>
-    </td>
-    <td>
-      {{ rgbSpecifications(162, 164, 193) }}
-      {{ hexSpecifications('A2A4C1') }}
-      <div class="ds-color-sample" style="background-color: #A2A4C1;"></div>
-    </td>
-    <td>
-      {{ rgbSpecifications(208, 208, 224) }}
-      {{ hexSpecifications('D0D0E0') }}
-      <div class="ds-color-sample" style="background-color: #D0D0E0;"></div>
-    </td>
-  </tr>
-  <tr>
-    <th>
-      <p class="h4">NIHR Black</p>
-      {{ cmykSpecifications(74, 65, 63, 81) }}
-    </th>
-    <td>
-      {{ rgbSpecifications(29, 29, 27) }}
-      {{ hexSpecifications('1D1D1B') }}
-      <div class="ds-color-sample" style="background-color: #1D1D1B;"></div>
-    </td>
-    <td>
-      {{ rgbSpecifications(87, 86, 86) }}
-      {{ hexSpecifications('575656') }}
-      <div class="ds-color-sample" style="background-color: #575656;"></div>
-    </td>
-    <td>
-      {{ rgbSpecifications(135, 135, 134) }}
-      {{ hexSpecifications('878786') }}
-      <div class="ds-color-sample" style="background-color: #878786;"></div>
-    </td>
-    <td>
-      {{ rgbSpecifications(179, 178, 178) }}
-      {{ hexSpecifications('B3B2B2') }}
-      <div class="ds-color-sample" style="background-color: #B3B2B2;"></div>
-    </td>
-    <td>
-      {{ rgbSpecifications(218, 218, 218) }}
-      {{ hexSpecifications('DADADA') }}
-      <div class="ds-color-sample" style="background-color: #DADADA;"></div>
-    </td>
-  </tr>
+    <tr>
+      <th>
+        <p class="h3">Orange</p>
+        {{ pantoneSpecifications('715 C') }}
+        {{ cmykSpecifications(1, 50, 86, 0) }}
+      </th>
+      <td>
+        {{ rgbSpecifications(242, 147, 48) }}
+        {{ hexSpecifications('F29330') }}
+        <div class="ds-color-sample" style="background-color: #F29330;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(246, 171, 93) }}
+        {{ hexSpecifications('F6AB5D') }}
+        <div class="ds-color-sample" style="background-color: #F6AB5D;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(249, 193, 135) }}
+        {{ hexSpecifications('F9C187') }}
+        <div class="ds-color-sample" style="background-color: #F9C187;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(252, 214, 176) }}
+        {{ hexSpecifications('FCD6B0') }}
+        <div class="ds-color-sample" style="background-color: #FCD6B0;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(253, 235, 216) }}
+        {{ hexSpecifications('FDEBD8') }}
+        <div class="ds-color-sample" style="background-color: #FDEBD8;"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <p class="h3">Yellow</p>
+        {{ pantoneSpecifications('1345 C') }}
+        {{ cmykSpecifications(1, 19, 60, 0) }}
+      </th>
+      <td>
+        {{ rgbSpecifications(254, 212, 122) }}
+        {{ hexSpecifications('FED47A') }}
+        <div class="ds-color-sample" style="background-color: #FED47A;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(255, 220, 152) }}
+        {{ hexSpecifications('FFDC98') }}
+        <div class="ds-color-sample" style="background-color: #FFDC98;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(254, 229, 175) }}
+        {{ hexSpecifications('FEE5AF') }}
+        <div class="ds-color-sample" style="background-color: #FEE5AF;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(255, 238, 202) }}
+        {{ hexSpecifications('FFEECA') }}
+        <div class="ds-color-sample" style="background-color: #FFEECA;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(255, 246, 230) }}
+        {{ hexSpecifications('FFF6E6') }}
+        <div class="ds-color-sample" style="background-color: #FFF6E6;"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <p class="h3">Purple</p>
+        {{ pantoneSpecifications('7456 C') }}
+        {{ cmykSpecifications(69, 62, 0, 0) }}
+      </th>
+      <td>
+        {{ rgbSpecifications(101, 103, 173) }}
+        {{ hexSpecifications('6567AD') }}
+        <div class="ds-color-sample" style="background-color: #6567AD;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(132, 130, 190) }}
+        {{ hexSpecifications('8482BE') }}
+        <div class="ds-color-sample" style="background-color: #8482BE;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(162, 160, 208) }}
+        {{ hexSpecifications('A2A0D0') }}
+        <div class="ds-color-sample" style="background-color: #A2A0D0;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(193, 191, 225) }}
+        {{ hexSpecifications('C1BFE1') }}
+        <div class="ds-color-sample" style="background-color: #C1BFE1;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(224, 223, 241) }}
+        {{ hexSpecifications('E0DFF1') }}
+        <div class="ds-color-sample" style="background-color: #E0DFF1;"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <p class="h3">Aqua</p>
+        {{ pantoneSpecifications('631 C') }}
+        {{ cmykSpecifications(73, 10, 33, 0) }}
+      </th>
+      <td>
+        {{ rgbSpecifications(46, 169, 176) }}
+        {{ hexSpecifications('2EA9B0') }}
+        <div class="ds-color-sample" style="background-color: #2EA9B0;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(111, 186, 192) }}
+        {{ hexSpecifications('6FBAC0') }}
+        <div class="ds-color-sample" style="background-color: #6FBAC0;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(130, 203, 208) }}
+        {{ hexSpecifications('82CBD0') }}
+        <div class="ds-color-sample" style="background-color: #82CBD0;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(171, 221, 223) }}
+        {{ hexSpecifications('ABDDDF') }}
+        <div class="ds-color-sample" style="background-color: #ABDDDF;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(225, 238, 240) }}
+        {{ hexSpecifications('E1EEF0') }}
+        <div class="ds-color-sample" style="background-color: #E1EEF0;"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <p class="h3">Green</p>
+        {{ pantoneSpecifications('7723 C') }}
+        {{ cmykSpecifications(72, 7, 71, 0) }}
+      </th>
+      <td>
+        {{ rgbSpecifications(69, 168, 108) }}
+        {{ hexSpecifications('45A86C') }}
+        <div class="ds-color-sample" style="background-color: #45A86C;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(121, 185, 137) }}
+        {{ hexSpecifications('79B989') }}
+        <div class="ds-color-sample" style="background-color: #79B989;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(140, 203, 167) }}
+        {{ hexSpecifications('8CCBA7') }}
+        <div class="ds-color-sample" style="background-color: #8CCBA7;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(181, 220, 196) }}
+        {{ hexSpecifications('B5DCC4') }}
+        <div class="ds-color-sample" style="background-color: #B5DCC4;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(226, 238, 227) }}
+        {{ hexSpecifications('E2EEE3') }}
+        <div class="ds-color-sample" style="background-color: #E2EEE3;"></div>
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <p class="h3">Grey</p>
+        {{ pantoneSpecifications('5517 C') }}
+        {{ cmykSpecifications(37, 19, 20, 2) }}
+      </th>
+      <td>
+        {{ rgbSpecifications(172, 188, 196) }}
+        {{ hexSpecifications('ACBCC4') }}
+        <div class="ds-color-sample" style="background-color: #ACBCC4;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(189, 201, 207) }}
+        {{ hexSpecifications('BDC9CF') }}
+        <div class="ds-color-sample" style="background-color: #BDC9CF;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(206, 214, 219) }}
+        {{ hexSpecifications('CED6DB') }}
+        <div class="ds-color-sample" style="background-color: #CED6DB;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(223, 227, 231) }}
+        {{ hexSpecifications('DFE3E7') }}
+        <div class="ds-color-sample" style="background-color: #DFE3E7;"></div>
+      </td>
+      <td>
+        {{ rgbSpecifications(239, 241, 243) }}
+        {{ hexSpecifications('EFF1F3') }}
+        <div class="ds-color-sample" style="background-color: #EFF1F3;"></div>
+      </td>
+    </tr>
   </table>
 
-  <h2>Primary colour</h2>
-  <p>The primary colour, NIHR Navy, is to be used throughout NIHR communications channels.</p>
+  <h3>When to use secondary colours</h3>
+  <ul>
+    <li>
+      The secondary colour palette is used to support and complement the primary colour.
+    </li>
+    <li>
+      It is not expected that all colours would be used in every instance. The palette has been designed to allow flexibility in combining a selection of secondary colours, for example in graphics, charts, abstract motifs and background panels.
+    </li>
+    <li>
+      Where NIHR Coral is used as a block colour in a large area, this should be in tint form. NIHR Coral and NIHR Orange should not be used for text, only as an accent colour.
+    </li>
+
+  </ul>
+
+  <h2 id="color-accessibility">Colour contrast</h2>
+
   <p>
-    Using our primary colour consistently and appropriately helps to reinforce our identity.
-  </p>
-  <p>
-    Aim to use NIHR Navy on approximately one third of the area of your materials, including
-    design and text.
-  </p>
-  <p>NIHR Navy or standard black on white background is to be used for body text.</p>
-  <p>
-    Tints of NIHR Navy can be used on design as a detail, provided the solid colour is present
-    on approximately one third of coloured areas, including coloured font.
+    You must make sure that the contrast ratio of text and interactive elements in your service meets
+    <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum">level AA of the Web Content Accessibility Guidelines
+      (WCAG 2.1)</a>.
   </p>
 {% endblock %}
