@@ -1,4 +1,45 @@
-{{#> page title="Colour" }}
+{% set title="Colour" %}
+{% extends 'partials/page.html' %}
+
+{% macro _colorSpecifications(label, value) %}
+  <dt>
+    {{ label }}
+  </dt>
+  <dd>
+    <code>{{ value }}</code>
+  </dd>
+{% endmacro %}
+
+{% macro cmykSpecifications(c, m, y, k) %}
+  <dl class="ds-color-specifications">
+    {{ _colorSpecifications('<abbr title="Cyan">C</abbr>' | safe, c) }}
+    {{ _colorSpecifications('<abbr title="Magenta">M</abbr>' | safe, m) }}
+    {{ _colorSpecifications('<abbr title="Yellow">Y</abbr>' | safe, y) }}
+    {{ _colorSpecifications('<abbr title="Key (black)">K</abbr>' | safe, k) }}
+  </dl>
+{% endmacro %}
+
+{% macro hexSpecifications(hex) %}
+  <dl class="ds-color-specifications">
+    {{ _colorSpecifications('<abbr title="Hexadecimal">hex</abbr>' | safe, '#' ~ hex) }}
+  </dl>
+{% endmacro %}
+
+{% macro pantoneSpecifications(pantone) %}
+  <dl class="ds-color-specifications">
+    {{ _colorSpecifications('Pantone', pantone) }}
+  </dl>
+{% endmacro %}
+
+{% macro rgbSpecifications(r, g, b) %}
+  <dl class="ds-color-specifications">
+    {{ _colorSpecifications('<abbr title="Red">R</abbr>' | safe, r) }}
+    {{ _colorSpecifications('<abbr title="Green">G</abbr>' | safe, g) }}
+    {{ _colorSpecifications('<abbr title="Blue">B</abbr>' | safe, b) }}
+  </dl>
+{% endmacro %}
+
+{% block content %}
   <p>Always use the NIHR colour palette.</p>
   <h2>Colour contrast</h2>
 
@@ -41,7 +82,7 @@
     </li>
   </ul>
 
-<table class="table">
+  <table class="table">
   <thead>
     <tr>
       <th></th>
@@ -55,67 +96,67 @@
   <tr>
     <th>
       <p class="h4">NIHR Navy</p>
-      {{> pantone-specifications color='7687 C' }}
-      {{> cmyk-specifications c=100 m=80 y=27 k=11 }}
+      {{ pantoneSpecifications('7687 C') }}
+      {{ cmykSpecifications(100, 80, 27, 11) }}
     </th>
     <td>
-      {{> rgb-specifications r=25 g=62 b=114 }}
-      {{> hex-specifications hex='1D1D1B' }}
+      {{ rgbSpecifications(25, 62, 114) }}
+      {{ hexSpecifications('1D1D1B') }}
       <div class="ds-color-sample" style="background-color: #193E72;"></div>
     </td>
     <td>
-      {{> rgb-specifications r=71 g=89 b=137 }}
-      {{> hex-specifications hex='475989' }}
+      {{ rgbSpecifications(71, 89, 137) }}
+      {{ hexSpecifications('475989') }}
       <div class="ds-color-sample" style="background-color: #475989;"></div>
     </td>
     <td>
-      {{> rgb-specifications r=116 g=124 b=163 }}
-      {{> hex-specifications hex='747CA3' }}
+      {{ rgbSpecifications(116, 124, 163) }}
+      {{ hexSpecifications('747CA3') }}
       <div class="ds-color-sample" style="background-color: #747CA3;"></div>
     </td>
     <td>
-      {{> rgb-specifications r=162 g=164 b=193 }}
-      {{> hex-specifications hex='A2A4C1' }}
+      {{ rgbSpecifications(162, 164, 193) }}
+      {{ hexSpecifications('A2A4C1') }}
       <div class="ds-color-sample" style="background-color: #A2A4C1;"></div>
     </td>
     <td>
-      {{> rgb-specifications r=208 g=208 b=224 }}
-      {{> hex-specifications hex='D0D0E0' }}
+      {{ rgbSpecifications(208, 208, 224) }}
+      {{ hexSpecifications('D0D0E0') }}
       <div class="ds-color-sample" style="background-color: #D0D0E0;"></div>
     </td>
   </tr>
   <tr>
     <th>
       <p class="h4">NIHR Black</p>
-      {{> cmyk-specifications c=74 m=65 y=63 k=81 }}
+      {{ cmykSpecifications(74, 65, 63, 81) }}
     </th>
     <td>
-      {{> rgb-specifications r=29 g=29 b=27 }}
-      {{> hex-specifications hex='1D1D1B' }}
+      {{ rgbSpecifications(29, 29, 27) }}
+      {{ hexSpecifications('1D1D1B') }}
       <div class="ds-color-sample" style="background-color: #1D1D1B;"></div>
     </td>
     <td>
-      {{> rgb-specifications r=87 g=86 b=86 }}
-      {{> hex-specifications hex='575656' }}
+      {{ rgbSpecifications(87, 86, 86) }}
+      {{ hexSpecifications('575656') }}
       <div class="ds-color-sample" style="background-color: #575656;"></div>
     </td>
     <td>
-      {{> rgb-specifications r=135 g=135 b=134 }}
-      {{> hex-specifications hex='878786' }}
+      {{ rgbSpecifications(135, 135, 134) }}
+      {{ hexSpecifications('878786') }}
       <div class="ds-color-sample" style="background-color: #878786;"></div>
     </td>
     <td>
-      {{> rgb-specifications r=179 g=178 b=178 }}
-      {{> hex-specifications hex='B3B2B2' }}
+      {{ rgbSpecifications(179, 178, 178) }}
+      {{ hexSpecifications('B3B2B2') }}
       <div class="ds-color-sample" style="background-color: #B3B2B2;"></div>
     </td>
     <td>
-      {{> rgb-specifications r=218 g=218 b=218 }}
-      {{> hex-specifications hex='DADADA' }}
+      {{ rgbSpecifications(218, 218, 218) }}
+      {{ hexSpecifications('DADADA') }}
       <div class="ds-color-sample" style="background-color: #DADADA;"></div>
     </td>
   </tr>
-</table>
+  </table>
 
   <h2>Primary colour</h2>
   <p>The primary colour, NIHR Navy, is to be used throughout NIHR communications channels.</p>
@@ -131,4 +172,4 @@
     Tints of NIHR Navy can be used on design as a detail, provided the solid colour is present
     on approximately one third of coloured areas, including coloured font.
   </p>
-{{/page}}
+{% endblock %}

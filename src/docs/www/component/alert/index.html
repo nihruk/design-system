@@ -1,4 +1,6 @@
-{{#> page title="Alert" }}
+{% set title="Alert" %}
+{% extends 'partials/page.html' %}
+{% block content %}
   <p>
     Alerts are status messages shown to the user, embedded in a page, and sometimes
     but not always about that page.
@@ -40,4 +42,4 @@
     <div class="alert alert-light" role="alert">A simple light alert—check it out!</div>
     <div class="alert alert-dark" role="alert">A simple dark alert—check it out!</div>
   </div>
-{{/page}}
+{% endblock %}

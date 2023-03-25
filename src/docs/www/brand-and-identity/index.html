@@ -1,18 +1,20 @@
-{{#> page title="Brand and identity" }}
+{% set title="Brand and identity" %}
+{% extends 'partials/page.html' %}
+{% block content %}
   <div class="row mt-5">
     <div class="col-md-4">
 
       <ul class="list-group">
         <li class="list-group-item">
-          <a href="{{webRoot}}/brand-and-identity/typography">Typography</a>
+          <a href="/brand-and-identity/typography">Typography</a>
         </li>
         <li class="list-group-item">
-          <a href="{{webRoot}}/brand-and-identity/text">Text</a>
+          <a href="/brand-and-identity/text">Text</a>
         </li>
         <li class="list-group-item">
-          <a href="{{webRoot}}/brand-and-identity/colour">Colour</a>
+          <a href="/brand-and-identity/colour">Colour</a>
         </li>
       </ul>
     </div>
   </div>
-{{/page}}
+{% endblock %}

@@ -1,4 +1,6 @@
-{{#> page title="Table" }}
+{% set title="Table" %}
+{% extends 'partials/page.html' %}
+{% block content %}
   <h2>Headers</h2>
   <p>
     Use table headers to tell users what the rows and columns represent. Use the scope
@@ -29,4 +31,4 @@
     When not to use this component Never use the table component to layout content on a page.
     Instead, use the grid system.
   </p>
-{{/page}}
+{% endblock %}

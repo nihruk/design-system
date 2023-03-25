@@ -1,57 +1,59 @@
-{{#> page title="Search bar" }}
-    <p>
-      The search bar is a common component across NIHR services
-    </p>
+{% set title="Search bar" %}
+{% extends 'partials/page.html' %}
+{% block content %}
+  <p>
+    The search bar is a common component across NIHR services
+  </p>
 
-    <h2>Intended behaviour</h2>
-    <p>
-      A search bar is usually made up of two UI elements: an input field, and a button. However,
-      the design of a search bar has a significant effect on how fast users can find the
-      information that they are looking for on your site.
-    </p>
-    <p><strong> Display your search bar prominently </strong></p>
-    <p>
-      Make your website search bar easily discoverable by displaying it prominently on your
-      site. The discoverability of your search box is even more important on ecommerce sites or
-      booking sites where users rely on search to navigate the
-    </p>
+  <h2>Intended behaviour</h2>
+  <p>
+    A search bar is usually made up of two UI elements: an input field, and a button. However,
+    the design of a search bar has a significant effect on how fast users can find the
+    information that they are looking for on your site.
+  </p>
+  <p><strong> Display your search bar prominently </strong></p>
+  <p>
+    Make your website search bar easily discoverable by displaying it prominently on your
+    site. The discoverability of your search box is even more important on ecommerce sites or
+    booking sites where users rely on search to navigate the
+  </p>
 
-    <h2>When to use this component</h2>
+  <h2>When to use this component</h2>
 
-    <p>
-      The thinking and psychology behind search bar use is that it helps users find information
-      quickly. Search bars are useful in complex content-heavy sites that have more than 100
-      pages. In the Business to Consumer (B2C) sector, search bars are used in large e-commerce
-      sites, news sites, deals sites, and booking sites to help users find information easily.
-      They are also used in large Business to Business (B2B) sites that have many customer
-      segments and product lines. If you have a small site that has few pages, a search bar
-      might not be required but you will need it as the site grows.
-    </p>
+  <p>
+    The thinking and psychology behind search bar use is that it helps users find information
+    quickly. Search bars are useful in complex content-heavy sites that have more than 100
+    pages. In the Business to Consumer (B2C) sector, search bars are used in large e-commerce
+    sites, news sites, deals sites, and booking sites to help users find information easily.
+    They are also used in large Business to Business (B2B) sites that have many customer
+    segments and product lines. If you have a small site that has few pages, a search bar
+    might not be required but you will need it as the site grows.
+  </p>
 
-    <h2>When not to use this component</h2>
+  <h2>When not to use this component</h2>
 
-    <p>
-      <a href="http://socialtriggers.com/search-form-blog/"
-        >Smaller websites are better without search</a
-      >. When a site has a limited amount of content (e.g. fewer than 100-200 pages), there’s no
-      need for search.
-    </p>
+  <p>
+    <a href="http://socialtriggers.com/search-form-blog/"
+      >Smaller websites are better without search</a
+    >. When a site has a limited amount of content (e.g. fewer than 100-200 pages), there’s no
+    need for search.
+  </p>
 
-    <h2>Examples</h2>
+  <h2>Examples</h2>
 
-    <h3>From nihr.ac.uk</h3>
+  <h3>From nihr.ac.uk</h3>
 
-    <div class="component-wrapper">{{> header/header-with-search }}</div>
+  <div class="component-wrapper">{% include 'partials/header/header-with-search.html' %}</div>
 
-    <h3>From Funding and Awards</h3>
+  <h3>From Funding and Awards</h3>
 
-    <div class="component-wrapper">{{> component/search-bar/lg-search-component-fa }}</div>
+  <div class="component-wrapper">{% include 'partials/component/search-bar/lg-search-component-fa.html' %}</div>
 
-    <h3>From Funding and Awards</h3>
+  <h3>From Funding and Awards</h3>
 
-    <div class="component-wrapper">{{> component/search-bar/lg-search-inner-page-component }}</div>
+  <div class="component-wrapper">{% include 'partials/component/search-bar/lg-search-inner-page-component.html' %}</div>
 
-    <h3>From the Journals Library</h3>
+  <h3>From the Journals Library</h3>
 
-    <div class="component-wrapper">{{> component/search-bar/lg-search-component-jl }}</div>
-{{/page}}
+  <div class="component-wrapper">{% include 'partials/component/search-bar/lg-search-component-jl.html' %}</div>
+{% endblock %}

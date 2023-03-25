@@ -1,4 +1,6 @@
-{{#> page title="Text input" }}
+{% set title="Text input" %}
+{% extends 'partials/page.html' %}
+{% block content %}
   <p>
     Text inputs are used when you need to let users enter text that’s no longer than a
     single line, such as their name or phone number.
@@ -77,4 +79,4 @@
       <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" />
     </div>
   </div>
-{{/page}}
+{% endblock %}
