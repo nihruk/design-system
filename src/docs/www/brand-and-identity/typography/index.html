@@ -64,7 +64,7 @@
   <img
     src="/_docs_assets/images/brand-and-identity/typography/1.png"
     alt=""
-    class="img-fluid mt-3s component-wrapper"
+    class="img-fluid mt-3s"
   />
 
   <p>You can see that the line heights, heights and all spacing is scaled by 8</p>
@@ -72,7 +72,7 @@
   <img
     src="/_docs_assets/images/brand-and-identity/typography/scale.png"
     alt=""
-    class="img-fluid mt-3s component-wrapper"
+    class="img-fluid mt-3s"
   />
 
   <br />
@@ -80,16 +80,19 @@
   <img
     src="/_docs_assets/images/brand-and-identity/typography/line heights.png"
     alt=""
-    class="img-fluid mt-3s component-wrapper"
+    class="img-fluid mt-3s"
   />
 
   <img
     src="/_docs_assets/images/brand-and-identity/typography/paragraphs.png"
     alt=""
-    class="img-fluid mt-3s component-wrapper"
+    class="img-fluid mt-3s"
   />
 
   <p>These are the font values for mobile and desktop with vertical rhythm applied</p>
 
-  <div class="component-wrapper p-5 bg-white mt-5">{% include 'partials/brand-and-identity/typography/typography.html' %}</div>
+    {% set code %}
+        {% include 'partials/brand-and-identity/typography/typography.html' %}
+    {% endset %}
+    {% include 'partials/example.html' %}
 {% endblock %}

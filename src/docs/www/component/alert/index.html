@@ -30,7 +30,7 @@
 
   <h2>Examples</h2>
 
-  <div class="card component-wrapper p-5 mt-5">
+  {% set code %}
     <div class="alert alert-primary" role="alert">A simple primary alert—check it out!</div>
     <div class="alert alert-secondary" role="alert">
       A simple secondary alert—check it out!
@@ -41,5 +41,6 @@
     <div class="alert alert-info" role="alert">A simple info alert—check it out!</div>
     <div class="alert alert-light" role="alert">A simple light alert—check it out!</div>
     <div class="alert alert-dark" role="alert">A simple dark alert—check it out!</div>
-  </div>
+  {% endset %}
+  {% include 'partials/html-example.html' %}
 {% endblock %}

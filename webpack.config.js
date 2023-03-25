@@ -7,6 +7,8 @@ const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const nunjucks = require('nunjucks');
 const postcssPresetEnv = require('postcss-preset-env');
+const highlight = require('highlight.js');
+const prettier = require('prettier');
 
 const nunjucksEnvironment = new nunjucks.Environment(
   new nunjucks.FileSystemLoader(path.resolve(__dirname, 'src', 'docs')),
@@ -14,6 +16,8 @@ const nunjucksEnvironment = new nunjucks.Environment(
     throwOnUndefined : true,
   },
 )
+nunjucksEnvironment.addFilter('highlight', (code, language) => highlight.highlight(code, {language}).value)
+nunjucksEnvironment.addFilter('prettier', (code, parser) => prettier.format(code, {parser}))
 
 module.exports = (env, args) => {
   const production = args.mode === 'production'
@@ -23,6 +27,9 @@ module.exports = (env, args) => {
           path.resolve(__dirname, 'src', 'assets', 'scss', 'libs.scss'),
           path.resolve(__dirname, 'src', 'assets', 'js', 'theme.js'),
           path.resolve(__dirname, 'src', 'assets', 'scss', 'theme.scss'),
+      ],
+      'docs': [
+          path.resolve(__dirname, 'src', 'docs', 'scss', 'main.scss'),
       ],
     },
     output: {

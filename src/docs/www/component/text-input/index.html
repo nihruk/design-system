@@ -73,10 +73,11 @@
 
   <h2>Examples</h2>
 
-  <div class="component-wrapper bg-white p-3">
+  {% set code %}
     <div class="mb-3">
       <label for="exampleFormControlInput1" class="form-label">Label</label>
       <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" />
     </div>
-  </div>
+  {% endset %}
+  {% include 'partials/html-example.html' %}
 {% endblock %}

@@ -34,9 +34,9 @@
   </p>
 
   <h2>Examples</h2>
-  <div class="bg-white p-5 mt-5 component-wrapper">
-    <div class="component-body">
+
+  {% set code %}
       {% include 'partials/component/search-filter/search-filters.html' %}
-    </div>
-  </div>
+  {% endset %}
+  {% include 'partials/html-example.html' %}
 {% endblock %}
