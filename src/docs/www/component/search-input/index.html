@@ -5,11 +5,15 @@
 
     <h3>Default Search</h3>
 
-    <div class="component-wrapper p-3">{% include 'partials/component/search-bar/sm-search-component.html' %}</div>
-
-    <br />
+    {% set code %}
+        {% include 'partials/component/search-bar/sm-search-component.html' %}
+    {% endset %}
+    {% include 'partials/html-example.html' %}
 
     <h3>Large Search</h3>
 
-    <div class="component-wrapper p-3">{% include 'partials/component/search-bar/lg-search-component.html' %}</div>
+    {% set code %}
+        {% include 'partials/component/search-bar/lg-search-component.html' %}
+    {% endset %}
+    {% include 'partials/html-example.html' %}
 {% endblock %}

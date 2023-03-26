@@ -43,17 +43,29 @@
 
   <h3>From nihr.ac.uk</h3>
 
-  <div class="component-wrapper">{% include 'partials/header/header-with-search.html' %}</div>
+    {% set code %}
+        {% include 'partials/header/header-with-search.html' %}
+    {% endset %}
+    {% include 'partials/html-example.html' %}
 
   <h3>From Funding and Awards</h3>
 
-  <div class="component-wrapper">{% include 'partials/component/search-bar/lg-search-component-fa.html' %}</div>
+    {% set code %}
+        {% include 'partials/component/search-bar/lg-search-component-fa.html' %}
+    {% endset %}
+    {% include 'partials/html-example.html' %}
 
   <h3>From Funding and Awards</h3>
 
-  <div class="component-wrapper">{% include 'partials/component/search-bar/lg-search-inner-page-component.html' %}</div>
+    {% set code %}
+        {% include 'partials/component/search-bar/lg-search-inner-page-component.html' %}
+    {% endset %}
+    {% include 'partials/html-example.html' %}
 
   <h3>From the Journals Library</h3>
 
-  <div class="component-wrapper">{% include 'partials/component/search-bar/lg-search-component-jl.html' %}</div>
+    {% set code %}
+        {% include 'partials/component/search-bar/lg-search-component-jl.html' %}
+    {% endset %}
+    {% include 'partials/html-example.html' %}
 {% endblock %}

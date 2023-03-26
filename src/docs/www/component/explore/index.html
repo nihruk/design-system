@@ -52,5 +52,8 @@
 
   <h2>Examples</h2>
 
-  <div class="component-wrapper">{% include 'partials/component/explore/explore-other-sites.html' %}</div>
+  {% set code %}
+      {% include 'partials/component/explore/explore-other-sites.html' %}
+  {% endset %}
+  {% include 'partials/html-example.html' %}
 {% endblock %}
