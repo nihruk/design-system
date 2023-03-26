@@ -1,4 +1,6 @@
-{{#> page title="About us" }}
+{% set title="About us" %}
+{% extends 'partials/page.html' %}
+{% block content %}
     <p>
         The Design System for the NIHR is developed by <a href="https://www.southampton.ac.uk/netscc/index.page">NETSCC</a>
         at the University of Southampton.
@@ -7,4 +9,4 @@
         The <a href="http://www.nihr.ac.uk/">NIHR</a> funds, enables and delivers world-leading health and social
         care research that improves people’s health and wellbeing and promotes economic growth.
     </p>
-{{/page}}
+{% endblock %}

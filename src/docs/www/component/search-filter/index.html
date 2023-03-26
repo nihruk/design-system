@@ -1,4 +1,6 @@
-{{#> page title="Search filter" }}
+{% set title="Search filter" %}
+{% extends 'partials/page.html' %}
+{% block content %}
   <p>
     Search filters narrow down results by common characteristics such as price, colour, or
     popularity.
@@ -34,7 +36,7 @@
   <h2>Examples</h2>
   <div class="bg-white p-5 mt-5 component-wrapper">
     <div class="component-body">
-      {{> component/search-filter/search-filters }}
+      {% include 'partials/component/search-filter/search-filters.html' %}
     </div>
   </div>
-{{/page}}
+{% endblock %}

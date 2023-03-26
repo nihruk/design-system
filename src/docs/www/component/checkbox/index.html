@@ -1,4 +1,6 @@
-{{#> page title="Checkbox" }}
+{% set title="Checkbox" %}
+{% extends 'partials/page.html' %}
+{% block content %}
   <p>Checkboxes are used to let users select 1 or more options on a form.</p>
 
   <h2>Intended behaviour</h2>
@@ -97,4 +99,4 @@
       <label class="form-check-label" for="flexCheckChecked"> Checked checkbox </label>
     </div>
   </div>
-{{/page}}
+{% endblock %}

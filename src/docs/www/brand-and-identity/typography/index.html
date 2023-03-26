@@ -1,4 +1,6 @@
-{{#> page title="Typography" }}
+{% set title="Typography" %}
+{% extends 'partials/page.html' %}
+{% block content %}
   <h2>Using our NIHR typeface</h2>
 
   <p>
@@ -60,7 +62,7 @@
   </p>
 
   <img
-    src="{{webRoot}}/_docs_assets/images/brand-and-identity/typography/1.png"
+    src="/_docs_assets/images/brand-and-identity/typography/1.png"
     alt=""
     class="img-fluid mt-3s component-wrapper"
   />
@@ -68,7 +70,7 @@
   <p>You can see that the line heights, heights and all spacing is scaled by 8</p>
 
   <img
-    src="{{webRoot}}/_docs_assets/images/brand-and-identity/typography/scale.png"
+    src="/_docs_assets/images/brand-and-identity/typography/scale.png"
     alt=""
     class="img-fluid mt-3s component-wrapper"
   />
@@ -76,18 +78,18 @@
   <br />
 
   <img
-    src="{{webRoot}}/_docs_assets/images/brand-and-identity/typography/line heights.png"
+    src="/_docs_assets/images/brand-and-identity/typography/line heights.png"
     alt=""
     class="img-fluid mt-3s component-wrapper"
   />
 
   <img
-    src="{{webRoot}}/_docs_assets/images/brand-and-identity/typography/paragraphs.png"
+    src="/_docs_assets/images/brand-and-identity/typography/paragraphs.png"
     alt=""
     class="img-fluid mt-3s component-wrapper"
   />
 
   <p>These are the font values for mobile and desktop with vertical rhythm applied</p>
 
-  <div class="component-wrapper p-5 bg-white mt-5">{{> brand-and-identity/typography/typography }}</div>
-{{/page}}
+  <div class="component-wrapper p-5 bg-white mt-5">{% include 'partials/brand-and-identity/typography/typography.html' %}</div>
+{% endblock %}

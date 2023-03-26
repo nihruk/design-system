@@ -1,5 +1,6 @@
-{{#> page title="Header" }}
-
+{% set title="Header" %}
+{% extends 'partials/page.html' %}
+{% block content %}
     <h2>Intended behaviour</h2>
 
     <p>
@@ -17,13 +18,9 @@
 
     <h3>From nihr.ac.uk</h3>
 
-    <div class="component-wrapper mt-5">{{> header/header-with-search }}</div>
+    <div class="component-wrapper mt-5">{% include 'partials/header/header-with-search.html' %}</div>
 
-    <h3>From the Journals Library</h3>
+    <h3>From the Journals Library and Funding and Awards</h3>
 
-    <div class="component-wrapper mt-5">{{> header/header }}</div>
-
-    <h3>From Funding and Awards</h3>
-
-    <div class="component-wrapper mt-5">{{> header/header }}</div>
-{{/page}}
+    <div class="component-wrapper mt-5">{% include 'partials/header/header.html' %}</div>
+{% endblock %}

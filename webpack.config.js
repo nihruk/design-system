@@ -4,27 +4,16 @@ const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const Handlebars = require("handlebars");
-const fs = require("fs");
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const nunjucks = require('nunjucks');
 const postcssPresetEnv = require('postcss-preset-env');
 
-function registerPartialsDirectory(directoryPath, directoryNameParts = []) {
-  fs.readdirSync(directoryPath)
-    .forEach((filename) => {
-      if (fs.statSync(path.resolve(directoryPath, filename)).isDirectory()) {
-        return registerPartialsDirectory(
-            path.resolve(directoryPath, filename),
-            [...directoryNameParts, filename],
-            )
-      }
-      Handlebars.registerPartial(
-          [...directoryNameParts, filename.slice(0, -5)].join('/'),
-          fs.readFileSync(path.resolve(directoryPath, filename), 'utf8'),
-      );
-    });
-}
-registerPartialsDirectory(path.resolve(__dirname, 'src', 'docs', 'partials'))
+const nunjucksEnvironment = new nunjucks.Environment(
+  new nunjucks.FileSystemLoader(path.resolve(__dirname, 'src', 'docs')),
+  {
+    throwOnUndefined : true,
+  },
+)
 
 module.exports = (env, args) => {
   const production = args.mode === 'production'
@@ -141,7 +130,7 @@ module.exports = (env, args) => {
           {
             from: path.resolve(__dirname, 'src', 'docs', 'www'),
             to: path.resolve(__dirname, 'dist'),
-            transform: (content, filename) => filename.endsWith('.html') ? Handlebars.compile(content.toString())() : content
+            transform: (content, filename) => filename.endsWith('.html') ? nunjucksEnvironment.render(filename) : content
           }
         ]
       }),

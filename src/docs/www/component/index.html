@@ -1,4 +1,5 @@
-{{#> page title="Components" }}
+{% extends 'partials/page.html' %}
+{% block content %}
   <p>
     Components are the building blocks in the Design System. Quickly combined, they shape up to entire pages and applications.
   </p>
@@ -6,42 +7,42 @@
     <div class="col-md-4">
       <ul class="list-group">
         <li class="list-group-item">
-          <a href="{{webRoot}}/component/alert">Alert</a>
+          <a href="/component/alert">Alert</a>
         </li>
         <li class="list-group-item">
-          <a href="{{webRoot}}/component/button">Button</a>
+          <a href="/component/button">Button</a>
         </li>
         <li class="list-group-item">
-          <a href="{{webRoot}}/component/checkbox">Checkbox</a>
+          <a href="/component/checkbox">Checkbox</a>
         </li>
         <li class="list-group-item">
-          <a href="{{webRoot}}/component/explore">Explore other sites</a>
+          <a href="/component/explore">Explore other sites</a>
         </li>
         <li class="list-group-item">
-          <a href="{{webRoot}}/component/footer">Footer</a>
+          <a href="/component/footer">Footer</a>
         </li>
         <li class="list-group-item">
-          <a href="{{webRoot}}/component/header">Header</a>
+          <a href="/component/header">Header</a>
         </li>
         <li class="list-group-item">
-          <a href="{{webRoot}}/component/search-bar">Search bar</a>
+          <a href="/component/search-bar">Search bar</a>
         </li>
         <li class="list-group-item">
-          <a href="{{webRoot}}/component/search-filter">Search filter</a>
+          <a href="/component/search-filter">Search filter</a>
         </li>
         <li class="list-group-item">
-          <a href="{{webRoot}}/component/search-input">Search input</a>
+          <a href="/component/search-input">Search input</a>
         </li>
         <li class="list-group-item">
-          <a href="{{webRoot}}/component/select-input">Select input</a>
+          <a href="/component/select-input">Select input</a>
         </li>
         <li class="list-group-item">
-          <a href="{{webRoot}}/component/table">Table</a>
+          <a href="/component/table">Table</a>
         </li>
         <li class="list-group-item">
-          <a href="{{webRoot}}/component/text-input">Text input</a>
+          <a href="/component/text-input">Text input</a>
         </li>
       </ul>
     </div>
   </div>
-{{/page}}
+{% endblock %}

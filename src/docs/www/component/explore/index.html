@@ -1,4 +1,6 @@
-{{#> page title="Explore other sites" }}
+{% set title="Explore other sites" %}
+{% extends 'partials/page.html' %}
+{% block content %}
   <p>
     The user needs to browse related content on another NIHR service
   </p>
@@ -50,5 +52,5 @@
 
   <h2>Examples</h2>
 
-  <div class="component-wrapper">{{> component/explore/explore-other-sites}}</div>
-{{/page}}
+  <div class="component-wrapper">{% include 'partials/component/explore/explore-other-sites.html' %}</div>
+{% endblock %}

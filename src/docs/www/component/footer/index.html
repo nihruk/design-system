@@ -1,4 +1,6 @@
-{{#> page title="Footer" }}
+{% set title="Footer" %}
+{% extends 'partials/page.html' %}
+{% block content %}
   <p>The footer provides copyright, licensing and other information about your service.</p>
 
   <h2>Intended behaviour</h2>
@@ -47,6 +49,6 @@
   <h2>Examples</h2>
 
   <div class="component-wrapper">
-    {{> component/footer/footer-component }}
+    {% include 'partials/component/footer/footer-component.html' %}
   </div>
-{{/page}}
+{% endblock %}

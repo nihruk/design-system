@@ -1,10 +1,12 @@
-{{#> page title="Text types" }}
+{% set title="Text types" %}
+{% extends 'partials/page.html' %}
+{% block content %}
   <p>Rules on how we handle typography</p>
 
   <div class="row">
     <div class="col">
       <img
-        src="{{webRoot}}/_docs_assets/images/brand-and-identity/text/733c2418-270d-474e-b0e6-5d5c8be923f3.png"
+        src="/_docs_assets/images/brand-and-identity/text/733c2418-270d-474e-b0e6-5d5c8be923f3.png"
         alt=""
         class="img-fluid mt-3s component-wrapper p-3 bg-white"
       />
@@ -12,7 +14,7 @@
 
     <div class="col">
       <img
-        src="{{webRoot}}/_docs_assets/images/brand-and-identity/text/7d5f26a4-d6e4-4408-b520-817272150e2e.png"
+        src="/_docs_assets/images/brand-and-identity/text/7d5f26a4-d6e4-4408-b520-817272150e2e.png"
         alt=""
         class="img-fluid mt-3s component-wrapper p-3 bg-white"
       />
@@ -51,5 +53,5 @@
   <p>
     Links are blue and underlined by default. If your link is at the end of a sentence or
     paragraph, make sure that the linked text does not include the full stop.
-</p>
-{{/page}}
+  </p>
+{% endblock %}
