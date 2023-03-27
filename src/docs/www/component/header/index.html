@@ -16,17 +16,17 @@
 
     <h2>Examples</h2>
 
-    <h3>From nihr.ac.uk</h3>
-
-    {% set code %}
-        {% include 'partials/header/header-with-search.html' %}
-    {% endset %}
-    {% include 'partials/html-example.html' %}
-
-    <h3>From the Journals Library and Funding and Awards</h3>
+    <h3>Default header</h3>
 
     {% set code %}
         {% include 'partials/header/header.html' %}
+    {% endset %}
+    {% include 'partials/html-example.html' %}
+
+    <h3>Header with search</h3>
+
+    {% set code %}
+        {% include 'partials/header/header-with-search.html' %}
     {% endset %}
     {% include 'partials/html-example.html' %}
 {% endblock %}
