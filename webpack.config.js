@@ -8,7 +8,16 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const nunjucks = require('nunjucks');
 const postcssPresetEnv = require('postcss-preset-env');
 const highlight = require('highlight.js');
-const prettier = require('prettier');
+const prettier = require('prettier')
+
+function normalizeUrlPath(urlPath) {
+  if (urlPath.endsWith('índex.html')) {
+    urlPath = urlPath.slice(0, 10)
+  }
+  return '/'+ urlPath.split('/')
+  .filter(x => x)
+  .join('/')
+}
 
 const nunjucksEnvironment = new nunjucks.Environment(
   new nunjucks.FileSystemLoader(path.resolve(__dirname, 'src', 'docs')),
@@ -16,8 +25,33 @@ const nunjucksEnvironment = new nunjucks.Environment(
     throwOnUndefined : true,
   },
 )
+nunjucksEnvironment._currentPageUrlPath = null;
 nunjucksEnvironment.addFilter('highlight', (code, language) => highlight.highlight(code, {language}).value)
 nunjucksEnvironment.addFilter('prettier', (code, parser) => prettier.format(code, {parser}))
+nunjucksEnvironment.addTest('activeUrl', urlPath => {
+  if (!nunjucksEnvironment._currentPageUrlPath) {
+    throw new Error('No page is being templated right now.')
+  }
+  return nunjucksEnvironment._currentPageUrlPath.startsWith(normalizeUrlPath(urlPath))
+})
+
+const nunjucksWwwFilePageUrlPathPrefixLength = path.join(__dirname, 'src', 'docs', 'www').length
+
+function renderNunjucksFile(filename) {
+  nunjucksEnvironment._currentPageUrlPath = normalizeUrlPath(
+      filename.slice(nunjucksWwwFilePageUrlPathPrefixLength)
+        .split(path.sep)
+        .join('/')
+  )
+  try {
+    return nunjucksEnvironment.render(filename, {
+      pageUrlPath: nunjucksEnvironment._currentPageUrlPath,
+    })
+  }
+  finally {
+    nunjucksEnvironment._currentPageUrlPath = null
+  }
+}
 
 module.exports = (env, args) => {
   const production = args.mode === 'production'
@@ -137,7 +171,7 @@ module.exports = (env, args) => {
           {
             from: path.resolve(__dirname, 'src', 'docs', 'www'),
             to: path.resolve(__dirname, 'dist'),
-            transform: (content, filename) => filename.endsWith('.html') ? nunjucksEnvironment.render(filename) : content
+            transform: (content, filename) => filename.endsWith('.html') ? renderNunjucksFile(filename) : content
           }
         ]
       }),
