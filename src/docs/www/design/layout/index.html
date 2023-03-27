@@ -1,14 +1,27 @@
 {% set title="Layout" %}
 {% extends 'partials/page.html' %}
 {% block content %}
-  <h2>Screen size</h2>
-
-  <p>Design for small screens first, starting with a single-column layout.</p>
+  <p class="lead">Use the grid system to lay out the content on your service's pages.</p>
   <p>
-    For most types of page, we recommend using either a ‘two-thirds’ or a ‘two-thirds and
-    one-third’ layout. That stops lines of text getting so long that the page becomes
-    difficult to read on desktop devices. This would usually mean no more than 75 characters
-    per line.
+    Most NIHR pages serving text content follow a <i>two-thirds</i> or <i>two-thirds and one-third</i> layout, where the
+    main content is always displayed in the two-thirds column. The optional one-third column is for secondary content or
+    navigation. This stops lines of text getting so long that the page becomes difficult to read on desktop devices.
+    This would usually mean no more than 75 characters per line.
+  </p>
+  <p>
+    However, the Design System allows for other layouts if your type of service needs it.
+  </p>
+
+  <h2>The grid system</h2>
+  <p>
+    The Design System builds layouts using Bootstrap's <a href="https://getbootstrap.com/docs/5.2/layout/grid/">grid
+    system</a>. Grids are containers that contain rows that contain columns (cells). Each cell in each row and column
+    can be sized and positioned within the grid.
+  </p>
+
+  <h2>Screen size</h2>
+  <p>
+    Design for small screens first, starting with a single-column layout.
   </p>
   <p>
     Never make assumptions about what devices people are using. Design for different screen
@@ -18,50 +31,24 @@
     The default maximum page width is 1440px, but you can make it wider if your content
     requires it.
   </p>
-  <h2 class="mt-5">Common Layouts</h2>
 
-  <h4>Two-thirds</h4>
+  <h2>Common Layouts</h2>
+  <h3>Two-thirds</h3>
+  {% set code %}
+      {% include 'partials/design/layout/two-thirds.html' %}
+  {% endset %}
+  {% include 'partials/html-example.html' %}
 
-  <img
-    src="/_docs_assets/images/design/layout/5e12f042-951d-4dfd-acc8-03069280f894.png"
-    alt=""
-    class="img-fluid"
-  />
+  <h3>Two-thirds and one-third</h3>
+  {% set code %}
+      {% include 'partials/design/layout/two-thirds--one-third.html' %}
+  {% endset %}
+  {% include 'partials/html-example.html' %}
 
-  <h4 class="mt-3">Two-thirds and one-third’</h4>
-
-  <img
-    src="/_docs_assets/images/design/layout/334a0b06-6caa-46ed-936c-0d520a9f2c22.png"
-    alt=""
-    class="img-fluid"
-  />
-
-  <h4 class="mt-3">Row 1: Two-thirds</h4>
-  <h4>Row 2: Two-thirds and one-third</h4>
-
-  <img
-    src="/_docs_assets/images/design/layout/5273c35f-1b1a-4260-b93e-3a09d9127173.png"
-    alt=""
-    class="img-fluid"
-  />
-
-  <h2 class="mt-5">Grid system</h2>
-  <p>Use the grid system to lay out the content on your service’s pages.</p>
-  <p>
-    Most GOV.UK pages follow a ‘two-thirds and one-third’ layout and we aim to follow that,
-    but the grid system allows for a number of additional combinations when necessary.
-  </p>
-  <p>
-    Your main content should always be in a two-thirds column even if you’re not using a
-    corresponding one-third column for secondary content.
-  </p>
-  <h3>Understanding the grid system</h3>
-
-  <p>
-    The grid is structured with a wrapper which acts as a row to contain your grid columns.
-  </p>
-  <p>
-    You can add columns inside this wrapper to create your layout. To define your columns …
-  </p>
-  <p>The available widths are:</p>
+  <h2>See also</h2>
+  <ul>
+    <li>
+      <a href="https://getbootstrap.com/docs/5.2/layout/grid/"><i>Bootstrap</i> grid system documentation</a>
+    </li>
+  </ul>
 {% endblock %}
