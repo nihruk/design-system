@@ -1,57 +1,316 @@
 {% set title="Text types" %}
 {% extends 'partials/page.html' %}
 {% block content %}
-  <p>Rules on how we handle typography</p>
+  <p class="lead">
+    Add semantic meaning and visual appearance to your text using our text types.
+  </p>
+  <table class="table">
+    <caption>The available text types and how to apply them using HTML tags and classes.</caption>
+    <thead>
+      <tr>
+        <th>Tag</th>
+        <th>Class</th>
+        <th>Sample</th>
+      </tr>
+    </thead>
+    <tr>
+      <td>
+        <code>&lt;h1&gt;</code>
+      </td>
+      <td>
+        <code>.h1</code>
+      </td>
+      <td>
+        <span class="h1">Funding Guidelines</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;h2&gt;</code>
+      </td>
+      <td>
+        <code>.h2</code>
+      </td>
+      <td>
+        <span class="h2">Funding Guidelines</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;h3&gt;</code>
+      </td>
+      <td>
+        <code>.h3</code>
+      </td>
+      <td>
+        <span class="h3">Funding Guidelines</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;h4&gt;</code>
+      </td>
+      <td>
+        <code>.h4</code>
+      </td>
+      <td>
+        <span class="h4">Funding Guidelines</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;h5&gt;</code>
+      </td>
+      <td>
+        <code>.h5</code>
+      </td>
+      <td>
+        <span class="h5">Funding Guidelines</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;h6&gt;</code>
+      </td>
+      <td>
+        <code>.h6</code>
+      </td>
+      <td>
+        <span class="h6">Funding Guidelines</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;p&gt;</code>
+      </td>
+      <td>
+      </td>
+      <td>
+        <p>Funding Guidelines</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;p class="lead"&gt;</code>
+      </td>
+      <td>
+      </td>
+      <td>
+        <p class="lead">Funding Guidelines</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;a&gt;</code>
+      </td>
+      <td>
+      </td>
+      <td>
+        <p>
+          <a href="#">Funding Guidelines</a>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;mark&gt;</code>
+      </td>
+      <td>
+        <code>.mark</code>
+      </td>
+      <td>
+        <p>
+          <span class="mark">Funding Guidelines</span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;small&gt;</code>
+      </td>
+      <td>
+        <code>.small</code>
+      </td>
+      <td>
+        <p>
+          <span class="small">Funding Guidelines</span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;del&gt;</code>
+      </td>
+      <td>
+      </td>
+      <td>
+        <p>
+          <del>Funding Guidelines</del>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;s&gt;</code>
+      </td>
+      <td>
+        <code>.text-decoration-line-through</code>
+      </td>
+      <td>
+        <p>
+          <span class="text-decoration-line-through">Funding Guidelines</span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;ins&gt;</code>
+      </td>
+      <td>
+      </td>
+      <td>
+        <p>
+          <ins>Funding Guidelines</ins>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;u&gt;</code>
+      </td>
+      <td>
+        <code>.text-decoration-underline</code>
+      </td>
+      <td>
+        <p>
+          <span class="text-decoration-underline">Funding Guidelines</span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;strong&gt;</code>
+      </td>
+      <td>
+      </td>
+      <td>
+        <p>
+          <strong>Funding Guidelines</strong>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;b&gt;</code>
+      </td>
+      <td>
+      </td>
+      <td>
+        <p>
+          <b>Funding Guidelines</b>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;em&gt;</code>
+      </td>
+      <td>
+      </td>
+      <td>
+        <p>
+          <em>Funding Guidelines</em>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;i&gt;</code>
+      </td>
+      <td>
+      </td>
+      <td>
+        <p>
+          <i>Funding Guidelines</i>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;abbr&gt;</code>
+      </td>
+      <td>
+      </td>
+      <td>
+        <p>
+          <abbr title="National Institute for Health and Care Research">NIHR</abbr>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>&lt;abbr class="initialism"&gt;</code>
+      </td>
+      <td>
+      </td>
+      <td>
+        <p>
+          <abbr title="National Institute for Health and Care Research" class="initialism">NIHR</abbr>
+        </p>
+      </td>
+    </tr>
+  </table>
 
-  <div class="row">
-    <div class="col">
-      <img
-        src="/_docs_assets/images/brand-and-identity/text/733c2418-270d-474e-b0e6-5d5c8be923f3.png"
-        alt=""
-        class="img-fluid mt-3s p-3 bg-white"
-      />
-    </div>
-
-    <div class="col">
-      <img
-        src="/_docs_assets/images/brand-and-identity/text/7d5f26a4-d6e4-4408-b520-817272150e2e.png"
-        alt=""
-        class="img-fluid mt-3s p-3 bg-white"
-      />
-    </div>
-  </div>
-
-  <h2>Intended behaviour</h2>
-
-  <h3>Headings</h3>
+  <h2>Headings</h2>
 
   <p>Write all headings in sentence case.</p>
   <p>
-    Use heading tags, such as h1, h2 and so on, to tag the headings on a page. Apply a heading
-    class, such as govuk-heading-l, to style them visually. Style headings consistently to
-    create a clear content structure throughout your service.
+    Use heading tags, such as <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, and so on, to tag the headings on a
+    page. Style headings consistently to create a clear content structure throughout your service.
   </p>
 
-  <h3>Paragraphs</h3>
+  <h2>Paragraph text</h2>
 
-  <h4>Body</h4>
-  <p>The default paragraph font size is 22px on large screens and 16px on small screens.</p>
-  <h4>Bold text</h4>
+  <h3>Importance and attention</h3>
   <p>
-    You can use bold to emphasize particular words in a transaction. Use it to highlight
-    critical information that users need to refer to or you’ve seen them miss.
+    You can use <code>&lt;strong&gt;</code> to mark text as important, or <code>&lt;b&gt;</code> to draw attention
+    to text that is not otherwise important. For example:
   </p>
+  {% set code %}
+    <p>
+      Your reference number is <strong>ABC12345678</strong>. Use this to track your application.
+      Updates will be sent to <b>name@example.com</b>.
+    </p>
+  {% endset %}
+  {% include 'partials/html-example.html' %}
+
+  <h3>Emphasis and idiomatic text</h3>
   <p>
-    For example, “Your reference number is ABC12345678. Use this to track your application.
-    Updates will be sent to name@example.com“
+    You can use <code>&lt;em&gt;</code> to emphasize text as one would do when speaking, or <code>&lt;i&gt;</code> to
+    draw attention to mark idiomatic text, such as a name or a phrase that is not otherwise important. For example:
   </p>
-  <p>
-    Use bold sparingly. Overuse will make it difficult for users to know which parts of your
-    content they need to pay the most attention to.
-  </p>
-  <h4>Links</h4>
+  {% set code %}
+    <p>
+      You <em>must</em> read some of the <i>National Institute for Health and Care Research</i>'s new research!
+    </p>
+  {% endset %}
+  {% include 'partials/html-example.html' %}
+
+  <h3>Links</h3>
   <p>
     Links are blue and underlined by default. If your link is at the end of a sentence or
     paragraph, make sure that the linked text does not include the full stop.
+  </p>
+  {% set code %}
+    <p>
+      Now that your application has been submitted, you can <a href="#">view its progress</a>.
+    </p>
+  {% endset %}
+  {% include 'partials/html-example.html' %}
+
+  <h3>Readability</h3>
+  <p>
+    Use these elements and styles sparingly. Overuse will make it difficult for users to know which parts of your
+    content they need to pay the most attention to.
   </p>
 {% endblock %}
