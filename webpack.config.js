@@ -5,53 +5,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const nunjucks = require('nunjucks');
 const postcssPresetEnv = require('postcss-preset-env');
-const highlight = require('highlight.js');
-const prettier = require('prettier')
+const {renderNunjucksFile} = require("./src/docs/js/nunjucks");
 
-function normalizeUrlPath(urlPath) {
-  if (urlPath.endsWith('índex.html')) {
-    urlPath = urlPath.slice(0, 10)
-  }
-  return '/'+ urlPath.split('/')
-  .filter(x => x)
-  .join('/')
-}
-
-const nunjucksEnvironment = new nunjucks.Environment(
-  new nunjucks.FileSystemLoader(path.resolve(__dirname, 'src', 'docs')),
-  {
-    throwOnUndefined : true,
-  },
-)
-nunjucksEnvironment._currentPageUrlPath = null;
-nunjucksEnvironment.addFilter('highlight', (code, language) => highlight.highlight(code, {language}).value)
-nunjucksEnvironment.addFilter('prettier', (code, parser) => prettier.format(code, {parser}))
-nunjucksEnvironment.addTest('activeUrl', urlPath => {
-  if (!nunjucksEnvironment._currentPageUrlPath) {
-    throw new Error('No page is being templated right now.')
-  }
-  return nunjucksEnvironment._currentPageUrlPath.startsWith(normalizeUrlPath(urlPath))
-})
-
-const nunjucksWwwFilePageUrlPathPrefixLength = path.join(__dirname, 'src', 'docs', 'www').length
-
-function renderNunjucksFile(filename) {
-  nunjucksEnvironment._currentPageUrlPath = normalizeUrlPath(
-      filename.slice(nunjucksWwwFilePageUrlPathPrefixLength)
-        .split(path.sep)
-        .join('/')
-  )
-  try {
-    return nunjucksEnvironment.render(filename, {
-      pageUrlPath: nunjucksEnvironment._currentPageUrlPath,
-    })
-  }
-  finally {
-    nunjucksEnvironment._currentPageUrlPath = null
-  }
-}
 
 module.exports = (env, args) => {
   const production = args.mode === 'production'
@@ -69,6 +25,14 @@ module.exports = (env, args) => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].bundle.js',
+      clean: true,
+    },
+    devServer: {
+      watchFiles: {
+        paths: [
+            path.join('src', '**', '*'),
+        ],
+      },
     },
     mode: args.mode,
     module: {
