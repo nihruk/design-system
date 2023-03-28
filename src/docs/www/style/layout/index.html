@@ -1,6 +1,6 @@
 {% set title="Layout" %}
-{% extends 'partials/page.html' %}
-{% block pageContent %}
+{% extends 'partials/style-page.html' %}
+{% block stylePageContent %}
   <p class="lead">Use the grid system to lay out the content on your service's pages.</p>
   <p>
     Most NIHR pages serving text content follow a <i>two-thirds</i> or <i>two-thirds and one-third</i> layout, where the
@@ -35,13 +35,13 @@
   <h2>Common Layouts</h2>
   <h3>Two-thirds</h3>
   {% set code %}
-      {% include 'partials/design/layout/two-thirds.html' %}
+      {% include 'partials/style/layout/two-thirds.html' %}
   {% endset %}
   {% include 'partials/html-example.html' %}
 
   <h3>Two-thirds and one-third</h3>
   {% set code %}
-      {% include 'partials/design/layout/two-thirds--one-third.html' %}
+      {% include 'partials/style/layout/two-thirds--one-third.html' %}
   {% endset %}
   {% include 'partials/html-example.html' %}
 

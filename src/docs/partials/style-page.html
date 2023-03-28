@@ -1,0 +1,15 @@
+{% extends 'partials/page.html' %}
+{% block pageContent %}
+  <div class="row justify-content-md-center">
+    <nav class="col-lg-4 d-none d-lg-block">
+      {% include 'partials/style-list.html' %}
+    </nav>
+    <div class="col-lg-8">
+      {% block stylePageContent %}
+      {% endblock %}
+    </div>
+    <nav class="col d-lg-none">
+      {% include 'partials/style-list.html' %}
+    </nav>
+  </div>
+{% endblock %}

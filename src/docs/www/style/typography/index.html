@@ -1,6 +1,6 @@
 {% set title="Typography" %}
-{% extends 'partials/page.html' %}
-{% block pageContent %}
+{% extends 'partials/style-page.html' %}
+{% block stylePageContent %}
   <h2>Using our NIHR typeface</h2>
 
   <p>
@@ -62,7 +62,7 @@
   </p>
 
   <img
-    src="/_docs_assets/images/brand-and-identity/typography/1.png"
+    src="/_docs_assets/images/style/typography/1.png"
     alt=""
     class="img-fluid mt-3s"
   />
@@ -70,7 +70,7 @@
   <p>You can see that the line heights, heights and all spacing is scaled by 8</p>
 
   <img
-    src="/_docs_assets/images/brand-and-identity/typography/scale.png"
+    src="/_docs_assets/images/style/typography/scale.png"
     alt=""
     class="img-fluid mt-3s"
   />
@@ -78,13 +78,13 @@
   <br />
 
   <img
-    src="/_docs_assets/images/brand-and-identity/typography/line heights.png"
+    src="/_docs_assets/images/style/typography/line heights.png"
     alt=""
     class="img-fluid mt-3s"
   />
 
   <img
-    src="/_docs_assets/images/brand-and-identity/typography/paragraphs.png"
+    src="/_docs_assets/images/style/typography/paragraphs.png"
     alt=""
     class="img-fluid mt-3s"
   />
@@ -92,7 +92,7 @@
   <p>These are the font values for mobile and desktop with vertical rhythm applied</p>
 
     {% set code %}
-        {% include 'partials/brand-and-identity/typography/typography.html' %}
+        {% include 'partials/style/typography/typography.html' %}
     {% endset %}
     {% include 'partials/example.html' %}
 {% endblock %}
