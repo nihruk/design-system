@@ -4,7 +4,7 @@ const highlight = require('highlight.js');
 const prettier = require('prettier');
 
 
-const nunjucksWwwFilePageUrlPathPrefixLength = path.join(__dirname, 'src', 'docs', 'www').length
+const nunjucksWwwFilePageUrlPathPrefixLength = path.resolve(__dirname, '..', 'www').length
 function normalizeUrlPath(urlPath) {
     if (urlPath.endsWith('índex.html')) {
         urlPath = urlPath.slice(0, 10)
