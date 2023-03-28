@@ -1,4 +1,4 @@
-<h4>All components</h4>
+<h4>Browse components</h4>
 <ul class="nav nav-pills flex-column">
   {% set components = {
     'alert': 'Alert',
@@ -16,7 +16,7 @@
   } %}
   {% for componentId, componentName in components %}
     <li>
-      <a href="/component/{{ componentId }}" class="nav-link{% if ('component/' ~ componentId) is activeUrl %} active" aria-current="page{% endif %}">{{ componentName }}</a>
+      <a href="/component/{{ componentId }}" class="nav-link{% if ('component/' ~ componentId) is activeCurrentUrl %} active" aria-current="page{% endif %}">{{ componentName }}</a>
     </li>
   {% endfor %}
 </ul>

@@ -1,0 +1,28 @@
+{% set title="Introduction to the Design System" %}
+{% extends 'partials/get-started-page.html' %}
+{% block getStartedPageContent %}
+    <p class="lead">
+        The <i>Design System for the NIHR</i> is a collection of style guidelines for designing and branding NIHR web
+        applications, on how to design content and interaction, as well as a set of tools to quickly build your own
+        applications following these guidelines.
+    </p>
+    <p>
+        The <a href="/style">Styles</a> section documents the guidelines, ranging from branding, to colour, to text, to
+        content presentation. These apply to all applications that must implement NIHR corporate branding.
+    </p>
+    <p>
+        Built on top of the style guidelines are the <a href="/component">components</a>, which are concrete bits of
+        HTML, CSS, and sometimes JavaScript that fulfil a specific purpose, and that can be reused throughout your
+        application like building bricks.
+    </p>
+    <p>
+        You may choose to implement the Design System's style guidelines using your own technology stack. Alternatively,
+        you can <a href="/get-started/install">install the Design System</a> into your project, and reuse our own
+        component implementations that are based on <a href="getbootstrap.com/">Bootstrap</a>.
+    </p>
+    <p>
+        The entire Design System ecosystem is built using code, including the style guidelines, this documentation site,
+        and the Bootstrap implementations of our components. Find us on Github under
+        <a href="https://github.com/nihruk/design-system">nihruk/design-system</a>.
+    </p>
+{% endblock %}
