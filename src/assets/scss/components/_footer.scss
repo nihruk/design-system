@@ -61,6 +61,10 @@
     color: #fff;
   }
 
+  .funded-by-department-of-health-and-social-care-logo img {
+    max-width: 10.2rem;
+  }
+
   .bottom-nav {
     @include media-breakpoint-up(lg) {
       display: flex;
