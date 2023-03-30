@@ -1,0 +1,12 @@
+<h4>Get started</h4>
+<ul class="nav nav-pills flex-column">
+  {% set getStarted = {
+    '': 'Introduction',
+    'install': 'Installation'
+  } %}
+  {% for getStartedId, getStartedName in getStarted %}
+    <li>
+      <a href="/get-started/{{ getStartedId }}" class="nav-link{% if ('get-started/' ~ getStartedId) is activeCurrentUrl %} active" aria-current="page{% endif %}">{{ getStartedName }}</a>
+    </li>
+  {% endfor %}
+</ul>

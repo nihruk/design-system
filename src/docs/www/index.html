@@ -1,20 +1,47 @@
 {% set visuallyHideTitle=true %}
 {% extends 'partials/page.html' %}
 {% block pageContent %}
-  <h1 class="visually-hidden">Design System for the NIHR</h1>
-  <p class="fs-1">
-    Design and build web applications for the <a href="https://nihr.ac.uk">NIHR</a> that are
-    <strong>accessible</strong>, <strong>user-friendly</strong>, and provide consistent
-    <strong>user journeys</strong> using the Design System's off-the-shelf components.
-  </p>
-  <p class="fs-5">Components in the Design System are</p>
-  <ul class="fs-5">
-    <li>consistent with NIHR corporate branding</li>
-    <li><a href="https://www.w3.org/TR/WCAG/">WCAG 2.1</a> AA compliant</li>
-    <li>reviewed for optimal UX</li>
-    <li>
-      available as <a href="https://getbootstrap.com/">Bootstrap</a> implementations through the
-      <a href="https://www.npmjs.com/package/@nihruk/design-system"><code>@nihruk/design-system</code></a> npm package
-    </li>
-  </ul>
+  <div class="row justify-content-md-center">
+    <div class="col-lg-8">
+      <p class="lead">
+        Design and build web applications for the <a href="https://nihr.ac.uk">NIHR</a> that are
+        <strong>accessible</strong>, <strong>user-friendly</strong>, and provide consistent
+        <strong>user journeys</strong>.
+      </p>
+    </div>
+    <div class="col-lg-4">
+      <p>
+        <small><a class="btn btn-primary" href="/get-started" role="button">Get started</a> or run <code>npm install @nihruk/design-system</code></small>
+      </p>
+    </div>
+  </div>
+  <div class="row justify-content-md-center mt-5">
+    <div class="col-lg-4">
+      <h2>Styles</h2>
+      <p>
+        Overall styles and design to make any web application look like an NIHR one, independent of your technology stack.
+      </p>
+      <p>
+        <a href="/style">Browse styles</a>
+      </p>
+    </div>
+    <div class="col-lg-4">
+      <h2>Components</h2>
+      <p>
+        Quickly put together entire applications using reusable, ready-made components for navigation, content
+        presentation, forms, and more.
+      </p>
+      <p>
+        <a href="/component">Browse components</a>
+      </p>
+    </div>
+    <div class="col-lg-4">
+      <h2>The Design System is</h2>
+      <ul>
+        <li>consistent with NIHR corporate branding</li>
+        <li><a href="https://www.w3.org/TR/WCAG/">WCAG 2.1</a> AA compliant</li>
+        <li>reviewed for optimal UX</li>
+      </ul>
+    </div>
+  </div>
 {% endblock %}
