@@ -1,5 +1,6 @@
+{% from 'macros/component/header.html' import header %}
 {% set title="Search Bar" %}
-{% extends 'partials/component-page.html' %}
+{% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
   <p class="lead">
     Allow users to search for content by entering keywords.
@@ -44,28 +45,30 @@
   <h3>From nihr.ac.uk</h3>
 
     {% set code %}
-        {% include 'partials/header/header-with-search.html' %}
+        {{ header({
+            'search': true
+        }) }}
     {% endset %}
-    {% include 'partials/html-example.html' %}
+    {% include 'docs/partials/html-example.html' %}
 
   <h3>From Funding and Awards</h3>
 
     {% set code %}
-        {% include 'partials/component/search-bar/lg-search-component-fa.html' %}
+        {% include 'docs/partials/component/search-bar/lg-search-component-fa.html' %}
     {% endset %}
-    {% include 'partials/html-example.html' %}
+    {% include 'docs/partials/html-example.html' %}
 
   <h3>From Funding and Awards</h3>
 
     {% set code %}
-        {% include 'partials/component/search-bar/lg-search-inner-page-component.html' %}
+        {% include 'docs/partials/component/search-bar/lg-search-inner-page-component.html' %}
     {% endset %}
-    {% include 'partials/html-example.html' %}
+    {% include 'docs/partials/html-example.html' %}
 
   <h3>From the Journals Library</h3>
 
     {% set code %}
-        {% include 'partials/component/search-bar/lg-search-component-jl.html' %}
+        {% include 'docs/partials/component/search-bar/lg-search-component-jl.html' %}
     {% endset %}
-    {% include 'partials/html-example.html' %}
+    {% include 'docs/partials/html-example.html' %}
 {% endblock %}

@@ -1,5 +1,5 @@
 {% set title="Installation" %}
-{% extends 'partials/get-started-page.html' %}
+{% extends 'docs/partials/get-started-page.html' %}
 {% block getStartedPageContent %}
     <h2 id="install-npm">Install using npm</h2>
     <h3>Requirements</h3>
@@ -17,11 +17,11 @@
     {% set code %}
         @import '~@nihruk/design-system/dist/design-system.bundle.css';
     {% endset %}
-    {% include 'partials/css-example--code.html' %}
+    {% include 'docs/partials/css-example--code.html' %}
     {% set code %}
         import '~@nihruk/design-system/dist/design-system.bundle.js';
     {% endset %}
-    {% include 'partials/js-example--code.html' %}
+    {% include 'docs/partials/js-example--code.html' %}
 
     <h3>Bundling your application</h3>
     <p>
@@ -56,7 +56,7 @@
         <link rel="stylesheet" href="https://unpkg.com/@nihruk/design-system@x.y.z/dist/design-system.bundle.css" />
         <script src="https://unpkg.com/@nihruk/design-system@x.y.z/dist/design-system.bundle.js"></script>
     {% endset %}
-    {% include 'partials/html-example--code.html' %}
+    {% include 'docs/partials/html-example--code.html' %}
     <h3>When not to include hosted files</h3>
     <p>
         You should not include the hosted files:
