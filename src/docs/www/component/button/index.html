@@ -1,3 +1,4 @@
+{% from 'macros/component/button.html' import button %}
 {% set title="Button" %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
@@ -39,83 +40,95 @@
       include sliders with granular values, color pickers displaying a gradient of colors, or
       editable areas where you position the cursor.
     </p>
-
-    <p>We have 2 buttons</p>
   </div>
 
-  <div class="row mt-5">
-    <p>We have 2 buttons</p>
-    <div class="col">
-      <h6>Primary</h6>
-      <div class="p-3 bg-white">
-        <button type="button" class="btn btn-primary">Button</button>
-      </div>
-    </div>
-    <div class="col">
-      <h6>Secondary</h6>
-      <div class="p-3 bg-white">
-        <button type="button" class="btn btn-outline-primary">Button</button>
-      </div>
-    </div>
-  </div>
+  <h2>Button states</h2>
 
   <div class="row mt-5">
-    <p>Primary buttons have four states</p>
+    <h3>Primary buttons</h3>
     <div class="col">
-      <h6>Default</h6>
-      <div class="p-3 bg-white">
-        <button type="button" class="btn btn-primary">Button</button>
+      <h4 class="h6">Default</h4>
+      <div>
+        {{ button({
+          'label': 'Button'
+        }) }}
       </div>
     </div>
     <div class="col">
-      <h6>Hover</h6>
-      <div class="p-3 bg-white">
-        <button type="button" class="btn btn-secondary">Button</button>
+      <h4 class="h6">Disabled</h4>
+      <div>
+        {{ button({
+          'label': 'Button',
+          'disabled': true
+        }) }}
       </div>
     </div>
     <div class="col">
-      <h6>Disabled</h6>
-      <div class="p-3 bg-white">
-        <button type="button" class="btn btn-primary" disabled>Button</button>
+      <h4 class="h6">Danger</h4>
+      <div>
+        {{ button({
+          'label': 'Button',
+          'danger': true
+        }) }}
       </div>
     </div>
     <div class="col">
-      <h6>Destructive</h6>
-      <div class="p-3 bg-white">
-        <button type="button" class="btn btn-danger">Button</button>
+      <h4 class="h6">Danger, disabled</h4>
+      <div>
+        {{ button({
+          'label': 'Button',
+          'danger': true,
+          'disabled': true
+        }) }}
       </div>
     </div>
   </div>
 
   <div class="row mt-5">
-    <p>Secondary buttons have four states</p>
+    <h3>Secondary buttons</h3>
     <div class="col">
-      <h6>Default</h6>
-      <div class="p-3 bg-white">
-        <button type="button" class="btn btn-outline-primary">Button</button>
+      <h4 class="h6">Default</h4>
+      <div>
+        {{ button({
+          'label': 'Button',
+          'secondary': true
+        }) }}
       </div>
     </div>
     <div class="col">
-      <h6>Hover</h6>
-      <div class="p-3 bg-white">
-        <button type="button" class="btn btn-outline-secondary">Button</button>
+      <h4 class="h6">Disabled</h4>
+      <div>
+        {{ button({
+          'label': 'Button',
+          'disabled': true,
+          'secondary': true
+        }) }}
       </div>
     </div>
     <div class="col">
-      <h6>Disabled</h6>
-      <div class="p-3 bg-white">
-        <button type="button" class="btn btn-outline-primary" disabled>Button</button>
+      <h4 class="h6">Danger</h4>
+      <div>
+        {{ button({
+          'label': 'Button',
+          'danger': true,
+          'secondary': true
+        }) }}
       </div>
     </div>
     <div class="col">
-      <h6>Destructive</h6>
-      <div class="p-3 bg-white">
-        <button type="button" class="btn btn-outline-danger">Button</button>
+      <h4 class="h6">Danger, disabled</h4>
+      <div>
+        {{ button({
+          'label': 'Button',
+          'danger': true,
+          'disabled': true,
+          'secondary': true
+        }) }}
       </div>
     </div>
   </div>
 
-  <h4 class="mt-5">When to use a primary button</h4>
+  <h3>When to use a primary button</h3>
 
   <p>
     Use a primary button to help users carry out an action on a page like starting an
@@ -124,32 +137,12 @@
   <p>A form always has a default button for it’s main action; Submit, continue, next.</p>
   <p>More about when to use and not use buttons.</p>
 
-  <h4>When to use a secondary button</h4>
+  <h3>When to use a secondary button</h3>
 
   <p>
     Use a secondary button on pages that have more than 1 action or when users aren't noticing
     standard link text.
   </p>
-  <p>More about when to use and not use buttons.</p>
-  <div class="bg-white p-3 mb-3">
-    <div class="btn-group" role="group" aria-label="Basic example">
-      <button type="button" class="btn btn-outline-primary">
-        <i class="fa-regular fa-comment-dots"></i> Comment
-      </button>
-      <button type="button" class="btn btn-outline-primary">
-        <i class="fa-solid fa-plus"></i> Create issue
-      </button>
-    </div>
-  </div>
-  <h2 class="mt-5">White button on solid background colour (reverse button)</h2>
-
-  <h4>When to use a white button on solid background colour</h4>
-
-  <p>
-    White buttons on solid background colour are good on components like interruption cards
-    where link text, primary and secondary buttons would be lost.
-  </p>
-  <p>More about when to use and not use buttons.</p>
 
   <h2>When to use buttons</h2>
   <p>Use buttons to start or save transactional journeys.</p>
@@ -210,7 +203,6 @@
   <ul>
     <li>primary button 5.12:1</li>
     <li>secondary button 7.75:1</li>
-    <li>white button on solid background colour 14.42:1</li>
   </ul>
 
   <p>
@@ -232,42 +224,15 @@
     is research to suggest that rounded corners make things more clickable.
   </p>
 
-    <h2>Examples</h2>
+  <h2>Large buttons</h2>
 
-  <div class="bg-white">
-    <div class="container pt-5 pb-5">
-      <p><strong>Large size buttons</strong></p>
+  <p>In some contexts you may want to display a larger than usual button, for example as a Call To Action.</p>
 
-      <button type="button" class="btn btn-primary btn-lg">Button</button>
-      <button type="button" class="btn btn-secondary btn-lg">Button</button>
-      <button type="button" class="btn btn-lg" disabled>Button</button>
-      <button type="button" class="btn btn-danger btn-lg">Button</button>
-      <button type="button" class="btn btn-link btn-lg">Button</button>
-      <br /><br />
-
-      <p><strong>Default size buttons</strong></p>
-
-      <button type="button" class="btn btn-primary">Button</button>
-      <button type="button" class="btn btn-secondary">Button</button>
-      <button type="button" class="btn btn" disabled>Button</button>
-      <button type="button" class="btn btn-danger">Button</button>
-      <button type="button" class="btn btn-link">Button</button>
-      <br /><br />
-      <p><strong>Small size buttons</strong></p>
-
-      <button type="button" class="btn btn-primary btn-sm">Button</button>
-      <button type="button" class="btn btn-secondary btn-sm">Button</button>
-      <button type="button" class="btn btn-sm" disabled>Button</button>
-      <button type="button" class="btn btn-danger btn-sm">Button</button>
-      <button type="button" class="btn btn-link btn-sm">Button</button>
-      <br /><br />
-      <p><strong>Extra small size buttons</strong></p>
-
-      <button type="button" class="btn btn-primary btn-xs">Button</button>
-      <button type="button" class="btn btn-secondary btn-xs">Button</button>
-      <button type="button" class="btn btn-xs" disabled>Button</button>
-      <button type="button" class="btn btn-danger btn-xs">Button</button>
-      <button type="button" class="btn btn-link btn-xs">Button</button>
-    </div>
-  </div>
+  {% set code %}
+    {{ button({
+      'label': 'Button',
+      'size': 'lg'
+    }) }}
+  {% endset %}
+  {% include 'docs/partials/html-example.html' %}
 {% endblock %}
