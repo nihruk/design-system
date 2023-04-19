@@ -17,7 +17,7 @@ function normalizeUrlPath(urlPath) {
 function createEnvironment() {
     const environment = new nunjucks.Environment(
         new nunjucks.FileSystemLoader(
-            path.resolve(__dirname, '..'),
+            path.resolve(__dirname, '..', '..'),
             {
                 throwOnUndefined: true,
             },

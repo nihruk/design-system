@@ -1,9 +1,10 @@
+{% from 'macros/component/header.html' import header %}
 <!DOCTYPE html>
 <html lang="en">
-    {% include 'partials/header/head.html' %}
+    {% include 'docs/partials/header/head.html' %}
   <body class="bg-grey-10">
-    {% include 'partials/header/header.html' %}
-    {% include 'partials/header/navbar.html' %}
+    {{ header() }}
+    {% include 'docs/partials/header/navbar.html' %}
     <main>
       <div class="container">
         <h1{% if visuallyHideTitle %} class="visually-hidden"{% endif %}>{% if title %}{{ title }}{% else %}Design System for the NIHR{% endif %}</h1>
@@ -11,6 +12,6 @@
         {% endblock %}
       </div>
     </main>
-    {% include 'partials/footer.html' %}
+    {% include 'docs/partials/footer.html' %}
   </body>
 </html>

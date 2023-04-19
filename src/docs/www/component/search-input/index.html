@@ -1,5 +1,5 @@
 {% set title="Search Input" %}
-{% extends 'partials/component-page.html' %}
+{% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
     <p class="lead">
         Allow users to search for content by entering keywords.
@@ -10,14 +10,14 @@
     <h3>Default Search</h3>
 
     {% set code %}
-        {% include 'partials/component/search-bar/sm-search-component.html' %}
+        {% include 'docs/partials/component/search-bar/sm-search-component.html' %}
     {% endset %}
-    {% include 'partials/html-example.html' %}
+    {% include 'docs/partials/html-example.html' %}
 
     <h3>Large Search</h3>
 
     {% set code %}
-        {% include 'partials/component/search-bar/lg-search-component.html' %}
+        {% include 'docs/partials/component/search-bar/lg-search-component.html' %}
     {% endset %}
-    {% include 'partials/html-example.html' %}
+    {% include 'docs/partials/html-example.html' %}
 {% endblock %}
