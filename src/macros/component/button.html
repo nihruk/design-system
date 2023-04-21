@@ -1,0 +1,23 @@
+{#
+@param {string} label
+       The human-readable button label.
+@param {string} [size]
+       Display a large button. This MUST be "lg".  Defaults to the default size.
+@param {boolean} [disabled]
+       Whether or not the button must be disabled.  Defaults to FALSE.
+@param {boolean} [secondary]
+       Whether or not the button represents a secondary/non-default action. Defaults to FALSE.
+@param {boolean} [danger]
+       Whether or not the button represents a dangerous action. Defaults to FALSE.
+#}
+{% macro button(args) %}
+<button
+    type="button"
+    class="
+        btn
+        btn{% if args.secondary | default(false) %}-outline{% endif %}{% if args.danger | default(false) %}-danger{% else %}-primary{% endif %}
+        {% if args.size is defined %}btn-{{ args.size }}{% endif %}
+    "
+    {% if args.disabled | default(false) %}disabled{% endif %}
+>{{ args.label }}</button>
+{% endmacro %}
