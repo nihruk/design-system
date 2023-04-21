@@ -1,5 +1,5 @@
 @import 'highlight.js/styles/github.css';
-@import '../../assets/scss/abstracts/sass-variables';
+@import '../../assets/scss/theme.scss';
 
 
 .ds-color-specifications dt:not(:first-child)::before {
@@ -17,21 +17,19 @@
 }
 
 .example {
-  border: 2px solid $navy-60;
-  padding: 2px;
+  border: 2px solid $navy-20;
 }
 
-.example-caption {
-  color: $navy-100;
-  border-left: 2px solid $navy-60;
-  margin-bottom: 0;
-  padding-left: 1rem;
+.example-html-render {
+  border-bottom: 2px solid $navy-20;
 }
 
 .example-code {
   background-color: $grey-20;
-  border-left: 2px solid $navy-60;
   max-height: 20rem;
-  overflow: scoll;
-  padding: 1rem;
+  overflow: scroll;
+}
+
+.component-options {
+  border-top: 2px solid $navy-20;
 }

@@ -1,3 +1,4 @@
+{% from 'docs/macros/component/example.html' import example %}
 {% from 'macros/component/header.html' import header %}
 {% set title="Header" %}
 {% extends 'docs/partials/component-page.html' %}
@@ -22,20 +23,32 @@
     <h2>Examples</h2>
 
     <h3>Default header</h3>
-
-    {% set code %}
-        {{ header() }}
-    {% endset %}
-    {% include 'docs/partials/html-example.html' %}
+    {{ example({
+      'id': 'example-header-component',
+      'examples': [
+        {
+          'type': 'nunjucks',
+          'nunjucksMacro': 'component/header',
+          'code': '{{ header() }}'
+        }
+      ]
+    }) }}
 
     <h3>Header with search</h3>
-
-    {% set code %}
-        {{ header({
-            'search': {
-                'action': '#'
+    {{ example({
+      'id': 'example-header-component-with-search',
+      'examples': [
+            {
+              'type': 'nunjucks',
+              'nunjucksMacro': 'component/header',
+              'code': "
+{{ header({
+    'search': {
+        'action': '#'
+    }
+}) }}
+              "
             }
-        }) }}
-    {% endset %}
-    {% include 'docs/partials/html-example.html' %}
+        ]
+    }) }}
 {% endblock %}

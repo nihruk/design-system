@@ -1,4 +1,5 @@
 {% from 'macros/component/select-input.html' import selectInput %}
+{% from 'docs/macros/component/example.html' import example %}
 {% set title="Select Input" %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
@@ -32,71 +33,111 @@
 
   <h2>Examples</h2>
   <h3>Minimal input</h3>
-  {% set code %}
-    {{ selectInput({
-      'label': 'Colour',
-      'options': {
-        'red': 'Red',
-        'green': 'Green',
-        'blue': 'Blue'
-      }
-    }) }}
-  {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+  {{ example({
+      'id': 'example-select-input-component-minimal',
+      'examples': [
+          {
+              'type': 'nunjucks',
+              'nunjucksMacro': 'component/select-input',
+              'code': "
+{{ selectInput({
+  'label': 'Colour',
+  'options': {
+    'red': 'Red',
+    'green': 'Green',
+    'blue': 'Blue'
+  }
+}) }}
+              "
+          }
+      ]
+  }) }}
 
   <h3>Required input</h3>
-  {% set code %}
-    {{ selectInput({
-      'label': 'Colour',
-      'options': {
-        'red': 'Red',
-        'green': 'Green',
-        'blue': 'Blue'
-      },
-      'required': true
-    }) }}
-  {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+  {{ example({
+      'id': 'example-select-input-component-required',
+      'examples': [
+          {
+              'type': 'nunjucks',
+              'nunjucksMacro': 'component/select-input',
+              'code': "
+{{ selectInput({
+  'label': 'Colour',
+  'options': {
+    'red': 'Red',
+    'green': 'Green',
+    'blue': 'Blue'
+  },
+  'required': true
+}) }}
+              "
+          }
+      ]
+  }) }}
 
   <h3>Invalid input</h3>
-  {% set code %}
-    {{ selectInput({
-      'label': 'Colour',
-      'options': {
-        'red': 'Red',
-        'green': 'Green',
-        'blue': 'Blue'
-      },
-      'invalid': true
-    }) }}
-  {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+  {{ example({
+      'id': 'example-select-input-component-invalid',
+      'examples': [
+          {
+              'type': 'nunjucks',
+              'nunjucksMacro': 'component/select-input',
+              'code': "
+{{ selectInput({
+  'label': 'Colour',
+  'options': {
+    'red': 'Red',
+    'green': 'Green',
+    'blue': 'Blue'
+  },
+  'invalid': true
+}) }}
+              "
+          }
+      ]
+  }) }}
 
   <h3>Disabled input</h3>
-  {% set code %}
-    {{ selectInput({
-      'label': 'Colour',
-      'options': {
-        'red': 'Red',
-        'green': 'Green',
-        'blue': 'Blue'
-      },
-      'disabled': true
-    }) }}
-  {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+  {{ example({
+      'id': 'example-select-input-component-disabled',
+      'examples': [
+          {
+              'type': 'nunjucks',
+              'nunjucksMacro': 'component/select-input',
+              'code': "
+{{ selectInput({
+  'label': 'Colour',
+  'options': {
+    'red': 'Red',
+    'green': 'Green',
+    'blue': 'Blue'
+  },
+  'disabled': true
+}) }}
+              "
+          }
+      ]
+  }) }}
 
   <h3>Prepopulated input</h3>
-  {% set code %}
-    {{ selectInput({
-      'label': 'Colour',
-      'options': {
-        'red': 'Red',
-        'green': 'Green',
-        'blue': 'Blue'
-      },
-      'value': 'blue'
-    }) }}
-  {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+  {{ example({
+      'id': 'example-select-input-component-prepopulated',
+      'examples': [
+          {
+              'type': 'nunjucks',
+              'nunjucksMacro': 'component/select-input',
+              'code': "
+{{ selectInput({
+  'label': 'Colour',
+  'options': {
+    'red': 'Red',
+    'green': 'Green',
+    'blue': 'Blue'
+  },
+  'value': 'blue'
+}) }}
+              "
+          }
+      ]
+  }) }}
 {% endblock %}

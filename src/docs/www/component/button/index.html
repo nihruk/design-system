@@ -1,3 +1,4 @@
+{% from 'docs/macros/component/example.html' import example %}
 {% from 'macros/component/button.html' import button %}
 {% set title="Button" %}
 {% extends 'docs/partials/component-page.html' %}
@@ -228,11 +229,19 @@
 
   <p>In some contexts you may want to display a larger than usual button, for example as a Call To Action.</p>
 
-  {% set code %}
-    {{ button({
-      'label': 'Button',
-      'large': true
+    {{ example({
+        'id': 'example-button-component-large',
+        'examples': [
+          {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/button',
+            'code': "
+{{ button({
+  'label': 'Button',
+  'large': true
+}) }}
+            "
+          }
+        ]
     }) }}
-  {% endset %}
-  {% include 'docs/partials/html-example.html' %}
 {% endblock %}

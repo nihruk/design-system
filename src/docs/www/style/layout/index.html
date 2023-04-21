@@ -1,3 +1,4 @@
+{% from 'docs/macros/component/example.html' import example %}
 {% set title="Layout" %}
 {% extends 'docs/partials/style-page.html' %}
 {% block stylePageContent %}
@@ -34,16 +35,32 @@
 
   <h2>Common Layouts</h2>
   <h3>Two-thirds</h3>
-  {% set code %}
+  {% set html %}
       {% include 'docs/partials/style/layout/two-thirds.html' %}
   {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+    {{ example({
+      'id': 'example-layout-style-two-thirds',
+      'examples': [
+            {
+              'type': 'html',
+              'code': html
+            }
+        ]
+    }) }}
 
   <h3>Two-thirds and one-third</h3>
-  {% set code %}
+  {% set html %}
       {% include 'docs/partials/style/layout/two-thirds--one-third.html' %}
   {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+    {{ example({
+      'id': 'example-layout-style-two-thirds-and-one-third',
+      'examples': [
+            {
+              'type': 'html',
+              'code': html
+            }
+        ]
+    }) }}
 
   <h2>See also</h2>
   <ul>

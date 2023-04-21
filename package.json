@@ -50,6 +50,7 @@
     "glob": "^10.2.1",
     "highlight.js": "^11.7.0",
     "mini-css-extract-plugin": "^2.7.2",
+    "marked": "^4.3.0",
     "nunjucks": "^3.2.3",
     "postcss-loader": "^7.0.2",
     "postcss-preset-env": "^8.0.1",

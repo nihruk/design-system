@@ -1,4 +1,5 @@
 {% from 'macros/component/footer.html' import footer %}
+{% from 'docs/macros/component/example.html' import example %}
 {% set title="Footer" %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
@@ -56,7 +57,16 @@
   {% set code %}
     {{ footer() }}
   {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+  {{ example({
+      'id': 'example-footer-component-minimal',
+      'examples': [
+          {
+              'type': 'nunjucks',
+              'nunjucksMacro': 'component/footer',
+              'code': code
+          }
+      ]
+  }) }}
 
   <h3>Additional social media links</h3>
   {% set code %}
@@ -73,7 +83,16 @@
       ]
     }) }}
   {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+  {{ example({
+      'id': 'example-footer-component-additional-social-media-links',
+      'examples': [
+          {
+              'type': 'nunjucks',
+              'nunjucksMacro': 'component/footer',
+              'code': code
+          }
+      ]
+  }) }}
 
   <h3>Navigation links</h3>
   {% set code %}
@@ -86,7 +105,16 @@
       ]
     }) }}
   {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+  {{ example({
+      'id': 'example-footer-component-navigation-links',
+      'examples': [
+          {
+              'type': 'nunjucks',
+              'nunjucksMacro': 'component/footer',
+              'code': code
+          }
+      ]
+  }) }}
 
   <h3>Body content</h3>
   {% set code %}
@@ -175,5 +203,14 @@
       ' | safe
     }) }}
   {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+  {{ example({
+      'id': 'example-footer-component-body',
+      'examples': [
+          {
+              'type': 'nunjucks',
+              'nunjucksMacro': 'component/footer',
+              'code': code
+          }
+      ]
+  }) }}
 {% endblock %}

@@ -1,4 +1,5 @@
 {% from 'macros/component/table.html' import table %}
+{% from 'docs/macros/component/example.html' import example %}
 {% set title="Text types" %}
 {% extends 'docs/partials/style-page.html' %}
 
@@ -147,37 +148,58 @@
     You can use <code>&lt;strong&gt;</code> to mark text as important, or <code>&lt;b&gt;</code> to draw attention
     to text that is not otherwise important. For example:
   </p>
-  {% set code %}
-    <p>
-      Your reference number is <strong>ABC12345678</strong>. Use this to track your application.
-      Updates will be sent to <b>name@example.com</b>.
-    </p>
-  {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+    {{ example({
+      'id': 'example-text-style-strong-and-b',
+      'examples': [
+            {
+              'type': 'html',
+              'code': '
+<p>
+  Your reference number is <strong>ABC12345678</strong>. Use this to track your application.
+  Updates will be sent to <b>name@example.com</b>.
+</p>
+              '
+            }
+        ]
+    }) }}
 
   <h3>Emphasis and idiomatic text</h3>
   <p>
     You can use <code>&lt;em&gt;</code> to emphasize text as one would do when speaking, or <code>&lt;i&gt;</code> to
     draw attention to mark idiomatic text, such as a name or a phrase that is not otherwise important. For example:
   </p>
-  {% set code %}
-    <p>
-      You <em>must</em> read some of the <i>National Institute for Health and Care Research</i>'s new research!
-    </p>
-  {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+    {{ example({
+      'id': 'example-text-style-em-and-i',
+      'examples': [
+            {
+              'type': 'html',
+              'code': '
+<p>
+  You <em>must</em> read some of the <i>National Institute for Health and Care Research</i>\'s new research!
+</p>
+              '
+            }
+        ]
+    }) }}
 
   <h3>Links</h3>
   <p>
     Links are blue and underlined by default. If your link is at the end of a sentence or
     paragraph, make sure that the linked text does not include the full stop.
   </p>
-  {% set code %}
-    <p>
-      Now that your application has been submitted, you can <a href="#">view its progress</a>.
-    </p>
-  {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+    {{ example({
+      'id': 'example-text-style-links',
+      'examples': [
+            {
+              'type': 'html',
+              'code': '
+<p>
+  Now that your application has been submitted, you can <a href="#">view its progress</a>.
+</p>
+              '
+            }
+        ]
+    }) }}
 
   <h3>Readability</h3>
   <p>

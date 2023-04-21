@@ -1,19 +1,23 @@
 {#
+@typedef {object} Card
+@property {string} heading
+          The human-readable category heading.
+@property {Array<Link>} links
+          The card's navigation links.
+
+@typedef {object} Link
+@property {string} href
+          The link's `href` value.
+@property {string} label
+          The human-readable link label.
+
 @macro explore
-@param {object} first
-       Properties are:
-       - `{string} heading`
-         The human-readable category heading.
-       - `{Array<object>} links`
-         Item properties are:
-         - `{string} href`
-           The link's `href` value.
-         - `{string} label`
-           The human-readable link label.
-@param {object} middle
-       Identical to the `first` option.
-@param {object} last
-       Identical to the `first` option.
+@param {Card} first
+       The first card.
+@param {Card} middle
+       The middle card.
+@param {Card} last
+       The last card.
 #}
 {% macro explore(options) %}
 <section id="explore" class="bg-white">

@@ -1,14 +1,25 @@
 {#
+@typedef {object} SocialMediaLink
+@property {string} href
+          The link's href value.
+@property {string} label
+          The human-readable link label.
+@property {Array<string>} [classes=[]]
+           An array of CSS classes for the link icon.
+
+@typedef {object} NavigationLink
+@property {string} href
+          The link's href value.
+@property {string} label
+          The human-readable link label.
+
 @macro footer
 @param {string|null} [body=null]
        The footer's main body content, if any.
-@param {Array<object>} [socialMediaLinks=[]]
-       The additional social media links to show. Each item is an object with `{string} href`, `{string} label`, and
-       `{Array<string>} [classes=[]]` properties, which are the link href and an array of CSS classes for the
-        icon respectively.
-@param {Array<object>} [navigationLinks=[]]
-       The additional navigation links to show. Each item is an object with `{string} href` and `{string} label`
-       properties.
+@param {Array<SocialMediaLink>} [socialMediaLinks=[]]
+       The additional social media links to show.
+@param {Array<NavigationLink>} [navigationLinks=[]]
+       The additional navigation links to show.
 #}
 {% macro footer(options) %}
 <footer id="main-footer">
