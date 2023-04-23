@@ -70,32 +70,16 @@ function* getNodesByType(node, type) {
         yield node
     }
 
-    if (node.body !== undefined) {
-        yield* getNodesByType(node.body, type)
+    for (const field of ['args', 'arr', 'body', 'cond', 'left', 'right', 'value']) {
+        if (node[field] !== undefined) {
+            yield* getNodesByType(node[field], type)
+        }
     }
 
     if (node.children !== undefined) {
         for (const child of node.children) {
             yield* getNodesByType(child, type)
         }
-    }
-
-    if (node.cond !== undefined) {
-        yield* getNodesByType(node.cond.args, type)
-        yield* getNodesByType(node.cond.left, type)
-        yield* getNodesByType(node.cond.right, type)
-    }
-
-    if (node.arr !== undefined) {
-        yield* getNodesByType(node.arr, type)
-    }
-
-    if (node.args !== undefined) {
-        yield* getNodesByType(node.args, type)
-    }
-
-    if (node.value !== undefined) {
-        yield* getNodesByType(node.value, type)
     }
 }
 
