@@ -1,3 +1,4 @@
+{% from 'macros/component/text-input.html' import textInput %}
 {% set title="Text Input" %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
@@ -72,12 +73,46 @@
   </p>
 
   <h2>Examples</h2>
-
+  <h3>Minimal input</h3>
   {% set code %}
-    <div class="mb-3">
-      <label for="exampleFormControlInput1" class="form-label">Label</label>
-      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="" />
-    </div>
+    {{ textInput({
+      'label': 'Your full name'
+    }) }}
+  {% endset %}
+  {% include 'docs/partials/html-example.html' %}
+
+  <h3>Required input</h3>
+  {% set code %}
+    {{ textInput({
+      'label': 'Your full name',
+      'required': true
+    }) }}
+  {% endset %}
+  {% include 'docs/partials/html-example.html' %}
+
+  <h3>Invalid input</h3>
+  {% set code %}
+    {{ textInput({
+      'label': 'Your full name',
+      'invalid': true
+    }) }}
+  {% endset %}
+  {% include 'docs/partials/html-example.html' %}
+
+  <h3>Disabled input</h3>
+  {% set code %}
+    {{ textInput({
+      'label': 'Your full name',
+      'disabled': true
+    }) }}
+  {% endset %}
+
+  <h3>Prepopulated input</h3>
+  {% set code %}
+    {{ textInput({
+      'label': 'Your full name',
+      'value': 'Jane Doe'
+    }) }}
   {% endset %}
   {% include 'docs/partials/html-example.html' %}
 {% endblock %}
