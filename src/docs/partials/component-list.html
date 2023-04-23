@@ -16,7 +16,7 @@
   } %}
   {% for componentId, componentName in components %}
     <li>
-      <a href="/component/{{ componentId }}" class="nav-link{% if ('component/' ~ componentId) is activeCurrentUrl %} active" aria-current="page{% endif %}">{{ componentName }}</a>
+      <a href="/component/{{ componentId }}" class="nav-link rounded-0{% if ('component/' ~ componentId) is activeCurrentUrl %} active" aria-current="page{% endif %}">{{ componentName }}</a>
     </li>
   {% endfor %}
 </ul>
