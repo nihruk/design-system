@@ -1,3 +1,4 @@
+{% from 'macros/component/checkbox.html' import checkbox %}
 {% set title="Checkbox" %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
@@ -82,22 +83,42 @@
   </p>
 
   <h2>Examples</h2>
-
+  <h3>Minimal checkbox</h3>
   {% set code %}
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-      <label class="form-check-label" for="flexCheckDefault"> Default checkbox </label>
-    </div>
-    <div class="form-check">
-      <input
-        class="form-check-input"
-        type="checkbox"
-        value=""
-        id="flexCheckChecked"
-        checked
-      />
-      <label class="form-check-label" for="flexCheckChecked"> Checked checkbox </label>
-    </div>
+    {{ checkbox({
+      'label': 'I want to receive the NIHR newsletter',
+      'value': 'yes'
+    }) }}
+  {% endset %}
+  {% include 'docs/partials/html-example.html' %}
+
+  <h3>Required checkbox</h3>
+  {% set code %}
+    {{ checkbox({
+      'label': 'I want to receive the NIHR newsletter',
+      'value': 'yes',
+      'required': true
+    }) }}
+  {% endset %}
+  {% include 'docs/partials/html-example.html' %}
+
+  <h3>Invalid checkbox</h3>
+  {% set code %}
+    {{ checkbox({
+      'label': 'I want to receive the NIHR newsletter',
+      'value': 'yes',
+      'invalid': true
+    }) }}
+  {% endset %}
+  {% include 'docs/partials/html-example.html' %}
+
+  <h3>Disabled checkbox</h3>
+  {% set code %}
+    {{ checkbox({
+      'label': 'I want to receive the NIHR newsletter',
+      'value': 'yes',
+      'disabled': true
+    }) }}
   {% endset %}
   {% include 'docs/partials/html-example.html' %}
 {% endblock %}

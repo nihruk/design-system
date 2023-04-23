@@ -1,0 +1,32 @@
+{#
+@macro checkbox
+@param {string} label
+       The human-readable button label.
+@param {string} value
+       The checkbox's value.
+@param {boolean} [required=false]
+       Whether the checkbox is required.
+@param {boolean} checked
+       Whether the checkbox is checked.
+@param {boolean} [disabled=false]
+       Whether the checkbox must be disabled.
+@param {boolean} [invalid=false]
+       Whether the checkbox's state is valid.
+@param {string|null} [id=null]
+       The element's ID.
+#}
+{% macro checkbox(options) %}
+{% set id = options.id | default(generateId()) %}
+<div class="form-check">
+  <input
+    class="form-check-input{% if options.invalid | default(false) %} is-invalid{% endif %}"
+    type="checkbox"
+    value="{{ options.value }}"
+    id="{{ id }}"
+    {% if options.required | default(false) %}required{% endif %}
+    {% if options.checked | default(false) %}checked{% endif %}
+    {% if options.disabled | default(false) %}disabled{% endif %}
+  />
+  <label class="form-check-label" for="{{ id }}">{{ options.label }}</label>
+</div>
+{% endmacro %}
