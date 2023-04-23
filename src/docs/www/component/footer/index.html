@@ -1,3 +1,4 @@
+{% from 'macros/component/footer.html' import footer %}
 {% set title="Footer" %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
@@ -51,8 +52,128 @@
 
   <h2>Examples</h2>
 
+  <h3>A minimal footer</h3>
   {% set code %}
-    {% include 'docs/partials/component/footer/footer-component.html' %}
+    {{ footer() }}
+  {% endset %}
+  {% include 'docs/partials/html-example.html' %}
+
+  <h3>Additional social media links</h3>
+  {% set code %}
+    {{ footer({
+      'socialMediaLinks': [
+        {
+          'label': 'Shiny lightning bolt',
+          'href': '#',
+          'classes': [
+            'fa-solid',
+            'fa-bolt'
+          ]
+        }
+      ]
+    }) }}
+  {% endset %}
+  {% include 'docs/partials/html-example.html' %}
+
+  <h3>Navigation links</h3>
+  {% set code %}
+    {{ footer({
+      'navigationLinks': [
+        {
+          'label': 'Privacy policy',
+          'href': '#'
+        }
+      ]
+    }) }}
+  {% endset %}
+  {% include 'docs/partials/html-example.html' %}
+
+  <h3>Body content</h3>
+  {% set code %}
+    {{ footer({
+      'body': '
+<div class="col-lg-3 col-md-6 col-sm-12">
+  <p><strong>Useful links</strong></p>
+  <ul>
+    <li>
+      <a href="#">Contact Us</a>
+    </li>
+    <li>
+      <a href="#">Press Office</a>
+    </li>
+    <li>
+      <a href="#">Our Visual Identity</a>
+    </li>
+    <li>
+      <a href="#">Glossary</a>
+    </li>
+    <li>
+      <a href="#">Explore NIHR</a>
+    </li>
+  </ul>
+</div>
+<div class="col-lg-3 col-md-6 col-sm-12">
+  <p><strong>About</strong></p>
+  <ul>
+    <li>
+      <a href="#">News</a>
+    </li>
+    <li>
+      <a href="#">Blogs</a>
+    </li>
+    <li>
+      <a href="#">Events</a>
+    </li>
+    <li>
+      <a href="#">Jobs</a>
+    </li>
+    <li>
+      <a href="#">Our People</a>
+    </li>
+  </ul>
+</div>
+<div class="col-lg-3 col-md-6 col-sm-12">
+  <p><strong>Research Funding</strong></p>
+  <ul>
+    <li>
+      <a href="#">Funding for industry</a>
+    </li>
+    <li>
+      <a href="#">Funding for researchers</a>
+    </li>
+    <li>
+      <a href="#">How we fund research</a>
+    </li>
+    <li>
+      <a href="#">Career development</a>
+    </li>
+    <li>
+      <a href="#">Manage your funding</a>
+    </li>
+  </ul>
+</div>
+<div class="col-lg-3 col-md-6 col-sm-12">
+  <p><strong>Research opportunities</strong></p>
+  <ul>
+    <li>
+      <a href="#">Take part in a study</a>
+    </li>
+    <li>
+      <a href="#">Suggest a research topic</a>
+    </li>
+    <li>
+      <a href="#">Become a reviewer</a>
+    </li>
+    <li>
+      <a href="#">Join a funding committee</a>
+    </li>
+    <li>
+      <a href="#">Become a research champion</a>
+    </li>
+  </ul>
+</div>
+      ' | safe
+    }) }}
   {% endset %}
   {% include 'docs/partials/html-example.html' %}
 {% endblock %}

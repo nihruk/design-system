@@ -1,3 +1,4 @@
+{% from 'macros/component/footer.html' import footer %}
 {% from 'macros/component/header.html' import header %}
 <!DOCTYPE html>
 <html lang="en">
@@ -12,6 +13,25 @@
         {% endblock %}
       </div>
     </main>
-    {% include 'docs/partials/footer.html' %}
+    {{ footer({
+      'socialMediaLinks': [
+        {
+          'label': 'Github',
+          'href': 'https://github.com/nihruk/',
+          'classes': [
+            'fa-brands',
+            'fa-github'
+          ]
+        },
+        {
+          'label': 'npm',
+          'href': 'https://www.npmjs.com/package/@nihruk/design-system',
+          'classes': [
+            'fa-brands',
+            'fa-npm'
+          ]
+        }
+      ]
+    }) }}
   </body>
 </html>
