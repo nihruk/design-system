@@ -6,7 +6,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
-const {renderNunjucksFile} = require("./src/docs/js/nunjucks");
+const {renderFile} = require("./src/docs/js/nunjucks");
 
 
 module.exports = (env, args) => {
@@ -135,7 +135,7 @@ module.exports = (env, args) => {
           {
             from: path.resolve(__dirname, 'src', 'docs', 'www'),
             to: path.resolve(__dirname, 'dist'),
-            transform: (content, filename) => filename.endsWith('.html') ? renderNunjucksFile(filename) : content
+            transform: (content, filename) => filename.endsWith('.html') ? renderFile(filename) : content
           }
         ]
       }),

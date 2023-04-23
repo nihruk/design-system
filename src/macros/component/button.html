@@ -1,4 +1,5 @@
 {#
+@macro button
 @param {string} label
        The human-readable button label.
 @param {string} [size]
@@ -10,14 +11,14 @@
 @param {boolean} [danger]
        Whether or not the button represents a dangerous action. Defaults to FALSE.
 #}
-{% macro button(args) %}
+{% macro button(options) %}
 <button
     type="button"
     class="
         btn
-        btn{% if args.secondary | default(false) %}-outline{% endif %}{% if args.danger | default(false) %}-danger{% else %}-primary{% endif %}
-        {% if args.size is defined %}btn-{{ args.size }}{% endif %}
+        btn{% if options.secondary | default(false) %}-outline{% endif %}{% if options.danger | default(false) %}-danger{% else %}-primary{% endif %}
+        {% if options.size is defined %}btn-{{ options.size }}{% endif %}
     "
-    {% if args.disabled | default(false) %}disabled{% endif %}
->{{ args.label }}</button>
+    {% if options.disabled | default(false) %}disabled{% endif %}
+>{{ options.label }}</button>
 {% endmacro %}
