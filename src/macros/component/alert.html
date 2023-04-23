@@ -1,0 +1,11 @@
+{#
+@param {string} type
+       One of "info", "success", "warning", or "danger".
+@param {string} body
+       The alert's body content.
+#}
+{% macro alert(args) %}
+<div class="alert alert-{{ args.type }}" role="alert">
+    {{ args.body }}
+</div>
+{% endmacro %}
