@@ -1,0 +1,31 @@
+{#
+@macro textInput
+@param {string} label
+       The human-readable button label.
+@param {string} [value]
+       The input's value.
+@param {boolean} [required=false]
+       Whether the input is required.
+@param {boolean} [disabled=false]
+       Whether the input must be disabled.
+@param {boolean} [invalid=false]
+       Whether the input's state is valid.
+@param {string|null} [id=null]
+       The element's ID.
+#}
+{% macro textInput(options) %}
+{% set id = options.id | default(generateId()) %}
+<label for="{{ id }}" class="form-label">
+       {{ options.label }}
+</label>
+<input
+    type="text"
+    class="form-control{% if options.invalid | default(false) %} is-invalid{% endif %}"
+    {% if options.value is defined %}
+        value="{{ options.value }}"
+    {% endif %}
+    id="{{ id }}"
+    {% if options.required | default(false) %}required{% endif %}
+    {% if options.disabled | default(false) %}disabled{% endif %}
+/>
+{% endmacro %}
