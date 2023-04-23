@@ -1,3 +1,4 @@
+{% from 'macros/component/table.html' import table %}
 {% set title="Table" %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
@@ -25,10 +26,98 @@
   </p>
 
   <h2>When to use this component</h2>
-
   <p>Use the table component to let users compare information in rows and columns.</p>
+
+  <h2>When not to use this component</h2>
   <p>
-    When not to use this component Never use the table component to layout content on a page.
+    Never use the table component to layout content on a page.
     Instead, use the grid system.
   </p>
+
+  <h2>Examples</h2>
+  <h3>A minimal table, with a caption</h3>
+  {% set code %}
+    {{ table({
+      'caption': 'Some people in a table',
+      'head': [
+        [
+          'Name',
+          'Age'
+        ]
+      ],
+      'body': [
+        [
+          'Jane Doe',
+          '1'
+        ],
+        [
+          'Janet Doughnut',
+          '3'
+        ],
+        [
+          'John Doe',
+          '3'
+        ],
+        [
+          'Jeff Donut',
+          '7'
+        ]
+      ]
+    }) }}
+  {% endset %}
+  {% include 'docs/partials/html-example.html' %}
+
+  <h3>A table with a scoped column and row headers</h3>
+  {% set code %}
+    {{ table({
+      'caption': 'Some people in a table',
+      'head': [
+        [
+          {
+            'body': 'Name',
+            'headerScope': 'col'
+          },
+          {
+            'body': 'Age',
+            'headerScope': 'col'
+          }
+        ]
+      ],
+      'body': [
+        [
+          {
+            'body': 'Jane Doe',
+            'header': true,
+            'headerScope': 'row'
+          },
+          '1'
+        ],
+        [
+          {
+            'body': 'Janet Doughnut',
+            'header': true,
+            'headerScope': 'row'
+          },
+          '3'
+        ],
+        [
+          {
+            'body': 'John Doe',
+            'header': true,
+            'headerScope': 'row'
+          },
+          '3'
+        ],
+        [
+          {
+            'body': 'Jeff Donut',
+            'header': true,
+            'headerScope': 'row'
+          },
+          '7'
+        ]
+      ]
+    }) }}
+  {% endset %}
+  {% include 'docs/partials/html-example.html' %}
 {% endblock %}

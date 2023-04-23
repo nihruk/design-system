@@ -1,265 +1,136 @@
+{% from 'macros/component/table.html' import table %}
 {% set title="Text types" %}
 {% extends 'docs/partials/style-page.html' %}
+
+{% macro _textTypeTag(tag) %}
+  <code>{{ tag }}</code>
+{% endmacro %}
+
+{% macro _textTypeClass(class) %}
+  <code>.{{ class }}</code>
+{% endmacro %}
+
 {% block stylePageContent %}
   <p class="lead">
     Add semantic meaning and visual appearance to your text using our text types.
   </p>
-  <table class="table">
-    <caption>The available text types and how to apply them using HTML tags and classes.</caption>
-    <thead>
-      <tr>
-        <th>Tag</th>
-        <th>Class</th>
-        <th>Sample</th>
-      </tr>
-    </thead>
-    <tr>
-      <td>
-        <code>&lt;h1&gt;</code>
-      </td>
-      <td>
-        <code>.h1</code>
-      </td>
-      <td>
-        <span class="h1">Funding Guidelines</span>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;h2&gt;</code>
-      </td>
-      <td>
-        <code>.h2</code>
-      </td>
-      <td>
-        <span class="h2">Funding Guidelines</span>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;h3&gt;</code>
-      </td>
-      <td>
-        <code>.h3</code>
-      </td>
-      <td>
-        <span class="h3">Funding Guidelines</span>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;h4&gt;</code>
-      </td>
-      <td>
-        <code>.h4</code>
-      </td>
-      <td>
-        <span class="h4">Funding Guidelines</span>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;h5&gt;</code>
-      </td>
-      <td>
-        <code>.h5</code>
-      </td>
-      <td>
-        <span class="h5">Funding Guidelines</span>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;h6&gt;</code>
-      </td>
-      <td>
-        <code>.h6</code>
-      </td>
-      <td>
-        <span class="h6">Funding Guidelines</span>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;p&gt;</code>
-      </td>
-      <td>
-      </td>
-      <td>
-        <p>Funding Guidelines</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;p class="lead"&gt;</code>
-      </td>
-      <td>
-      </td>
-      <td>
-        <p class="lead">Funding Guidelines</p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;a&gt;</code>
-      </td>
-      <td>
-      </td>
-      <td>
-        <p>
-          <a href="#">Funding Guidelines</a>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;mark&gt;</code>
-      </td>
-      <td>
-        <code>.mark</code>
-      </td>
-      <td>
-        <p>
-          <span class="mark">Funding Guidelines</span>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;small&gt;</code>
-      </td>
-      <td>
-        <code>.small</code>
-      </td>
-      <td>
-        <p>
-          <span class="small">Funding Guidelines</span>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;del&gt;</code>
-      </td>
-      <td>
-      </td>
-      <td>
-        <p>
-          <del>Funding Guidelines</del>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;s&gt;</code>
-      </td>
-      <td>
-        <code>.text-decoration-line-through</code>
-      </td>
-      <td>
-        <p>
-          <span class="text-decoration-line-through">Funding Guidelines</span>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;ins&gt;</code>
-      </td>
-      <td>
-      </td>
-      <td>
-        <p>
-          <ins>Funding Guidelines</ins>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;u&gt;</code>
-      </td>
-      <td>
-        <code>.text-decoration-underline</code>
-      </td>
-      <td>
-        <p>
-          <span class="text-decoration-underline">Funding Guidelines</span>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;strong&gt;</code>
-      </td>
-      <td>
-      </td>
-      <td>
-        <p>
-          <strong>Funding Guidelines</strong>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;b&gt;</code>
-      </td>
-      <td>
-      </td>
-      <td>
-        <p>
-          <b>Funding Guidelines</b>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;em&gt;</code>
-      </td>
-      <td>
-      </td>
-      <td>
-        <p>
-          <em>Funding Guidelines</em>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;i&gt;</code>
-      </td>
-      <td>
-      </td>
-      <td>
-        <p>
-          <i>Funding Guidelines</i>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;abbr&gt;</code>
-      </td>
-      <td>
-      </td>
-      <td>
-        <p>
-          <abbr title="National Institute for Health and Care Research">NIHR</abbr>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <code>&lt;abbr class="initialism"&gt;</code>
-      </td>
-      <td>
-      </td>
-      <td>
-        <p>
-          <abbr title="National Institute for Health and Care Research" class="initialism">NIHR</abbr>
-        </p>
-      </td>
-    </tr>
-  </table>
+  {{ table({
+    'caption': 'The available text types and how to apply them using HTML tags and classes.',
+    'head': [
+      [
+        'Tag',
+        'Class',
+        'Sample'
+      ]
+    ],
+    'body': [
+      [
+        _textTypeTag('<h1>'),
+        _textTypeClass('h1'),
+        '<span class="h1">Funding Guidelines</span>' | safe
+      ],
+      [
+        _textTypeTag('<h2>'),
+        _textTypeClass('h2'),
+        '<span class="h2">Funding Guidelines</span>' | safe
+      ],
+      [
+        _textTypeTag('<h3>'),
+        _textTypeClass('h3'),
+        '<span class="h3">Funding Guidelines</span>' | safe
+      ],
+      [
+        _textTypeTag('<h4>'),
+        _textTypeClass('h4'),
+        '<span class="h4">Funding Guidelines</span>' | safe
+      ],
+      [
+        _textTypeTag('<h5>'),
+        _textTypeClass('h5'),
+        '<span class="h5">Funding Guidelines</span>' | safe
+      ],
+      [
+        _textTypeTag('<h6>'),
+        _textTypeClass('h6'),
+        '<span class="h6">Funding Guidelines</span>' | safe
+      ],
+      [
+        _textTypeTag('<p>'),
+        '',
+        '<p>Funding Guidelines</p>' | safe
+      ],
+      [
+        _textTypeTag('<p class="lead">'),
+        '',
+        '<p class="lead">Funding Guidelines</p>' | safe
+      ],
+      [
+        _textTypeTag('<a>'),
+        '',
+        '<p><a href="#">Funding Guidelines</a></p>' | safe
+      ],
+      [
+        _textTypeTag('<mark>'),
+        _textTypeClass('mark'),
+        '<p><span class="mark">Funding Guidelines</span></p>' | safe
+      ],
+      [
+        _textTypeTag('<small>'),
+        _textTypeClass('small'),
+        '<p><span class="small">Funding Guidelines</span></p>' | safe
+      ],
+      [
+        _textTypeTag('<del>'),
+        '',
+        '<p><del>Funding Guidelines</del></p>' | safe
+      ],
+      [
+        _textTypeTag('<s>'),
+        _textTypeClass('text-decoration-line-through'),
+        '<p><span class="text-decoration-line-through">Funding Guidelines</span></p>' | safe
+      ],
+      [
+        _textTypeTag('<ins>'),
+        '',
+        '<p><ins>Funding Guidelines</ins></p>' | safe
+      ],
+      [
+        _textTypeTag('<u>'),
+        _textTypeClass('text-decoration-underline'),
+        '<p><span class="text-decoration-underline">Funding Guidelines</span></p>' | safe
+      ],
+      [
+        _textTypeTag('<strong>'),
+        '',
+        '<p><strong>Funding Guidelines</strong></p>' | safe
+      ],
+      [
+        _textTypeTag('<b>'),
+        '',
+        '<p><b>Funding Guidelines</b></p>' | safe
+      ],
+      [
+        _textTypeTag('<em>'),
+        '',
+        '<p><em>Funding Guidelines</em></p>' | safe
+      ],
+      [
+        _textTypeTag('<i>'),
+        '',
+        '<p><i>Funding Guidelines</i></p>' | safe
+      ],
+      [
+        _textTypeTag('<abbr>'),
+        '',
+        '<p><abbr title="National Institute for Health and Care Research">NIHR</abbr></p>' | safe
+      ],
+      [
+        _textTypeTag('<abbr class="initialism">'),
+        '',
+        '<p><abbr title="National Institute for Health and Care Research" class="initialism">NIHR</abbr></p>' | safe
+      ]
+    ]
+  }) }}
 
   <h2>Headings</h2>
 

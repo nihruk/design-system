@@ -1,3 +1,5 @@
+{% from 'macros/component/table.html' import table %}
+
 <h1>
   <strong>h1 -</strong> Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse repellendus
   ducimus vel totam dolore doloremque officiis fugiat maxime, nam consectetur optio tempora
@@ -51,130 +53,194 @@
     excepturi consequuntur provident veritatis. Voluptatibus, enim?</a
   >
 </p>
+
+{% set fontSizeTableHead = [[
+  {
+    'body': 'tag',
+    'headerScope': 'col'
+  },
+  {
+    'body': 'font-size',
+    'headerScope': 'col'
+  },
+  {
+    'body': 'line-height',
+    'headerScope': 'col'
+  },
+  {
+    'body': 'margin-bottom',
+    'headerScope': 'col'
+  },
+  {
+    'body': 'font-weight',
+    'headerScope': 'col'
+  }
+]] %}
+
 <h4>Desktop</h4>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">tag</th>
-      <th scope="col">font-size</th>
-      <th scope="col">line-height</th>
-      <th scope="col">margin-bottom</th>
-      <th scope="col">font-weight</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">h1</th>
-      <td>40px</td>
-      <td>48px</td>
-      <td>32px</td>
-      <td>900</td>
-    </tr>
-    <tr>
-      <th scope="row">h2</th>
-      <td>36px</td>
-      <td>40px</td>
-      <td>32px</td>
-      <td>900</td>
-    </tr>
-    <tr>
-      <th scope="row">h3</th>
-      <td>32px</td>
-      <td>40px</td>
-      <td>32px</td>
-      <td>900</td>
-    </tr>
-    <tr>
-      <th scope="row">h4</th>
-      <td>28px</td>
-      <td>32px</td>
-      <td>24px</td>
-      <td>700</td>
-    </tr>
-    <tr>
-      <th scope="row">h5</th>
-      <td>26px</td>
-      <td>32px</td>
-      <td>24px</td>
-      <td>700</td>
-    </tr>
-    <tr>
-      <th scope="row">h6</th>
-      <td>24px</td>
-      <td>32px</td>
-      <td>24px</td>
-      <td>400</td>
-    </tr>
-    <tr>
-      <th scope="row">p</th>
-      <td>22px</td>
-      <td>32px</td>
-      <td>24px</td>
-      <td>400</td>
-    </tr>
-  </tbody>
-</table>
-<br />
+{{ table({
+  'head': fontSizeTableHead,
+  'body': [
+    [
+      {
+        'body': 'h1',
+        'header': true,
+        'headerScope': 'row'
+      },
+      '40px',
+      '48px',
+      '32px',
+      '900'
+    ],
+    [
+      {
+        'body': 'h2',
+        'header': true,
+        'headerScope': 'row'
+      },
+      '36px',
+      '40px',
+      '32px',
+      '900'
+    ],
+    [
+      {
+        'body': 'h3',
+        'header': true,
+        'headerScope': 'row'
+      },
+      '32px',
+      '40px',
+      '32px',
+      '900'
+    ],
+    [
+      {
+        'body': 'h4',
+        'header': true,
+        'headerScope': 'row'
+      },
+      '28px',
+      '32px',
+      '24px',
+      '700'
+    ],
+    [
+      {
+        'body': 'h5',
+        'header': true,
+        'headerScope': 'row'
+      },
+      '26px',
+      '32px',
+      '24px',
+      '700'
+    ],
+    [
+      {
+        'body': 'h6',
+        'header': true,
+        'headerScope': 'row'
+      },
+      '24px',
+      '32px',
+      '24px',
+      '400'
+    ],
+    [
+      {
+        'body': 'p',
+        'header': true,
+        'headerScope': 'row'
+      },
+      '22px',
+      '32px',
+      '24px',
+      '400'
+    ]
+  ]
+}) }}
+
 <h4>Mobile</h4>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">tag</th>
-      <th scope="col">font-size</th>
-      <th scope="col">line-height</th>
-      <th scope="col">margin-bottom</th>
-      <th scope="col">font-weight</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">h1</th>
-      <td>24px</td>
-      <td>32px</td>
-      <td>24px</td>
-      <td>900</td>
-    </tr>
-    <tr>
-      <th scope="row">h2</th>
-      <td>23px</td>
-      <td>32px</td>
-      <td>24px</td>
-      <td>900</td>
-    </tr>
-    <tr>
-      <th scope="row">h3</th>
-      <td>22px</td>
-      <td>32px</td>
-      <td>24px</td>
-      <td>900</td>
-    </tr>
-    <tr>
-      <th scope="row">h4</th>
-      <td>21px</td>
-      <td>32px</td>
-      <td>24px</td>
-      <td>700</td>
-    </tr>
-    <tr>
-      <th scope="row">h5</th>
-      <td>20px</td>
-      <td>32px</td>
-      <td>24px</td>
-      <td>700</td>
-    </tr>
-    <tr>
-      <th scope="row">h6</th>
-      <td>19px</td>
-      <td>32px</td>
-      <td>24px</td>
-      <td>400</td>
-    </tr>
-    <tr>
-      <th scope="row">p</th>
-      <td>18px</td>
-      <td>24px</td>
-      <td>24px</td>
-      <td>400</td>
-    </tr>
-  </tbody>
-</table>
+{{ table({
+  'head': fontSizeTableHead,
+  'body': [
+    [
+      {
+        'body': 'h1',
+        'header': true,
+        'headerScope': 'row'
+      },
+      '24px',
+      '32px',
+      '24px',
+      '900'
+    ],
+    [
+      {
+        'body': 'h2',
+        'header': true,
+        'headerScope': 'row'
+      },
+      '23px',
+      '32px',
+      '24px',
+      '900'
+    ],
+    [
+      {
+        'body': 'h3',
+        'header': true,
+        'headerScope': 'row'
+      },
+      '22px',
+      '32px',
+      '24px',
+      '900'
+    ],
+    [
+      {
+        'body': 'h4',
+        'header': true,
+        'headerScope': 'row'
+      },
+      '21px',
+      '32px',
+      '24px',
+      '700'
+    ],
+    [
+      {
+        'body': 'h5',
+        'header': true,
+        'headerScope': 'row'
+      },
+      '20px',
+      '32px',
+      '24px',
+      '700'
+    ],
+    [
+      {
+        'body': 'h6',
+        'header': true,
+        'headerScope': 'row'
+      },
+      '19px',
+      '32px',
+      '24px',
+      '400'
+    ],
+    [
+      {
+        'body': 'p',
+        'header': true,
+        'headerScope': 'row'
+      },
+      '18px',
+      '24px',
+      '24px',
+      '400'
+    ]
+  ]
+}) }}
