@@ -1,7 +1,8 @@
+{% from 'macros/component/search.html' import search %}
 {#
 @macro header
-@param {boolean} search
-       Whether to display the search form. Defaults to FALSE.
+@param {object|null} [search=null]
+       The arguments to the Search component.
 #}
 {% macro header(options) %}
 <header class="pt-3 pb-3 bg-white main-header">
@@ -13,8 +14,10 @@
                       alt="The NIHR logo"/>
                 </a>
             </div>
-            {% if options.search | default(false) %}
-              <div class="col-md-4">{% include 'docs/partials/component/search-bar/sm-search-component.html' %}</div>
+            {% if options.search | default(null) %}
+              <div class="col-md-4">
+                  {{ search(options.search) }}
+              </div>
             {% endif %}
         </div>
     </div>

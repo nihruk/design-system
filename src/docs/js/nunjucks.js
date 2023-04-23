@@ -63,7 +63,7 @@ function renderFile(filename) {
 }
 
 function* getNodesByType(node, type) {
-    if (node == undefined) {
+    if (!node) {
         return
     }
 

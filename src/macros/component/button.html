@@ -2,8 +2,8 @@
 @macro button
 @param {string} label
        The human-readable button label.
-@param {string} [size]
-       Display a large button. This MUST be "lg". Defaults to the default size.
+@param {boolean} [large=false]
+       Whether to display a large Search component.
 @param {boolean} [disabled]
        Whether the button must be disabled. Defaults to FALSE.
 @param {boolean} [secondary]
@@ -17,7 +17,7 @@
     class="
         btn
         btn{% if options.secondary | default(false) %}-outline{% endif %}{% if options.danger | default(false) %}-danger{% else %}-primary{% endif %}
-        {% if options.size is defined %}btn-{{ options.size }}{% endif %}
+        {% if options.large | default(false) %}btn-lg{% endif %}
     "
     {% if options.disabled | default(false) %}disabled{% endif %}
 >{{ options.label }}</button>
