@@ -1,0 +1,61 @@
+{% macro _tableCell(cell, header=null) %}
+{% if header or cell.header | default(false) %}
+       {% set openTag %}<th{% if cell.headerScope is defined %} scope="{{ cell.headerScope }}"{% endif %}>{% endset %}
+       {% set closeTag %}</th>{% endset %}
+{% else %}
+       {% set openTag %}<td>{% endset %}
+       {% set closeTag %}</td>{% endset %}
+{% endif %}
+{{ openTag | safe }}
+       {{ cell.body | default(cell) }}
+{{ closeTag | safe }}
+{% endmacro %}
+
+{% macro _tableRow(row, head=null) %}
+<tr>
+       {% for cell in row %}
+              {{ _tableCell(cell, head) | safe }}
+       {% endfor %}
+</tr>
+{% endmacro %}
+
+{#
+@macro table
+@param {Array<Array<string|object>>} head
+       The rows in the table head. Items are `Array<string|object>`, of which each item is an `string|object`
+       representing a cell, either as a `string` for the cell's body, or as an `object` with the following properties:
+       - `{string} body`
+         The cell's body.
+       - `{string|null} [headerScope=null]`
+         The [scope](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#scope) for this cell's `<th>` tag.
+@param {Array<Array<string|object>>} body
+       The rows in the table body. Items are `Array<string|object>`, of which each item is an `string|object`
+       representing a cell, either as a `string` for the cell's body, or as an `object` with the following properties:
+       - `{string} body`
+         The cell's body.
+       - `{boolean} [header=false]`
+         Whether the cell is a header and should be rendered as a `<th>`.
+       - `{string|null} [headerScope=null]`
+         The [scope](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#scope) for this cell's `<th>` tag.
+@param {string|null} [caption=null]
+       The table caption.
+#}
+{% macro table(options) %}
+{% filter safe %}
+<table class="table">
+       {% if options.caption is defined %}
+              <caption>{{ options.caption }}</caption>
+       {% endif %}
+       <thead>
+              {% for row in options.head %}
+                     {{ _tableRow(row, true) | safe }}
+              {% endfor %}
+       </thead>
+       <tbody>
+              {% for row in options.body %}
+                     {{ _tableRow(row) | safe }}
+              {% endfor %}
+       </tbody>
+</table>
+{% endfilter %}
+{% endmacro %}

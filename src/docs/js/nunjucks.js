@@ -30,6 +30,7 @@ function createEnvironment() {
         },
     )
     environment._currentPageUrlPath = null;
+    environment.addFilter('parseInt', parseInt)
     environment.addFilter('highlight', (code, language) => highlight.highlight(code, {language}).value)
     environment.addFilter('prettier', (code, parser) => prettier.format(code, {parser}))
     let id = 0
@@ -62,7 +63,7 @@ function renderFile(filename) {
 }
 
 function* getNodesByType(node, type) {
-    if (node === undefined) {
+    if (node == undefined) {
         return
     }
 
