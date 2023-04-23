@@ -32,6 +32,8 @@ function createEnvironment() {
     environment._currentPageUrlPath = null;
     environment.addFilter('highlight', (code, language) => highlight.highlight(code, {language}).value)
     environment.addFilter('prettier', (code, parser) => prettier.format(code, {parser}))
+    let id = 0
+    environment.addGlobal('generateId', () => `ds-id-${id++}`)
     environment.addTest('activeCurrentUrl', urlPath => {
         if (!environment._currentPageUrlPath) {
             throw new Error('No page is being templated right now.')
@@ -90,6 +92,10 @@ function* getNodesByType(node, type) {
 
     if (node.args !== undefined) {
         yield* getNodesByType(node.args, type)
+    }
+
+    if (node.value !== undefined) {
+        yield* getNodesByType(node.value, type)
     }
 }
 
