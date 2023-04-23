@@ -1,3 +1,4 @@
+{% from 'macros/component/alert.html' import alert %}
 {% set title="Alert" %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
@@ -31,16 +32,22 @@
   <h2>Examples</h2>
 
   {% set code %}
-    <div class="alert alert-primary" role="alert">A simple primary alert—check it out!</div>
-    <div class="alert alert-secondary" role="alert">
-      A simple secondary alert—check it out!
-    </div>
-    <div class="alert alert-success" role="alert">A simple success alert—check it out!</div>
-    <div class="alert alert-danger" role="alert">A simple danger alert—check it out!</div>
-    <div class="alert alert-warning" role="alert">A simple warning alert—check it out!</div>
-    <div class="alert alert-info" role="alert">A simple info alert—check it out!</div>
-    <div class="alert alert-light" role="alert">A simple light alert—check it out!</div>
-    <div class="alert alert-dark" role="alert">A simple dark alert—check it out!</div>
+    {{ alert({
+      'type': 'info',
+      'body': 'Updates are available'
+    }) }}
+    {{ alert({
+      'type': 'success',
+      'body': 'Updates were made successfully'
+    }) }}
+    {{ alert({
+      'type': 'warning',
+      'body': 'Updates have not been run recently'
+    }) }}
+    {{ alert({
+      'type': 'danger',
+      'body': 'An error occurred while updating'
+    }) }}
   {% endset %}
   {% include 'docs/partials/html-example.html' %}
 {% endblock %}
