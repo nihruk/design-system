@@ -1,3 +1,4 @@
+{% from 'macros/component/select-input.html' import selectInput %}
 {% set title="Select Input" %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
@@ -30,13 +31,72 @@
   </p>
 
   <h2>Examples</h2>
+  <h3>Minimal input</h3>
   {% set code %}
-    <select class="form-select" aria-label="Default select example">
-      <option selected>Open this select menu</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
+    {{ selectInput({
+      'label': 'Colour',
+      'options': {
+        'red': 'Red',
+        'green': 'Green',
+        'blue': 'Blue'
+      }
+    }) }}
+  {% endset %}
+  {% include 'docs/partials/html-example.html' %}
+
+  <h3>Required input</h3>
+  {% set code %}
+    {{ selectInput({
+      'label': 'Colour',
+      'options': {
+        'red': 'Red',
+        'green': 'Green',
+        'blue': 'Blue'
+      },
+      'required': true
+    }) }}
+  {% endset %}
+  {% include 'docs/partials/html-example.html' %}
+
+  <h3>Invalid input</h3>
+  {% set code %}
+    {{ selectInput({
+      'label': 'Colour',
+      'options': {
+        'red': 'Red',
+        'green': 'Green',
+        'blue': 'Blue'
+      },
+      'invalid': true
+    }) }}
+  {% endset %}
+  {% include 'docs/partials/html-example.html' %}
+
+  <h3>Disabled input</h3>
+  {% set code %}
+    {{ selectInput({
+      'label': 'Colour',
+      'options': {
+        'red': 'Red',
+        'green': 'Green',
+        'blue': 'Blue'
+      },
+      'disabled': true
+    }) }}
+  {% endset %}
+  {% include 'docs/partials/html-example.html' %}
+
+  <h3>Prepopulated input</h3>
+  {% set code %}
+    {{ selectInput({
+      'label': 'Colour',
+      'options': {
+        'red': 'Red',
+        'green': 'Green',
+        'blue': 'Blue'
+      },
+      'value': 'blue'
+    }) }}
   {% endset %}
   {% include 'docs/partials/html-example.html' %}
 {% endblock %}
