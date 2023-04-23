@@ -1,8 +1,9 @@
-{% set title="Explore Other Sites" %}
+{% from 'macros/component/explore.html' import explore %}
+{% set title='Explore' %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
   <p class="lead">
-    Help users navigate to related content on another NIHR service
+    Help users navigate to related content on across NIHR services
   </p>
 
   <h2>Intended behaviour</h2>
@@ -53,7 +54,67 @@
   <h2>Examples</h2>
 
   {% set code %}
-      {% include 'docs/partials/component/explore/explore-other-sites.html' %}
+    {{ explore({
+      'first': {
+        'heading': 'NIHR',
+        'links': [
+          {
+            'label': 'Research funding',
+            'href': '#_'
+          },
+          {
+            'label': 'Career development',
+            'href': '#_'
+          },
+          {
+            'label': 'Infrastructure funding',
+            'href': '#_'
+          },
+          {
+            'label': 'Funding opportunities',
+            'href': '#_'
+          }
+        ]
+      },
+      'middle': {
+        'heading': 'NIHR open data',
+        'links': [
+          {
+            'label': 'About NIHR open data',
+            'href': '#_'
+          },
+          {
+            'label': 'NIHR data',
+            'href': '#_'
+          },
+          {
+            'label': 'NIHR awards',
+            'href': '#_'
+          },
+          {
+            'label': 'NIHR maps',
+            'href': '#_'
+          }
+        ]
+      },
+      'last': {
+        'heading': 'Journals Library',
+        'links': [
+          {
+            'label': 'Five open access journals',
+            'href': '#_'
+          },
+          {
+            'label': 'For authors',
+            'href': '#_'
+          },
+          {
+            'label': 'For reviewers',
+            'href': '#_'
+          }
+        ]
+      }
+    }) }}
   {% endset %}
   {% include 'docs/partials/html-example.html' %}
 {% endblock %}

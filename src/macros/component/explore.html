@@ -1,0 +1,41 @@
+{#
+@macro explore
+@param {object} first
+       Properties are:
+       - `{string} heading`
+         The human-readable category heading.
+       - `{Array<object>} links`
+         Item properties are:
+         - `{string} href`
+           The link's `href` value.
+         - `{string} label`
+           The human-readable link label.
+@param {object} middle
+       Identical to the `first` option.
+@param {object} last
+       Identical to the `first` option.
+#}
+{% macro explore(options) %}
+<section id="explore" class="bg-white">
+  <div class="container overflow-hidden">
+    <h1>Explore other sites</h1>
+    <div class="row gy-3 gy-sm-3 g-md-4 g-lg-5">
+      {% set color = cycler('text-grey-5', 'text-black') %}
+      {% for category in [options.first, options.middle, options.last] %}
+        <div class="col-lg-4">
+          <div class="wrapper">
+            <h2 class="fw-bold display-6 {{ color.next() }}">{{ category.heading }}</h2>
+            <ul>
+              {% for link in category.links %}
+                <li>
+                  <a href="{{ link.href }}">{{ link.label }}</a>
+                </li>
+              {%- endfor %}
+            </ul>
+          </div>
+        </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{% endmacro %}
