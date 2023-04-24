@@ -1,4 +1,5 @@
-{% set title="Search Input" %}
+{% from 'macros/component/search.html' import search %}
+{% set title='Search' %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
     <p class="lead">
@@ -10,14 +11,19 @@
     <h3>Default Search</h3>
 
     {% set code %}
-        {% include 'docs/partials/component/search-bar/sm-search-component.html' %}
+        {{ search({
+            'action': '#'
+        }) }}
     {% endset %}
     {% include 'docs/partials/html-example.html' %}
 
     <h3>Large Search</h3>
 
     {% set code %}
-        {% include 'docs/partials/component/search-bar/lg-search-component.html' %}
+        {{ search({
+            'action': '#',
+            'large': true
+        }) }}
     {% endset %}
     {% include 'docs/partials/html-example.html' %}
 {% endblock %}

@@ -9,8 +9,8 @@
     <h2>Intended behaviour</h2>
 
     <p>
-      The header consists of the NIHR logo and an optional search bar. The logo is also a link back to the current
-        site's front page. Entering a search query will return results.
+        The header consists of the NIHR logo and an optional <a href="/component/search">Search component</a>. The logo
+        is also a link back to the current site's front page. Entering a search query will return results.
     </p>
 
     <h2>When to use this component</h2>
@@ -32,7 +32,9 @@
 
     {% set code %}
         {{ header({
-            'search': true
+            'search': {
+                'action': '#'
+            }
         }) }}
     {% endset %}
     {% include 'docs/partials/html-example.html' %}
