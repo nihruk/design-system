@@ -8,7 +8,7 @@
   } %}
   {% for styleId, styleName in styles %}
     <li>
-      <a href="/style/{{ styleId }}" class="nav-link{% if ('style/' ~ styleId) is activeCurrentUrl %} active" aria-current="page{% endif %}">{{ styleName }}</a>
+      <a href="/style/{{ styleId }}" class="nav-link rounded-0{% if ('style/' ~ styleId) is activeCurrentUrl %} active" aria-current="page{% endif %}">{{ styleName }}</a>
     </li>
   {% endfor %}
 </ul>

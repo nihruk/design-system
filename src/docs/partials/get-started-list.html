@@ -6,7 +6,7 @@
   } %}
   {% for getStartedId, getStartedName in getStarted %}
     <li>
-      <a href="/get-started/{{ getStartedId }}" class="nav-link{% if ('get-started/' ~ getStartedId) is activeCurrentUrl %} active" aria-current="page{% endif %}">{{ getStartedName }}</a>
+      <a href="/get-started/{{ getStartedId }}" class="nav-link rounded-0{% if ('get-started/' ~ getStartedId) is activeCurrentUrl %} active" aria-current="page{% endif %}">{{ getStartedName }}</a>
     </li>
   {% endfor %}
 </ul>
