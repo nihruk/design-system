@@ -1,0 +1,89 @@
+{#
+@macro footer
+@param {string|null} [body=null]
+       The footer's main body content, if any.
+@param {Array<object>} [socialMediaLinks=[]]
+       The additional social media links to show. Each item is an object with `{string} href`, `{string} label`, and
+       `{Array<string>} [classes=[]]` properties, which are the link href and an array of CSS classes for the
+        icon respectively.
+@param {Array<object>} [navigationLinks=[]]
+       The additional navigation links to show. Each item is an object with `{string} href` and `{string} label`
+       properties.
+#}
+{% macro footer(options) %}
+<footer id="main-footer">
+    <div class="container">
+        {% if options.body is defined %}
+            <div class="row">
+                {{ options.body }}
+            </div>
+            <hr/>
+        {% endif %}
+        <div class="row">
+            <div class="col d-flex align-items-stretch justify-content-between flex-column">
+                <ul class="social-media-links mb-3">
+                    {% for link in [
+                        {
+                            'label': 'Facebook',
+                            'href': 'https://en-gb.facebook.com/OfficialNIHR/',
+                            'classes': [
+                                'fa-brands',
+                                'fa-facebook-f'
+                            ]
+                        },
+                        {
+                            'label': 'LinkedIn',
+                            'href': 'https://www.linkedin.com/company/nihr-research',
+                            'classes': [
+                                'fa-brands',
+                                'fa-linkedin-in'
+                            ]
+                        },
+                        {
+                            'label': 'Twitter',
+                            'href': 'https://twitter.com/NIHRresearch',
+                            'classes': [
+                                'fa-brands',
+                                'fa-twitter'
+                            ]
+                        },
+                        {
+                            'label': 'Youtube',
+                            'href': 'https://www.youtube.com/NIHRtv',
+                            'classes': [
+                                'fa-brands',
+                                'fa-youtube'
+                            ]
+                        }
+                    ].concat(options.socialMediaLinks | default([])) %}
+                        <li>
+                            <a href="{{ link.href }}" title="{{ link.label }}"><i class="{{ link.classes.join(' ') }}"><span class="visually-hidden">{{ link.label }}</span></i></a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="col-auto">
+                <a href="https://www.gov.uk/government/organisations/department-of-health-and-social-care"
+                   class="funded-by-department-of-health-and-social-care-logo">
+                    <img src="https://www.nihr.ac.uk/layout/4.0/assets/logo-dhsc-reversed.png"
+                         alt="Logo of the Department of Health & Social Care"/>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <ul class="bottom-nav">
+                    {% for link in options.navigationLinks | default([]) %}
+                        <li>
+                            <a href="{{ link.href }}">{{ link.label }}</a>
+                        </li>
+                    {% endfor %}
+                    <li>© NIHR</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/design-system.bundle.js"></script>
+{% endmacro %}
