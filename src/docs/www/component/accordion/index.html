@@ -1,0 +1,92 @@
+{% from 'macros/component/accordion.html' import accordion %}
+{% set title='Accordion' %}
+{% extends 'docs/partials/component-page.html' %}
+{% block componentPageContent %}
+  <p class="lead">
+    Accordions collapse content that may not be relevant to all audiences.
+  </p>
+
+  {% set code %}
+    {{ accordion({
+        'id': 'accordion-component-example-minimal',
+        'items': [
+          {
+            'header': 'More content',
+            'body': '
+<p>
+  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla nisi veniam doloribus corrupti
+  ut dolores debitis, quos excepturi assumenda sit praesentium ab culpa soluta, et asperiores?
+  Autem ea quo repellendus.
+</p>
+            ' | safe
+          },
+          {
+            'header': 'Even more content',
+            'body': '
+<p>
+  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla nisi veniam doloribus corrupti
+  ut dolores debitis, quos excepturi assumenda sit praesentium ab culpa soluta, et asperiores?
+  Autem ea quo repellendus.
+</p>
+            ' | safe
+          }
+        ]
+    }) }}
+  {% endset %}
+  {% include 'docs/partials/html-example.html' %}
+
+  <h2>Showing items by default</h2>
+  {% set code %}
+    {{ accordion({
+        'id': 'accordion-component-example-show',
+        'items': [
+          {
+            'header': 'More content',
+            'body': '
+<p>
+  Lorem ipsum, dolor sit amet.
+</p>
+            ' | safe
+          },
+          {
+            'header': 'Even more content',
+            'body': '
+<p>
+  Lorem ipsum, dolor sit amet.
+</p>
+            ' | safe,
+            'show': true
+          }
+        ]
+    }) }}
+  {% endset %}
+  {% include 'docs/partials/html-example.html' %}
+
+  <h2>Mutually exclusive items</h2>
+  {% set code %}
+    {{ accordion({
+        'id': 'accordion-component-example-mutually-exclusive',
+        'mutuallyExclusive': true,
+        'items': [
+          {
+            'header': 'More content',
+            'body': '
+<p>
+  Lorem ipsum, dolor sit amet.
+</p>
+            ' | safe,
+            'show': true
+          },
+          {
+            'header': 'Even more content',
+            'body': '
+<p>
+  Lorem ipsum, dolor sit amet.
+</p>
+            ' | safe
+          }
+        ]
+    }) }}
+  {% endset %}
+  {% include 'docs/partials/html-example.html' %}
+{% endblock %}

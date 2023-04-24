@@ -1,0 +1,41 @@
+{#
+@macro accordion
+@param {Array<object>} items
+       An array of objects, each of which has `{string} header` and `{string} body` properties.
+@param {string} id
+       The ID of the root HTML element.
+@param {boolean} [mutuallyExclusive=false]
+       Whether only one item can be shown at a time.
+#}
+{% macro accordion(options) %}
+<div class="accordion" id="{{ options.id }}">
+  {% for item in options.items %}
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="panel-heading--{{ options.id }}--{{ loop.index }}">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#panel-collapse--{{ options.id }}--{{ loop.index }}"
+          aria-expanded="true"
+          aria-controls="panel-collapse--{{ options.id }}--{{ loop.index }}"
+        >
+          {{ item.header }}
+        </button>
+      </h2>
+      <div
+        id="panel-collapse--{{ options.id }}--{{ loop.index }}"
+        class="accordion-collapse collapse{% if item.show | default(false) %} show{% endif %}"
+        aria-labelledby="panel-heading--{{ options.id }}--{{ loop.index }}"
+        {% if options.mutuallyExclusive | default(false) %}
+            data-bs-parent="#{{ options.id }}"
+        {% endif %}
+      >
+        <div class="accordion-body">
+          {{ item.body }}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endmacro %}
