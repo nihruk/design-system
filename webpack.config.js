@@ -6,8 +6,43 @@ const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
-const {renderFile} = require("./src/docs/js/nunjucks");
+const nunjucks = require('./src/docs/js/nunjucks')
 
+
+class AssetEmitterPlugin{
+  constructor() {
+    this._assets = {}
+  }
+
+  emit(path, content) {
+    this._assets[path] = content
+  }
+
+  apply(compiler) {
+    const pluginName = AssetEmitterPlugin.name;
+    const { webpack } = compiler;
+    const { Compilation } = webpack;
+    const { RawSource } = webpack.sources;
+
+    compiler.hooks.thisCompilation.tap(pluginName, (compilation) => {
+      compilation.hooks.processAssets.tap(
+        {
+          name: pluginName,
+          stage: Compilation.PROCESS_ASSETS_STAGE_SUMMARIZE,
+        },
+        () => {
+          for (const [path, content] of Object.entries(this._assets)) {
+            compilation.emitAsset(path, new RawSource(content))
+          }
+          this._assets = []
+        }
+      );
+    });
+  }
+}
+
+const assetEmitterPlugin = new AssetEmitterPlugin()
+const nunjucksEnvironment = new nunjucks.Environment(assetEmitterPlugin)
 
 module.exports = (env, args) => {
   const production = args.mode === 'production'
@@ -135,10 +170,11 @@ module.exports = (env, args) => {
           {
             from: path.resolve(__dirname, 'src', 'docs', 'www'),
             to: path.resolve(__dirname, 'dist'),
-            transform: (content, filename) => filename.endsWith('.html') ? renderFile(filename) : content
+            transform: (content, filename) => filename.endsWith('.html') ? nunjucksEnvironment.renderPageFile(filename) : content
           }
         ]
       }),
+      assetEmitterPlugin,
       new MiniCssExtractPlugin({
         filename: '[name].bundle.css',
       }),

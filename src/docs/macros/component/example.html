@@ -55,7 +55,12 @@
        {# Show a rendered HTML example, if one can be rendered. #}
        {% set renderableHtmlExample = renderableHtmlExamples | first %}
        {% if renderableHtmlExample is not undefined %}
-              <div class="example-html-render p-3">{{ renderableHtmlExample.code | safe }}</div>
+              <p class="example-html-render-new-window">
+                     <a href="{{ renderableHtmlExample.code | renderHtmlExample(options.id) }}">open this example in its own window</a>
+              </p>
+              <div class="example-html-render p-3">
+                     {{ renderableHtmlExample.code | safe }}
+              </div>
        {% endif %}
 
        {# Show all examples. #}

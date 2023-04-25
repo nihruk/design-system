@@ -24,6 +24,15 @@
   border-bottom: 2px solid $navy-20;
 }
 
+.example-html-render-new-window {
+  @extend .px-3;
+  @extend .py-1;
+  @extend .rounded-top;
+
+  background-color: $white;
+  border-bottom: 2px solid $navy-20;
+}
+
 .example-code {
   background-color: $grey-20;
   max-height: 20rem;
