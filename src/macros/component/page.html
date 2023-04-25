@@ -1,0 +1,75 @@
+{% from 'macros/component/footer.html' import footer %}
+{% from 'macros/component/header.html' import header %}
+
+{#
+@typedef {object} PrimaryNavigationLink
+@property {string} path
+The link's href value as a relative path.
+@property {string} label
+The human-readable link label.
+
+@macro page
+@param {string|null} [pageTitle=null]
+       The human-readable page title. Defaults to the site title.
+@param {boolean} [visuallyHidePageTitle=false]
+       Whether to visually hide the title from the page content.
+@param {string} siteTitle
+       The human-readable site title.
+@param {Array<PrimaryNavigationLink>} primaryNavigationLinks
+       The primary navigation links to show.
+@param {string} pageContent
+       The page's content.
+@param {object} [header={}]
+       The Header component's options.
+@param {object} [footer={}]
+       The Footer component's options.
+#}
+{% macro page(options) %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if options.pageTitle is defined %}{{ options.pageTitle }} - {% endif %}{{ options.siteTitle }}</title>
+  <link rel="shortcut icon" href="https://www.nihr.ac.uk/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="/design-system.bundle.css">
+  <link rel="stylesheet" href="/docs.bundle.css">
+</head>
+<body class="bg-grey-10">
+{{ header(options.header | default({})) }}
+<nav id="main-navigation" class="navbar navbar-expand-lg navbar-light bg-light bg-grey-20">
+    <div class="container">
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                {% for link in options.primaryNavigationLinks %}
+                    <li class="nav-item">
+                        <a class="nav-link{% if link.href is activeParentUrl %} active" aria-current="page{% endif %}" href="{{ link.href }}">{{ link.label }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main>
+    <div class="container">
+        <h1{% if options.visuallyHidePageTitle %} class="visually-hidden"{% endif %}>{{ options.pageTitle | default(options.siteTitle) }}</h1>
+        {{ options.pageContent }}
+    </div>
+</main>
+{{ footer(options.footer | default({})) }}
+</body>
+</html>
+{% endmacro %}

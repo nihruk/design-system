@@ -56,10 +56,10 @@
        {% set renderableHtmlExample = renderableHtmlExamples | first %}
        {% if renderableHtmlExample is not undefined %}
               <p class="example-html-render-new-window">
-                     <a href="{{ renderableHtmlExample.code | renderHtmlExample(options.id) }}">open this example in its own window</a>
+                     <a href="{{ renderableHtmlExample | renderHtmlExample(options) }}">open this example in its own window</a>
               </p>
               <div class="example-html-render p-3">
-                     {{ renderableHtmlExample.code | safe }}
+                     {% include options.inlineTemplate | default('docs/partials/example/rendered-html--inline.html') %}
               </div>
        {% endif %}
 
@@ -75,7 +75,7 @@
               <div class="tab-content" id="pills-tabContent--{{ options.id }}">
                      {% for example in options.examples %}
                             <div class="tab-pane fade{% if loop.index == 1%} show active{% endif %}" id="pills--{{ options.id }}--{{ loop.index }}" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-                                   {% include 'docs/macros/component/_example-' ~ example.type ~ '.html'%}
+                                   {% include 'docs/partials/example/code--' ~ example.type ~ '.html'%}
                             </div>
                      {% endfor %}
               </div>

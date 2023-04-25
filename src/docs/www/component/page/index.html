@@ -1,0 +1,32 @@
+{% from 'docs/macros/component/example.html' import example %}
+{% from 'macros/component/page.html' import page %}
+{% set pageTitle = 'Page' %}
+{% extends 'docs/partials/component-page.html' %}
+{% block componentPageContent %}
+    <p class="lead">
+        Quickly build an entire NIHR page, including <a href="/component/header">Header</a> and
+        <a href="/component/footer">Footer</a>, navigation, and content.
+    </p>
+
+    <h2>Examples</h2>
+    {% set code %}
+{% raw %}
+{{ page({
+    'siteTitle': 'An NIHR site',
+    'pageContent': '<p>Hello, world!</p>' | safe
+}) }}
+{% endraw %}
+    {% endset %}
+    {{ example({
+        'id': 'example-page-component',
+        'inlineTemplate': 'docs/partials/example/rendered-html--inline--iframe.html',
+        'pageTemplate': false,
+        'examples': [
+            {
+                'type': 'nunjucks',
+                'nunjucksMacro': 'component/page',
+                'code': code
+            }
+        ]
+    }) }}
+{% endblock %}
