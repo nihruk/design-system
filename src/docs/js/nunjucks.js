@@ -10,6 +10,7 @@ const assert = require('assert');
 const {TOKEN_COMMENT} = require('nunjucks/src/lexer');
 const nodes = require('nunjucks/src/nodes');
 const commentParser = require('comment-parser');
+const marked = require('marked');
 
 
 const nunjucksWwwFilePageUrlPathPrefixLength = path.resolve(__dirname, '..', 'www').length
@@ -22,6 +23,17 @@ function normalizeUrlPath(urlPath) {
         .join('/')
 }
 
+const deindentIndentationPattern = /^[ \t]*(?=\S)/gm
+function deindent(value) {
+	const match = value.match(deindentIndentationPattern)
+	const indentation = match ? match.reduce((r, a) => Math.min(r, a.length), Infinity) : 0
+    if (indentation === 0) {
+        return value
+    }
+    const deindentationPattern = new RegExp(`^[ \\t]{${indentation}}`, 'gm')
+	return value.replace(deindentationPattern, '')
+}
+
 function createEnvironment() {
     const environment = new nunjucks.Environment(
         new nunjucks.FileSystemLoader(path.resolve(__dirname, '..', '..')),
@@ -30,11 +42,19 @@ function createEnvironment() {
         },
     )
     environment._currentPageUrlPath = null;
+    environment.addFilter('deindent', deindent)
     environment.addFilter('parseInt', parseInt)
+    environment.addFilter('kebabCaseToLowerCamelCase', value => value.replace(/-./g, x => x[1].toUpperCase()))
+    environment.addFilter('setKey', (mapping, key, value) => {
+        mapping[key] = value
+    })
     environment.addFilter('highlight', (code, language) => highlight.highlight(code, {language}).value)
     environment.addFilter('prettier', (code, parser) => prettier.format(code, {parser}))
     let id = 0
     environment.addGlobal('generateId', () => `ds-id-${id++}`)
+    environment.addFilter('markdown', marked.parse)
+    environment.addFilter('nunjucks', renderString)
+    environment.addFilter('nunjucksMacroJsDocs', name => getMacroJsDocForFilePath(path.join(__dirname, '..', '..', 'macros', ...name.split('/')) + '.html'))
     environment.addTest('activeCurrentUrl', urlPath => {
         if (!environment._currentPageUrlPath) {
             throw new Error('No page is being templated right now.')
@@ -62,6 +82,11 @@ function renderFile(filename) {
     })
 }
 
+function renderString(code) {
+    const environment = createEnvironment()
+    return environment.renderString(code)
+}
+
 function* getNodesByType(node, type) {
     if (!node) {
         return
@@ -85,7 +110,7 @@ function* getNodesByType(node, type) {
 }
 
 function nunjucksJsDocCommentToJsDoc(nunjucksComment) {
-    const commentText = nunjucksComment.value.slice(2, -2).trim()
+    const commentText = nunjucksComment.value.slice(2, -2)
     const jsDocComment = '/**\n'.concat(
         commentText
             .split('\n')
@@ -93,7 +118,9 @@ function nunjucksJsDocCommentToJsDoc(nunjucksComment) {
             .join('\n'),
         '\n */',
     )
-    return commentParser.parse(jsDocComment)[0]
+    return commentParser.parse(jsDocComment, {
+        spacing: 'preserve',
+    })[0]
 }
 
 function getMacroForFileContents(filePath, fileContents) {

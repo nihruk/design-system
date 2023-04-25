@@ -1,0 +1,56 @@
+{% from 'macros/component/accordion.html' import accordion %}
+
+{% macro _options(tags) %}
+<dl class="component-options">
+       {% for tag in tags %}
+              <dt>
+                     <code>{{ tag.name }}: {{ tag.type }}{% if tag.optional %}{% if tag.default is defined %} = {{ tag.default }}{% else %}null{% endif %}{% endif %}</code>
+              </dt>
+              <dd>
+                     {{ tag.description | deindent | markdown | safe }}
+              </dd>
+       {% endfor %}
+</dl>
+{% endmacro %}
+
+{% if example.nunjucksMacro is defined %}
+       {% set jsDocs = example.nunjucksMacro | nunjucksMacroJsDocs %}
+       {% set types = [] %}
+       {% set typesOptions = {} %}
+       {% for tag in jsDocs.tags %}
+              {% if tag.tag == 'typedef' %}
+                     {% set _ = types.push(tag) %}
+                     {% set currentType = tag %}
+              {% endif %}
+              {% if tag.tag == 'property' and currentType is defined %}
+                     {% set _ = typesOptions | setKey(currentType.name, typesOptions[currentType.name] | default([])) %}
+                     {% set _ = typesOptions[currentType.name].push(tag) %}
+              {% endif %}
+       {% endfor %}
+       <div class="example-instructions px-3">
+              {% set macroOptions %}
+                     {% set macroOptions = [] %}
+                     {% for tag in jsDocs.tags %}
+                            {% if tag.tag == 'param' %}
+                                   {% set _ = macroOptions.push(tag) %}
+                            {% endif %}
+                     {% endfor %}
+                     <p class="h6 mb-0">Options to the <code>{{ example.nunjucksMacro.split('/') | last | kebabCaseToLowerCamelCase }}()</code> macro</p>
+                     {{ _options(macroOptions) }}
+                     {% for typeName, typeOptions in typesOptions %}
+                            <p class="h6 mb-0">Options to <code>{{ typeName }}</code></p>
+                            {{ _options(typeOptions) }}
+                     {% endfor %}
+              {% endset %}
+              {{ accordion({
+                     'id': options.id ~ '-nunjucks-macro-options',
+                     'items': [
+                            {
+                                   'header': 'Macro options',
+                                   'body': macroOptions | safe
+                            }
+                     ]
+              }) }}
+       </div>
+{% endif %}
+<pre class="example-code p-3">{{ example.code | highlight('twig') | safe }}</pre>

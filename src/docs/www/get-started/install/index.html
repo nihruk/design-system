@@ -17,11 +17,11 @@
     {% set code %}
         @import '~@nihruk/design-system/dist/design-system.bundle.css';
     {% endset %}
-    {% include 'docs/partials/css-example--code.html' %}
+    <pre class="example-code p-3">{{ code | prettier('css') | highlight('css') | safe }}</pre>
     {% set code %}
         import '~@nihruk/design-system/dist/design-system.bundle.js';
     {% endset %}
-    {% include 'docs/partials/js-example--code.html' %}
+    <pre class="example-code p-3">{{ code | prettier('babel') | highlight('js') | safe }}</pre>
 
     <h3>Bundling your application</h3>
     <p>
@@ -53,10 +53,11 @@
         <a href="https://www.npmjs.com/package/@nihruk/design-system?activeTab=versions">available versions</a>:
     </p>
     {% set code %}
-        <link rel="stylesheet" href="https://unpkg.com/@nihruk/design-system@x.y.z/dist/design-system.bundle.css" />
-        <script src="https://unpkg.com/@nihruk/design-system@x.y.z/dist/design-system.bundle.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@nihruk/design-system@x.y.z/dist/design-system.bundle.css" />
+<script src="https://unpkg.com/@nihruk/design-system@x.y.z/dist/design-system.bundle.js"></script>
     {% endset %}
-    {% include 'docs/partials/html-example--code.html' %}
+    <pre class="example-code p-3">{{ code | prettier('html') | highlight('html') | safe }}</pre>
+
     <h3>When not to include hosted files</h3>
     <p>
         You should not include the hosted files:

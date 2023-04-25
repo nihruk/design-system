@@ -1,4 +1,5 @@
 {% from 'macros/component/table.html' import table %}
+{% from 'docs/macros/component/example.html' import example %}
 {% set title="Table" %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
@@ -37,87 +38,109 @@
   <h2>Examples</h2>
   <h3>A minimal table, with a caption</h3>
   {% set code %}
-    {{ table({
-      'caption': 'Some people in a table',
-      'head': [
-        [
-          'Name',
-          'Age'
+    {% raw %}
+      {{ table({
+        'caption': 'Some people in a table',
+        'head': [
+          [
+            'Name',
+            'Age'
+          ]
+        ],
+        'body': [
+          [
+            'Jane Doe',
+            '1'
+          ],
+          [
+            'Janet Doughnut',
+            '3'
+          ],
+          [
+            'John Doe',
+            '3'
+          ],
+          [
+            'Jeff Donut',
+            '7'
+          ]
         ]
-      ],
-      'body': [
-        [
-          'Jane Doe',
-          '1'
-        ],
-        [
-          'Janet Doughnut',
-          '3'
-        ],
-        [
-          'John Doe',
-          '3'
-        ],
-        [
-          'Jeff Donut',
-          '7'
-        ]
-      ]
-    }) }}
+      }) }}
+    {% endraw %}
   {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+  {{ example({
+      'id': 'example-table-component-minimal-with-caption',
+      'examples': [
+          {
+              'type': 'nunjucks',
+              'nunjucksMacro': 'component/table',
+              'code': code
+          }
+      ]
+  }) }}
 
   <h3>A table with a scoped column and row headers</h3>
   {% set code %}
-    {{ table({
-      'caption': 'Some people in a table',
-      'head': [
-        [
-          {
-            'body': 'Name',
-            'headerScope': 'col'
-          },
-          {
-            'body': 'Age',
-            'headerScope': 'col'
-          }
+    {% raw %}
+      {{ table({
+        'caption': 'Some people in a table',
+        'head': [
+          [
+            {
+              'body': 'Name',
+              'headerScope': 'col'
+            },
+            {
+              'body': 'Age',
+              'headerScope': 'col'
+            }
+          ]
+        ],
+        'body': [
+          [
+            {
+              'body': 'Jane Doe',
+              'header': true,
+              'headerScope': 'row'
+            },
+            '1'
+          ],
+          [
+            {
+              'body': 'Janet Doughnut',
+              'header': true,
+              'headerScope': 'row'
+            },
+            '3'
+          ],
+          [
+            {
+              'body': 'John Doe',
+              'header': true,
+              'headerScope': 'row'
+            },
+            '3'
+          ],
+          [
+            {
+              'body': 'Jeff Donut',
+              'header': true,
+              'headerScope': 'row'
+            },
+            '7'
+          ]
         ]
-      ],
-      'body': [
-        [
-          {
-            'body': 'Jane Doe',
-            'header': true,
-            'headerScope': 'row'
-          },
-          '1'
-        ],
-        [
-          {
-            'body': 'Janet Doughnut',
-            'header': true,
-            'headerScope': 'row'
-          },
-          '3'
-        ],
-        [
-          {
-            'body': 'John Doe',
-            'header': true,
-            'headerScope': 'row'
-          },
-          '3'
-        ],
-        [
-          {
-            'body': 'Jeff Donut',
-            'header': true,
-            'headerScope': 'row'
-          },
-          '7'
-        ]
-      ]
-    }) }}
+      }) }}
+    {% endraw %}
   {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+  {{ example({
+      'id': 'example-table-component-scoped-headers',
+      'examples': [
+          {
+              'type': 'nunjucks',
+              'nunjucksMacro': 'component/table',
+              'code': code
+          }
+      ]
+  }) }}
 {% endblock %}

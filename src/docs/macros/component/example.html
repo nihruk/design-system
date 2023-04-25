@@ -1,0 +1,79 @@
+{#
+@macro example
+@param {string} id
+       The ID of the root HTML element.
+@param {Array<object>} examples
+       The examples to show. Each item is an object with `{string} code` and `{string} type` properties, which are
+       the source code and one of `html`, `nunjucks`, `css`, or `js` respectively.
+
+       Items with `.type = 'html'` also have a `{boolean} [htmlRender=true]` property that indicates whether the
+       example must also be rendered interactively.
+
+       Items with `.type = 'nunjucks'` also have a `{string} nunjucksMacro` property that contains the name of the
+       Nunjucks macro used by this example. This ensures the macro is imported, and its documentation rendered.
+#}
+{% macro example(options) %}
+{% set typeLabels = {
+       'html': 'HTML',
+       'nunjucks': 'Nunjucks',
+       'css': 'CSS',
+       'js': 'JS'
+} %}
+
+
+{% for example in options.examples %}
+       {% set _ = example | setKey ('code', example.code | trim) %}
+       {# Expand any Nunjucks examples to include an optional macro import. #}
+       {% if example.type == 'nunjucks' and example.nunjucksMacro is defined %}
+              {% set _ = example | setKey ('code', '{% from \'macros/' ~ example.nunjucksMacro ~ '.html\' import ' ~ example.nunjucksMacro.split('/') | last | kebabCaseToLowerCamelCase ~ ' %}\n\n' ~ example.code) %}
+       {% endif %}
+{% endfor %}
+
+{# Collect all examples that can be shown as rendered HTML. #}
+{% set renderableHtmlExamples = [] %}
+{% for example in options.examples %}
+       {% if example.type == 'html' and example.htmlRender | default(true) %}
+              {% set _ = renderableHtmlExamples.push(example) %}
+       {% endif %}
+{% endfor %}
+
+{# If there are no (renderable) HTML examples, try and convert another example to (renderable) HTML. #}
+{% for example in options.examples %}
+       {% if renderableHtmlExamples | first is undefined %}
+              {% if example.type == 'nunjucks' %}
+                     {% set renderableHtmlExample = {
+                            'type': 'html',
+                            'code': example.code | nunjucks
+                     } %}
+                     {% set _ = options.examples.unshift(renderableHtmlExample) %}
+                     {% set _ = renderableHtmlExamples.push(renderableHtmlExample) %}
+              {% endif %}
+       {% endif %}
+{% endfor %}
+
+<div class="example rounded mb-3">
+       {# Show a rendered HTML example, if one can be rendered. #}
+       {% set renderableHtmlExample = renderableHtmlExamples | first %}
+       {% if renderableHtmlExample is not undefined %}
+              <div class="example-html-render p-3">{{ renderableHtmlExample.code | safe }}</div>
+       {% endif %}
+
+       {# Show all examples. #}
+       <div class="examples bg-white">
+              <ul class="nav nav-pills mb-0 p-3" id="pills-tab--{{ options.id }}" role="tablist">
+                     {% for example in options.examples %}
+                            <li class="nav-item" role="presentation">
+                                   <button class="nav-link rounded-0{% if loop.index == 1%} active{% endif %}" id="pills-tab--{{ options.id }}--{{ loop.index }}" data-bs-toggle="pill" data-bs-target="#pills--{{ options.id }}--{{ loop.index }}" type="button" role="tab" aria-controls="pills--{{ options.id }}--{{ loop.index }}"{% if loop.index == 1%} aria-selected="true"{% endif %}>{{ typeLabels[example.type] }}</button>
+                            </li>
+                     {% endfor %}
+              </ul>
+              <div class="tab-content" id="pills-tabContent--{{ options.id }}">
+                     {% for example in options.examples %}
+                            <div class="tab-pane fade{% if loop.index == 1%} show active{% endif %}" id="pills--{{ options.id }}--{{ loop.index }}" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+                                   {% include 'docs/macros/component/_example-' ~ example.type ~ '.html'%}
+                            </div>
+                     {% endfor %}
+              </div>
+       </div>
+</div>
+{% endmacro %}

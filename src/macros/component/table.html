@@ -20,25 +20,23 @@
 {% endmacro %}
 
 {#
+@typedef {string} CellBody
+         The cell's body.
+
+@typedef {object} Cell
+@property {CellBody} body
+@property {boolean} [header=false]
+          Whether the cell is a header and should be rendered as a `<th>`. This is `true` for all table head cells.
+@property {string|null} [headerScope=null]
+          The [scope](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#scope) for this cell's `<th>` tag.
+
 @macro table
-@param {Array<Array<string|object>>} head
-       The rows in the table head. Items are `Array<string|object>`, of which each item is an `string|object`
-       representing a cell, either as a `string` for the cell's body, or as an `object` with the following properties:
-       - `{string} body`
-         The cell's body.
-       - `{string|null} [headerScope=null]`
-         The [scope](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#scope) for this cell's `<th>` tag.
-@param {Array<Array<string|object>>} body
-       The rows in the table body. Items are `Array<string|object>`, of which each item is an `string|object`
-       representing a cell, either as a `string` for the cell's body, or as an `object` with the following properties:
-       - `{string} body`
-         The cell's body.
-       - `{boolean} [header=false]`
-         Whether the cell is a header and should be rendered as a `<th>`.
-       - `{string|null} [headerScope=null]`
-         The [scope](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#scope) for this cell's `<th>` tag.
+@param {Array<Array<Cell|CellBody>} head
+       The rows in the table head.
+@param {Array<Array<Cell|CellBody>} body
+       The rows in the table body.
 @param {string|null} [caption=null]
-       The table caption.
+The table caption.
 #}
 {% macro table(options) %}
 {% filter safe %}

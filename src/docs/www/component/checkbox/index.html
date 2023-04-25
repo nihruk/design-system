@@ -1,4 +1,5 @@
 {% from 'macros/component/checkbox.html' import checkbox %}
+{% from 'docs/macros/component/example.html' import example %}
 {% set title="Checkbox" %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
@@ -84,41 +85,73 @@
 
   <h2>Examples</h2>
   <h3>Minimal checkbox</h3>
-  {% set code %}
-    {{ checkbox({
-      'label': 'I want to receive the NIHR newsletter',
-      'value': 'yes'
-    }) }}
-  {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+  {{ example({
+      'id': 'example-checkbox-component-minimal',
+      'examples': [
+          {
+              'type': 'nunjucks',
+              'nunjucksMacro': 'component/checkbox',
+              'code': "
+{{ checkbox({
+  'label': 'I want to receive the NIHR newsletter',
+  'value': 'yes'
+}) }}
+              "
+          }
+      ]
+  }) }}
 
   <h3>Required checkbox</h3>
-  {% set code %}
-    {{ checkbox({
-      'label': 'I want to receive the NIHR newsletter',
-      'value': 'yes',
-      'required': true
-    }) }}
-  {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+  {{ example({
+      'id': 'example-checkbox-component-required',
+      'examples': [
+          {
+              'type': 'nunjucks',
+              'nunjucksMacro': 'component/checkbox',
+              'code': "
+{{ checkbox({
+  'label': 'I want to receive the NIHR newsletter',
+  'value': 'yes',
+  'required': true
+}) }}
+              "
+          }
+      ]
+  }) }}
 
   <h3>Invalid checkbox</h3>
-  {% set code %}
-    {{ checkbox({
-      'label': 'I want to receive the NIHR newsletter',
-      'value': 'yes',
-      'invalid': true
-    }) }}
-  {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+  {{ example({
+      'id': 'example-checkbox-component-invalid',
+      'examples': [
+          {
+              'type': 'nunjucks',
+              'nunjucksMacro': 'component/checkbox',
+              'code': "
+{{ checkbox({
+  'label': 'I want to receive the NIHR newsletter',
+  'value': 'yes',
+  'invalid': true
+}) }}
+              "
+          }
+      ]
+  }) }}
 
   <h3>Disabled checkbox</h3>
-  {% set code %}
-    {{ checkbox({
-      'label': 'I want to receive the NIHR newsletter',
-      'value': 'yes',
-      'disabled': true
-    }) }}
-  {% endset %}
-  {% include 'docs/partials/html-example.html' %}
+  {{ example({
+      'id': 'example-checkbox-component-disabled',
+      'examples': [
+          {
+              'type': 'nunjucks',
+              'nunjucksMacro': 'component/checkbox',
+              'code': "
+{{ checkbox({
+  'label': 'I want to receive the NIHR newsletter',
+  'value': 'yes',
+  'disabled': true
+}) }}
+              "
+          }
+      ]
+  }) }}
 {% endblock %}

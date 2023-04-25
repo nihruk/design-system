@@ -1,7 +1,11 @@
 {#
+@typedef {object}  Item
+@property {string} header
+@property {string} body
+
 @macro accordion
-@param {Array<object>} items
-       An array of objects, each of which has `{string} header` and `{string} body` properties.
+@param {Array<Item>} items
+       An array of accordion items.
 @param {string} id
        The ID of the root HTML element.
 @param {boolean} [mutuallyExclusive=false]

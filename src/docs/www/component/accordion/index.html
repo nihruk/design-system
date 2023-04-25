@@ -1,4 +1,5 @@
 {% from 'macros/component/accordion.html' import accordion %}
+{% from 'docs/macros/component/example.html' import example %}
 {% set title='Accordion' %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
@@ -6,87 +7,111 @@
     Accordions collapse content that may not be relevant to all audiences.
   </p>
 
-  {% set code %}
-    {{ accordion({
-        'id': 'accordion-component-example-minimal',
-        'items': [
+    {{ example({
+        'id': 'example-accordion-component-minimal',
+        'examples': [
           {
-            'header': 'More content',
-            'body': '
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/accordion',
+            'code': "
+{{ accordion({
+    'id': 'accordion-component-minimal',
+    'items': [
+      {
+        'header': 'More content',
+        'body': '
 <p>
-  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla nisi veniam doloribus corrupti
-  ut dolores debitis, quos excepturi assumenda sit praesentium ab culpa soluta, et asperiores?
-  Autem ea quo repellendus.
+Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla nisi veniam doloribus corrupti
+ut dolores debitis, quos excepturi assumenda sit praesentium ab culpa soluta, et asperiores?
+Autem ea quo repellendus.
 </p>
-            ' | safe
-          },
-          {
-            'header': 'Even more content',
-            'body': '
+        ' | safe
+      },
+      {
+        'header': 'Even more content',
+        'body': '
 <p>
-  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla nisi veniam doloribus corrupti
-  ut dolores debitis, quos excepturi assumenda sit praesentium ab culpa soluta, et asperiores?
-  Autem ea quo repellendus.
+Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla nisi veniam doloribus corrupti
+ut dolores debitis, quos excepturi assumenda sit praesentium ab culpa soluta, et asperiores?
+Autem ea quo repellendus.
 </p>
-            ' | safe
+        ' | safe
+      }
+    ]
+}) }}
+            "
           }
         ]
     }) }}
-  {% endset %}
-  {% include 'docs/partials/html-example.html' %}
 
   <h2>Showing items by default</h2>
-  {% set code %}
-    {{ accordion({
-        'id': 'accordion-component-example-show',
-        'items': [
+    {{ example({
+        'id': 'example-accordion-component-show',
+        'examples': [
           {
-            'header': 'More content',
-            'body': '
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/accordion',
+            'code': "
+{{ accordion({
+    'id': 'accordion-component-show',
+    'items': [
+      {
+        'header': 'More content',
+        'body': '
 <p>
-  Lorem ipsum, dolor sit amet.
+Lorem ipsum, dolor sit amet.
 </p>
-            ' | safe
-          },
-          {
-            'header': 'Even more content',
-            'body': '
+        ' | safe
+      },
+      {
+        'header': 'Even more content',
+        'body': '
 <p>
-  Lorem ipsum, dolor sit amet.
+Lorem ipsum, dolor sit amet.
 </p>
-            ' | safe,
-            'show': true
+        ' | safe,
+        'show': true
+      }
+    ]
+}) }}
+            "
           }
         ]
     }) }}
-  {% endset %}
-  {% include 'docs/partials/html-example.html' %}
 
   <h2>Mutually exclusive items</h2>
-  {% set code %}
-    {{ accordion({
-        'id': 'accordion-component-example-mutually-exclusive',
-        'mutuallyExclusive': true,
-        'items': [
+    {{ example({
+        'id': 'example-accordion-component-mutually-exclusive',
+        'examples': [
           {
-            'header': 'More content',
-            'body': '
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/accordion',
+            'code': "
+{{ accordion({
+    'id': 'accordion-component-mutually-exclusive',
+    'mutuallyExclusive': true,
+    'items': [
+      {
+        'header': 'More content',
+        'body': '
 <p>
-  Lorem ipsum, dolor sit amet.
+Lorem ipsum, dolor sit amet.
 </p>
-            ' | safe,
-            'show': true
-          },
-          {
-            'header': 'Even more content',
-            'body': '
+        ' | safe,
+        'show': true
+      },
+      {
+        'header': 'Even more content',
+        'body': '
 <p>
-  Lorem ipsum, dolor sit amet.
+Lorem ipsum, dolor sit amet.
 </p>
-            ' | safe
+        ' | safe
+      }
+    ]
+}) }}
+            "
           }
         ]
     }) }}
-  {% endset %}
-  {% include 'docs/partials/html-example.html' %}
 {% endblock %}
