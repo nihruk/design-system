@@ -13,7 +13,6 @@ const commentParser = require('comment-parser');
 const marked = require('marked');
 
 
-const nunjucksWwwFilePageUrlPathPrefixLength = path.resolve(__dirname, '..', 'www').length
 function normalizeUrlPath(urlPath) {
     if (urlPath.endsWith('index.html')) {
         urlPath = urlPath.slice(0, -10)
@@ -34,57 +33,73 @@ function deindent(value) {
 	return value.replace(deindentationPattern, '')
 }
 
-function createEnvironment() {
-    const environment = new nunjucks.Environment(
-        new nunjucks.FileSystemLoader(path.resolve(__dirname, '..', '..')),
-        {
-            throwOnUndefined: true,
-        },
-    )
-    environment._currentPageUrlPath = null;
-    environment.addFilter('deindent', deindent)
-    environment.addFilter('parseInt', parseInt)
-    environment.addFilter('kebabCaseToLowerCamelCase', value => value.replace(/-./g, x => x[1].toUpperCase()))
-    environment.addFilter('setKey', (mapping, key, value) => {
-        mapping[key] = value
-    })
-    environment.addFilter('highlight', (code, language) => highlight.highlight(code, {language}).value)
-    environment.addFilter('prettier', (code, parser) => prettier.format(code, {parser}))
-    let id = 0
-    environment.addGlobal('generateId', () => `ds-id-${id++}`)
-    environment.addFilter('markdown', marked.parse)
-    environment.addFilter('nunjucks', renderString)
-    environment.addFilter('nunjucksMacroJsDocs', name => getMacroJsDocForFilePath(path.join(__dirname, '..', '..', 'macros', ...name.split('/')) + '.html'))
-    environment.addTest('activeCurrentUrl', urlPath => {
-        if (!environment._currentPageUrlPath) {
-            throw new Error('No page is being templated right now.')
-        }
-        return environment._currentPageUrlPath === normalizeUrlPath(urlPath)
-    })
-    environment.addTest('activeParentUrl', urlPath => {
-        if (!environment._currentPageUrlPath) {
-            throw new Error('No page is being templated right now.')
-        }
-        return environment._currentPageUrlPath.startsWith(normalizeUrlPath(urlPath))
-    })
-    return environment
-}
+const nunjucksWwwFilePageUrlPathPrefixLength = path.resolve(__dirname, '..', 'www').length
 
-function renderFile(filename) {
-    const environment = createEnvironment()
-    environment._currentPageUrlPath = normalizeUrlPath(
-        filename.slice(nunjucksWwwFilePageUrlPathPrefixLength)
-            .split(path.sep)
-            .join('/')
-    )
-    return environment.render(filename, {
-        pageUrlPath: environment._currentPageUrlPath,
-    })
-}
+class Environment extends nunjucks.Environment {
+    constructor(assetEmitterPlugin) {
+        super(
+            new nunjucks.FileSystemLoader(path.resolve(__dirname, '..', '..')),
+            {
+                noCache: true,
+                throwOnUndefined: true,
+            },
+        )
+        this._assetEmitterPlugin = assetEmitterPlugin
+        this._lastGeneratedId = 0
+        this._currentPageUrlPath = null;
+        this.addFilter('renderHtmlExample', (html, id) => {
+            assert(id !== undefined)
+            const directoryNames = ['_docs_html_examples', id]
+            this._assetEmitterPlugin.emit(
+                path.join(...directoryNames, 'index.html'),
+                this.render('docs/templates/page-html-example.html', {
+                    id,
+                    html,
+                })
+            )
+            return '/' + directoryNames.join('/')
 
-function renderString(code) {
-    const environment = createEnvironment()
-    return environment.renderString(code)
+        })
+        this.addFilter('deindent', deindent)
+        this.addFilter('parseInt', parseInt)
+        this.addFilter('kebabCaseToLowerCamelCase', value => value.replace(/-./g, x => x[1].toUpperCase()))
+        this.addFilter('setKey', (mapping, key, value) => {mapping[key] = value})
+        this.addFilter('highlight', (code, language) => highlight.highlight(code, {language}).value)
+        this.addFilter('prettier', (code, parser) => prettier.format(code, {parser}))
+        this.addGlobal('generateId', () => `ds-id-${this._lastGeneratedId++}`)
+        this.addFilter('markdown', marked.parse)
+        this.addFilter('nunjucks', code => (new Environment(assetEmitterPlugin)).renderString(code))
+        this.addFilter('nunjucksMacroJsDocs', name => getMacroJsDocForFilePath(path.join(__dirname, '..', '..', 'macros', ...name.split('/')) + '.html'))
+        this.addTest('activeCurrentUrl', urlPath => {
+            if (!this._currentPageUrlPath) {
+                throw new Error('No page is being templated right now.')
+            }
+            return this._currentPageUrlPath === normalizeUrlPath(urlPath)
+        })
+        this.addTest('activeParentUrl', urlPath => {
+            if (!this._currentPageUrlPath) {
+                throw new Error('No page is being templated right now.')
+            }
+            return this._currentPageUrlPath.startsWith(normalizeUrlPath(urlPath))
+        })
+    }
+
+    renderPageFile(filename) {
+        this._currentPageUrlPath = normalizeUrlPath(
+            filename.slice(nunjucksWwwFilePageUrlPathPrefixLength)
+                .split(path.sep)
+                .join('/')
+        )
+        return this.render(filename, {
+            pageUrlPath: this._currentPageUrlPath,
+        })
+    }
+
+    claimAssets() {
+        const assets = this._assets
+        this._assets = []
+        return assets
+    }
 }
 
 function* getNodesByType(node, type) {
@@ -178,6 +193,6 @@ function getMacroJsDocForFilePath(filePath) {
 }
 
 module.exports = {
-    renderFile,
+    Environment,
     getMacroJsDocForFilePath,
 }
