@@ -37,7 +37,6 @@
     {% set row = [
       {
         'body': ('<p class="h3" id="color-' ~ color.name | lower ~ '">' ~ color.name ~ '</p>') | safe,
-        'header': true,
         'headerScope': 'row'
       }
     ] %}
@@ -49,12 +48,27 @@
   {{ table({
     'head': [
       [
-        '',
-        '100%',
-        '80%',
-        '60%',
-        '40%',
-        '20%'
+        null,
+        {
+          'body': '100%',
+          'headerScope': 'col'
+        },
+        {
+          'body': '80%',
+          'headerScope': 'col'
+        },
+        {
+          'body': '60%',
+          'headerScope': 'col'
+        },
+        {
+          'body': '40%',
+          'headerScope': 'col'
+        },
+        {
+          'body': '20%',
+          'headerScope': 'col'
+        }
       ]
     ],
     'body': body

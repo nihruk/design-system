@@ -36,7 +36,7 @@ function deindent(value) {
 const nunjucksWwwFilePageUrlPathPrefixLength = path.resolve(__dirname, '..', 'www').length
 
 class Environment extends nunjucks.Environment {
-    constructor(assetEmitterPlugin) {
+    constructor(assetEmitterPlugin, _parentEnvironment = null) {
         super(
             new nunjucks.FileSystemLoader(path.resolve(__dirname, '..', '..')),
             {
@@ -44,15 +44,17 @@ class Environment extends nunjucks.Environment {
                 throwOnUndefined: true,
             },
         )
+        const environment = this
+        this._parentEnvironment = _parentEnvironment
         this._assetEmitterPlugin = assetEmitterPlugin
         this._lastGeneratedId = 0
         this._currentPageUrlPath = null;
         this.addFilter('renderHtmlExample', (html, id) => {
             assert(id !== undefined)
             const directoryNames = ['_docs_html_examples', id]
-            this._assetEmitterPlugin.emit(
+            environment.emitAsset(
                 path.join(...directoryNames, 'index.html'),
-                this.render('docs/templates/page-html-example.html', {
+                environment.render('docs/templates/page-html-example.html', {
                     id,
                     html,
                 })
@@ -66,22 +68,44 @@ class Environment extends nunjucks.Environment {
         this.addFilter('setKey', (mapping, key, value) => {mapping[key] = value})
         this.addFilter('highlight', (code, language) => highlight.highlight(code, {language}).value)
         this.addFilter('prettier', (code, parser) => prettier.format(code, {parser}))
-        this.addGlobal('generateId', () => `ds-id-${this._lastGeneratedId++}`)
+        this.addGlobal('generateId', () => environment.generateId())
         this.addFilter('markdown', marked.parse)
-        this.addFilter('nunjucks', code => (new Environment(assetEmitterPlugin)).renderString(code))
+        this.addFilter('nunjucks', code => environment.renderStringInChildEnvironment(code))
         this.addFilter('nunjucksMacroJsDocs', name => getMacroJsDocForFilePath(path.join(__dirname, '..', '..', 'macros', ...name.split('/')) + '.html'))
         this.addTest('activeCurrentUrl', urlPath => {
-            if (!this._currentPageUrlPath) {
+            if (!environment._currentPageUrlPath) {
                 throw new Error('No page is being templated right now.')
             }
-            return this._currentPageUrlPath === normalizeUrlPath(urlPath)
+            return environment._currentPageUrlPath === normalizeUrlPath(urlPath)
         })
         this.addTest('activeParentUrl', urlPath => {
-            if (!this._currentPageUrlPath) {
+            if (!environment._currentPageUrlPath) {
                 throw new Error('No page is being templated right now.')
             }
-            return this._currentPageUrlPath.startsWith(normalizeUrlPath(urlPath))
+            return environment._currentPageUrlPath.startsWith(normalizeUrlPath(urlPath))
         })
+    }
+
+    createChildEnvironment() {
+        return new Environment(this._assetEmitterPlugin, this)
+    }
+
+    emitAsset(path, content) {
+        if (this._parentEnvironment) {
+            return this._parentEnvironment.emitAsset(path, content)
+        }
+        this._assetEmitterPlugin.emit(path, content)
+    }
+
+    generateId() {
+        if (this._parentEnvironment) {
+            return this._parentEnvironment.generateId()
+        }
+        return 'ds-id-'+ this._lastGeneratedId++
+    }
+
+    renderStringInChildEnvironment(code) {
+        return this.createChildEnvironment().renderString(code)
     }
 
     renderPageFile(filename) {
@@ -93,12 +117,6 @@ class Environment extends nunjucks.Environment {
         return this.render(filename, {
             pageUrlPath: this._currentPageUrlPath,
         })
-    }
-
-    claimAssets() {
-        const assets = this._assets
-        this._assets = []
-        return assets
     }
 }
 

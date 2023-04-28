@@ -22,13 +22,13 @@
        The additional navigation links to show.
 #}
 {% macro footer(options) %}
-<footer id="main-footer">
+<footer class="main-footer">
     <div class="container">
         {% if options.body is defined %}
             <div class="row">
                 {{ options.body }}
             </div>
-            <hr/>
+            <hr>
         {% endif %}
         <div class="row">
             <div class="col d-flex align-items-stretch justify-content-between flex-column">
@@ -78,7 +78,7 @@
                 <a href="https://www.gov.uk/government/organisations/department-of-health-and-social-care"
                    class="funded-by-department-of-health-and-social-care-logo">
                     <img src="https://www.nihr.ac.uk/layout/4.0/assets/logo-dhsc-reversed.png"
-                         alt="Logo of the Department of Health & Social Care"/>
+                         alt="Logo of the Department of Health & Social Care">
                 </a>
             </div>
         </div>
