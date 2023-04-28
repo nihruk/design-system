@@ -1,13 +1,15 @@
-{% macro _tableCell(cell, header=null) %}
-{% if header or cell.header | default(false) %}
-       {% set openTag %}<th{% if cell.headerScope is defined %} scope="{{ cell.headerScope }}"{% endif %}>{% endset %}
+{% macro _tableCell(cell, head) %}
+{% if cell is not null and (cell.headerScope is defined or head) %}
+       {% set openTag %}<th scope="{{ cell.headerScope }}">{% endset %}
        {% set closeTag %}</th>{% endset %}
 {% else %}
        {% set openTag %}<td>{% endset %}
        {% set closeTag %}</td>{% endset %}
 {% endif %}
 {{ openTag | safe }}
-       {{ cell.body | default(cell) }}
+       {% if cell is not null %}
+              {{ cell.body | default(cell) }}
+       {% endif %}
 {{ closeTag | safe }}
 {% endmacro %}
 
@@ -25,14 +27,13 @@
 
 @typedef {object} Cell
 @property {CellBody} body
-@property {boolean} [header=false]
-          Whether the cell is a header and should be rendered as a `<th>`. This is `true` for all table head cells.
 @property {string|null} [headerScope=null]
           The [scope](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#scope) for this cell's `<th>` tag.
+          Setting this renders the cell as a `<th>`. This is required for all table head cells.
 
 @macro table
 @param {Array<Array<Cell|CellBody>} head
-       The rows in the table head.
+       The rows in the table head. Each `Cell` **must** have a `headerScope`.
 @param {Array<Array<Cell|CellBody>} body
        The rows in the table body.
 @param {string|null} [caption=null]

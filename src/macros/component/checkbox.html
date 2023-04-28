@@ -26,7 +26,7 @@
     {% if options.required | default(false) %}required{% endif %}
     {% if options.checked | default(false) %}checked{% endif %}
     {% if options.disabled | default(false) %}disabled{% endif %}
-  />
+  >
   <label class="form-check-label" for="{{ id }}">{{ options.label }}</label>
 </div>
 {% endmacro %}

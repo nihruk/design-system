@@ -7,13 +7,8 @@
     Accordions collapse content that may not be relevant to all audiences.
   </p>
 
-    {{ example({
-        'id': 'example-accordion-component-minimal',
-        'examples': [
-          {
-            'type': 'nunjucks',
-            'nunjucksMacro': 'component/accordion',
-            'code': "
+    {% set code %}
+        {% raw %}
 {{ accordion({
     'id': 'accordion-component-minimal',
     'items': [
@@ -39,19 +34,22 @@ Autem ea quo repellendus.
       }
     ]
 }) }}
-            "
+        {% endraw %}
+    {% endset %}
+    {{ example({
+        'id': 'example-accordion-component-minimal',
+        'examples': [
+          {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/accordion',
+            'code': code
           }
         ]
     }) }}
 
   <h2>Showing items by default</h2>
-    {{ example({
-        'id': 'example-accordion-component-show',
-        'examples': [
-          {
-            'type': 'nunjucks',
-            'nunjucksMacro': 'component/accordion',
-            'code': "
+    {% set code %}
+        {% raw %}
 {{ accordion({
     'id': 'accordion-component-show',
     'items': [
@@ -74,19 +72,22 @@ Lorem ipsum, dolor sit amet.
       }
     ]
 }) }}
-            "
+        {% endraw %}
+    {% endset %}
+    {{ example({
+        'id': 'example-accordion-component-show',
+        'examples': [
+          {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/accordion',
+            'code': code
           }
         ]
     }) }}
 
   <h2>Mutually exclusive items</h2>
-    {{ example({
-        'id': 'example-accordion-component-mutually-exclusive',
-        'examples': [
-          {
-            'type': 'nunjucks',
-            'nunjucksMacro': 'component/accordion',
-            'code': "
+    {% set code %}
+        {% raw %}
 {{ accordion({
     'id': 'accordion-component-mutually-exclusive',
     'mutuallyExclusive': true,
@@ -110,7 +111,15 @@ Lorem ipsum, dolor sit amet.
       }
     ]
 }) }}
-            "
+        {% endraw %}
+    {% endset %}
+    {{ example({
+        'id': 'example-accordion-component-mutually-exclusive',
+        'examples': [
+          {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/accordion',
+            'code': code
           }
         ]
     }) }}
