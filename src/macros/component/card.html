@@ -5,20 +5,19 @@
     @property {string} content
               The human-readable content of the card.
     
-    @macro explore
+    @macro card
     @param {Card} first
            The first card.
     @param {Card} middle
            The middle card.
     @param {Card} last
            The last card.
-    #}
+#}
     {% macro card(options) %}
     <section id="card" class="bg-white">
       <div class="container overflow-hidden">
-        <h2 class="mt-5">Text only card</h2>
+        <h2 class="mt-5">Text only cards</h2>
         <div class="row gap-3">
-          {% set color = cycler('text-grey-5', 'text-black') %}
           {% for category in [options.first, options.middle, options.last] %}
           <div class="col-md">
             <div class="card h-100">
