@@ -1,3 +1,4 @@
+const {globSync} = require('glob')
 const path = require('path');
 const webpack = require('webpack');
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
@@ -9,7 +10,28 @@ const postcssPresetEnv = require('postcss-preset-env');
 const nunjucks = require('./src/docs/js/nunjucks')
 
 
-class AssetEmitterPlugin{
+const WATCH_FILES_PATTERNS = [
+  [__dirname, 'src', 'macros', '**', '*.html'].join('/'),
+  [__dirname, 'src', 'docs', 'macros', '**', '*.html'].join('/'),
+  [__dirname, 'src', 'docs', 'partials', '**', '*.html'].join('/'),
+  [__dirname, 'src', 'docs', 'templates', '**', '*.html'].join('/'),
+  [__dirname, 'src', 'docs', 'www', '**', '*.html'].join('/'),
+]
+
+
+class WatchPlugin {
+  apply(compiler) {
+    compiler.hooks.emit.tapAsync(WatchPlugin.name, (compilation, callback) => {
+      for (const filePath of globSync(WATCH_FILES_PATTERNS)) {
+        compilation.fileDependencies.add(path.resolve(filePath))
+      }
+      callback()
+    });
+  }
+}
+
+
+class AssetEmitterPlugin {
   constructor() {
     this._assets = {}
   }
@@ -19,15 +41,14 @@ class AssetEmitterPlugin{
   }
 
   apply(compiler) {
-    const pluginName = AssetEmitterPlugin.name;
     const { webpack } = compiler;
     const { Compilation } = webpack;
     const { RawSource } = webpack.sources;
 
-    compiler.hooks.thisCompilation.tap(pluginName, (compilation) => {
+    compiler.hooks.thisCompilation.tap(AssetEmitterPlugin.name, (compilation) => {
       compilation.hooks.processAssets.tap(
         {
-          name: pluginName,
+          name: AssetEmitterPlugin.name,
           stage: Compilation.PROCESS_ASSETS_STAGE_SUMMARIZE,
         },
         () => {
@@ -42,7 +63,6 @@ class AssetEmitterPlugin{
 }
 
 const assetEmitterPlugin = new AssetEmitterPlugin()
-const nunjucksEnvironment = new nunjucks.Environment(assetEmitterPlugin)
 
 module.exports = (env, args) => {
   const production = args.mode === 'production'
@@ -64,9 +84,7 @@ module.exports = (env, args) => {
     },
     devServer: {
       watchFiles: {
-        paths: [
-            path.join('src', '**', '*'),
-        ],
+        paths: WATCH_FILES_PATTERNS,
       },
     },
     mode: args.mode,
@@ -170,10 +188,17 @@ module.exports = (env, args) => {
           {
             from: path.resolve(__dirname, 'src', 'docs', 'www'),
             to: path.resolve(__dirname, 'dist'),
-            transform: (content, filename) => filename.endsWith('.html') ? nunjucksEnvironment.renderPageFile(filename) : content
+            transform: (content, filename) => {
+              if (filename.endsWith('.html')) {
+                return (new nunjucks.Environment(assetEmitterPlugin))
+                    .renderPageFile(filename)
+              }
+              return content
+            }
           }
         ]
       }),
+      new WatchPlugin(),
       assetEmitterPlugin,
       new MiniCssExtractPlugin({
         filename: '[name].bundle.css',
