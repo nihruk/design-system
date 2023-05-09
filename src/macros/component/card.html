@@ -1,16 +1,16 @@
 {#
-    @typedef {object} Card
+    @typedef {object} TextCard
     @property {string} heading
               The human-readable category heading.
     @property {string} content
               The human-readable content of the card.
     
     @macro card
-    @param {Card} first
+    @param {TextCard} first
            The first card.
-    @param {Card} middle
+    @param {TextCard} middle
            The middle card.
-    @param {Card} last
+    @param {TextCard} last
            The last card.
 #}
     {% macro card(options) %}
