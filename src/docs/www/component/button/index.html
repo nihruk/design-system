@@ -3,140 +3,138 @@
 {% set title="Button" %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
-<p class="lead">
-  Use buttons to help users carry out an action on a page like starting an application or
-  saving their progress.
-</p>
-
-<div class="card p-5 bg-yellow-20">
-  <p>
-    <i class="fa-solid fa-circle-info"></i>
-    The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except where:
-  </p>
-  <ul>
-    <li>
-      <strong>Spacing:</strong> The
-      <a href="https://www.w3.org/TR/WCAG22/#dfn-targets">target offset</a> is at least 24
-      CSS pixels to every adjacent target;
-    </li>
-
-    <li>
-      <strong>Equivalent:</strong> The function can be achieved through a different control
-      on the same page that has an area of at least 24 by 24 CSS pixels;
-    </li>
-
-    <li>
-      <strong>User agent control:</strong> The size of the target is determined by the user
-      agent and is not modified by the author;
-    </li>
-
-    <li>
-      <strong>Essential:</strong> A particular presentation of the target is essential or is
-      legally required for the information being conveyed.
-    </li>
-  </ul>
-  <p>
-    Note: Targets that allow for values to be selected spatially based on position within
-    the target are considered one target for the purpose of the success criterion. Examples
-    include sliders with granular values, color pickers displaying a gradient of colors, or
-    editable areas where you position the cursor.
-  </p>
-</div>
-
-<h2>Button states</h2>
-
-<div class="row mt-5">
-  <h3>Primary buttons</h3>
-  <div class="col">
-    <h4 class="h6">Default</h4>
-    <div>
-      {{ button({
-      'label': 'Button'
-      }) }}
-    </div>
-  </div>
-  <div class="col">
-    <h4 class="h6">Disabled</h4>
-    <div>
-      {{ button({
-      'label': 'Button',
-      'disabled': true
-      }) }}
-    </div>
-  </div>
-  <div class="col">
-    <h4 class="h6">Danger</h4>
-    <div>
-      {{ button({
-      'label': 'Button',
-      'danger': true
-      }) }}
-    </div>
-  </div>
-  <div class="col">
-    <h4 class="h6">Danger, disabled</h4>
-    <div>
-      {{ button({
-      'label': 'Button',
-      'danger': true,
-      'disabled': true
-      }) }}
-    </div>
-  </div>
-</div>
-
-<div class="row mt-5">
-  <h3>Secondary buttons</h3>
-  <div class="col">
-    <h4 class="h6">Default</h4>
-    <div>
-      {{ button({
-      'label': 'Button',
-      'secondary': true
-      }) }}
-    </div>
-  </div>
-  <div class="col">
-    <h4 class="h6">Disabled</h4>
-    <div>
-      {{ button({
-      'label': 'Button',
-      'disabled': true,
-      'secondary': true
-      }) }}
-    </div>
-  </div>
-  <div class="col">
-    <h4 class="h6">Danger</h4>
-    <div>
-      {{ button({
-      'label': 'Button',
-      'danger': true,
-      'secondary': true
-      }) }}
-    </div>
-  </div>
-  <div class="col">
-    <h4 class="h6">Danger, disabled</h4>
-    <div>
-      {{ button({
-      'label': 'Button',
-      'danger': true,
-      'disabled': true,
-      'secondary': true
-      }) }}
-    </div>
-  </div>
-</div>
-
-<h3>When to use a primary button</h3>
-
-<div class="card p-5 bg-yellow-20">
-  <p>
-    <i class="fa-solid fa-circle-info"></i>
-    The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except where:
+  <p class="lead">
+    Use buttons to help users carry out an action on a page like starting an application or
+    saving their progress.
   </p>
 
+  <div class="card p-5 bg-yellow-20">
+    <p>
+      <i class="fa-solid fa-circle-info"></i>
+      The size of the target for pointer inputs is at least 24 by 24 CSS pixels, except where:
+    </p>
+    <ul>
+      <li>
+        <strong>Spacing:</strong> The
+        <a href="https://www.w3.org/TR/WCAG22/#dfn-targets">target offset</a> is at least 24
+        CSS pixels to every adjacent target;
+      </li>
+
+      <li>
+        <strong>Equivalent:</strong> The function can be achieved through a different control
+        on the same page that has an area of at least 24 by 24 CSS pixels;
+      </li>
+
+      <li>
+        <strong>User agent control:</strong> The size of the target is determined by the user
+        agent and is not modified by the author;
+      </li>
+
+      <li>
+        <strong>Essential:</strong> A particular presentation of the target is essential or is
+        legally required for the information being conveyed.
+      </li>
+    </ul>
+    <p>
+      Note: Targets that allow for values to be selected spatially based on position within
+      the target are considered one target for the purpose of the success criterion. Examples
+      include sliders with granular values, color pickers displaying a gradient of colors, or
+      editable areas where you position the cursor.
+    </p>
+  </div>
+
+  <h2>Button states</h2>
+
+  <div class="row mt-5">
+    <h3>Primary buttons</h3>
+    <div class="col">
+      <h4 class="h6">Default</h4>
+      <div>
+        {{ button({
+          'label': 'Button'
+        }) }}
+      </div>
+    </div>
+    <div class="col">
+      <h4 class="h6">Disabled</h4>
+      <div>
+        {{ button({
+          'label': 'Button',
+          'disabled': true
+        }) }}
+      </div>
+    </div>
+    <div class="col">
+      <h4 class="h6">Danger</h4>
+      <div>
+        {{ button({
+          'label': 'Button',
+          'danger': true
+        }) }}
+      </div>
+    </div>
+    <div class="col">
+      <h4 class="h6">Danger, disabled</h4>
+      <div>
+        {{ button({
+          'label': 'Button',
+          'danger': true,
+          'disabled': true
+        }) }}
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <h3>Secondary buttons</h3>
+    <div class="col">
+      <h4 class="h6">Default</h4>
+      <div>
+        {{ button({
+          'label': 'Button',
+          'secondary': true
+        }) }}
+      </div>
+    </div>
+    <div class="col">
+      <h4 class="h6">Disabled</h4>
+      <div>
+        {{ button({
+          'label': 'Button',
+          'disabled': true,
+          'secondary': true
+        }) }}
+      </div>
+    </div>
+    <div class="col">
+      <h4 class="h6">Danger</h4>
+      <div>
+        {{ button({
+          'label': 'Button',
+          'danger': true,
+          'secondary': true
+        }) }}
+      </div>
+    </div>
+    <div class="col">
+      <h4 class="h6">Danger, disabled</h4>
+      <div>
+        {{ button({
+          'label': 'Button',
+          'danger': true,
+          'disabled': true,
+          'secondary': true
+        }) }}
+      </div>
+    </div>
+  </div>
+
+  <h3>When to use a primary button</h3>
+
+  <p>
+    Use a primary button to help users carry out an action on a page like starting an
+    application or saving their progress.
+  </p>
   <p>A form always has a default button for it’s main action; Submit, continue, next.</p>
   <p>More about when to use and not use buttons.</p>
 
@@ -155,32 +153,18 @@
   <p>Do not use buttons as links:</p>
 
   <ul>
-    <li>
-      <strong>Spacing:</strong> The
-      <a href="https://www.w3.org/TR/WCAG22/#dfn-targets">target offset</a> is at least 24
-      CSS pixels to every adjacent target;
-    </li>
-
-    <li>
-      <strong>Equivalent:</strong> The function can be achieved through a different control
-      on the same page that has an area of at least 24 by 24 CSS pixels;
-    </li>
-
-    <li>
-      <strong>User agent control:</strong> The size of the target is determined by the user
-      agent and is not modified by the author;
-    </li>
-
-    <li>
-      <strong>Essential:</strong> A particular presentation of the target is essential or is
-      legally required for the information being conveyed.
-    </li>
+    <li>to pages which aren't part of your user journey</li>
+    <li>from 1 flat content page to another</li>
+    <li>to external websites</li>
   </ul>
+
   <p>
-    Note: Targets that allow for values to be selected spatially based on position within
-    the target are considered one target for the purpose of the success criterion. Examples
-    include sliders with granular values, color pickers displaying a gradient of colors, or
-    editable areas where you position the cursor.
+    Try not to have multiple buttons on 1 page. Follow <a href="GOV.UK">GOV.UK</a> guidance on
+    <a
+      href="https://www.gov.uk/service-manual/design/form-structure#start-with-one-thing-per-page"
+    >
+      One thing per page</a
+    >.
   </p>
 
   <h2>How to use buttons</h2>
@@ -245,19 +229,19 @@
 
   <p>In some contexts you may want to display a larger than usual button, for example as a Call To Action.</p>
 
-  {{ example({
-  'id': 'example-button-component-large',
-  'examples': [
-  {
-  'type': 'nunjucks',
-  'nunjucksMacro': 'component/button',
-  'code': "
-  {{ button({
+    {{ example({
+        'id': 'example-button-component-large',
+        'examples': [
+          {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/button',
+            'code': "
+{{ button({
   'label': 'Button',
   'large': true
-  }) }}
-  "
-  }
-  ]
-  }) }}
-  {% endblock %}
+}) }}
+            "
+          }
+        ]
+    }) }}
+{% endblock %}
