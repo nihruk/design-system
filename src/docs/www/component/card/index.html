@@ -59,4 +59,57 @@ additional content. This content is a little bit longer.',
 ]
 }) }}
 
+{% set code %}
+{% raw %}
+{{ card({
+'first': {
+'heading': {
+'label': 'First Card',
+'href': '#_'
+},
+'content': 'This is the first card with supporting text below as a natural lead-in to
+additional content. This content is a little bit longer.',
+'link': {
+'label': 'Research funding',
+'href': '#_'
+}
+},
+'middle': {
+'heading': {
+'label': 'Second Card',
+'href': '#_'
+},
+'content': 'This is the second card with supporting text below as a natural lead-in to
+additional content. This content is a little bit longer.',
+'link': {
+'label': 'Research funding',
+'href': '#_'
+}
+},
+'last': {
+'heading': {
+'label': 'Third Card',
+'href': '#_'
+},
+'content': 'This is the third card with supporting text below as a natural lead-in to
+additional content. This content is a little bit longer.',
+'link': {
+'label': 'Research funding',
+'href': '#_'
+}
+}
+}) }}
+{% endraw %}
+{% endset %}
+{{ example({
+'id': 'example-card-cta-component',
+'examples': [
+{
+'type': 'nunjucks',
+'nunjucksMacro': 'component/card',
+'code': code
+}
+]
+}) }}
+
 {% endblock %}
