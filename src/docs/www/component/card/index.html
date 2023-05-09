@@ -4,92 +4,58 @@
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
 
-<section class="mb-5">
-    <h2 class="mt-5">Text only card</h2>
-    <div class="row gap-3">
-        <div class="col-md">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h2 class="card-title h3 heading-underline heading-underline--coral">Card title</h2>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h2 class="card-title h3 heading-underline heading-underline--coral">Card title</h2>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h2 class="card-title h3 heading-underline heading-underline--coral">Card title</h2>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This card has even longer content than the first to show that equal height
-                        action.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> 
-
 <h2>Examples</h2>
 
 {% set code %}
 {% raw %}
-  {{ card({
-    'first': {
-      'heading': { 
-                    'label': 'First Card',
-                    'href': '#_'
-      },
-      'content': 'This is the first card with supporting text below as a natural lead-in to
-      additional content. This content is a little bit longer.',
-      'link': {
-              'label': 'Research funding',
-              'href': '#_'
-            }
-    },
-    'middle': {      
-        'heading': { 
-            'label': 'Second Card',
-            'href': '#_'
+{{ card({
+'first': {
+'heading': {
+'label': 'First Card',
+'href': '#_'
+},
+'content': 'This is the first card with supporting text below as a natural lead-in to
+additional content. This content is a little bit longer.',
+'link': {
+'label': 'Research funding',
+'href': '#_'
+}
+},
+'middle': {
+'heading': {
+'label': 'Second Card',
+'href': '#_'
 },
 'content': 'This is the second card with supporting text below as a natural lead-in to
 additional content. This content is a little bit longer.',
 'link': {
-      'label': 'Research funding',
-      'href': '#_'
-    }
+'label': 'Research funding',
+'href': '#_'
+}
 },
-    'last': {
-        'heading': { 
-            'label': 'Third Card',
-            'href': '#_'
+'last': {
+'heading': {
+'label': 'Third Card',
+'href': '#_'
 },
 'content': 'This is the third card with supporting text below as a natural lead-in to
 additional content. This content is a little bit longer.',
 'link': {
-      'label': 'Research funding',
-      'href': '#_'
-    }
+'label': 'Research funding',
+'href': '#_'
 }
-  }) }}
+}
+}) }}
 {% endraw %}
 {% endset %}
 {{ example({
-  'id': 'example-text-only-card-component',
-  'examples': [
-      {
-          'type': 'nunjucks',
-          'nunjucksMacro': 'component/card',
-          'code': code
-      }
-  ]
+'id': 'example-text-only-card-component',
+'examples': [
+{
+'type': 'nunjucks',
+'nunjucksMacro': 'component/card',
+'code': code
+}
+]
 }) }}
 {% endblock %}
