@@ -1,46 +1,8 @@
-{% set title="Card" %}
+{% from 'macros/component/card.html' import card %}
+{% from 'docs/macros/component/example.html' import example %}
+{% set title='Card' %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
-
-<section>
-    <h2>Single CTA card</h2>
-    <div class="row gap-3">
-        <div class="col-md">
-            <div class="card h-100">
-                <div class="card-body">
-                    <a href="#">
-                        <h2 class="card-title h3">Card title</h2>
-                    </a>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md">
-            <div class="card h-100">
-                <div class="card-body">
-                    <a href="#">
-                        <h2 class="card-title h3">Card title</h2>
-                    </a>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md">
-            <div class="card h-100">
-                <div class="card-body">
-                    <a href="#">
-                        <h2 class="card-title h3">Card title</h2>
-                    </a>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This card has even longer content than the first to show that equal height
-                        action.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <section>
     <h2 class="mt-5">Text only card</h2>
@@ -76,67 +38,37 @@
     </div>
 </section>
 
-<section>
-    <h2 class="mt-5">Top image card</h2>
-    <div class="row gap-3">
-        <div class="col-md">
-            <div class="card h-100">
-                <img src="https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg" class="card-img-top" alt="...">
-                <div class="card-body d-flex flex-column">
-                    <a href="#">
-                        <h2 class="card-title h3">Card title</h2>
-                    </a>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This content is a little bit longer.</p>
-                    <p class="card-text mt-auto"><a href="#">cta link</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md">
-            <div class="card h-100">
-                <img src="https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg" class="card-img-top" alt="...">
-                <div class="card-body d-flex flex-column">
-                    <a href="#">
-                        <h2 class="card-title h3">Card title</h2>
-                    </a>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.
-                    </p>
-                    <p class="card-text mt-auto"><a href="#">cta link</a></p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md">
-            <div class="card h-100">
-                <img src="https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg" class="card-img-top" alt="...">
-                <div class="card-body d-flex flex-column">
-                    <a href="#">
-                        <h2 class="card-title h3">Card title</h2>
-                    </a>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                        additional content. This card has even longer content than the first to show that equal height
-                        action.</p>
-                    <p class="card-text mt-auto"><a href="#">cta link</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<h2>Examples</h2>
 
-<section>
-    <h2 class="mt-5">Side image card</h2>
-    <div class="card mb-3">
-    <div class="row g-0">
-        <div class="col-md-8">
-        <div class="card-body">
-            <h2 class="card-title h3">Card title</h2>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        </div>
-        </div>
-        <div class="col-md-4">
-            <img src="https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg" class="img-fluid rounded-start" alt="...">
-        </div>
-    </div>
-</div>
-</section>
-
+{% set code %}
+{% raw %}
+  {{ card({
+    'first': {
+      'heading': 'First Card',
+      'content': 'This is the first card with supporting text below as a natural lead-in to
+      additional content. This content is a little bit longer.'
+    },
+    'middle': {      
+    'heading': 'Second Card',
+    'content': 'This is the second card with supporting text below as a natural lead-in to
+    additional content. This content is a little bit longer.'
+    },
+    'last': {
+        'heading': 'Third Card',
+        'content': 'This is the third card with supporting text below as a natural lead-in to
+        additional content. This content is a little bit longer.'
+    }
+  }) }}
+{% endraw %}
+{% endset %}
+{{ example({
+  'id': 'example-card-component',
+  'examples': [
+      {
+          'type': 'nunjucks',
+          'nunjucksMacro': 'component/card',
+          'code': code
+      }
+  ]
+}) }}
 {% endblock %}
