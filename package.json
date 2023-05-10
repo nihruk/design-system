@@ -3,7 +3,7 @@
   "description": "Design System for the NIHR",
   "author": "National Institute for Health and Care Research",
   "license": "MIT",
-  "version": "0.0.0",
+  "version": "0.0.10",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nihruk/design-system.git"
