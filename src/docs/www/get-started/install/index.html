@@ -1,69 +1,21 @@
-{% set title="Installation" %}
+{% set title='Installation' %}
 {% extends 'docs/partials/get-started-page.html' %}
 {% block getStartedPageContent %}
-    <h2 id="install-npm">Install using npm</h2>
-    <h3>Requirements</h3>
-    <ul>
-        <li><a href="https://nodejs.org/">Node.js</a> 18 or newer</li>
-    </ul>
     <p>
-        On your command line, from your project's root directory, run <code>npm install @nihruk/design-system</code>.
+        Your applications can use the Design system for the NIHR in different ways, depending on your needs.
     </p>
-    <p>
-        This installs the Design System's source and distribution code into your project, where you can import only
-        those parts you need.
-    </p>
-
-    {% set code %}
-        @import '~@nihruk/design-system/dist/design-system.bundle.css';
-    {% endset %}
-    <pre class="example-code p-3">{{ code | prettier('css') | highlight('css') | safe }}</pre>
-    {% set code %}
-        import '~@nihruk/design-system/dist/design-system.bundle.js';
-    {% endset %}
-    <pre class="example-code p-3">{{ code | prettier('babel') | highlight('js') | safe }}</pre>
-
-    <h3>Bundling your application</h3>
-    <p>
-        Before your application can be published for the web, it must be bundled. The Design System uses SCSS and newer
-        EcmaScript features that must be transpiled before use. Additionally, bundlers such as <i>Browserify</i>,
-        <i>gulp</i>, or <i>Webpack</i> are often able to skip parts of your code base and its dependencies that are not
-        needed in your bundles.
-    </p>
-    <p>
-        How to choose and configure a bundler depends on your team and your project, and is outside the scope of the
-        Design System. For example, the Design System documentation site you are currently reading was bundled using
-        Bootstrap's <a href="https://getbootstrap.com/docs/5.2/getting-started/webpack/#configure-webpack">Webpack
-        configuration guide</a>.
-    </p>
-
-    <h3>When to install using npm</h3>
-    <p>
-        You should install the Design System using npm if you need to:
-    </p>
-    <ul>
-        <li>reduce the bundle size and bandwidth usage</li>
-        <li>override SCSS variables</li>
-        <li>host all assets yourself</li>
-    </ul>
-
-    <h2 id="install-include">Include precompiled hosted files</h2>
-    <p>
-        Include the following files, where <code>x.y.z</code> is one of the Design System's
-        <a href="https://www.npmjs.com/package/@nihruk/design-system?activeTab=versions">available versions</a>:
-    </p>
-    {% set code %}
-<link rel="stylesheet" href="https://unpkg.com/@nihruk/design-system@x.y.z/dist/design-system.bundle.css" />
-<script src="https://unpkg.com/@nihruk/design-system@x.y.z/dist/design-system.bundle.js"></script>
-    {% endset %}
-    <pre class="example-code p-3">{{ code | prettier('html') | highlight('html') | safe }}</pre>
-
-    <h3>When not to include hosted files</h3>
-    <p>
-        You should not include the hosted files:
-    </p>
-    <ul>
-        <li>if you want to minimize bandwidth, override SCSS variables, or maximize privacy</li>
-        <li>if you are setting up a production application</li>
-    </ul>
+    <div class="row justify-content-md-center">
+        <div class="col-lg-6">
+            <h2><a href="/get-started/install/npm">Install with npm</a></h2>
+            <p>
+                Take full control of the Design System, with the best performance and customisability.
+            </p>
+        </div>
+        <div class="col-lg-6">
+            <h2><a href="/get-started/install/hosted">Include hosted files</a></h2>
+            <p>
+                Add the Design System to any HTML page in seconds.
+            </p>
+        </div>
+    </div>
 {% endblock %}

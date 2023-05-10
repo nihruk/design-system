@@ -1,0 +1,16 @@
+<h4>{{ heading }}</h4>
+<ul class="nav nav-pills flex-column">
+    {% for linkPath, linkLabel in links %}
+        <li>
+            <a href="{{ rootPath }}{{ linkPath }}" class="nav-link rounded-0
+                {%- if (rootPath ~ linkPath) is activeCurrentUrl %}
+                    active" aria-current="page
+                {%- elif linkPath != '/' and (rootPath ~ linkPath) is activeParentUrl %}
+                    active
+                {% endif %}
+                ">
+                {{ linkLabel }}
+            </a>
+        </li>
+    {% endfor %}
+</ul>

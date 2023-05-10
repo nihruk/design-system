@@ -2,14 +2,14 @@
 {% block pageContent %}
   <div class="row justify-content-md-center">
     <nav class="col-lg-4 d-none d-lg-block">
-      {% include 'docs/partials/component-list.html' %}
+      {% include 'docs/partials/component-navigation.html' %}
     </nav>
     <div class="col-lg-8">
       {% block componentPageContent %}
       {% endblock %}
     </div>
     <nav class="col d-lg-none">
-      {% include 'docs/partials/component-list.html' %}
+      {% include 'docs/partials/component-navigation.html' %}
     </nav>
   </div>
 {% endblock %}

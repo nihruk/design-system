@@ -1,0 +1,25 @@
+{% set title='Include hosted files' %}
+{% extends 'docs/partials/get-started-page.html' %}
+{% block getStartedPageContent %}
+    <p>
+        Include the following files:
+    </p>
+    {% set code %}
+<link rel="stylesheet" href="https://unpkg.com/@nihruk/design-system@latest/dist/design-system.bundle.css" />
+<script src="https://unpkg.com/@nihruk/design-system@latest/dist/design-system.bundle.js"></script>
+    {% endset %}
+    <pre class="example-code p-3">{{ code | prettier('html') | highlight('html') | safe }}</pre>
+    <p>
+        To include a specific version, replace <code>latest</code> with one of the Design System's
+        <a href="https://www.npmjs.com/package/@nihruk/design-system?activeTab=versions">available versions</a>.
+    </p>
+
+    <h2>When not to include hosted files</h2>
+    <p>
+        You should not include the hosted files:
+    </p>
+    <ul>
+        <li>if you want to minimize bandwidth, override SCSS variables, or maximize privacy</li>
+        <li>if you are setting up a production application</li>
+    </ul>
+{% endblock %}
