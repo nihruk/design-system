@@ -1,0 +1,57 @@
+{% set title='Install with npm' %}
+{% extends 'docs/partials/get-started-page.html' %}
+{% block getStartedPageContent %}
+    <p class="lead">
+        <i>npm</i> is a JavaScript package manager that handles the installation and updates of third-party software,
+        including the Design System for the NIHR.
+    </p>
+    <h2>Requirements</h2>
+    <ul>
+        <li><a href="https://nodejs.org/">Node.js</a> 18 or newer</li>
+    </ul>
+    <p>
+        On your command line, from your project's root directory, run <code>npm install @nihruk/design-system</code>.
+    </p>
+    <p>
+        This installs the Design System's source and distribution code into your project, where you can import only
+        those parts you need.
+    </p>
+
+    {% set code %}
+        @import '~@nihruk/design-system/dist/design-system.bundle.css';
+    {% endset %}
+    <pre class="example-code p-3">{{ code | prettier('css') | highlight('css') | safe }}</pre>
+    {% set code %}
+        import '~@nihruk/design-system/dist/design-system.bundle.js';
+    {% endset %}
+    <pre class="example-code p-3">{{ code | prettier('babel') | highlight('js') | safe }}</pre>
+
+    <h2>Bundling your application</h2>
+    <p>
+        Before your application can be published for the web, it must be bundled. The Design System uses SCSS and newer
+        EcmaScript features that must be transpiled before use. Additionally, bundlers such as <i>Browserify</i>,
+        <i>gulp</i>, or <i>Webpack</i> are often able to skip parts of your code base and its dependencies that are not
+        needed in your bundles.
+    </p>
+    <p>
+        How to choose and configure a bundler depends on your team and your project, and is outside the scope of the
+        Design System. For example, the Design System documentation site you are currently reading was bundled using
+        Bootstrap's <a href="https://getbootstrap.com/docs/5.2/getting-started/webpack/#configure-webpack">Webpack
+        configuration guide</a>.
+    </p>
+
+    <h2>When to install using npm</h2>
+    <p>
+        You should install the Design System using npm if you need to:
+    </p>
+    <ul>
+        <li>reduce the bundle size and bandwidth usage</li>
+        <li>override SCSS variables</li>
+        <li>host all assets yourself</li>
+    </ul>
+
+    <h2>Alternative package managers</h2>
+    <p>
+        Any package manager that uses the <a href="https://www.npmjs.com/">npm Registry</a> is supported, but exact instructions may vary.
+    </p>
+{% endblock %}
