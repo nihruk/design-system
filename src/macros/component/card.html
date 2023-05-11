@@ -1,34 +1,29 @@
 {#
-@typedef {object} TextCard
-@property {string} heading
-            The human-readable category heading.
-@property {string} content
-            The human-readable content of the card.
-
 @macro card
-@param {TextCard} first
-        The first card.
-@param {TextCard} middle
-        The middle card.
-@param {TextCard} last
-        The last card.
+@param {string} heading
+        The human-readable category heading.
+@param {string} content
+        The human-readable content of the card.
+@param {string|null} [image=null]
+        The image.
 #}
 {% macro card(options) %}
     <section id="card-text-only" class="bg-white">
       <div class="container overflow-hidden pb-5">
         <h2 class="mt-5">Text only cards</h2>
         <div class="row gap-3">
-          {% for category in [options.first, options.middle, options.last] %}
           <div class="col-md">
             <div class="card h-100">
+              {% if options.image | default(null) %}
+                <img src="{{ category.image }}" class="card-img-top" alt="...">
+              {% endif %}
                 <div class="card-body">
                     <h2 class="card-title h3 heading-underline heading-underline--coral">{{ category.heading.label }}</h2>
                     <p class="card-text">{{ category.content }}</p>
                 </div>
             </div>
           </div>
-          {%- endfor %}
         </div>
       </div>
     </section>
-    {% endmacro %} 
+{% endmacro %} 
