@@ -9,15 +9,14 @@
 {% set code %}
 {% raw %}
 {{ card({
-'heading': 'Card Heading',
-'content': 'This is a card with supporting text below as a natural lead-in to
-additional content.',
+'heading': 'Card Title',
+'content': 'This is a card with an image above and supporting text below.',
 'image': 'https://www.nihr.ac.uk/images/blog/colourful-paper-speech-bubbles.jpg'
 }) }}
 {% endraw %}
 {% endset %}
 {{ example({
-'id': 'example-card-component',
+'id': 'example-single-card-component',
 'examples': [
 {
 'type': 'nunjucks',
@@ -26,4 +25,24 @@ additional content.',
 }
 ]
 }) }}
+
+{% set code %}
+{% raw %}
+{{ card({
+'heading': 'Card Title',
+'content': 'This is a card with supporting text below.'
+}) }}
+{% endraw %}
+{% endset %}
+{{ example({
+'id': 'example-three-card-component',
+'examples': [
+{
+'type': 'nunjucks',
+'nunjucksMacro': 'component/card',
+'code': code
+}
+]
+}) }}
+
 {% endblock %}
