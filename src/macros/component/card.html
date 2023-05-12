@@ -8,23 +8,15 @@
       The image.
 #}
 {% macro card(options) %}
-    <section id="card" class="bg-white">
-      <div class="container overflow-hidden pb-5">
-        <div class="row gap-3">
-          {% for i in range(0, 3) %}
-          <div class="col-md">
-            <div class="card h-100">
-              {% if options.image | default(null) %}
-                <img src="{{ options.image }}" class="card-img-top" alt="">
-              {% endif %}
-                <div class="card-body d-flex flex-column">
-                    <h2 class="card-title h3 heading-underline heading-underline--coral">{{ options.heading }}</h2>
-                    <p class="card-text">{{ options.content }}</p>
-                </div>
-            </div>
-          </div>
-          {% endfor %}
+  <div class="col-md">
+    <div class="card h-100">
+      {% if options.image | default(null) %}
+        <img src="{{ options.image }}" class="card-img-top" alt="">
+      {% endif %}
+        <div class="card-body d-flex flex-column">
+            <h2 class="card-title h3 heading-underline heading-underline--coral">{{ options.heading }}</h2>
+            <p class="card-text">{{ options.content }}</p>
         </div>
-      </div>
-    </section>
+    </div>
+  </div>
 {% endmacro %} 

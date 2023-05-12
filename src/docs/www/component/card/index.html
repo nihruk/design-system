@@ -7,42 +7,61 @@
 <h2>Examples</h2>
 
 {% set code %}
-{% raw %}
-{{ card({
-'heading': 'Card Title',
-'content': 'This is a card with an image above and supporting text below.',
-'image': 'https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg'
-}) }}
-{% endraw %}
+    {% raw %}
+        <section class="bg-white">
+            <div class="container overflow-hidden pb-5">
+                <div class="row gap-3">
+                    {{ card({
+                        'heading': 'Card Title',
+                        'content': 'This is a card with an image above and supporting text below.',
+                        'image': 'https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg'
+                    }) }}
+                </div>
+            </div>
+        </section>
+    {% endraw %}
 {% endset %}
 {{ example({
-'id': 'example-single-card-component',
-'examples': [
-{
-'type': 'nunjucks',
-'nunjucksMacro': 'component/card',
-'code': code
-}
-]
+    'id': 'example-single-card-component',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/card',
+            'code': code
+        }
+    ]
 }) }}
 
 {% set code %}
-{% raw %}
-{{ card({
-'heading': 'Card Title',
-'content': 'This is a card with supporting text below.'
-}) }}
-{% endraw %}
+    {% raw %}
+        <section class="bg-white">
+            <div class="container overflow-hidden pb-5">
+                <div class="row gap-3">
+                    {{ card({
+                        'heading': 'Card Title',
+                        'content': 'This is a card with supporting text below.'
+                    }) }}
+                    {{ card({
+                        'heading': 'Card Title',
+                        'content': 'This is a card with supporting text below.'
+                    }) }}
+                    {{ card({
+                        'heading': 'Card Title',
+                        'content': 'This is a card with supporting text below.'
+                    }) }}
+                </div>
+            </div>
+        </section>
+    {% endraw %}
 {% endset %}
 {{ example({
-'id': 'example-three-card-component',
-'examples': [
-{
-'type': 'nunjucks',
-'nunjucksMacro': 'component/card',
-'code': code
-}
-]
+    'id': 'example-three-card-component',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/card',
+            'code': code
+        }
+    ]
 }) }}
-
 {% endblock %}
