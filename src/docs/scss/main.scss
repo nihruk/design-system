@@ -24,6 +24,11 @@
   border-bottom: 2px solid $navy-20;
 }
 
+.example-rendered-html-inline-iframe {
+  height: 20rem;
+  width: 100%;
+}
+
 .example-html-render-new-window {
   @extend .px-3;
   @extend .py-1;

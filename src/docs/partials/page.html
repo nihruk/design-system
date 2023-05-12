@@ -1,37 +1,50 @@
-{% from 'macros/component/footer.html' import footer %}
-{% from 'macros/component/header.html' import header %}
-<!DOCTYPE html>
-<html lang="en">
-    {% include 'docs/partials/header/head.html' %}
-  <body class="bg-grey-10">
-    {{ header() }}
-    {% include 'docs/partials/header/navbar.html' %}
-    <main>
-      <div class="container">
-        <h1{% if visuallyHideTitle %} class="visually-hidden"{% endif %}>{% if title %}{{ title }}{% else %}Design System for the NIHR{% endif %}</h1>
-        {% block pageContent %}
-        {% endblock %}
-      </div>
-    </main>
-    {{ footer({
-      'socialMediaLinks': [
+{% from 'macros/component/page.html' import page %}
+
+{% set pageContent %}
+  {% block pageContent %}
+  {% endblock %}
+{% endset %}
+
+{{ page({
+    'pageTitle': pageTitle,
+    'siteTitle': 'Design System for the NIHR',
+    'primaryNavigationLinks': [
         {
-          'label': 'Github',
-          'href': 'https://github.com/nihruk/',
-          'classes': [
-            'fa-brands',
-            'fa-github'
-          ]
+            'label': 'Get started',
+            'href': '/get-started'
         },
         {
-          'label': 'npm',
-          'href': 'https://www.npmjs.com/package/@nihruk/design-system',
-          'classes': [
-            'fa-brands',
-            'fa-npm'
-          ]
+            'label': 'Styles',
+            'href': '/style'
+        },
+        {
+            'label': 'Components',
+            'href': '/component'
+        },
+        {
+            'label': 'About us',
+            'href': '/about-us'
         }
-      ]
-    }) }}
-  </body>
-</html>
+    ],
+    'pageContent': pageContent | safe,
+    'footer': {
+    'socialMediaLinks': [
+        {
+            'label': 'Github',
+            'href': 'https://github.com/nihruk/',
+            'classes': [
+                'fa-brands',
+                'fa-github'
+            ]
+        },
+        {
+            'label': 'npm',
+            'href': 'https://www.npmjs.com/package/@nihruk/design-system',
+            'classes': [
+                'fa-brands',
+                'fa-npm'
+            ]
+        }
+    ]
+    }
+}) }}

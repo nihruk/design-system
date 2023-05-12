@@ -49,19 +49,8 @@ class Environment extends nunjucks.Environment {
         this._assetEmitterPlugin = assetEmitterPlugin
         this._lastGeneratedId = 0
         this._currentPageUrlPath = null;
-        this.addFilter('renderHtmlExample', (html, id) => {
-            assert(id !== undefined)
-            const directoryNames = ['_docs_html_examples', id]
-            environment.emitAsset(
-                path.join(...directoryNames, 'index.html'),
-                environment.render('docs/templates/page-html-example.html', {
-                    id,
-                    html,
-                })
-            )
-            return '/' + directoryNames.join('/')
-
-        })
+        this._renderedHtmlExampleIds = []
+        this.addFilter('renderHtmlExample', (renderableHtmlExample, exampleOptions) => environment.renderHtmlExample(renderableHtmlExample, exampleOptions))
         this.addFilter('deindent', deindent)
         this.addFilter('parseInt', parseInt)
         this.addFilter('kebabCaseToLowerCamelCase', value => value.replace(/-./g, x => x[1].toUpperCase()))
@@ -84,6 +73,24 @@ class Environment extends nunjucks.Environment {
             }
             return environment._currentPageUrlPath.startsWith(normalizeUrlPath(urlPath))
         })
+    }
+
+    renderHtmlExample(renderableHtmlExample, exampleOptions) {
+        assert(exampleOptions.id !== undefined)
+        const directoryNames = ['_docs_html_examples', exampleOptions.id]
+        if (!this._renderedHtmlExampleIds.includes(exampleOptions.id)) {
+            this._renderedHtmlExampleIds.push(exampleOptions.id)
+            const pageTemplate = exampleOptions.pageTemplate === undefined ? 'docs/partials/example/rendered-html--page.html' : exampleOptions.pageTemplate
+            this.emitAsset(
+                path.join(...directoryNames, 'index.html'),
+                pageTemplate ? this.render(pageTemplate, {
+                    options: exampleOptions,
+                    renderableHtmlExample,
+                }) : renderableHtmlExample.code,
+            )
+        }
+        return '/' + directoryNames.join('/')
+
     }
 
     createChildEnvironment() {
