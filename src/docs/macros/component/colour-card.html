@@ -1,0 +1,25 @@
+{% from 'docs/macros/component/colour-specification.html' import colourSpecification %}
+{% from 'macros/component/card.html' import card %}
+
+{#
+Shows a card with the specification of a specific colour tint.
+
+@macro colourCard
+@param {string} colourName
+       The ID of the component's root HTML element.
+@param {100 | 80 | 60 | 40 | 60} tintLevel
+       The colour's tint's percentage level.
+@param {bool=true} showColourLabel
+       Whether to show the colour's human-readable label.
+@param {bool=true} showSpecialMeaningLink
+       Whether to how the link to the colour tint's "Special meaning" documentation, if it has any.
+@param {bool=true} showAllColoursLink
+       Whether to how the link to the "All colours" page.
+#}
+{% macro colourCard(options) %}
+<div class="pb-5">
+  {{ card({
+    'content': colourSpecification(options) | safe
+  }) }}
+</div>
+{% endmacro %}
