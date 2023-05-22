@@ -69,9 +69,8 @@ module.exports = (env, args) => {
   const configuration = {
     entry: {
       'design-system': [
-          path.resolve(__dirname, 'src', 'assets', 'scss', 'libs.scss'),
-          path.resolve(__dirname, 'src', 'assets', 'js', 'theme.js'),
-          path.resolve(__dirname, 'src', 'assets', 'scss', 'theme.scss'),
+          path.resolve(__dirname, 'src', 'assets', 'js', 'dist.js'),
+          path.resolve(__dirname, 'src', 'assets', 'scss', 'dist.scss'),
       ],
       'docs': [
           path.resolve(__dirname, 'src', 'docs', 'scss', 'main.scss'),

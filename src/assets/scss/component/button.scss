@@ -1,0 +1,6 @@
+@import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/buttons';
+
+.btn-xs {
+  @include button-size($btn-padding-y-xs, $btn-padding-x-xs, $btn-font-size-xs, $btn-border-radius);
+}
