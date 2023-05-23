@@ -9,12 +9,12 @@
 {% set code %}
     {% raw %}
         <section class="bg-white">
-            <div class="container overflow-hidden pb-5">
+            <div id="card-container" class="container">
                 <div class="row gap-3">
                     {{ card({
                         'heading': 'Card Title',
                         'content': 'This is a card with an image above and supporting text below.',
-                        'image': 'https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg'
+                        'image': 'https://www.nihr.ac.uk/images/health-and-social-care-professionals/engagement-and-participation/people-at-meeting.jpg'
                     }) }}
                 </div>
             </div>
@@ -35,16 +35,8 @@
 {% set code %}
     {% raw %}
         <section class="bg-white">
-            <div class="container overflow-hidden pb-5">
+            <div id="card-container" class="container">
                 <div class="row gap-3">
-                    {{ card({
-                        'heading': 'Card Title',
-                        'content': 'This is a card with supporting text below.'
-                    }) }}
-                    {{ card({
-                        'heading': 'Card Title',
-                        'content': 'This is a card with supporting text below.'
-                    }) }}
                     {{ card({
                         'heading': 'Card Title',
                         'content': 'This is a card with supporting text below.'
