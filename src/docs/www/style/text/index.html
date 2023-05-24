@@ -150,6 +150,35 @@
     page. Style headings consistently to create a clear content structure throughout your service.
   </p>
 
+  <h3>Emphasised headings</h3>
+  <p>
+    You can add <code>class="heading-underline"</code> to a heading to add visual emphasis. This is used to signify importance, particularly for the first heading in a new section.
+  </p>
+  <p>
+    Colours are added with a second class. Available colours are: 
+    <ul>
+      <li>
+        Coral: <code>class="heading-underline--coral"</code>
+      </li>
+    </ul>
+  </p>
+  <p>Combine the base class with a colour class for an emphasised heading. For example:
+  </p>
+
+    {{ example({
+      'id': 'example-heading-emphasised',
+      'examples': [
+            {
+              'type': 'html',
+              'code': '
+              <h2 class="heading-underline heading-underline--coral">
+              Emphasised heading
+              </h2>
+              '
+            }
+        ]
+    }) }}
+
   <h2>Paragraph text</h2>
 
   <h3>Importance and attention</h3>
