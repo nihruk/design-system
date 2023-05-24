@@ -58,7 +58,7 @@
 {% set code %}
     {% raw %}
         <section class="bg-white">
-            <div id="card-container" class="container">
+            <div id="card-image" class="container card-container">
                 <div class="row gap-3">
                     {{ card({
                         'heading': 'Card Title',
@@ -71,7 +71,7 @@
     {% endraw %}
 {% endset %}
 {{ example({
-    'id': 'example-single-card-component',
+    'id': 'example-card-component-image',
     'examples': [
         {
             'type': 'nunjucks',
@@ -86,7 +86,7 @@
 {% set code %}
     {% raw %}
         <section class="bg-white">
-            <div id="card-container" class="container">
+            <div id="card-heading" class="container card-container">
                 <div class="row gap-3">
                     {{ card({
                         'heading': 'Card Title',
@@ -98,7 +98,7 @@
     {% endraw %}
 {% endset %}
 {{ example({
-    'id': 'example-three-card-component',
+    'id': 'example-card-component-heading',
     'examples': [
         {
             'type': 'nunjucks',
