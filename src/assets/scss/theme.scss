@@ -175,6 +175,11 @@ samp {
   }
 }
 
+code {
+  color: $navy;
+  background-color: #eff1f3;
+}
+
 ul:not(.navbar-nav, .dropdown-menu, .list-group) {
   margin-bottom: 1.5rem; // 24px
 
