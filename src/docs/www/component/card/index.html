@@ -57,17 +57,11 @@
 
 {% set code %}
     {% raw %}
-        <section class="bg-white">
-            <div id="card-image" class="container">
-                <div class="row gap-3">
-                    {{ card({
-                        'heading': 'Card Title',
-                        'content': 'This is a card with an image above and supporting text below.',
-                        'image': 'https://www.nihr.ac.uk/images/health-and-social-care-professionals/engagement-and-participation/people-at-meeting.jpg'
-                    }) }}
-                </div>
-            </div>
-        </section>
+        {{ card({
+            'heading': 'Card Title',
+            'content': 'This is a card with an image above and supporting text below.',
+            'image': 'https://www.nihr.ac.uk/images/health-and-social-care-professionals/engagement-and-participation/people-at-meeting.jpg'
+        }) }}
     {% endraw %}
 {% endset %}
 {{ example({
@@ -85,16 +79,10 @@
 
 {% set code %}
     {% raw %}
-        <section class="bg-white">
-            <div id="card-heading" class="container">
-                <div class="row gap-3">
-                    {{ card({
-                        'heading': 'Card Title',
-                        'content': 'This is a card with supporting text below.'
-                    }) }}
-                </div>
-            </div>
-        </section>
+        {{ card({
+            'heading': 'Card Title',
+            'content': 'This is a card with supporting text below.'
+        }) }}
     {% endraw %}
 {% endset %}
 {{ example({
