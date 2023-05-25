@@ -1,0 +1,22 @@
+{#
+    @macro card
+    @param {string} heading
+          The human-readable category heading.
+    @param {string} content
+          The human-readable content of the card.
+    @param {string|null} [image=null]
+          Any image's src attribute value.
+#}
+{% macro card(options) %}
+    <div class="col-md">
+    <div class="card h-100">
+        {% if options.image | default(null) %}
+        <img src="{{ options.image }}" class="card-img-top" alt="">
+        {% endif %}
+        <div class="card-body d-flex flex-column">
+            <h2 class="card-title h3 heading-underline heading-underline--coral">{{ options.heading }}</h2>
+            <p class="card-text">{{ options.content }}</p>
+        </div>
+    </div>
+    </div>
+{% endmacro %} 
