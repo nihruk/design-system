@@ -1,0 +1,8 @@
+{#
+    @macro action-link
+    @param {string} link
+          Any hyperlink's href value.
+#}
+{% macro action-link(options) %}
+    <a class="action-link" title="NIHR health, public health and social care news" href="{{ options.link }}"></a>
+{% endmacro %} 

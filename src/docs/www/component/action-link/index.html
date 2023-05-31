@@ -1,0 +1,35 @@
+{% from 'macros/component/action-link.html' import action-link %}
+{% from 'docs/macros/component/example.html' import example %}
+{% set title='Action-Link' %}
+{% extends 'docs/partials/component-page.html' %}
+{% block componentPageContent %}
+
+<p class="lead">
+    Action links are used to XXXXXX
+</p>
+
+<h2>Intended behaviour</h2>
+
+<h2>When to use this component</h2>
+
+<h2>When not to use this component</h2>
+
+<h2>Examples</h2>
+
+{% set code %}
+    {% raw %}
+        {{ action-link({
+            'link': 'https://www.nihr.ac.uk'
+        }) }}
+    {% endraw %}
+{% endset %}
+{{ example({
+    'id': 'example-action-link-component',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/action-link',
+            'code': code
+        }
+    ]
+}) }}
