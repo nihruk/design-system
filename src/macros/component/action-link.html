@@ -8,8 +8,10 @@
         Any hyperlink's title value.
 #}
 {% macro actionLink(options) %}
-<p class="action-link">   
-    <i class="action-link-icon fa-solid fa-circle-arrow-right"></i>
-    <a title="{{ options.title }}" href="{{ options.href }}">{{ options.text }}</a>
+<p>   
+    <a class="action-link" title="{{ options.title }}" href="{{ options.href }}">
+        <i class="action-link-icon fa-solid fa-circle-arrow-right"></i>
+        <span class="action-link-text">{{ options.text }}</span>
+    </a>
 </p> 
-{% endmacro %} 
+{% endmacro %}
