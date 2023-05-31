@@ -1,8 +1,10 @@
-.action-link::before {
-    content: "\f0a9";
-    display: inline-block;
-    font-family: "Font Awesome\ 6 Free", sans-serif;
-    font-size: 1rem;
-    font-weight: 900;
-    margin-right: 0.5rem;
+.action-link {
+    line-height: 2rem;
+}
+
+.action-link__icon {
+    color: var(--bs-primary);
+    font-size: 1.8rem;
+    padding-right: 0.5rem;
+    vertical-align: middle;
 }
