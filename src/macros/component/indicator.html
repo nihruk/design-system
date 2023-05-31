@@ -1,0 +1,10 @@
+{#
+    @macro indicator
+    @param {string} text
+          The human-readable category heading.
+#}
+{% macro indicator(options) %}
+    <div class="indicator">
+        <p>{{ options.text }}</p>
+    </div>
+{% endmacro %} 
