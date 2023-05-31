@@ -1,13 +1,15 @@
 {#
     @macro actionLink
-    @param {string} text
-    Any hyperlink's text value. Also used as the title.
     @param {string} href
-          Any hyperlink's href value.
+        Any hyperlink's href value.
+    @param {string} text
+          Any hyperlink's text value.
+    @param {string} title
+        Any hyperlink's title value.
 #}
 {% macro actionLink(options) %}
 <p class="action-link">   
     <i class="action-link-icon fa-solid fa-circle-arrow-right"></i>
-    <a title="{{ options.text }}" href="{{ options.href }}">{{ options.text }}</a>
+    <a title="{{ options.title }}" href="{{ options.href }}">{{ options.text }}</a>
 </p> 
 {% endmacro %} 
