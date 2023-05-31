@@ -5,21 +5,28 @@
 {% block componentPageContent %}
 
 <p class="lead">
-    Action links are used to XXXXXX
+    Action links are used to signpost the start of a user journey, or a prominent link.
 </p>
 
 <h2>Intended behaviour</h2>
 
+<p>Stuff goes here.</p>
+
 <h2>When to use this component</h2>
+
+<p>Use an action link to signpost the start of a journey.</p>
 
 <h2>When not to use this component</h2>
 
-<h2>Examples</h2>
+<p>Do not use an action link in line with other text.</p>
+
+<h2>Example</h2>
 
 {% set code %}
     {% raw %}
         {{ actionLink({
-            'link': '#'
+            'href': '#',
+            'text': 'Example Action Link'
         }) }}
     {% endraw %}
 {% endset %}

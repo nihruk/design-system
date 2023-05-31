@@ -1,10 +1,12 @@
 {#
     @macro actionLink
-    @param {string} link
+    @param {string} text
+    Any hyperlink's text value.
+    @param {string} href
           Any hyperlink's href value.
 #}
 {% macro actionLink(options) %}
-<p>   
-    <a class="action-link" aria-label="lorem ipsum" title="NIHR health, public health and social care news" href="{{ options.link }}">Example Action Link</a>
+<p class="action-link">   
+    <i class="action-link__icon fa-solid fa-circle-arrow-right"></i><a aria-label="lorem ipsum" title="NIHR health, public health and social care news" href="{{ options.href }}">{{ options.text }}</a>
 </p> 
 {% endmacro %} 
