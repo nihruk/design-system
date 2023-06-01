@@ -1,0 +1,40 @@
+{% from 'macros/component/inset-text.html' import insetText %}
+{% from 'docs/macros/component/example.html' import example %}
+{% set pageTitle='Inset Text' %}
+{% extends 'docs/partials/component-page.html' %}
+{% block componentPageContent %}
+
+<p class="lead">
+    Inset text helps users identify and understand the most emportant content on the page.
+</p>
+
+<h2>When to use this component</h2>
+
+<p>Use inset text to make content stand out on the page, and allow users to identify key information, even if they do not read the whole page.</p>
+
+<h2>When not to use this component</h2>
+
+<ul>
+    <li>Do not use inset text to signal the start of a user journey. Use an <a href="/component/action-link">action link</a> instead.</li>
+</ul>
+
+<h2>Example</h2>
+
+{% set code %}
+    {% raw %}
+        {{ insetText({
+            'text': 'An example sentence that will be highlighted because it is important to users.'
+        }) }}
+    {% endraw %}
+{% endset %}
+{{ example({
+    'id': 'example-inset-text-component',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/inset-text',
+            'code': code
+        }
+    ]
+}) }}
+{% endblock %}

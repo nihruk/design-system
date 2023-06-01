@@ -1,0 +1,8 @@
+{#
+    @macro insetText
+    @param {string} text
+        The text contained inside the inset.
+#}
+{% macro insetText(options) %}
+<p class="inset-text">{{ options.text }}</p> 
+{% endmacro %}
