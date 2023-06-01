@@ -7,10 +7,10 @@
     The content of the inset component.
 #}
 {% macro insetText(options) %}
-    {% for link in options.paragraphContents | default([]) %}
-        <div class="inset-text">
-            <span class="visually-hidden">Information: </span>
-            <p>{{ options.text }}</p>
-        </div>
-    {% endfor %}
+    <div class="inset-text">
+        <span class="visually-hidden">Information: </span>
+        {% for content in options.paragraphContents | default([]) %}
+            <p>{{ content.text }}</p>
+        {% endfor %}
+    </div>
 {% endmacro %}
