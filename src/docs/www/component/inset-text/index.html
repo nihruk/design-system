@@ -15,7 +15,7 @@
 <h2>When not to use this component</h2>
 
 <ul>
-    <li>Do not use inset text to signal the start of a user journey. Use an <a href="/component/action-link">action link</a> instead.</li>
+    <li>Do not use inset text to signal the start of a user journey. Use an <a href="/component/action-link">Action Link</a> instead.</li>
 </ul>
 
 <h2>Example</h2>
@@ -23,7 +23,14 @@
 {% set code %}
     {% raw %}
         {{ insetText({
-            'text': 'Example content that will be emphasised because of its importance.'
+        'paragraphContents': [
+            {
+            'text': 'First piece of text'
+            },
+            {
+            'text': 'Second piece of text'
+            }
+        ]
         }) }}
     {% endraw %}
 {% endset %}

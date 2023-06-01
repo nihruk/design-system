@@ -1,11 +1,16 @@
 {#
-    @macro insetText
-    @param {string} text
-        The text contained inside the inset.
+@typedef {object} ParagraphContent
+@property {string} text
+    The human-readable text.
+@macro insetText
+@param {Array<ParagraphContent>} [paragraphContents=[]]
+    The content of the inset component.
 #}
 {% macro insetText(options) %}
-    <div class="inset-text">
-        <span class="visually-hidden">Information: </span>
-        <p>{{ options.text }}</p> 
-    </div>
+    {% for link in options.paragraphContents | default([]) %}
+        <div class="inset-text">
+            <span class="visually-hidden">Information: </span>
+            <p>{{ options.text }}</p>
+        </div>
+    {% endfor %}
 {% endmacro %}
