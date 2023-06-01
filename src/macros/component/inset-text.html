@@ -1,16 +1,16 @@
 {#
-@typedef {object} ParagraphContent
-@property {string} text
+@typedef {object} Paragraph
+@property {string} body
     The human-readable text.
 @macro insetText
-@param {Array<ParagraphContent>} [paragraphContents=[]]
+@param {Array<Paragraph>} [paragraphs=[]]
     The content of the inset component.
 #}
 {% macro insetText(options) %}
     <div class="inset-text">
         <span class="visually-hidden">Information: </span>
-        {% for content in options.paragraphContents | default([]) %}
-            <p>{{ content.text }}</p>
+        {% for content in options.paragraphs | default([]) %}
+            <p>{{ content.body }}</p>
         {% endfor %}
     </div>
 {% endmacro %}
