@@ -1,0 +1,10 @@
+.inset-text {
+    border-left: 8px solid $coral;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
+    padding: 1.5rem;
+}
+
+.inset-text>*:last-child {
+    margin-bottom: 0;
+}
