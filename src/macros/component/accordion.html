@@ -17,7 +17,7 @@
     <div class="accordion-item">
       <h2 class="accordion-header" id="panel-heading--{{ options.id }}--{{ loop.index }}">
         <button
-          class="accordion-button"
+          class="accordion-button{% if item.show | default(false) %} random{% else %} collapsed{% endif %}"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#panel-collapse--{{ options.id }}--{{ loop.index }}"
