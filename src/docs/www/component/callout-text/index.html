@@ -1,28 +1,28 @@
-{% from 'macros/component/inset-text.html' import insetText %}
+{% from 'macros/component/callout-text.html' import calloutText %}
 {% from 'docs/macros/component/example.html' import example %}
-{% set pageTitle='Inset Text' %}
+{% set pageTitle='Callout Text' %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
 
 <p class="lead">
-    Inset text helps users identify and understand the most important content on the page.
+    Callout text helps users identify and understand the most important content on the page.
 </p>
 
 <h2>When to use this component</h2>
 
-<p>Use inset text to make content stand out on the page and allow users to identify key information, even if they do not read the whole page.</p>
+<p>Use callout text to make content stand out on the page and allow users to identify key information, even if they do not read the whole page.</p>
 
 <h2>When not to use this component</h2>
 
 <ul>
-    <li>Do not use inset text to signal the start of a user journey. Use an <a href="/component/action-link">Action Link</a> instead.</li>
+    <li>Do not use callout text to signal the start of a user journey. Use an <a href="/component/action-link">Action Link</a> instead.</li>
 </ul>
 
 <h2>Example</h2>
 
 {% set code %}
     {% raw %}
-        {{ insetText({
+        {{ calloutText({
         'paragraphs': [
             {
             'body': 'Example content that will be emphasised because of its importance.'
@@ -35,11 +35,11 @@
     {% endraw %}
 {% endset %}
 {{ example({
-    'id': 'example-inset-text-component',
+    'id': 'example-callout-text-component',
     'examples': [
         {
             'type': 'nunjucks',
-            'nunjucksMacro': 'component/inset-text',
+            'nunjucksMacro': 'component/callout-text',
             'code': code
         }
     ]
