@@ -2,12 +2,12 @@
 @typedef {object} Paragraph
 @property {string} body
     The human-readable text.
-@macro insetText
+@macro calloutText
 @param {Array<Paragraph>} [paragraphs=[]]
-    The content of the inset component.
+    The content of the callout component.
 #}
-{% macro insetText(options) %}
-    <div class="inset-text">
+{% macro calloutText(options) %}
+    <div class="callout-text">
         <span class="visually-hidden">Information: </span>
         {% for content in options.paragraphs | default([]) %}
             <p>{{ content.body }}</p>
