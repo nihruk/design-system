@@ -175,6 +175,19 @@ samp {
   }
 }
 
+.lead {
+  font-size: 1.4rem;
+  line-height: 1.4; // 24px
+  margin-bottom: 1.5rem; // 24px
+
+  @include media-breakpoint-up(lg) {
+    @include font-size(1.7rem);
+
+    line-height: 1.4545; // 32px
+    margin-bottom: 1.5rem; // 24px
+  }
+}
+
 code {
   color: $navy;
   background-color: #eff1f3;
