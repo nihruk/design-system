@@ -1,0 +1,20 @@
+.hero {
+    padding: 2rem;
+}
+
+.coral {
+    background: $coral;
+}
+
+.blue {
+    background: $navy;
+    color: white;
+
+    h1, h2, h3, h4, h5, h6, a {
+        color: white;
+    }
+}
+
+.card img {
+    border-radius: 5px;
+}
