@@ -1,3 +1,4 @@
+{% from 'macros/component/action-link.html' import actionLink %}
 {% set pageTitle = 'Components' %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
@@ -11,7 +12,8 @@
         the Design System, you can use the provided HTML and <a href="https://mozilla.github.io/nunjucks/">Nunjucks</a>
         examples verbatim.
     </p>
-    <p>
-        Get started with the <a href="/component/page">Page component</a>.
-    </p>
+    {{ actionLink({
+        'href': '/component/page',
+        'text': 'Get started with the Page component'
+    }) }}
 {% endblock %}
