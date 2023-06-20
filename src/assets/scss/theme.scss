@@ -58,6 +58,11 @@
 
 @import './components/components';
 
+html,
+body {
+  background-color: $navy;
+}
+
 body {
   @include media-breakpoint-down(md) {
     font-size: 1.125rem !important;
@@ -208,6 +213,7 @@ ul:not(.navbar-nav, .dropdown-menu, .list-group) {
 
 main {
   padding: 2rem 0;
+  background-color: #fff;
 }
 
 .list-group {
