@@ -68,7 +68,7 @@
                         }
                     ].concat(options.socialMediaLinks | default([])) %}
                         <li>
-                            <a href="{{ link.href }}" title="{{ link.label }}"><i class="{{ link.classes.join(' ') }}"><span class="visually-hidden">{{ link.label }}</span></i></a>
+                            <a href="{{ link.href }}"><i class="{{ link.classes.join(' ') }}"><span class="visually-hidden">{{ link.label }}</span></i></a>
                         </li>
                     {% endfor %}
                 </ul>
