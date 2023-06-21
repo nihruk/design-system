@@ -1,0 +1,30 @@
+.action-link {
+    display: inline-block;
+    line-height: 2rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+}
+
+.action-link:focus {
+    background-color: $yellow-100;
+    box-shadow: 0 -2px $yellow-100,0 4px black;
+    color: black;
+    outline: 3px solid transparent;
+    text-decoration: none;
+    transition: 0s;
+}
+
+.action-link-icon {
+    color: $coral;
+    font-size: 1.8rem;
+    padding-right: 0.5rem;
+    vertical-align: middle;
+}
+
+.action-link:focus .action-link-icon {
+    color: black;
+}
+
+.action-link-text {
+    margin-left: -0.25rem;
+}

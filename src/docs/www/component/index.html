@@ -1,8 +1,19 @@
+{% from 'macros/component/action-link.html' import actionLink %}
 {% set pageTitle = 'Components' %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
-  <p>
-    Components are the building blocks in the Design System. Quickly combined, they shape up to entire pages and
-    applications.
-  </p>
+    <p class="lead">
+        Components are the building blocks of the Design System. Quickly combined, they shape up to entire pages and
+        applications.
+    </p>
+    <p>
+        The Design System offers components for content presentation and navigation, to collect data, and more. Each
+        component features code and interactive examples, and if you have <a href="/get-started/install">installed</a>
+        the Design System, you can use the provided HTML and <a href="https://mozilla.github.io/nunjucks/">Nunjucks</a>
+        examples verbatim.
+    </p>
+    {{ actionLink({
+        'href': '/component/page',
+        'text': 'Get started with the Page component'
+    }) }}
 {% endblock %}

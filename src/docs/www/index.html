@@ -1,3 +1,4 @@
+{% from 'macros/component/action-link.html' import actionLink %}
 {% set visuallyHidePageTitle=true %}
 {% extends 'docs/partials/page.html' %}
 {% block pageContent %}
@@ -10,8 +11,13 @@
       </p>
     </div>
     <div class="col-lg-4">
+      {{ actionLink({
+        'href': '/get-started',
+        'text': 'Get started',
+        'title': 'Get started with the Design System'
+      }) }}
       <p>
-        <small><a class="btn btn-primary" href="/get-started" role="button">Get started</a> or run <code>npm install @nihruk/design-system</code></small>
+        or run <span class="d-block"><code>npm install @nihruk/design-system</code></span>
       </p>
     </div>
   </div>

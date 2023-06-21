@@ -39,7 +39,6 @@
 @import '~bootstrap/scss/breadcrumb';
 @import '~bootstrap/scss/pagination';
 @import '~bootstrap/scss/badge';
-@import '~bootstrap/scss/alert';
 @import '~bootstrap/scss/progress';
 @import '~bootstrap/scss/list-group';
 @import '~bootstrap/scss/close';
@@ -58,6 +57,11 @@
 // 8. Add additional custom code here
 
 @import './components/components';
+
+html,
+body {
+  background-color: $navy;
+}
 
 body {
   @include media-breakpoint-down(md) {
@@ -175,6 +179,24 @@ samp {
   }
 }
 
+.lead {
+  font-size: 1.4rem;
+  line-height: 1.4;
+  margin-bottom: 1.5rem; // 24px
+
+  @include media-breakpoint-up(lg) {
+    @include font-size(1.7rem);
+
+    line-height: 1.4545;
+    margin-bottom: 1.5rem; // 24px
+  }
+}
+
+code {
+  color: $navy;
+  background-color: #eff1f3;
+}
+
 ul:not(.navbar-nav, .dropdown-menu, .list-group) {
   margin-bottom: 1.5rem; // 24px
 
@@ -189,16 +211,9 @@ ul:not(.navbar-nav, .dropdown-menu, .list-group) {
   }
 }
 
-img {
-  margin-bottom: 1.5rem; // 24px
-}
-
-header img {
-  margin-bottom: 0;
-}
-
 main {
   padding: 2rem 0;
+  background-color: #fff;
 }
 
 .list-group {

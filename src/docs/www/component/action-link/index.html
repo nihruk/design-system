@@ -1,0 +1,44 @@
+{% from 'macros/component/action-link.html' import actionLink %}
+{% from 'docs/macros/component/example.html' import example %}
+{% set pageTitle='Action Link' %}
+{% extends 'docs/partials/component-page.html' %}
+{% block componentPageContent %}
+
+<p class="lead">
+    Action links are used to signpost the start of a user journey.
+</p>
+
+<h2>When to use this component</h2>
+
+<p>Use an action link to signpost the start of a clearly defined user journey.</p>
+
+<h2>When not to use this component</h2>
+
+<ul>
+    <li>Do not use an action link inside a paragraph of text.</li> 
+    <li>Do not use an action link to emphasise the importance of a link.</li>
+    <li>Do not use an action link in place of a <a href="/component/button">button</a>.</li>
+</ul>
+
+<h2>Example</h2>
+
+{% set code %}
+    {% raw %}
+        {{ actionLink({
+            'href': '#',
+            'text': 'Example Action Link',
+            'title': 'Example Action Link'
+        }) }}
+    {% endraw %}
+{% endset %}
+{{ example({
+    'id': 'example-action-link-component',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/action-link',
+            'code': code
+        }
+    ]
+}) }}
+{% endblock %}
