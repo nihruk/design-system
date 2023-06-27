@@ -5,12 +5,12 @@
 {% block componentPageContent %}
 
 <p class="lead">
-    Heroes are coloured sections used to highlight important pieces of content. They are often, though not always, the first thing a user sees on a page
+    Heroes are coloured sections used to highlight important pieces of content. They are often, though not always, the first thing a user sees on a page.
 </p>
 
 <h2>Intended behaviour</h2>
 
-<p>All content placed inside a hero must respect the <a href="https://design-system.nihr.ac.uk/style/layout">layout rules</a> for the design system</p>
+<p>All content placed inside a hero must respect the <a href="https://design-system.nihr.ac.uk/style/layout">layout rules</a> for the design system.</p>
 
 <h2>When to use this component</h2>
 
@@ -89,7 +89,31 @@
     ]
 }) }}
 
-<h3>Coral Hero with two white text cards</h3>
+<h3>Coral hero with blue card and image</h3>
+
+{% set code %}
+    {% raw %}
+        {{ hero({
+            'headingOne': 'Card Title',
+            'contentOne': 'This is a card with supporting text below.',
+            'imageOne': 'https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg',
+            'cardOneBackground': 'card--blue',
+            'heroBackground': 'hero--coral'
+        }) }}
+    {% endraw %}
+{% endset %}
+{{ example({
+    'id': 'example-hero-component-coral-blue-card-image',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
+}) }}
+
+<h3>Coral hero with two white text cards</h3>
 
 {% set code %}
     {% raw %}
@@ -115,7 +139,7 @@
     ]
 }) }}
 
-<h3>Blue Hero with two white text cards</h3>
+<h3>Blue hero with two white text cards</h3>
 
 {% set code %}
     {% raw %}
@@ -141,42 +165,18 @@
     ]
 }) }}
 
-<h3>Coral Hero with blue card and image</h3>
-
-{% set code %}
-    {% raw %}
-        {{ hero({
-            'headingOne': 'Card Title',
-            'contentOne': 'This is a card with supporting text below.',
-            'imageOne': 'https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg',
-            'cardOneBackground': 'card--blue',
-            'heroBackground': 'hero--coral'
-        }) }}
-    {% endraw %}
-{% endset %}
-{{ example({
-    'id': 'example-hero-component-coral-blue-card-image',
-    'examples': [
-        {
-            'type': 'nunjucks',
-            'nunjucksMacro': 'component/hero',
-            'code': code
-        }
-    ]
-}) }}
-
-<h3>Blue Hero with image</h3>
+<h3>Coral hero with image</h3>
 
 {% set code %}
     {% raw %}
         {{ hero({
             'imageOne': 'https://www.nihr.ac.uk/images/news/head-up-collar.png',
-            'heroBackground': 'hero--blue'
+            'heroBackground': 'hero--coral'
         }) }}
     {% endraw %}
 {% endset %}
 {{ example({
-    'id': 'example-hero-component-blue-image',
+    'id': 'example-hero-component-coral-image',
     'examples': [
         {
             'type': 'nunjucks',
@@ -186,7 +186,7 @@
     ]
 }) }}
 
-<h3>Blue Hero with two images</h3>
+<h3>Blue hero with two images</h3>
 
 {% set code %}
     {% raw %}
