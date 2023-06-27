@@ -5,17 +5,19 @@
 {% block componentPageContent %}
 
 <p class="lead">
-    Heroes are used to highlight important pieces of content, often, though not always, the first thing a user sees on a page
+    Heroes are used to highlight important pieces of content. They are often, though not always, the first thing a user sees on a page
 </p>
 
 <h2>When to use this component</h2>
 
-<p>Heroes should be used to highlight and draw attention to related content</p>
+<p>Heroes should be used to highlight and draw attention to related content that is important to a user.</p>
+<p>Where possible heroes should be placed above the fold, or high up on a page.</p>
 
 <h2>When not to use this component</h2>
 
 <ul>
     <li>Do not use a hero if the content is not related</li>
+    <li>Do not use more than two cards inside a hero section</li>
     <li>Do not use more than two heroes on a page</li>
 </ul>
 
@@ -26,7 +28,7 @@
 {% set code %}
     {% raw %}
         {{ hero({
-            'heroBackground': 'coral'
+            'heroBackground': 'hero--coral'
         }) }}
     {% endraw %}
 {% endset %}
@@ -46,7 +48,7 @@
 {% set code %}
     {% raw %}
         {{ hero({
-            'heroBackground': 'blue'
+            'heroBackground': 'hero--blue'
         }) }}
     {% endraw %}
 {% endset %}
@@ -61,7 +63,7 @@
     ]
 }) }}
 
-<h3>Coral Hero with two text cards</h3>
+<h3>Coral Hero with two blue text cards</h3>
 
 {% set code %}
     {% raw %}
@@ -70,14 +72,40 @@
             'contentOne': 'This is a card with supporting text below.',
             'headingTwo': 'Card Title',
             'contentTwo': 'This is another card with supporting text below.',
-            'cardOneBackground': 'blue',
-            'cardTwoBackground': 'blue',
-            'heroBackground': 'coral'
+            'cardOneBackground': 'card--blue',
+            'cardTwoBackground': 'card--blue',
+            'heroBackground': 'hero--coral'
         }) }}
     {% endraw %}
 {% endset %}
 {{ example({
-    'id': 'example-hero-component-coral-two-cards',
+    'id': 'example-hero-component-coral-two-blue-cards',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
+}) }}
+
+<h3>Blue Hero with two white text cards</h3>
+
+{% set code %}
+    {% raw %}
+        {{ hero({
+            'headingOne': 'Card Title',
+            'contentOne': 'This is a card with supporting text below.',
+            'headingTwo': 'Card Title',
+            'contentTwo': 'This is another card with supporting text below.',
+            'cardOneBackground': 'card--white',
+            'cardTwoBackground': 'card--white',
+            'heroBackground': 'hero--blue'
+        }) }}
+    {% endraw %}
+{% endset %}
+{{ example({
+    'id': 'example-hero-component-blue-two-white-cards',
     'examples': [
         {
             'type': 'nunjucks',
@@ -95,9 +123,8 @@
             'headingOne': 'Card Title',
             'contentOne': 'This is a card with supporting text below.',
             'imageOne': 'https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg',
-            'cardOneBackground': 'blue',
-            'cardTwoBackground': 'white',
-            'heroBackground': 'coral'
+            'cardOneBackground': 'card--blue',
+            'heroBackground': 'hero--coral'
         }) }}
     {% endraw %}
 {% endset %}
@@ -118,7 +145,7 @@
     {% raw %}
         {{ hero({
             'imageOne': 'https://www.nihr.ac.uk/images/news/head-up-collar.png',
-            'heroBackground': 'blue'
+            'heroBackground': 'hero--blue'
         }) }}
     {% endraw %}
 {% endset %}
@@ -140,7 +167,7 @@
         {{ hero({
             'imageOne': 'https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg',
             'imageTwo': 'https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg',
-            'heroBackground': 'blue'
+            'heroBackground': 'hero--blue'
         }) }}
     {% endraw %}
 {% endset %}

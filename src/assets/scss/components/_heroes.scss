@@ -2,23 +2,14 @@
     padding: 2rem;
 }
 
-.coral {
+.hero--blue {
+    background: $navy;
+}
+  
+.hero--coral {
     background: $coral;
 }
 
-.blue {
-    background: $navy;
-    color: white;
-
-    h1, h2, h3, h4, h5, h6, a {
-        color: white;
-    }
-}
-
-.white {
+.hero--white {
     background: white;
-}
-
-.card img {
-    border-radius: 5px;
 }
