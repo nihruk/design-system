@@ -56,13 +56,13 @@
     ]
 }) }}
 
-<h3>Coral Hero with a two text cards</h3>
+<h3>Coral Hero with two text cards</h3>
 
 {% set code %}
     {% raw %}
         {{ hero({
-            'heading': 'Card Title',
-            'content': 'This is a card with supporting text below.',
+            'headingOne': 'Card Title',
+            'contentOne': 'This is a card with supporting text below.',
             'headingTwo': 'Card Title',
             'contentTwo': 'This is another card with supporting text below.',
             'cardOneBackground': 'blue',
@@ -87,9 +87,9 @@
 {% set code %}
     {% raw %}
         {{ hero({
-            'heading': 'Card Title',
-            'content': 'This is a card with supporting text below.',
-            'image': 'https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg',
+            'headingOne': 'Card Title',
+            'contentOne': 'This is a card with supporting text below.',
+            'imageOne': 'https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg',
             'cardOneBackground': 'blue',
             'cardTwoBackground': 'white',
             'heroBackground': 'coral'
@@ -112,7 +112,7 @@
 {% set code %}
     {% raw %}
         {{ hero({
-            'image': 'https://www.nihr.ac.uk/images/news/head-up-collar.png',
+            'imageOne': 'https://www.nihr.ac.uk/images/news/head-up-collar.png',
             'heroBackground': 'blue'
         }) }}
     {% endraw %}
@@ -128,5 +128,26 @@
     ]
 }) }}
 
+<h3>Blue Hero with two images</h3>
+
+{% set code %}
+    {% raw %}
+        {{ hero({
+            'imageOne': 'https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg',
+            'imageTwo': 'https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg',
+            'heroBackground': 'blue'
+        }) }}
+    {% endraw %}
+{% endset %}
+{{ example({
+    'id': 'example-hero-component-blue-image',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
+}) }}
 
 {% endblock %}
