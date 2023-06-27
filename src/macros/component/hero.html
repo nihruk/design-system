@@ -1,27 +1,27 @@
 {#
     @macro hero
     @param {string|null} [heroTitle=null]
-          The human-readable title.
+          The human-readable title inside a hero.
     @param {string|null} [heroText=null]
           The human-readable text inside a hero.              
     @param {string|null} [headingOne=null]
-          The human-readable category heading.
+          The human-readable first card heading.
     @param {string|null} [contentOne=null]
-          The human-readable content of the card.
+          The human-readable content of the first card.
     @param {string|null} [headingTwo=null]
-          The human-readable category heading.
+          The human-readable second card heading.
     @param {string|null} [contentTwo=null]
-          The human-readable content of the card.
+          The human-readable content of the second card.
     @param {string|null} [imageOne=null]
           The first image's src attribute value.
     @param {string|null} [imageTwo=null]
           The second image's src attribute value.
     @param {string|null} [heroBackground=null]
-          A supported background colour, lower-case.
+          The supported background colour class of the hero, lower-case.
     @param {string|null} [cardOneBackground=null]
-          A supported background colour, lower-case. 
+          The supported background colour of the first card, lower-case. 
     @param {string|null} [cardTwoBackground=null]
-          A supported background colour, lower-case.                   
+          The supported background colour of the second card, lower-case.                   
 #}
 {% macro hero(options) %}
 <section class="hero {{ options.heroBackground }}" aria-description="hero section">
