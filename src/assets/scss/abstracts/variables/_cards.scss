@@ -9,34 +9,16 @@ $bs-card-border-width: 0;
     border-radius: 5px;
 }
 
-.card--blue {
+.card-blue {
     background: $navy!important;
-    h1, 
-    h2, 
-    h3, 
-    h4, 
-    h5, 
-    h6, 
-    p, 
-    ul, 
-    ol, 
-    a {
+    h1, h2, h3, h4, h5, h6, p, ul, ol, a {
         color: white;
     }
 }
 
-.card--coral {
+.card-coral {
     background: $coral!important;
-    h1, 
-    h2, 
-    h3, 
-    h4, 
-    h5, 
-    h6, 
-    p, 
-    ul, 
-    ol, 
-    a {
+    h1, h2, h3, h4, h5, h6, p, ul, ol, a {
         color: black;
     }
     .heading-underline--coral:after {
@@ -44,6 +26,6 @@ $bs-card-border-width: 0;
     }
 }
 
-.card--white {
+.card-white {
     background: white!important;
 }
