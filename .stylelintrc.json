@@ -5,11 +5,12 @@
   "rules": {
     "annotation-no-unknown": [true, { "ignoreAnnotations": ["default"] }],
     "at-rule-no-unknown": null,
-    "no-empty-source": null,
     "function-no-unknown": null,
+    "import-notation": "string",
+    "no-empty-source": null,
     "scss/at-rule-no-unknown": true,
     "scss/function-no-unknown": null,
     "scss/selector-no-redundant-nesting-selector": true,
-    "import-notation": "string"
+    "selector-class-pattern": "^((-|--|_|__){0,1}[a-z0-9])+$"
   }
 }
