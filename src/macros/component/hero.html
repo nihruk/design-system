@@ -4,29 +4,51 @@
           The human-readable category heading.
     @param {string} content
           The human-readable content of the card.
+    @param {string|null} [headingTwo=null]
+          The human-readable category heading.
+    @param {string|null} [contentTwo=null]
+          The human-readable content of the card.
     @param {string|null} [image=null]
           Any image's src attribute value.
+    @param {string|null} [heroBackground=null]
+          A supported background colour, lower-case.
+    @param {string|null} [cardOneBackground=null]
+          A supported background colour, lower-case. 
+    @param {string|null} [cardTwoBackground=null]
+          A supported background colour, lower-case.                   
 #}
 {% macro hero(options) %}
-<div class="hero coral">
+<section class="hero {{ options.heroBackground }}">
     <div class="container">
         <div class="row gap-5">
+            {% if options.heading | default(null) %}
             <div class="col">
-                <div class="card h-100 blue">
+                <div class="card h-100 {{ options.cardOneBackground }}">
                     <div class="card-body d-flex flex-column">
                         <h2 class="card-title h3 heading-underline heading-underline--coral">{{ options.heading }}</h2>
                         <p class="card-text">{{ options.content }}</p>
                     </div>
                 </div>
             </div>
+            {% if options.headingTwo | default(null) %}
             <div class="col">
-                <div class="card h-100 blue">
-                    {% if options.image | default(null) %}
-                    <img src="{{ options.image }}" class="w-100" alt="">
-                    {% endif %}
+                <div class="card h-100 {{ options.cardTwoBackground }}">
+                    <div class="card-body d-flex flex-column">
+                        <h2 class="card-title h3 heading-underline heading-underline--coral">{{ options.headingTwo }}</h2>
+                        <p class="card-text">{{ options.contentTwo }}</p>
+                    </div>
                 </div>
             </div>
+            {% endif %}
+            {% endif %}
+            {% if options.image | default(null) %}
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{ options.image }}" class="w-100" alt="">
+                </div>
+            </div>
+            {% endif %}
         </div>
     </div>
-</div>
+</section>
 {% endmacro %} 
