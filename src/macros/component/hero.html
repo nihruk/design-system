@@ -28,15 +28,13 @@
     <div class="container">
         <div class="row gap-5 {% if (options.heroTitle | default(null)) or (options.heroText | default(null)) %}justify-content-center{% endif %}">
             {% if options.heroText | default(null) %}
-                <div class="row justify-content-center">
-                    <div class="text-center col-xl-7">
-                        {% if options.heroTitle | default(null) %}
-                            <h1>{{ options.heroTitle }}</h1>
-                        {% endif %}
-                        {% if options.heroText | default(null) %}
-                            <p>{{ options.heroText }}</p>
-                        {% endif %}
-                    </div>
+                <div class="text-center col-xl-7">
+                    {% if options.heroTitle | default(null) %}
+                        <h1>{{ options.heroTitle }}</h1>
+                    {% endif %}
+                    {% if options.heroText | default(null) %}
+                        <p>{{ options.heroText }}</p>
+                    {% endif %}
                 </div>
             {% endif %}
             {% if options.headingOne | default(null) %}
