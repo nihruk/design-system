@@ -17,18 +17,6 @@ $bs-card-border-width: 0;
     }
 }
 
-.card--coral {
-    background: $coral!important;
-    
-    h1, h2, h3, h4, h5, h6, p, ul, ol, a {
-        color: black;
-    }
-    
-    .heading-underline--coral::after {
-        background: black;
-    }
-}
-
 .card--white {
     background: white!important;
 }
