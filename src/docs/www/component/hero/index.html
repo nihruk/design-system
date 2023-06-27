@@ -5,8 +5,12 @@
 {% block componentPageContent %}
 
 <p class="lead">
-    Heroes are used to highlight important pieces of content. They are often, though not always, the first thing a user sees on a page
+    Heroes are coloured sections used to highlight important pieces of content. They are often, though not always, the first thing a user sees on a page
 </p>
+
+<h2>Intended behaviour</h2>
+
+<p>All content placed inside a hero must respect the <a href="https://design-system.nihr.ac.uk/style/layout">layout rules</a> for the design system</p>
 
 <h2>When to use this component</h2>
 
@@ -54,6 +58,28 @@
 {% endset %}
 {{ example({
     'id': 'example-hero-component-blue',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
+}) }}
+
+<h3>Blue hero with text</h3>
+
+{% set code %}
+    {% raw %}
+        {{ hero({
+            'heroBackground': 'hero-blue',
+            'heroTitle': 'NIHR Research Funding',
+            'heroText': 'This is some text to add context to the page title and provide more information.'
+        }) }}
+    {% endraw %}
+{% endset %}
+{{ example({
+    'id': 'example-hero-component-blue-text',
     'examples': [
         {
             'type': 'nunjucks',
