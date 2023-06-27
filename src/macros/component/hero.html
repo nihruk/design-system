@@ -20,7 +20,7 @@
           A supported background colour, lower-case.                   
 #}
 {% macro hero(options) %}
-<section class="hero {{ options.heroBackground }}">
+<section class="hero {{ options.heroBackground }}" aria-description="Hero section">
     <div class="container">
         <div class="row gap-5">
             {% if options.headingOne | default(null) %}
