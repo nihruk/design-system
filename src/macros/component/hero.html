@@ -1,77 +1,16 @@
 {#
     @macro hero
-    @param {string|null} [heroTitle=null]
-          The human-readable title inside a hero.
-    @param {string|null} [heroText=null]
-          The human-readable text inside a hero.              
-    @param {string|null} [headingOne=null]
-          The human-readable first card heading.
-    @param {string|null} [contentOne=null]
-          The human-readable content of the first card.
-    @param {string|null} [headingTwo=null]
-          The human-readable second card heading.
-    @param {string|null} [contentTwo=null]
-          The human-readable content of the second card.
-    @param {string|null} [imageOne=null]
-          The first image's src attribute value.
-    @param {string|null} [imageTwo=null]
-          The second image's src attribute value.
     @param {string|null} [heroBackground=null]
-          The supported background colour class of the hero, lower-case.
-    @param {string|null} [cardOneBackground=null]
-          The supported background colour of the first card, lower-case. 
-    @param {string|null} [cardTwoBackground=null]
-          The supported background colour of the second card, lower-case.                   
+          The supported background colour class of the hero, lower-case.    
+    @param {string|null} [body=null]
+          The footer's main body content, if any.             
 #}
 {% macro hero(options) %}
 <section class="hero {{ options.heroBackground }}" aria-description="hero section">
-    <div class="container">
-        <div class="row gap-5{% if (options.heroTitle | default(null)) or (options.heroText | default(null)) %} justify-content-center{% endif %}">
-            {% if options.heroText | default(null) %}
-                <div class="text-center col-xl-7">
-                    {% if options.heroTitle | default(null) %}
-                        <h1 class="text-white">{{ options.heroTitle }}</h1>
-                    {% endif %}
-                    {% if options.heroText | default(null) %}
-                        <p class="text-white">{{ options.heroText }}</p>
-                    {% endif %}
-                </div>
-            {% endif %}
-            {% if options.headingOne | default(null) %}
-            <div class="col">
-                <div class="card h-100 {{ options.cardOneBackground }}">
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="card-title h3 heading-underline heading-underline--coral">{{ options.headingOne }}</h2>
-                        <p class="card-text">{{ options.contentOne }}</p>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            {% if options.headingTwo | default(null) %}
-            <div class="col">
-                <div class="card h-100 {{ options.cardTwoBackground }}">
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="card-title h3 heading-underline heading-underline--coral">{{ options.headingTwo }}</h2>
-                        <p class="card-text">{{ options.contentTwo }}</p>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-            {% if options.imageOne | default(null) %}
-            <div class="col">
-                <div class="card h-100">
-                    <img src="{{ options.imageOne }}" class="w-100" alt="">
-                </div>
-            </div>
-            {% endif %}
-            {% if options.imageTwo | default(null) %}
-            <div class="col">
-                <div class="card h-100">
-                    <img src="{{ options.imageTwo }}" class="w-100" alt="">
-                </div>
-            </div>
-            {% endif %}
-        </div>
+    <div class="container">    
+        {% if options.body is defined %}
+            {{ options.body }}
+        {% endif %}
     </div>
 </section>
 {% endmacro %} 
