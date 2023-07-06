@@ -16,7 +16,9 @@
 
   <h3>A minimal footer</h3>
   {% set code %}
-    {{ footer() }}
+{% raw %}
+{{ footer() }}
+{% endraw %}
   {% endset %}
   {{ example({
       'id': 'example-footer-component-minimal',
@@ -31,18 +33,20 @@
 
   <h3>Additional social media links</h3>
   {% set code %}
-    {{ footer({
-      'socialMediaLinks': [
-        {
-          'label': 'Shiny lightning bolt',
-          'href': '#',
-          'classes': [
-            'fa-solid',
-            'fa-bolt'
-          ]
-        }
+{% raw %}
+{{ footer({
+  'socialMediaLinks': [
+    {
+      'label': 'Shiny lightning bolt',
+      'href': '#',
+      'classes': [
+        'fa-solid',
+        'fa-bolt'
       ]
-    }) }}
+    }
+  ]
+}) }}
+{% endraw %}
   {% endset %}
   {{ example({
       'id': 'example-footer-component-additional-social-media-links',
@@ -57,14 +61,16 @@
 
   <h3>Navigation links</h3>
   {% set code %}
-    {{ footer({
-      'navigationLinks': [
-        {
-          'label': 'Privacy policy',
-          'href': '#'
-        }
-      ]
-    }) }}
+{% raw %}
+{{ footer({
+  'navigationLinks': [
+    {
+      'label': 'Privacy policy',
+      'href': '#'
+    }
+  ]
+}) }}
+{% endraw %}
   {% endset %}
   {{ example({
       'id': 'example-footer-component-navigation-links',
@@ -79,8 +85,9 @@
 
   <h3>Body content</h3>
   {% set code %}
-    {{ footer({
-      'body': '
+{% raw %}
+{{ footer({
+  'body': '
 <div class="col-lg-3 col-md-6 col-sm-12">
   <p><strong>Useful links</strong></p>
   <ul>
@@ -161,8 +168,9 @@
     </li>
   </ul>
 </div>
-      ' | safe
-    }) }}
+  ' | safe
+}) }}
+{% endraw %}
   {% endset %}
   {{ example({
       'id': 'example-footer-component-body',

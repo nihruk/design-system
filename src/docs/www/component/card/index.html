@@ -56,13 +56,13 @@
 <h3>Image</h3>
 
 {% set code %}
-    {% raw %}
-        {{ card({
-            'heading': 'Card Title',
-            'content': 'This is a card with an image above and supporting text below.',
-            'image': 'https://www.nihr.ac.uk/images/health-and-social-care-professionals/engagement-and-participation/people-at-meeting.jpg'
-        }) }}
-    {% endraw %}
+{% raw %}
+{{ card({
+    'heading': 'Card Title',
+    'content': 'This is a card with an image above and supporting text below.',
+    'image': 'https://www.nihr.ac.uk/images/health-and-social-care-professionals/engagement-and-participation/people-at-meeting.jpg'
+}) }}
+{% endraw %}
 {% endset %}
 {{ example({
     'id': 'example-card-component-image',
@@ -78,12 +78,12 @@
 <h3>Heading only</h3>
 
 {% set code %}
-    {% raw %}
-        {{ card({
-            'heading': 'Card Title',
-            'content': 'This is a card with supporting text below.'
-        }) }}
-    {% endraw %}
+{% raw %}
+{{ card({
+    'heading': 'Card Title',
+    'content': 'This is a card with supporting text below.'
+}) }}
+{% endraw %}
 {% endset %}
 {{ example({
     'id': 'example-card-component-heading',

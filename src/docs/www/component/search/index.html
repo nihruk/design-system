@@ -12,9 +12,11 @@
     <h3>Default Search</h3>
 
     {% set code %}
-        {{ search({
-            'action': '#'
-        }) }}
+{% raw %}
+{{ search({
+    'action': '#'
+}) }}
+{% endraw %}
     {% endset %}
   {{ example({
       'id': 'example-search-input-component',
@@ -30,10 +32,12 @@
     <h3>Large Search</h3>
 
     {% set code %}
-        {{ search({
-            'action': '#',
-            'large': true
-        }) }}
+{% raw %}
+{{ search({
+    'action': '#',
+    'large': true
+}) }}
+{% endraw %}
     {% endset %}
   {{ example({
       'id': 'example-search-input-component-large',
