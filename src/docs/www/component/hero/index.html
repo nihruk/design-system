@@ -30,237 +30,237 @@
 <h3>Coral hero</h3>
 
 {% set code %}
-{% raw %}
-{{ hero({
-'heroBackground': 'hero--coral'
-}) }}
-{% endraw %}
+    {% raw %}
+        {{ hero({
+            'heroBackground': 'hero--coral'
+        }) }}
+    {% endraw %}
 {% endset %}
 {{ example({
-'id': 'example-hero-component-coral',
-'examples': [
-{
-'type': 'nunjucks',
-'nunjucksMacro': 'component/hero',
-'code': code
-}
-]
+    'id': 'example-hero-component-coral',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
 }) }}
 
 <h3>Blue hero</h3>
 
 {% set code %}
-{% raw %}
-{{ hero({
-'heroBackground': 'hero--blue'
-}) }}
-{% endraw %}
+    {% raw %}
+        {{ hero({
+            'heroBackground': 'hero--blue'
+        }) }}
+    {% endraw %}
 {% endset %}
 {{ example({
-'id': 'example-hero-component-blue',
-'examples': [
-{
-'type': 'nunjucks',
-'nunjucksMacro': 'component/hero',
-'code': code
-}
-]
+    'id': 'example-hero-component-blue',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
 }) }}
 
 <h3>Blue hero with text</h3>
 
 {% set code %}
-{{ hero({
-'heroBackground': 'hero--blue',
-'body': '
-<div class="row justify-content-center">
-    <div class="text-center col-xl-7">
-        <h1 class="text-white">NIHR Research Funding</h1>
-        <p class="text-white">This is some text to add context to the page title and provide more information.</p>
-    </div>
-</div>
-' | safe
-}) }}
+    {{ hero({
+        'heroBackground': 'hero--blue',
+        'body': '
+            <div class="row justify-content-center">
+                <div class="text-center col-xl-7">
+                    <h1 class="text-white">NIHR Research Funding</h1>
+                    <p class="text-white">This is some text to add context to the page title and provide more information.</p>
+                </div>
+            </div>
+        ' | safe
+    }) }}
 {% endset %}
 {{ example({
-'id': 'example-hero-component-blue-text',
-'examples': [
-{
-'type': 'nunjucks',
-'nunjucksMacro': 'component/hero',
-'code': code
-}
-]
+    'id': 'example-hero-component-blue-text',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
 }) }}
 
 <h3>Coral hero with blue card and image</h3>
 
 {% set code %}
-{{ hero({
-'heroBackground': 'hero--coral',
-'body': '
-<div class="row gap-5">
-    <div class="col">
-        <div class="card h-100 card--blue">
-            <div class="card-body d-flex flex-column">
-                <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
-                <p class="card-text">This is a card with supporting text below.</p>
+    {{ hero({
+        'heroBackground': 'hero--coral',
+        'body': '
+            <div class="row gap-5">
+                <div class="col">
+                    <div class="card h-100 card--blue">
+                        <div class="card-body d-flex flex-column">
+                            <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
+                            <p class="card-text">This is a card with supporting text below.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg" class="w-100" alt="">
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card h-100">
-            <img src="https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg" class="w-100" alt="">
-        </div>
-    </div>
-</div>
-' | safe
-}) }}
+        ' | safe
+    }) }}
 {% endset %}
 {{ example({
-'id': 'example-hero-component-coral-blue-card-image',
-'examples': [
-{
-'type': 'nunjucks',
-'nunjucksMacro': 'component/hero',
-'code': code
-}
-]
+    'id': 'example-hero-component-coral-blue-card-image',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
 }) }}
 
 <h3>Coral hero with two white text cards</h3>
 
 {% set code %}
-{{ hero({
-'heroBackground': 'hero--coral',
-'body': '
-<div class="row gap-5">
-    <div class="col">
-        <div class="card h-100 card--blue">
-            <div class="card-body d-flex flex-column">
-                <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
-                <p class="card-text">This is a card with supporting text below.</p>
+    {{ hero({
+        'heroBackground': 'hero--coral',
+        'body': '
+            <div class="row gap-5">
+                <div class="col">
+                    <div class="card h-100 card--blue">
+                        <div class="card-body d-flex flex-column">
+                            <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
+                            <p class="card-text">This is a card with supporting text below.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 card--blue">
+                        <div class="card-body d-flex flex-column">
+                            <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
+                            <p class="card-text">This is another card with supporting text below.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card h-100 card--blue">
-            <div class="card-body d-flex flex-column">
-                <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
-                <p class="card-text">This is another card with supporting text below.</p>
-            </div>
-        </div>
-    </div>
-</div>
-' | safe
-}) }}
+        ' | safe
+    }) }}
 {% endset %}
 {{ example({
-'id': 'example-hero-component-coral-two-white-cards',
-'examples': [
-{
-'type': 'nunjucks',
-'nunjucksMacro': 'component/hero',
-'code': code
-}
-]
+    'id': 'example-hero-component-coral-two-white-cards',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
 }) }}
 
 <h3>Blue hero with two white text cards</h3>
 
 {% set code %}
-{{ hero({
-'heroBackground': 'hero--blue',
-'body': '
-<div class="row gap-5">
-    <div class="col">
-        <div class="card h-100 card--white">
-            <div class="card-body d-flex flex-column">
-                <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
-                <p class="card-text">This is a card with supporting text below.</p>
+    {{ hero({
+        'heroBackground': 'hero--blue',
+        'body': '
+            <div class="row gap-5">
+                <div class="col">
+                    <div class="card h-100 card--white">
+                        <div class="card-body d-flex flex-column">
+                            <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
+                            <p class="card-text">This is a card with supporting text below.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100 card--white">
+                        <div class="card-body d-flex flex-column">
+                            <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
+                            <p class="card-text">This is another card with supporting text below.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card h-100 card--white">
-            <div class="card-body d-flex flex-column">
-                <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
-                <p class="card-text">This is another card with supporting text below.</p>
-            </div>
-        </div>
-    </div>
-</div>
-' | safe
-}) }}
+        ' | safe
+    }) }}
 {% endset %}
 {{ example({
-'id': 'example-hero-component-blue-two-white-cards',
-'examples': [
-{
-'type': 'nunjucks',
-'nunjucksMacro': 'component/hero',
-'code': code
-}
-]
+    'id': 'example-hero-component-blue-two-white-cards',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
 }) }}
 
 <h3>Coral hero with image</h3>
 
 {% set code %}
-{{ hero({
-'heroBackground': 'hero--coral',
-'body': '
-<div class="row">
-    <div class="col">
-        <div class="card h-100">
-            <img src="https://www.nihr.ac.uk/images/news/head-up-collar.png" class="w-100" alt="">
-        </div>
-    </div>
-</div>
-' | safe
-}) }}
+    {{ hero({
+        'heroBackground': 'hero--coral',
+        'body': '
+            <div class="row">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="https://www.nihr.ac.uk/images/news/head-up-collar.png" class="w-100" alt="">
+                    </div>
+                </div>
+            </div>
+        ' | safe
+    }) }}
 {% endset %}
 {{ example({
-'id': 'example-hero-component-coral-image',
-'examples': [
-{
-'type': 'nunjucks',
-'nunjucksMacro': 'component/hero',
-'code': code
-}
-]
+    'id': 'example-hero-component-coral-image',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
 }) }}
 
 <h3>Blue hero with two images</h3>
 
 {% set code %}
-{{ hero({
-'heroBackground': 'hero--blue',
-'body': '
-<div class="row">
-    <div class="col">
-        <div class="card h-100">
-            <img src="https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg" class="w-100" alt="">
-        </div>
-    </div>
-    <div class="col">
-        <div class="card h-100">
-            <img src="https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg" class="w-100" alt="">
-        </div>
-    </div>
-</div>
-' | safe
-}) }}
+    {{ hero({
+        'heroBackground': 'hero--blue',
+        'body': '
+            <div class="row">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg" class="w-100" alt="">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg" class="w-100" alt="">
+                    </div>
+                </div>
+            </div>
+        ' | safe
+    }) }}
 {% endset %}
 {{ example({
-'id': 'example-hero-component-blue-two-images',
-'examples': [
-{
-'type': 'nunjucks',
-'nunjucksMacro': 'component/hero',
-'code': code
-}
-]
+    'id': 'example-hero-component-blue-two-images',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
 }) }}
 
 {% endblock %}
