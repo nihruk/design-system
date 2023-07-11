@@ -23,13 +23,13 @@
 <h2>Example</h2>
 
 {% set code %}
-    {% raw %}
-        {{ actionLink({
-            'href': '#',
-            'text': 'Example Action Link',
-            'title': 'Example Action Link'
-        }) }}
-    {% endraw %}
+{% raw %}
+{{ actionLink({
+    'href': '#',
+    'text': 'Example Action Link',
+    'title': 'Example Action Link'
+}) }}
+{% endraw %}
 {% endset %}
 {{ example({
     'id': 'example-action-link-component',

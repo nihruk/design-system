@@ -38,41 +38,41 @@
   <h2>Examples</h2>
   <h3>A minimal table, with a caption</h3>
   {% set code %}
-    {% raw %}
-      {{ table({
-        'caption': 'Some people in a table',
-        'head': [
-          [
+{% raw %}
+{{ table({
+    'caption': 'Some people in a table',
+    'head': [
+        [
             {
-              'body': 'Name',
-              'headerScope': 'col'
+                'body': 'Name',
+                'headerScope': 'col'
             },
             {
-              'body': 'Age',
-              'headerScope': 'col'
+                'body': 'Age',
+                'headerScope': 'col'
             }
-          ]
-        ],
-        'body': [
-          [
+        ]
+    ],
+    'body': [
+        [
             'Jane Doe',
             '1'
-          ],
-          [
+        ],
+        [
             'Janet Doughnut',
             '3'
-          ],
-          [
+        ],
+        [
             'John Doe',
             '3'
-          ],
-          [
+        ],
+        [
             'Jeff Donut',
             '7'
-          ]
         ]
-      }) }}
-    {% endraw %}
+    ]
+}) }}
+{% endraw %}
   {% endset %}
   {{ example({
       'id': 'example-table-component-minimal-with-caption',
@@ -87,53 +87,53 @@
 
   <h3>A table with a scoped column and row headers</h3>
   {% set code %}
-    {% raw %}
-      {{ table({
-        'caption': 'Some people in a table',
-        'head': [
-          [
+{% raw %}
+{{ table({
+    'caption': 'Some people in a table',
+    'head': [
+        [
             {
-              'body': 'Name',
-              'headerScope': 'col'
+                'body': 'Name',
+                'headerScope': 'col'
             },
             {
-              'body': 'Age',
-              'headerScope': 'col'
+                'body': 'Age',
+                'headerScope': 'col'
             }
-          ]
-        ],
-        'body': [
-          [
+        ]
+    ],
+    'body': [
+        [
             {
-              'body': 'Jane Doe',
-              'headerScope': 'row'
+                'body': 'Jane Doe',
+                'headerScope': 'row'
             },
             '1'
-          ],
-          [
+        ],
+        [
             {
-              'body': 'Janet Doughnut',
-              'headerScope': 'row'
+                'body': 'Janet Doughnut',
+                'headerScope': 'row'
             },
             '3'
-          ],
-          [
+        ],
+        [
             {
-              'body': 'John Doe',
-              'headerScope': 'row'
+                'body': 'John Doe',
+                'headerScope': 'row'
             },
             '3'
-          ],
-          [
+        ],
+        [
             {
-              'body': 'Jeff Donut',
-              'headerScope': 'row'
+                'body': 'Jeff Donut',
+                'headerScope': 'row'
             },
             '7'
-          ]
         ]
-      }) }}
-    {% endraw %}
+    ]
+}) }}
+{% endraw %}
   {% endset %}
   {{ example({
       'id': 'example-table-component-scoped-headers',
