@@ -6,11 +6,11 @@
           The footer's main body content, if any.             
 #}
 {% macro hero(options) %}
-<section class="hero {{ options.heroBackground }}" aria-description="hero section">
-    <div class="container">    
-        {% if options.body is defined %}
-            {{ options.body }}
-        {% endif %}
-    </div>
-</section>
+    <section class="hero {{ options.heroBackground }}" aria-description="hero section">
+        <div class="container">    
+            {% if options.body is defined %}
+                {{ options.body }}
+            {% endif %}
+        </div>
+    </section>
 {% endmacro %} 
