@@ -9,7 +9,7 @@
 <form class="search-component" action="{{ options.action }}">
   <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
     <div class="input-group{% if options.large | default(false) %} input-group-lg{% endif %}">
-      <input type="text" class="form-control" placeholder="Search" value="">
+      <input type="text" class="form-control" placeholder="Search" value="" aria-label="Search">
       <button type="button" class="btn-close" aria-label="Close" disabled><span class="visually-hidden">Close</span></button>
       <button type="submit" class="btn btn-btn-outline-secondary">
         <span class="visually-hidden">Search</span>
