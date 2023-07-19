@@ -1,0 +1,277 @@
+{% from 'macros/component/hero.html' import hero %}
+{% from 'docs/macros/component/example.html' import example %}
+{% set title='Hero' %}
+{% extends 'docs/partials/component-page.html' %}
+{% block componentPageContent %}
+
+<p class="lead">
+    Heroes are coloured sections used to highlight important pieces of content. They are often, though not always, the first thing a user sees on a page.
+</p>
+
+<h2>Intended behaviour</h2>
+
+<p>All content placed inside a hero must respect the <a href="https://design-system.nihr.ac.uk/style/layout">layout rules</a> for the design system.</p>
+
+<h2>When to use this component</h2>
+
+<p>Heroes should be used to highlight and draw attention to related content that is important to a user.</p>
+<p>Where possible heroes should be placed above the fold, or high up on a page.</p>
+
+<h2>When not to use this component</h2>
+
+<ul>
+    <li>Do not use a hero if the content is not related</li>
+    <li>Do not use more than two cards inside a hero section</li>
+    <li>Do not use more than two heroes on a page</li>
+</ul>
+
+<h2>Examples</h2>
+
+<h3>Coral hero</h3>
+
+{% set code %}
+{% raw %}
+{{ hero({
+    'heroBackground': 'hero--coral'
+}) }}
+{% endraw %}
+{% endset %}
+{{ example({
+    'id': 'example-hero-component-coral',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
+}) }}
+
+<h3>Blue hero</h3>
+
+{% set code %}
+{% raw %}
+{{ hero({
+    'heroBackground': 'hero--blue'
+}) }}
+{% endraw %}
+{% endset %}
+{{ example({
+    'id': 'example-hero-component-blue',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
+}) }}
+
+<h3>Blue hero with text</h3>
+
+{% set code %}
+{% raw %}
+{{ hero({
+    'heroBackground': 'hero--blue',
+    'body': '
+        <div class="row justify-content-center">
+            <div class="text-center col-xl-7">
+                <h1 class="text-white">NIHR Research Funding</h1>
+                <p class="text-white">This is some text to add context to the page title and provide more information.</p>
+            </div>
+        </div>
+    ' | safe
+}) }}
+{% endraw %}  
+{% endset %}
+{{ example({
+    'id': 'example-hero-component-blue-text',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
+}) }}
+
+<h3>Coral hero with blue card and image</h3>
+
+{% set code %}
+{% raw %}
+{{ hero({
+    'heroBackground': 'hero--coral',
+    'body': '
+        <div class="row gap-5">
+            <div class="col">
+                <div class="card h-100 card--blue">
+                    <div class="card-body d-flex flex-column">
+                        <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
+                        <p class="card-text">This is a card with supporting text below.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg" class="w-100" alt="">
+                </div>
+            </div>
+        </div>
+    ' | safe
+}) }}
+{% endraw %}  
+{% endset %}
+{{ example({
+    'id': 'example-hero-component-coral-blue-card-image',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
+}) }}
+
+<h3>Coral hero with two white text cards</h3>
+
+{% set code %}
+{% raw %}
+{{ hero({
+    'heroBackground': 'hero--coral',
+    'body': '
+        <div class="row gap-5">
+            <div class="col">
+                <div class="card h-100 card--blue">
+                    <div class="card-body d-flex flex-column">
+                        <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
+                        <p class="card-text">This is a card with supporting text below.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 card--blue">
+                    <div class="card-body d-flex flex-column">
+                        <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
+                        <p class="card-text">This is another card with supporting text below.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    ' | safe
+}) }}
+{% endraw %} 
+{% endset %}
+{{ example({
+    'id': 'example-hero-component-coral-two-white-cards',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
+}) }}
+
+<h3>Blue hero with two white text cards</h3>
+
+{% set code %}
+{% raw %}
+{{ hero({
+    'heroBackground': 'hero--blue',
+    'body': '
+        <div class="row gap-5">
+            <div class="col">
+                <div class="card h-100 card--white">
+                    <div class="card-body d-flex flex-column">
+                        <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
+                        <p class="card-text">This is a card with supporting text below.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 card--white">
+                    <div class="card-body d-flex flex-column">
+                        <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
+                        <p class="card-text">This is another card with supporting text below.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    ' | safe
+}) }}
+{% endraw %} 
+{% endset %}
+{{ example({
+    'id': 'example-hero-component-blue-two-white-cards',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
+}) }}
+
+<h3>Coral hero with image</h3>
+
+{% set code %}
+{% raw %}
+{{ hero({
+    'heroBackground': 'hero--coral',
+    'body': '
+        <div class="row">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://www.nihr.ac.uk/images/news/head-up-collar.png" class="w-100" alt="">
+                </div>
+            </div>
+        </div>
+    ' | safe
+}) }}
+{% endraw %} 
+{% endset %}
+{{ example({
+    'id': 'example-hero-component-coral-image',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
+}) }}
+
+<h3>Blue hero with two images</h3>
+
+{% set code %}
+{% raw %}
+{{ hero({
+    'heroBackground': 'hero--blue',
+    'body': '
+        <div class="row">
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg" class="w-100" alt="">
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100">
+                    <img src="https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg" class="w-100" alt="">
+                </div>
+            </div>
+        </div>
+    ' | safe
+}) }}
+{% endraw %} 
+{% endset %}
+{{ example({
+    'id': 'example-hero-component-blue-two-images',
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/hero',
+            'code': code
+        }
+    ]
+}) }}
+{% endblock %}

@@ -1,5 +1,22 @@
 $bs-card-border-width: 0;
 
 .card {
+    border: 0!important;
     box-shadow: 0 23px 35px 0 rgba(0 0 0 / 5%), 0 8.4px 23px 0 rgba(0 0 0 / 6%), 0 3.6px 13px 0 rgba(0 0 0 / 7%), 0 1px 5px 0 rgba(0 0 0 / 10%);
+}
+
+.card img:not(.card-img-top) {
+    border-radius: 5px;
+}
+
+.card--blue {
+    background: $navy!important;
+    
+    h1, h2, h3, h4, h5, h6, p, ul, ol, a {
+        color: white;
+    }
+}
+
+.card--white {
+    background: white!important;
 }

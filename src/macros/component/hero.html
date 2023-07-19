@@ -1,0 +1,16 @@
+{#
+    @macro hero
+    @param {string|null} [heroBackground=null]
+          The supported background colour class of the hero, lower-case.    
+    @param {string|null} [body=null]
+          The footer's main body content, if any.             
+#}
+{% macro hero(options) %}
+    <section class="hero {{ options.heroBackground }}" aria-description="hero section">
+        <div class="container">    
+            {% if options.body is defined %}
+                {{ options.body }}
+            {% endif %}
+        </div>
+    </section>
+{% endmacro %} 
