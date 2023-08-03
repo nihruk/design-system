@@ -41,20 +41,22 @@ The table caption.
 #}
 {% macro table(options) %}
 {% filter safe %}
-<table class="table">
-       {% if options.caption is defined %}
-              <caption>{{ options.caption }}</caption>
-       {% endif %}
-       <thead>
-              {% for row in options.head %}
-                     {{ _tableRow(row, true) | safe }}
-              {% endfor %}
-       </thead>
-       <tbody>
-              {% for row in options.body %}
-                     {{ _tableRow(row) | safe }}
-              {% endfor %}
-       </tbody>
-</table>
+<div class="table-responsive">
+       <table class="table">
+              {% if options.caption is defined %}
+                     <caption>{{ options.caption }}</caption>
+              {% endif %}
+              <thead>
+                     {% for row in options.head %}
+                            {{ _tableRow(row, true) | safe }}
+                     {% endfor %}
+              </thead>
+              <tbody>
+                     {% for row in options.body %}
+                            {{ _tableRow(row) | safe }}
+                     {% endfor %}
+              </tbody>
+       </table>
+</div>
 {% endfilter %}
 {% endmacro %}
