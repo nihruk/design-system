@@ -1,7 +1,7 @@
 {#
     @macro card
-    @param {string} heading
-          The human-readable category heading.
+    @param {string|null=null} heading
+          The human-readable card heading.
     @param {string} content
           The human-readable content of the card.
     @param {string|null} [image=null]
@@ -14,7 +14,9 @@
         <img src="{{ options.image }}" class="card-img-top" alt="">
         {% endif %}
         <div class="card-body d-flex flex-column">
-            <h2 class="card-title h3 heading-underline heading-underline--coral">{{ options.heading }}</h2>
+            {% if options.heading is defined %}
+                <h2 class="card-title h3 heading-underline heading-underline--coral">{{ options.heading }}</h2>
+            {% endif %}
             <p class="card-text">{{ options.content }}</p>
         </div>
     </div>
