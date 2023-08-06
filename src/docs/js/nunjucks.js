@@ -11,6 +11,7 @@ const {TOKEN_COMMENT} = require('nunjucks/src/lexer');
 const nodes = require('nunjucks/src/nodes');
 const commentParser = require('comment-parser');
 const marked = require('marked');
+const {SafeString} = require("nunjucks/src/runtime");
 
 
 function normalizeUrlPath(urlPath) {
@@ -61,6 +62,16 @@ class Environment extends nunjucks.Environment {
         this.addFilter('markdown', marked.parse)
         this.addFilter('nunjucks', code => environment.renderStringInChildEnvironment(code))
         this.addFilter('nunjucksMacroJsDocs', name => getMacroJsDocForFilePath(path.join(__dirname, '..', '..', 'macros', ...name.split('/')) + '.html'))
+        this.addFilter('htmlAttributes', attributes => {
+            let renderedAttributes = ' '
+            for (let [name, value] of Object.entries(attributes)) {
+                if (typeof value !== 'string') {
+                    value = value.join(' ')
+                }
+                renderedAttributes += ` ${name}="${value}"`
+            }
+            return new SafeString(renderedAttributes.trimEnd())
+        })
         this.addTest('activeCurrentUrl', urlPath => {
             if (!environment._currentPageUrlPath) {
                 throw new Error('No page is being templated right now.')
