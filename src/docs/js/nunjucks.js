@@ -68,7 +68,9 @@ class Environment extends nunjucks.Environment {
                 if (typeof value !== 'string') {
                     value = value.join(' ')
                 }
-                renderedAttributes += ` ${name}="${value}"`
+                if (value) {
+                    renderedAttributes += ` ${name}="${value}"`
+                }
             }
             return new SafeString(renderedAttributes.trimEnd())
         })
