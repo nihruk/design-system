@@ -1,7 +1,27 @@
 {% from 'macros/component/action-link.html' import actionLink %}
+{% from 'macros/component/hero.html' import hero %}
 {% set visuallyHidePageTitle=true %}
 {% extends 'docs/partials/page.html' %}
 {% block pageContent %}
+
+{{ hero({
+  'heroBackground': 'hero--blue',
+  'body': '
+  <div class="row">
+      <div class="col-xl-7">
+          <h1 class="text-white">NIHR Research Funding</h1>
+          <p class="lead text-white">
+            Design and build web applications for the <a href="https://nihr.ac.uk">NIHR</a> that are
+            <strong>accessible</strong>, <strong>user-friendly</strong>, and provide consistent
+            <strong>user journeys</strong>.
+          </p>
+      </div>
+  </div>
+' | safe
+}) }}
+
+<section class="mt-5">
+<div class="container">
   <div class="row">
     <div class="col-lg-8">
       <p class="lead">
@@ -50,4 +70,6 @@
       </ul>
     </div>
   </div>
+</div>
+</section>
 {% endblock %}

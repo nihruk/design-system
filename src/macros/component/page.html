@@ -11,8 +11,6 @@ The human-readable link label.
 @macro page
 @param {string|null} [pageTitle=null]
        The human-readable page title. Defaults to the site title.
-@param {boolean} [visuallyHidePageTitle=false]
-       Whether to visually hide the title from the page content.
 @param {string} siteTitle
        The human-readable site title.
 @param {Array<PrimaryNavigationLink>} primaryNavigationLinks
@@ -63,11 +61,8 @@ The human-readable link label.
     </div>
 </nav>
 
-<main>
-    <div class="container">
-        <h1{% if options.visuallyHidePageTitle %} class="visually-hidden"{% endif %}>{{ options.pageTitle | default(options.siteTitle) }}</h1>
-        {{ options.pageContent }}
-    </div>
+<main class="pt-0">
+{{ options.pageContent }}
 </main>
 {{ footer(options.footer | default({})) }}
 </body>
