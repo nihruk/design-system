@@ -2,6 +2,7 @@
 
 $text: #050b15;
 $navy: #193e72;
+$black: #1D1D1B;
 $coral: #ea5d4e;
 $grey: #acbcc4;
 $orange: #f29330;
@@ -29,24 +30,18 @@ $navy-40: #a2a4c1;
 $navy-60: #747ca3;
 $navy-80: #475989;
 $navy-100: $navy;
-$navy-120: #11294b;
-$navy-140: #050b15;
 
 $coral-20: #fce3da;
 $coral-40: #f8c5b6;
 $coral-60: #f3a491;
 $coral-80: #ef826e;
 $coral-100: $coral;
-$coral-120: #e64132;
-$coral-140: #b62316;
 
 $yellow-20: #fff6e6;
 $yellow-40: #ffe5b3;
 $yellow-60: #ffe5b3;
 $yellow-80: #ffdc98;
 $yellow-100: $yellow;
-$yellow-120: #fcc54a;
-$yellow-140: #fcbc31;
 
 $green-20: #e2eee3;
 $green-40: #a1caa6;
@@ -66,12 +61,26 @@ $aqua-60: #9bcbd0;
 $aqua-80: #6fbac0;
 $aqua-100: $aqua;
 
+$black-20: #DADADA;
+$black-40: #B3B2B2;
+$black-60: #878786;
+$black-80: #575656;
+$black-100: $black;
+
+$blacks: (
+  'black-20': $black-20,
+  'black-40': $black-40,
+  'black-60': $black-60,
+  'black-80': $black-80,
+  'black-100': $black-100
+) !default;
+
 $aquas: (
   'aqua-20': $aqua-20,
   'aqua-40': $aqua-40,
   'aqua-60': $aqua-60,
   'aqua-80': $aqua-80,
-  'aqua-100': $aqua
+  'aqua-100': $aqua-100
 ) !default;
 
 $purples: (
@@ -79,7 +88,7 @@ $purples: (
   'purple-40': $purple-40,
   'purple-60': $purple-60,
   'purple-80': $purple-80,
-  'purple-100': $purple
+  'purple-100': $purple-100
 ) !default;
 
 $greens: (
@@ -87,7 +96,7 @@ $greens: (
   'green-40': $green-40,
   'green-60': $green-60,
   'green-80': $green-80,
-  'green-100': $green
+  'green-100': $green-100
 ) !default;
 
 $oranges: (
@@ -95,7 +104,7 @@ $oranges: (
   'orange-40': $orange-40,
   'orange-60': $orange-60,
   'orange-80': $orange-80,
-  'orange-100': $orange
+  'orange-100': $orange-100
 ) !default;
 
 $yellows: (
@@ -104,13 +113,9 @@ $yellows: (
   'yellow-60': $yellow-60,
   'yellow-80': $yellow-80,
   'yellow-100': $yellow-100,
-  'yellow-120': $yellow-120,
-  'yellow-140': $yellow-140
 ) !default;
 
 $greys: (
-  'grey-5': $grey-5,
-  'grey-10': $grey-10,
   'grey-20': $grey-20,
   'grey-40': $grey-40,
   'grey-60': $grey-60,
@@ -124,8 +129,6 @@ $navys: (
   'navy-60': $navy-60,
   'navy-80': $navy-80,
   'navy-100': $navy-100,
-  'navy-120': $navy-120,
-  'navy-140': $navy-140
 ) !default;
 
 $corals: (
@@ -134,12 +137,10 @@ $corals: (
   'coral-60': $coral-60,
   'coral-80': $coral-80,
   'coral-100': $coral-100,
-  'coral-120': $coral-120,
-  'coral-140': $coral-140
 ) !default;
 
 $primary: $navy;
-$secondary: $navy-120;
+$secondary: $navy;
 $danger: $coral;
 $success: $green;
 $warning: $yellow;
