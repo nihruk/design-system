@@ -1,11 +1,37 @@
 {% from 'macros/component/accordion.html' import accordion %}
+{% from 'macros/component/card.html' import card %}
 {% from 'docs/macros/component/example.html' import example %}
 {% set pageTitle = 'Accordion' %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
-  <p class="lead">
-    Accordions collapse content that may not be relevant to all audiences.
-  </p>
+<div class="row">
+    <div class="col-xl-6">
+      <p class="lead">
+        Accordions collapse content that may not be relevant to all audiences.
+      </p>
+    </div>
+    <div class="col-xl-6">
+        {% set cssImportCode %}
+            @import '~@nihruk/design-system/assets/scss/components/accordion';
+        {% endset %}
+        {% set jsImportCode %}
+            import '~@bootstrap/js/src/collapse';
+        {% endset %}
+        {% set componentMeta %}
+            <code class="example-code d-block overflow-hidden p-1">{{ cssImportCode | prettier('css') | highlight('css') | safe }}</code>
+            <code class="example-code d-block overflow-hidden p-1">{{ jsImportCode | prettier('babel') | highlight('js') | safe }}</code>
+            <a href="https://getbootstrap.com/docs/5.3/components/accordion/" class="d-block mt-3">
+                <i class="fa-brands fa-bootstrap"></i>
+                Built on the Bootstrap accordion
+            </a>
+        {% endset %}
+        <div class="pl-5 pb-5">
+            {{ card({
+                'content': componentMeta | safe
+            }) }}
+        </div>
+    </div>
+</div>
 
     {% set code %}
         {% raw %}
