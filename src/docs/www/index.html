@@ -1,25 +1,13 @@
 {% from 'macros/component/action-link.html' import actionLink %}
-{% from 'macros/component/hero.html' import hero %}
-{% from 'macros/component/card.html' import card %}
-{% set visuallyHidePageTitle=true %}
+{% set pageTitle = 'Design System' %}
 {% extends 'docs/partials/page.html' %}
 {% block pageContent %}
 
-{{ hero({
-  'heroBackground': 'hero--blue',
-  'body': '
-  <div class="row">
-      <div class="col-xl-7">
-          <h1 class="text-white">NIHR Research Funding</h1>
-          <p class="lead text-white">
-            Design and build web applications for the <a href="https://nihr.ac.uk">NIHR</a> that are
-            <strong>accessible</strong>, <strong>user-friendly</strong>, and provide consistent
-            <strong>user journeys</strong>.
-          </p>
-      </div>
+<section class="pt-5">
+  <div class="container">
+    <h1>{{ pageTitle }}</h1>
   </div>
-' | safe
-}) }}
+</section>
 
 <section class="mt-5">
 <div class="container">
@@ -31,10 +19,6 @@
         <strong>user journeys</strong>.
       </p>
     </div>
-    {{ card({
-      'heading': 'Card Title',
-      'content': 'This is a card with supporting text below.'
-    }) }}
     <div class="col-lg-4">
       {{ actionLink({
         'href': '/get-started',
