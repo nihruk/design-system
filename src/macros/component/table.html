@@ -1,23 +1,24 @@
 {% macro _tableCell(cell, head) %}
-{% if cell is not null and (cell.headerScope is defined or head) %}
-       {% set openTag %}<th scope="{{ cell.headerScope }}">{% endset %}
-       {% set closeTag %}</th>{% endset %}
+{% set cellAttributes = {'class': cell.classes | default([])} | htmlAttributes %}
+{% if cell is not null and cell is not string and (cell.headerScope is defined or head) %}
+    {% set openTag %}<th {{ cellAttributes }} scope="{{ cell.headerScope }}">{% endset %}
+    {% set closeTag %}</th>{% endset %}
 {% else %}
-       {% set openTag %}<td>{% endset %}
-       {% set closeTag %}</td>{% endset %}
+    {% set openTag %}<td {{ cellAttributes }}>{% endset %}
+    {% set closeTag %}</td>{% endset %}
 {% endif %}
 {{ openTag | safe }}
-       {% if cell is not null %}
-              {{ cell.body | default(cell) }}
-       {% endif %}
+    {% if cell is not null %}
+        {{ cell.body | default(cell) }}
+    {% endif %}
 {{ closeTag | safe }}
 {% endmacro %}
 
 {% macro _tableRow(row, head=null) %}
-<tr>
-       {% for cell in row %}
-              {{ _tableCell(cell, head) | safe }}
-       {% endfor %}
+<tr {{ {'class': row.classes | default([])} | htmlAttributes }}>
+    {% for cell in row.cells | default(row) %}
+        {{ _tableCell(cell, head) | safe }}
+    {% endfor %}
 </tr>
 {% endmacro %}
 
@@ -26,35 +27,59 @@
          The cell's body.
 
 @typedef {object} Cell
+         A single table cell.
 @property {CellBody} body
 @property {string|null} [headerScope=null]
           The [scope](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#scope) for this cell's `<th>` tag.
           Setting this renders the cell as a `<th>`. This is required for all table head cells.
+@property {Array<string>} [classes=[]]
+       The classes to add to the `<td>` or `<th>` element.
+
+@typedef {object} Row
+         A single table body row.
+@property {Array<Cell|CellBody>} cells
+@property {Array<string>} [classes=[]]
+       The classes to add to the `<tr>` element.
+
+@typedef {object} HeadRow
+         A single table head row.
+@property {Array<Cell>} cells
+@property {Array<string>} [classes=[]]
+       The classes to add to the `<thead>` element.
 
 @macro table
-@param {Array<Array<Cell|CellBody>} head
+@param {Array<HeadRow|Array<Cell>>} head
        The rows in the table head. Each `Cell` **must** have a `headerScope`.
-@param {Array<Array<Cell|CellBody>} body
+@param {Array<Row|Array<Cell>>} body
        The rows in the table body.
 @param {string|null} [caption=null]
-The table caption.
+       The table caption.
+@param {string|null} [id=null]
+       The ID of the component's root HTML element.
+@param {Array<string>} [classes=[]]
+       The classes to add to the `<table>` element.
 #}
 {% macro table(options) %}
 {% filter safe %}
-<table class="table">
-       {% if options.caption is defined %}
-              <caption>{{ options.caption }}</caption>
-       {% endif %}
-       <thead>
-              {% for row in options.head %}
-                     {{ _tableRow(row, true) | safe }}
-              {% endfor %}
-       </thead>
-       <tbody>
-              {% for row in options.body %}
-                     {{ _tableRow(row) | safe }}
-              {% endfor %}
-       </tbody>
-</table>
+<div class="table-responsive">
+    <table
+            {% if options.id is defined %} id="{{ options.id }}"{% endif %}
+            {{ {'class': ['table'].concat(options.classes | default([])) } | htmlAttributes }}
+    >
+           {% if options.caption is defined %}
+                  <caption>{{ options.caption }}</caption>
+           {% endif %}
+           <thead>
+                  {% for row in options.head %}
+                         {{ _tableRow(row, true) | safe }}
+                  {% endfor %}
+           </thead>
+           <tbody>
+                  {% for row in options.body %}
+                         {{ _tableRow(row) | safe }}
+                  {% endfor %}
+           </tbody>
+    </table>
+</div>
 {% endfilter %}
 {% endmacro %}

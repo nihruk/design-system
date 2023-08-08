@@ -1,0 +1,51 @@
+{#
+Show the specification of a specific colour tint.
+
+@macro colourSpecification
+@param {string} colourName
+       The ID of the component's root HTML element.
+@param {100 | 80 | 60 | 40 | 60} tintLevel
+       The colour's tint's percentage level.
+@param {bool=true} showColourLabel
+       Whether to show the colour's human-readable label.
+@param {bool=true} showSpecialMeaningLink
+       Whether to how the link to the colour tint's "Special meaning" documentation, if it has any.
+@param {bool=true} showAllColoursLink
+       Whether to how the link to the "All colours" page.
+#}
+{% macro colourSpecification(options) %}
+{% for colour in _colours %}
+  {% if colour.name == options.colourName %}
+    {% set tint = colour.tints[(100 - options.tintLevel) / 20] %}
+    <span class="d-flex d-align-items-stretch">
+      <span class="flex-fill pe-3">
+        <span class="d-flex justify-content-between">
+          <span>
+            <span class="ds-colour-card-colour {% if not options.showColourLabel | default(true) %}visually-hidden{% endif %}">NIHR {{ colour.label }}</span>
+          </span>
+          <span class="ds-colour-card-tint-level">{{ options.tintLevel }}%</span>
+        </span>
+        <span class="ds-colour-card-code-usage">
+          <code>#{{ tint.hex }}</code>
+        </span>
+        <span class="ds-colour-card-code-usage">
+          <code>${{ colour.name }}-{{ options.tintLevel }}</code>
+        </span>
+        {% if options.showSpecialMeaningLink | default(true) and tint.specialMeaning is defined %}
+          <span class="mt-1">
+            <a href="/style/colour#colour--{{ tint.specialMeaning.name }}">Special meaning: {{ tint.specialMeaning.label }}</a>
+          </span>
+        {% endif %}
+        {% if options.showAllColoursLink | default(true) %}
+          <span class="mt-1">
+            <a href="/style/colour/all-colours#colour--{{ colour.name }}--{{ options.tintLevel }}">View with all NIHR colours</a>
+          </span>
+        {% endif %}
+      </span>
+      <span>
+        <span class="ds-colour-swatch" style="background-color: #{{ tint.hex }};"></span>
+      </span>
+    </span>
+  {% endif %}
+{% endfor %}
+{% endmacro %}
