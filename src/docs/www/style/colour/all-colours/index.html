@@ -1,0 +1,27 @@
+{% from 'docs/macros/component/colour-specification.html' import colourSpecification %}
+{% set pageTitle = 'All colours' %}
+{% extends 'docs/partials/page.html' %}
+
+{% block pageContent %}
+  <div class="row">
+    <p>
+      <a href="/style/colour">Back to Colour</a>
+    </p>
+    {% for colour in _colours %}
+      <section class="col-md-6 col-xl-4">
+        <h2>NIHR {{ colour.label }}</h2>
+        {% for tint in colour.tints %}
+          {% set tintLevel = 20 * loop.revindex %}
+          <p id="colour--{{ colour.name }}--{{ tintLevel }}">
+            {{ colourSpecification({
+              'colourName': colour.name,
+              'tintLevel': tintLevel,
+              'showColourLabel': false,
+              'showAllColoursLink': false
+            }) }}
+          </p>
+        {% endfor %}
+      </section>
+    {% endfor %}
+  </div>
+{% endblock %}

@@ -2,18 +2,35 @@
 @import '../../assets/scss/theme.scss';
 
 
-.ds-color-specifications dt:not(:first-child)::before {
-  content: '\A';
-  white-space: nowrap;
+.ds-colour-card-colour {
+  @extend .h3;
+  @extend .mb-1;
 }
 
-.ds-color-specifications dt,
-.ds-color-specifications dd {
-  display: inline;
+.ds-colour-card-tint-level {
+  @extend .h3;
+  @extend .mb-1;
+
+  color: $black-80;
+  font-weight: normal;
 }
 
-.ds-color-sample {
-  height: 3rem;
+.ds-colour-card-code-usage code {
+  @extend .p-1;
+  @extend .mb-1;
+
+  display: block;
+  user-select: all;
+}
+
+
+.ds-colour-swatch {
+  @extend .rounded;
+
+  border: 2px solid $navy-20;
+  display: block;
+  height: 100%;
+  width: 3rem;
 }
 
 .example {

@@ -14,6 +14,210 @@ const marked = require('marked');
 const {SafeString} = require("nunjucks/src/runtime");
 
 
+const _colours = [
+    {
+        'label': 'Navy',
+        'name': 'navy',
+        'tints': [
+            {
+                'hex': '193E72',
+                'specialMeaning': {
+                    'name': 'primary',
+                    'label': 'NIHR primary colour'
+                }
+            },
+            {
+                'hex': '475989'
+            },
+            {
+                'hex': '747CA3'
+            },
+            {
+                'hex': 'A2A4C1'
+            },
+            {
+                'hex': 'D0D0E0'
+            }
+        ]
+    },
+    {
+        'label': 'Black',
+        'name': 'black',
+        'tints': [
+            {
+                'hex': '1D1D1B'
+            },
+            {
+                'hex': '575656'
+            },
+            {
+                'hex': '878786'
+            },
+            {
+                'hex': 'B3B2B2'
+            },
+            {
+                'hex': 'DADADA'
+            }
+        ]
+    },
+    {
+        'label': 'Coral',
+        'name': 'coral',
+        'tints': [
+            {
+                'hex': 'EA5D4E',
+                'specialMeaning': {
+                    'name': 'attention',
+                    'label': 'attention'
+                }
+            },
+            {
+                'hex': 'EF826E'
+            },
+            {
+                'hex': 'F3A491'
+            },
+            {
+                'hex': 'F8C5B6'
+            },
+            {
+                'hex': 'FCE3DA'
+            }
+        ]
+    },
+    {
+        'label': 'Orange',
+        'name': 'orange',
+        'tints': [
+            {
+                'hex': 'F29330'
+            },
+            {
+                'hex': 'F6AB5D'
+            },
+            {
+                'hex': 'F9C187'
+            },
+            {
+                'hex': 'FCD6B0'
+            },
+            {
+                'hex': 'FDEBD8'
+            }
+        ]
+    },
+    {
+        'label': 'Yellow',
+        'name': 'yellow',
+        'tints': [
+            {
+                'hex': 'FED47A',
+                'specialMeaning': {
+                    'name': 'focus',
+                    'label': 'interaction focus'
+                }
+            },
+            {
+                'hex': 'FFDC98'
+            },
+            {
+                'hex': 'FEE5AF'
+            },
+            {
+                'hex': 'FFEECA'
+            },
+            {
+                'hex': 'FFF6E6'
+            }
+        ]
+    },
+    {
+        'label': 'Purple',
+        'name': 'purple',
+        'tints': [
+            {
+                'hex': '6567AD'
+            },
+            {
+                'hex': '8482BE'
+            },
+            {
+                'hex': 'A2A0D0'
+            },
+            {
+                'hex': 'C1BFE1'
+            },
+            {
+                'hex': 'E0DFF1'
+            }
+        ]
+    },
+    {
+        'label': 'Aqua',
+        'name': 'aqua',
+        'tints': [
+            {
+                'hex': '2EA9B0'
+            },
+            {
+                'hex': '6FBAC0'
+            },
+            {
+                'hex': '82CBD0'
+            },
+            {
+                'hex': 'ABDDDF'
+            },
+            {
+                'hex': 'E1EEF0'
+            }
+        ]
+    },
+    {
+        'label': 'Green',
+        'name': 'green',
+        'tints': [
+            {
+                'hex': '45A86C'
+            },
+            {
+                'hex': '79B989'
+            },
+            {
+                'hex': '8CCBA7'
+            },
+            {
+                'hex': 'B5DCC4'
+            },
+            {
+                'hex': 'E2EEE3'
+            }
+        ]
+    },
+    {
+        'label': 'Grey',
+        'name': 'grey',
+        'tints': [
+            {
+                'hex': 'ACBCC4'
+            },
+            {
+                'hex': 'BDC9CF'
+            },
+            {
+                'hex': 'CED6DB'
+            },
+            {
+                'hex': 'DFE3E7'
+            },
+            {
+                'hex': 'EFF1F3'
+            }
+        ]
+    }
+]
+
 function normalizeUrlPath(urlPath) {
     if (urlPath.endsWith('index.html')) {
         urlPath = urlPath.slice(0, -10)
@@ -24,14 +228,15 @@ function normalizeUrlPath(urlPath) {
 }
 
 const deindentIndentationPattern = /^[ \t]*(?=\S)/gm
+
 function deindent(value) {
-	const match = value.match(deindentIndentationPattern)
-	const indentation = match ? match.reduce((r, a) => Math.min(r, a.length), Infinity) : 0
+    const match = value.match(deindentIndentationPattern)
+    const indentation = match ? match.reduce((r, a) => Math.min(r, a.length), Infinity) : 0
     if (indentation === 0) {
         return value
     }
     const deindentationPattern = new RegExp(`^[ \\t]{${indentation}}`, 'gm')
-	return value.replace(deindentationPattern, '')
+    return value.replace(deindentationPattern, '')
 }
 
 const nunjucksWwwFilePageUrlPathPrefixLength = path.resolve(__dirname, '..', 'www').length
@@ -51,11 +256,18 @@ class Environment extends nunjucks.Environment {
         this._lastGeneratedId = 0
         this._currentPageUrlPath = null;
         this._renderedHtmlExampleIds = []
+        this.addFilter('consoleLog', (...args) => {
+            console.log(...args)
+            // Nunjucks expects all filters to return a non-null value.
+            return ''
+        })
+        this.addGlobal('_colours', _colours)
         this.addFilter('renderHtmlExample', (renderableHtmlExample, exampleOptions) => environment.renderHtmlExample(renderableHtmlExample, exampleOptions))
         this.addFilter('deindent', deindent)
-        this.addFilter('parseInt', parseInt)
         this.addFilter('kebabCaseToLowerCamelCase', value => value.replace(/-./g, x => x[1].toUpperCase()))
-        this.addFilter('setKey', (mapping, key, value) => {mapping[key] = value})
+        this.addFilter('setKey', (mapping, key, value) => {
+            mapping[key] = value
+        })
         this.addFilter('highlight', (code, language) => highlight.highlight(code, {language}).value)
         this.addFilter('prettier', (code, parser) => prettier.format(code, {parser}))
         this.addGlobal('generateId', () => environment.generateId())
@@ -121,7 +333,7 @@ class Environment extends nunjucks.Environment {
         if (this._parentEnvironment) {
             return this._parentEnvironment.generateId()
         }
-        return 'ds-id-'+ this._lastGeneratedId++
+        return 'ds-id-' + this._lastGeneratedId++
     }
 
     renderStringInChildEnvironment(code) {
@@ -214,18 +426,6 @@ function getMacroJsDocForFilePath(filePath) {
     const macro = getMacroForFileContents(filePath, fileContents)
     const [jsDocMacroName, jsDoc] = getMacroJsDocForFileContents(filePath, fileContents)
     assert(macro.name.value === jsDocMacroName, `The file ${filePath} contains a macro ${macro.name.value}(), but has a "@macro ${jsDocMacroName}" docblock.`)
-
-    const macroOptionNames = [...new Set(Array.from(getNodesByType(macro, nodes.LookupVal))
-        .filter(node => node.target.value === 'options')
-        .map(node => node.val.value))]
-    const jsDocOptionNames = jsDoc.tags
-        .filter(tag => tag.tag === 'param')
-        .map(tag => tag.name)
-
-    const undocumentedCommentOptionNames = jsDocOptionNames.filter(name => !macroOptionNames.includes(name))
-    const undocumentedMacroOptionNames = macroOptionNames.filter(name => !jsDocOptionNames.includes(name))
-    assert(undocumentedCommentOptionNames.length === 0, `The file ${filePath} documents the following options that are not used by the macro in the same file: ${undocumentedCommentOptionNames.join(', ')}`)
-    assert(undocumentedMacroOptionNames.length === 0, `The file ${filePath} uses the following options that are not documented in the same file: ${undocumentedMacroOptionNames.map(name => 'options.' + name).join(', ')}`)
 
     return jsDoc
 }

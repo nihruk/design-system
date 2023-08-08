@@ -1,226 +1,106 @@
+{% from 'docs/macros/component/colour-card.html' import colourCard %}
+{% from 'macros/component/callout-text.html' import calloutText %}
 {% from 'macros/component/table.html' import table %}
 {% set pageTitle = 'Colour' %}
 {% extends 'docs/partials/style-page.html' %}
 
-{% macro _colorSpecifications(label, value) %}
-<dt>
-  {{ label }}
-</dt>
-<dd>
-  <code>{{ value }}</code>
-</dd>
-{% endmacro %}
-
-{% macro hexSpecifications(shade) %}
-<dl class="ds-color-specifications">
-  {{ _colorSpecifications('<abbr title="Hexadecimal">hex</abbr>' | safe, '#' ~ shade) }}
-</dl>
-{% endmacro %}
-
-{% macro rgbSpecifications(shade) %}
-<dl class="ds-color-specifications">
-  {{ _colorSpecifications('<abbr title="Red">R</abbr>' | safe, (shade | string).slice(0, 2) | parseInt(16)) }}
-  {{ _colorSpecifications('<abbr title="Green">G</abbr>' | safe, (shade | string).slice(2, 4) | parseInt(16)) }}
-  {{ _colorSpecifications('<abbr title="Blue">B</abbr>' | safe, (shade | string).slice(4, 6) | parseInt(16)) }}
-</dl>
-{% endmacro %}
-
-{% macro colorTableShadeCell(shade) %}
-{{ rgbSpecifications(shade) }}
-{{ hexSpecifications(shade) }}
-<div class="ds-color-sample" style="background-color: #{{ shade }};"></div>
-{% endmacro %}
-
-{% macro colorTable(colors) %}
-  {% set body = [] %}
-  {% for color in colors %}
-    {% set row = [
-      {
-        'body': ('<p class="h3" id="color-' ~ color.name | lower ~ '">' ~ color.name ~ '</p>') | safe,
-        'headerScope': 'row'
-      }
-    ] %}
-    {% for shade in color.shades %}
-      {% set _ = row.push(colorTableShadeCell(shade)) %}
-    {% endfor %}
-    {% set _ = body.push(row) %}
-  {% endfor %}
-  {{ table({
-    'head': [
-      [
-        null,
-        {
-          'body': '100%',
-          'headerScope': 'col'
-        },
-        {
-          'body': '80%',
-          'headerScope': 'col'
-        },
-        {
-          'body': '60%',
-          'headerScope': 'col'
-        },
-        {
-          'body': '40%',
-          'headerScope': 'col'
-        },
-        {
-          'body': '20%',
-          'headerScope': 'col'
-        }
-      ]
-    ],
-    'body': body
-  }) }}
-{% endmacro %}
 
 {% block stylePageContent %}
-  <p>
-    Our palette consists of nine colours, including NIHR Navy, our <a href="#color-navy">primary colour</a>. Use NIHR
-    Navy as your main colour, and evoke a sense of balance and harmony when using this with the
-    <a href="#colors-secondary">secondary colour palette</a>. Ensure colour combinations with text are
-    <a href="#color-accessibility">accessible</a>.
-  </p>
+<p>
+    Our palette consists of <a href="/style/colour/all-colours">nine colours</a>. Use NIHR Navy for your
+    <a href="#colour--primary">primary colour</a> and ensure all colour combinations with text are
+    <a href="#accessibility">accessible</a>.
+</p>
+{{ calloutText({
+    'paragraphs': [
+        {
+            'body': '<a href="/style/colour/all-colours">View all colours</a>' | safe
+        }
+    ]
+}) }}
+<p>
+    Some colours have special meanings within NIHR branding, or within the Design System. You should apply them for
+    their intended purpose.
+</p>
+<h2 id="colour--primary">NIHR primary colour</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            Use <i>NIHR Navy</i> more prominently than any other colour, and in the most prominent positions.
+        </p>
+    </div>
+    <div class="col-md-6">
+        {{ colourCard({
+            'colourName': 'navy',
+            'tintLevel': 100,
+            'showSpecialMeaningLink': false
+        }) }}
+    </div>
+</div>
+<h3>When to use NIHR Navy</h3>
+<ul>
+    <li>For NIHR branding</li>
+    <li>As the most-used colour on a page</li>
+    <li>For text on a white background</li>
+    <li>As a background behind white text</li>
+</ul>
 
-  <h2>Primary colours</h2>
-  {{ colorTable([
-    {
-      'name': 'Navy',
-      'shades': [
-        '193E72',
-        '475989',
-        '747CA3',
-        'A2A4C1',
-        'D0D0E0'
-      ]
-    },
-    {
-      'name': 'Black',
-      'shades': [
-        '1D1D1B',
-        '575656',
-        '878786',
-        'B3B2B2',
-        'DADADA'
-      ]
-    }
-  ]) }}
+<h2 id="colour--attention">Attention</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            Use <i>NIHR Coral</i> to <strong>direct</strong> the user's attention to something important, such as the
+            start of a transaction, a navigational cue, or an error.
+        </p>
+    </div>
+    <div class="col-md-6">
+        {{ colourCard({
+            'colourName': 'coral',
+            'tintLevel': 100,
+            'showSpecialMeaningLink': false
+        }) }}
+    </div>
+</div>
+<h3>When to use NIHR Coral</h3>
+<ul>
+    <li>As a <i>call to action</i></li>
+    <li>As a backdrop for a container with its own background that contrasts with its content</li>
+    <li>For error messages</li>
+</ul>
+<h3>When not to use NIHR Coral</h3>
+<ul>
+    <li>For text, or text backgrounds</li>
+</ul>
 
-  <h3>When to use primary colours</h3>
-  <ul>
-    <li>
-      The primary colour, NIHR Navy, is to be used throughout NIHR communications channels.
-    </li>
-    <li>
-      Using our primary colour consistently and appropriately helps to reinforce our identity.
-    </li>
-    <li>
-      Aim to use NIHR Navy on approximately one third of the area of your materials, including
-      design and text.
-    </li>
-    <li>
-      NIHR Navy or standard black on white background is to be used for body text.
-    </li>
-    <li>
-      Tints of NIHR Navy can be used on design as a detail, provided the solid colour is present
-      on approximately one third of coloured areas, including coloured font.
-    </li>
-  </ul>
+<h2 id="colour--focus">Interaction focus</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            Use <i>NIHR Yellow</i> to indicate that an element on the page is currently focused. This helps people who
+            navigate pages using their keyboard, or who have certain visual impairments.
+        </p>
+    </div>
+    <div class="col-md-6">
+        {{ colourCard({
+            'colourName': 'yellow',
+            'tintLevel': 100,
+            'showSpecialMeaningLink': false
+        }) }}
+    </div>
+</div>
+<h3>When to use NIHR Yellow</h3>
+<ul>
+    <li>Always, for the currently focused element</li>
+</ul>
+<h3>When not to use NIHR Yellow</h3>
+<ul>
+    <li>For any other purpose than to indicate interaction focus</li>
+</ul>
 
-  <h2 id="colors-secondary">Secondary colours</h2>
-  {{ colorTable([
-    {
-      'name': 'Coral',
-      'shades': [
-        'EA5D4E',
-        'EF826E',
-        'F3A491',
-        'F8C5B6',
-        'FCE3DA'
-      ]
-    },
-    {
-      'name': 'Orange',
-      'shades': [
-        'F29330',
-        'F6AB5D',
-        'F9C187',
-        'FCD6B0',
-        'FDEBD8'
-      ]
-    },
-    {
-      'name': 'Yellow',
-      'shades': [
-        'FED47A',
-        'FFDC98',
-        'FEE5AF',
-        'FFEECA',
-        'FFF6E6'
-      ]
-    },
-    {
-      'name': 'Purple',
-      'shades': [
-        '6567AD',
-        '8482BE',
-        'A2A0D0',
-        'C1BFE1',
-        'E0DFF1'
-      ]
-    },
-    {
-      'name': 'Aqua',
-      'shades': [
-        '2EA9B0',
-        '6FBAC0',
-        '82CBD0',
-        'ABDDDF',
-        'E1EEF0'
-      ]
-    },
-    {
-      'name': 'Green',
-      'shades': [
-        '45A86C',
-        '79B989',
-        '8CCBA7',
-        'B5DCC4',
-        'E2EEE3'
-      ]
-    },
-    {
-      'name': 'Grey',
-      'shades': [
-        'ACBCC4',
-        'BDC9CF',
-        'CED6DB',
-        'DFE3E7',
-        'EFF1F3'
-      ]
-    }
-  ]) }}
-
-  <h3>When to use secondary colours</h3>
-  <ul>
-    <li>
-      The secondary colour palette is used to support and complement the primary colour.
-    </li>
-    <li>
-      It is not expected that all colours would be used in every instance. The palette has been designed to allow flexibility in combining a selection of secondary colours, for example in graphics, charts, abstract motifs and background panels.
-    </li>
-    <li>
-      Where NIHR Coral is used as a block colour in a large area, this should be in tint form. NIHR Coral and NIHR Orange should not be used for text, only as an accent colour.
-    </li>
-
-  </ul>
-
-  <h2 id="color-accessibility">Colour contrast</h2>
-
-  <p>
+<h2 id="accessibility">Accessibility</h2>
+<p>
     You must make sure that the contrast ratio of text and interactive elements in your service meets
     <a href="https://www.w3.org/TR/WCAG21/#contrast-minimum">level AA of the Web Content Accessibility Guidelines
-      (WCAG 2.1)</a>.
-  </p>
+        (WCAG 2.1)</a>.
+</p>
 {% endblock %}
