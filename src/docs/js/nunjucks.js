@@ -277,12 +277,13 @@ class Environment extends nunjucks.Environment {
         this.addFilter('htmlAttributes', attributes => {
             let renderedAttributes = ' '
             for (let [name, value] of Object.entries(attributes)) {
-                if (typeof value !== 'string') {
+                if (value === null) {
+                    continue
+                }
+                if (typeof value !== 'string' && value) {
                     value = value.join(' ')
                 }
-                if (value) {
-                    renderedAttributes += ` ${name}="${value}"`
-                }
+                renderedAttributes += ` ${name}="${value}"`
             }
             return new SafeString(renderedAttributes.trimEnd())
         })
