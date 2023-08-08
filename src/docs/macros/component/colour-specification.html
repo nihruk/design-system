@@ -31,14 +31,14 @@ Show the specification of a specific colour tint.
         <span class="ds-colour-card-code-usage">
           <code>${{ colour.name }}-{{ options.tintLevel }}</code>
         </span>
-        {% if options.showSpecialMeaningLink | default(true) and tint.specialMeaning is defined %}
-          <span class="mt-1">
-            <a href="/style/colour#colour--{{ tint.specialMeaning.name }}">Special meaning: {{ tint.specialMeaning.label }}</a>
+        {% if options.showAllColoursLink | default(true) %}
+          <span class="mt-1 d-block">
+            <a href="/style/colour/all-colours#colour--{{ colour.name }}--{{ options.tintLevel }}">View with all NIHR colours</a>
           </span>
         {% endif %}
-        {% if options.showAllColoursLink | default(true) %}
-          <span class="mt-1">
-            <a href="/style/colour/all-colours#colour--{{ colour.name }}--{{ options.tintLevel }}">View with all NIHR colours</a>
+        {% if options.showSpecialMeaningLink | default(true) and tint.specialMeaning is defined %}
+          <span class="mt-1 d-block">
+            <a href="/style/colour#colour--{{ tint.specialMeaning.name }}">Special meaning: {{ tint.specialMeaning.label }}</a>
           </span>
         {% endif %}
       </span>
