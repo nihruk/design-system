@@ -3,6 +3,8 @@
 @macro header
 @param {object|null} [search=null]
        The arguments to the Search component.
+@param {string|null} [serviceTitle=null]
+       The title of the service site.  
 #}
 {% macro header(options) %}
 <header class="pt-3 pb-3 bg-white main-header">
@@ -20,6 +22,11 @@
               </div>
             {% endif %}
         </div>
+        {% if options.serviceTitle | default(null) %}
+            <div class="row">
+                <p class="h4 mt-3 mb-0">{{ options.serviceTitle }}</p>
+            </div>
+        {% endif %}
     </div>
 </header>
 {% endmacro %}
