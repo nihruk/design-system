@@ -1,0 +1,23 @@
+{% from 'docs/macros/component/colour-card.html' import colourCard %}
+{% set pageTitle='Borders' %}
+{% extends 'docs/partials/style-page.html' %}
+{% block stylePageContent %}
+<p>
+    All borders are 2 pixels wide, with a radius of 6 pixels.
+</p>
+
+<h2>Form elements</h2>
+<div class="row">
+    <div class="col-md-6">
+        <p>
+            Form elements have black borders.
+        </p>
+    </div>
+    <div class="col-md-6">
+        {{ colourCard({
+            'colourName': 'black',
+            'tintLevel': 100
+        }) }}
+    </div>
+</div>
+{% endblock %}
