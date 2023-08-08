@@ -1,5 +1,6 @@
 {% from 'macros/component/action-link.html' import actionLink %}
 {% from 'macros/component/hero.html' import hero %}
+{% from 'macros/component/card.html' import card %}
 {% set visuallyHidePageTitle=true %}
 {% extends 'docs/partials/page.html' %}
 {% block pageContent %}
@@ -30,6 +31,10 @@
         <strong>user journeys</strong>.
       </p>
     </div>
+    {{ card({
+      'heading': 'Card Title',
+      'content': 'This is a card with supporting text below.'
+    }) }}
     <div class="col-lg-4">
       {{ actionLink({
         'href': '/get-started',
