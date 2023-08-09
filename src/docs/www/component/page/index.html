@@ -3,30 +3,77 @@
 {% set pageTitle = 'Page' %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
-    <p class="lead">
-        Quickly build an entire NIHR page, including <a href="/component/header">Header</a> and
-        <a href="/component/footer">Footer</a>, navigation, and content.
-    </p>
+<p class="lead">
+    Quickly build an entire NIHR page, including <a href="/component/header">Header</a> and
+    <a href="/component/footer">Footer</a>, navigation, and content.
+</p>
 
-    <h2>Examples</h2>
-    {% set code %}
+<h2>Examples</h2>
+{% set code %}
 {% raw %}
 {{ page({
-    'siteTitle': 'An NIHR site',
-    'pageContent': '<p>Hello, world!</p>' | safe
+    'siteTitle': 'Lorem ipsum',
+    'pageContent': '
+<div class="row">
+    <div class="col-8">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse suscipit pellentesque magna dapibus
+            efficitur. Ut vel enim eu tellus semper suscipit. Sed lobortis, sapien id convallis efficitur, tortor diam
+            ultricies felis, ac fermentum dolor velit quis odio. Praesent placerat tortor felis, non egestas magna
+            pulvinar vel. Mauris pretium dolor vitae molestie posuere. In sit amet ex mauris. In facilisis, eros quis
+            varius fermentum, lorem erat mattis nulla, quis pulvinar ligula mi vitae felis. In pellentesque iaculis eros
+            in facilisis. Morbi convallis lorem porta cursus feugiat. Aliquam molestie porttitor lorem. Sed eleifend
+            tempus est, at hendrerit massa mattis ac. Nulla sed facilisis purus, ac pretium justo. Aliquam semper magna
+            et dolor fermentum, a vestibulum elit rutrum. Nulla quis turpis ut augue mattis iaculis. Fusce luctus
+            blandit hendrerit.
+        </p>
+        <p>
+            Etiam justo odio, pharetra nec tincidunt sed, elementum vel tortor. Pellentesque maximus ante id justo
+            tincidunt aliquet at ut est. Ut ullamcorper faucibus sagittis. Mauris bibendum cursus bibendum. Sed sed
+            laoreet mi, eget ullamcorper nibh. Fusce elit neque, luctus vitae congue et, varius ac dolor. Phasellus
+            vehicula urna vitae erat accumsan, id volutpat elit ornare. Fusce aliquet turpis dapibus nisi blandit, et
+            eleifend quam malesuada. Sed ut ante ac felis placerat vulputate. In ac arcu sit amet dui porta accumsan.
+        </p>
+        <p>
+            Sed lacinia condimentum luctus. Etiam congue quam ac urna euismod mattis commodo vulputate nulla. Aliquam eu
+            mi in urna dignissim ultrices. Suspendisse non dolor vel enim aliquam maximus id vel dolor. Proin
+            scelerisque diam sit amet nisi volutpat, eu tristique ex volutpat. Etiam fringilla mollis placerat.
+            Pellentesque sed tincidunt eros, quis convallis risus. Fusce tincidunt laoreet lorem, eu consequat lacus
+            maximus in. Aliquam nulla eros, congue eu nisl a, mollis tempus arcu. Fusce at lectus nec nibh aliquam
+            sollicitudin quis ac tortor. Maecenas auctor odio sed scelerisque porta.
+        </p>
+        <p>
+            Donec porta lectus a nisi lobortis, vitae pretium est commodo. Fusce vitae tempus ipsum. Nullam tincidunt
+            ante vitae neque imperdiet porttitor. Sed pretium turpis vel rutrum pellentesque. Phasellus convallis mi
+            eget est euismod, ut ornare augue vestibulum. Duis commodo justo eros, sed egestas lacus blandit at. Nam id
+            blandit nisi. Etiam scelerisque ex ipsum, consequat venenatis ante gravida a. Cras id massa nec libero
+            sollicitudin rhoncus id ut nisi.
+        </p>
+        <p>
+            Nunc nisl ipsum, volutpat condimentum volutpat sit amet, mattis non mi. Duis bibendum nunc imperdiet
+            pellentesque tincidunt. Suspendisse porta ante nec semper imperdiet. Lorem ipsum dolor sit amet, consectetur
+            adipiscing elit. Vestibulum finibus, odio sed laoreet semper, lorem neque dignissim neque, quis scelerisque
+            quam ante sit amet turpis. Cras semper nunc id bibendum pellentesque. Suspendisse sapien ex, tempor id
+            facilisis non, facilisis et ligula. Fusce sed ex sit amet nunc cursus egestas. Pellentesque ac lorem sit
+            amet purus varius finibus. Donec magna leo, vulputate et sagittis at, pulvinar non nibh. Nunc sed justo
+            tincidunt, auctor lorem quis, laoreet nibh.
+        </p>
+    </div>
+</div>
+' | safe
 }) }}
 {% endraw %}
-    {% endset %}
-    {{ example({
-        'id': 'example-page-component',
-        'inlineTemplate': 'docs/partials/example/rendered-html--inline--iframe.html',
-        'pageTemplate': false,
-        'examples': [
-            {
-                'type': 'nunjucks',
-                'nunjucksMacro': 'component/page',
-                'code': code
-            }
-        ]
-    }) }}
+{% endset %}
+{{ example({
+    'id': 'example-page-component',
+    'inlineTemplate': 'docs/partials/example/rendered-html--inline--iframe.html',
+    'pageTemplate': false,
+    'examples': [
+        {
+            'type': 'nunjucks',
+            'nunjucksMacro': 'component/page',
+            'code': code
+        }
+    ]
+}) }}
 {% endblock %}
