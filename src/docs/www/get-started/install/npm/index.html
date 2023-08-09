@@ -10,7 +10,7 @@
         <li><a href="https://nodejs.org/">Node.js</a> 18 or newer</li>
     </ul>
     <p>
-        On your command line, from your project's root directory, run <code>npm install @nihruk/design-system</code>.
+        On your command line, from your project's root directory, run <code class="user-select-all">npm install @nihruk/design-system</code>.
     </p>
     <p>
         This installs the Design System's source and distribution code into your project, where you can import only
@@ -20,11 +20,11 @@
     {% set code %}
         @import '~@nihruk/design-system/dist/design-system.bundle.css';
     {% endset %}
-    <pre class="example-code p-3">{{ code | prettier('css') | highlight('css') | safe }}</pre>
+    <pre class="example-code p-3 user-select-all">{{ code | prettier('css') | highlight('css') | safe }}</pre>
     {% set code %}
         import '~@nihruk/design-system/dist/design-system.bundle.js';
     {% endset %}
-    <pre class="example-code p-3">{{ code | prettier('babel') | highlight('js') | safe }}</pre>
+    <pre class="example-code p-3 user-select-all">{{ code | prettier('babel') | highlight('js') | safe }}</pre>
 
     <h2>Bundling your application</h2>
     <p>
