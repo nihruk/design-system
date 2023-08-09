@@ -2,35 +2,38 @@
 {% set pageTitle = 'Accessibility' %}
 {% extends 'docs/partials/page.html' %}
 {% block pageContent %}
-<div class="row">
-    <div class="col-lg-8">
-        <p class="lead">
-            Accessibility is the ability for people to access and use (online) services. The NIHR is committed to make
-            its websites as accessible as possible to as many people as possible.
-        </p>
-        <p>
-            The Design System for the NIHR is <a href="https://www.w3.org/TR/WCAG/">WCAG 2.1</a> AA compliant, and is
-            designed and developed in accordance with the Government Digital Service's
-            <a href="https://www.gov.uk/service-manual/service-standard">Service Standard</a>.
-        </p>
-        <h2 id="accessibility-user-interaction">User interaction</h2>
-        <p>
-
-        </p>
-        <div class="row">
-            <div class="col-md-6">
-                <p>
-                    Use <i>NIHR Yellow</i> to indicate that an element on the page is currently focused. You should
-                    apply the colour liberally, so your users cannot miss the focused element when visually scanning the
-                    page. Possible ways to style a focused element are through a yellow background, or a
-                    <a href="/style/border">border or outline</a>.
-                </p>
-            </div>
-            <div class="col-md-6">
-                {{ colourCard({
-                    'colourName': 'yellow',
-                    'tintLevel': 100
-                }) }}
+<div class="container mt-5">
+    <div class="row">
+        <h1>{{ pageTitle }}</h1>
+        <div class="col-lg-8">
+            <p class="lead">
+                Accessibility is the ability for people to access and use (online) services. The NIHR is committed to make
+                its websites as accessible as possible to as many people as possible.
+            </p>
+            <p>
+                The Design System for the NIHR is <a href="https://www.w3.org/TR/WCAG/">WCAG 2.1</a> AA compliant, and is
+                designed and developed in accordance with the Government Digital Service's
+                <a href="https://www.gov.uk/service-manual/service-standard">Service Standard</a>.
+            </p>
+            <h2 id="accessibility-user-interaction">User interaction</h2>
+            <p>
+    
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <p>
+                        Use <i>NIHR Yellow</i> to indicate that an element on the page is currently focused. You should
+                        apply the colour liberally, so your users cannot miss the focused element when visually scanning the
+                        page. Possible ways to style a focused element are through a yellow background, or a
+                        <a href="/style/border">border or outline</a>.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    {{ colourCard({
+                        'colourName': 'yellow',
+                        'tintLevel': 100
+                    }) }}
+                </div>
             </div>
         </div>
     </div>
