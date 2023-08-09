@@ -5,15 +5,6 @@
     padding-right: 0.25rem;
 }
 
-.action-link:focus {
-    background-color: $yellow-100;
-    box-shadow: 0 -2px $yellow-100,0 4px black;
-    color: black;
-    outline: 3px solid transparent;
-    text-decoration: none;
-    transition: 0s;
-}
-
 .action-link-icon {
     color: $coral;
     font-size: 1.8rem;
