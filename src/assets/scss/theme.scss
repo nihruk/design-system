@@ -226,7 +226,6 @@ main {
 a:focus,
 .nav-link:focus {
   background-color: $yellow-100;
-  box-shadow: 0 0 $yellow-100;
   color: $black;
   outline: 3px solid transparent;
   text-decoration: none;
@@ -237,10 +236,14 @@ a:focus {
   box-shadow: 0 0 $yellow-100,0 4px $black;
 }
 
+.nav-link:focus {
+  box-shadow: 0 0 #fed47a, inset 0 -4px black;
+}
+
 .funded-by-department-of-health-and-social-care-logo:focus,
 .main-logo:focus {
   background-color: initial;
-  box-shadow: 0 4px $yellow-100;
+  box-shadow: 0 0 $yellow-100, 2px 2px $black;
   outline: none;
 }
 
