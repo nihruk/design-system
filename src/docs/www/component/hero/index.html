@@ -99,25 +99,18 @@
 
 {% set code %}
 {% raw %}
+{% from 'macros/component/card.html' import card %}
+{% set textCard = card({
+    'heading': 'Lorem ipsum',
+    'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida odio enim, eget congue neque dignissim nec.',
+    'backgroundColor': 'navy'
+}) %}
+{% set imageCard = card({
+    'image': 'https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg'
+}) %}
 {{ hero({
     'heroBackground': 'hero--coral',
-    'body': '
-        <div class="row gap-5">
-            <div class="col">
-                <div class="card h-100 card--blue">
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
-                        <p class="card-text">This is a card with supporting text below.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg" class="w-100" alt="">
-                </div>
-            </div>
-        </div>
-    ' | safe
+    'body': ('<div class="row">' ~ textCard ~ imageCard ~ '</div>') | safe
 }) }}
 {% endraw %}  
 {% endset %}
@@ -136,28 +129,20 @@
 
 {% set code %}
 {% raw %}
+{% from 'macros/component/card.html' import card %}
+{% set firstTextCard = card({
+    'heading': 'Lorem ipsum',
+    'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida odio enim, eget congue neque dignissim nec.',
+    'backgroundColor': 'navy'
+}) %}
+{% set secondTextCard = card({
+    'heading': 'Donec lacinia',
+    'content': 'Donec lacinia faucibus sapien, in varius metus iaculis eget. Sed pellentesque libero in imperdiet elementum.',
+    'backgroundColor': 'navy'
+}) %}
 {{ hero({
     'heroBackground': 'hero--coral',
-    'body': '
-        <div class="row gap-5">
-            <div class="col">
-                <div class="card h-100 card--blue">
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
-                        <p class="card-text">This is a card with supporting text below.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 card--blue">
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
-                        <p class="card-text">This is another card with supporting text below.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    ' | safe
+    'body': ('<div class="row">' ~ firstTextCard ~ secondTextCard ~ '</div>') | safe
 }) }}
 {% endraw %} 
 {% endset %}
@@ -176,28 +161,18 @@
 
 {% set code %}
 {% raw %}
+{% from 'macros/component/card.html' import card %}
+{% set firstTextCard = card({
+    'heading': 'Lorem ipsum',
+    'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida odio enim, eget congue neque dignissim nec.'
+}) %}
+{% set secondTextCard = card({
+    'heading': 'Donec lacinia',
+    'content': 'Donec lacinia faucibus sapien, in varius metus iaculis eget. Sed pellentesque libero in imperdiet elementum.'
+}) %}
 {{ hero({
     'heroBackground': 'hero--blue',
-    'body': '
-        <div class="row gap-5">
-            <div class="col">
-                <div class="card h-100 card--white">
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
-                        <p class="card-text">This is a card with supporting text below.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100 card--white">
-                    <div class="card-body d-flex flex-column">
-                        <h2 class="card-title h3 heading-underline heading-underline--coral">Card Title</h2>
-                        <p class="card-text">This is another card with supporting text below.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    ' | safe
+    'body': ('<div class="row">' ~ firstTextCard ~ secondTextCard ~ '</div>') | safe
 }) }}
 {% endraw %} 
 {% endset %}
@@ -216,17 +191,13 @@
 
 {% set code %}
 {% raw %}
+{% from 'macros/component/card.html' import card %}
+{% set imageCard = card({
+    'image': 'https://www.nihr.ac.uk/images/news/head-up-collar.png'
+}) %}
 {{ hero({
     'heroBackground': 'hero--coral',
-    'body': '
-        <div class="row">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://www.nihr.ac.uk/images/news/head-up-collar.png" class="w-100" alt="">
-                </div>
-            </div>
-        </div>
-    ' | safe
+    'body': ('<div class="row">' ~ imageCard ~ '</div>') | safe
 }) }}
 {% endraw %} 
 {% endset %}
@@ -245,22 +216,16 @@
 
 {% set code %}
 {% raw %}
+{% from 'macros/component/card.html' import card %}
+{% set firstImageCard = card({
+    'image': 'https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg'
+}) %}
+{% set secondImageCard = card({
+    'image': 'https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg'
+}) %}
 {{ hero({
     'heroBackground': 'hero--blue',
-    'body': '
-        <div class="row">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg" class="w-100" alt="">
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg" class="w-100" alt="">
-                </div>
-            </div>
-        </div>
-    ' | safe
+    'body': ('<div class="row">' ~ firstImageCard ~ secondImageCard ~ '</div>') | safe
 }) }}
 {% endraw %} 
 {% endset %}

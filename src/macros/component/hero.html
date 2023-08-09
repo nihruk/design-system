@@ -8,7 +8,7 @@
 {% macro hero(options) %}
     <section class="hero {{ options.heroBackground }}" aria-description="hero section">
         <div class="container">    
-            {% if options.body is defined %}
+            {% if options.body %}
                 {{ options.body }}
             {% endif %}
         </div>
