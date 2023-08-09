@@ -1,7 +1,15 @@
 {% from 'macros/component/action-link.html' import actionLink %}
-{% set visuallyHidePageTitle=true %}
+{% set pageTitle = 'Design System' %}
 {% extends 'docs/partials/page.html' %}
 {% block pageContent %}
+
+<section class="pt-5">
+  <div class="container">
+    <h1>{{ pageTitle }}</h1>
+  </div>
+</section>
+<section class="mt-5">
+<div class="container">
   <div class="row">
     <div class="col-lg-8">
       <p class="lead">
@@ -50,4 +58,6 @@
       </ul>
     </div>
   </div>
+</div>
+</section>
 {% endblock %}

@@ -1,15 +1,18 @@
 {% extends 'docs/partials/page.html' %}
 {% block pageContent %}
-  <div class="row">
-    <nav class="col-lg-4 d-none d-lg-block">
-      {% include 'docs/partials/style-navigation.html' %}
-    </nav>
-    <div class="col-lg-8">
-      {% block stylePageContent %}
-      {% endblock %}
+<div class="container pt-5">
+    <div class="row">
+      <h1>{{ pageTitle }}</h1>
+      <nav class="col-lg-4 d-none d-lg-block">
+        {% include 'docs/partials/style-navigation.html' %}
+      </nav>
+      <div class="col-lg-8">
+        {% block stylePageContent %}
+        {% endblock %}
+      </div>
+      <nav class="col d-lg-none">
+        {% include 'docs/partials/style-navigation.html' %}
+      </nav>
     </div>
-    <nav class="col d-lg-none">
-      {% include 'docs/partials/style-navigation.html' %}
-    </nav>
   </div>
 {% endblock %}
