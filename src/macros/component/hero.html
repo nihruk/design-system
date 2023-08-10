@@ -6,7 +6,7 @@
           The hero's main body content, if any.             
 #}
 {% macro hero(options) %}
-    <section class="hero {{ options.heroBackground }}" aria-description="hero section">
+    <section class="hero {{ options.heroBackground | default('hero--blue') }}" aria-description="hero section">
         <div class="container">    
             {% if options.body %}
                 {{ options.body }}

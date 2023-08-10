@@ -1,63 +1,76 @@
 {% from 'macros/component/action-link.html' import actionLink %}
+{% from 'macros/component/card.html' import card %}
+{% from 'macros/component/hero.html' import hero %}
 {% set pageTitle = 'Design System for the NIHR' %}
 {% extends 'docs/partials/page.html' %}
 {% block pageContent %}
 
-<section class="pt-5">
-  <div class="container">
-    <h1>{{ pageTitle }}</h1>
-  </div>
+<section>
+    {% set heroBody %}
+    <div class="row">
+        <div class="col-lg-8">
+            <h1 class="text-white">{{ pageTitle }}</h1>
+            <p class="lead text-white">
+                Design and build web applications for the <a href="https://nihr.ac.uk" class="text-white">NIHR</a> that are
+                <strong>accessible</strong>, <strong>user-friendly</strong>, and provide consistent
+                <strong>user journeys</strong>.
+            </p>
+        </div>
+        <div class="col-lg-4">
+            {% set cardBody %}
+            {{ actionLink({
+                'href': '/get-started',
+                'text': 'Get started',
+                'title': 'Get started with the Design System'
+            }) }}
+            <p class="mb-0">
+                or run <span class="d-block"><code
+                    class="user-select-all">npm install @nihruk/design-system</code></span>
+            </p>
+            {% endset %}
+            {{ card({
+                'body': cardBody | safe
+            }) }}
+        </div>
+    </div>
+    {% endset %}
+    {{ hero({
+        'body': heroBody | safe
+    }) }}
 </section>
 <section class="mt-5">
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8">
-      <p class="lead">
-        Design and build web applications for the <a href="https://nihr.ac.uk">NIHR</a> that are
-        <strong>accessible</strong>, <strong>user-friendly</strong>, and provide consistent
-        <strong>user journeys</strong>.
-      </p>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-lg-4">
+                <h2>Styles</h2>
+                <p>
+                    Overall styles and design to make any web application look like an NIHR one, independent of your
+                    technology stack.
+                </p>
+                <p>
+                    <a href="/style">Browse styles</a>
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <h2>Components</h2>
+                <p>
+                    Quickly put together entire applications using reusable, ready-made components for navigation,
+                    content
+                    presentation, forms, and more.
+                </p>
+                <p>
+                    <a href="/component">Browse components</a>
+                </p>
+            </div>
+            <div class="col-lg-4">
+                <h2>The Design System is</h2>
+                <ul>
+                    <li>consistent with NIHR corporate branding</li>
+                    <li><a href="https://www.w3.org/TR/WCAG/">WCAG 2.1</a> AA compliant</li>
+                    <li>reviewed for optimal UX</li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="col-lg-4">
-      {{ actionLink({
-        'href': '/get-started',
-        'text': 'Get started',
-        'title': 'Get started with the Design System'
-      }) }}
-      <p>
-        or run <span class="d-block"><code class="user-select-all">npm install @nihruk/design-system</code></span>
-      </p>
-    </div>
-  </div>
-  <div class="row mt-5">
-    <div class="col-lg-4">
-      <h2>Styles</h2>
-      <p>
-        Overall styles and design to make any web application look like an NIHR one, independent of your technology stack.
-      </p>
-      <p>
-        <a href="/style">Browse styles</a>
-      </p>
-    </div>
-    <div class="col-lg-4">
-      <h2>Components</h2>
-      <p>
-        Quickly put together entire applications using reusable, ready-made components for navigation, content
-        presentation, forms, and more.
-      </p>
-      <p>
-        <a href="/component">Browse components</a>
-      </p>
-    </div>
-    <div class="col-lg-4">
-      <h2>The Design System is</h2>
-      <ul>
-        <li>consistent with NIHR corporate branding</li>
-        <li><a href="https://www.w3.org/TR/WCAG/">WCAG 2.1</a> AA compliant</li>
-        <li>reviewed for optimal UX</li>
-      </ul>
-    </div>
-  </div>
-</div>
 </section>
 {% endblock %}
