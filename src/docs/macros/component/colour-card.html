@@ -19,7 +19,7 @@ Shows a card with the specification of a specific colour tint.
 {% macro colourCard(options) %}
 <div class="pb-5">
   {{ card({
-    'content': colourSpecification(options) | safe
+    'body': ('<p>' ~ colourSpecification(options) ~ '</p>') | safe
   }) }}
 </div>
 {% endmacro %}

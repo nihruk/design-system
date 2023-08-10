@@ -102,7 +102,7 @@
 {% from 'macros/component/card.html' import card %}
 {% set textCard = card({
     'heading': 'Lorem ipsum',
-    'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida odio enim, eget congue neque dignissim nec.',
+    'body': '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida odio enim, eget congue neque dignissim nec.</p>' | safe,
     'backgroundColor': 'navy'
 }) %}
 {% set imageCard = card({
@@ -132,12 +132,12 @@
 {% from 'macros/component/card.html' import card %}
 {% set firstTextCard = card({
     'heading': 'Lorem ipsum',
-    'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida odio enim, eget congue neque dignissim nec.',
+    'body': '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida odio enim, eget congue neque dignissim nec.</p>' | safe,
     'backgroundColor': 'navy'
 }) %}
 {% set secondTextCard = card({
     'heading': 'Donec lacinia',
-    'content': 'Donec lacinia faucibus sapien, in varius metus iaculis eget. Sed pellentesque libero in imperdiet elementum.',
+    'body': '<p>Donec lacinia faucibus sapien, in varius metus iaculis eget. Sed pellentesque libero in imperdiet elementum.</p>' | safe,
     'backgroundColor': 'navy'
 }) %}
 {{ hero({
@@ -164,11 +164,11 @@
 {% from 'macros/component/card.html' import card %}
 {% set firstTextCard = card({
     'heading': 'Lorem ipsum',
-    'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida odio enim, eget congue neque dignissim nec.'
+    'body': '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida odio enim, eget congue neque dignissim nec.</p>' | safe
 }) %}
 {% set secondTextCard = card({
     'heading': 'Donec lacinia',
-    'content': 'Donec lacinia faucibus sapien, in varius metus iaculis eget. Sed pellentesque libero in imperdiet elementum.'
+    'body': '<p>Donec lacinia faucibus sapien, in varius metus iaculis eget. Sed pellentesque libero in imperdiet elementum.</p>' | safe
 }) %}
 {{ hero({
     'heroBackground': 'hero--blue',
