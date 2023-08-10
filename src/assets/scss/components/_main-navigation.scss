@@ -4,9 +4,13 @@
 
     .nav-link {
       padding: 1.25rem 1rem;
-      font-size: 1em; // 16px
+      font-size: $font-size-sm;
       font-weight: bold;
       color: $navy;
+
+      @include media-breakpoint-up(lg) {
+      font-size: $font-size-lg;
+      }
 
       &.active,
       &:hover {
