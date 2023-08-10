@@ -19,7 +19,7 @@
   <div class="row">
     {% for colour in _colours %}
       <section class="col-md-6 col-xl-4">
-        <h2>NIHR {{ colour.label }}</h2>
+        <h2 class="heading-underline">NIHR {{ colour.label }}</h2>
         {% for tint in colour.tints %}
           {% set tintLevel = 20 * loop.revindex %}
           <p id="colour--{{ colour.name }}--{{ tintLevel }}">

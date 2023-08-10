@@ -5,7 +5,7 @@
         <i>npm</i> is a JavaScript package manager that handles the installation and updates of third-party software,
         including the Design System for the NIHR.
     </p>
-    <h2>Requirements</h2>
+    <h2 class="heading-underline">Requirements</h2>
     <ul>
         <li><a href="https://nodejs.org/">Node.js</a> 18 or newer</li>
     </ul>
@@ -26,7 +26,7 @@
     {% endset %}
     <pre class="example-code p-3 user-select-all">{{ code | prettier('babel') | highlight('js') | safe }}</pre>
 
-    <h2>Bundling your application</h2>
+    <h2 class="heading-underline">Bundling your application</h2>
     <p>
         Before your application can be published for the web, it must be bundled. The Design System uses SCSS and newer
         EcmaScript features that must be transpiled before use. Additionally, bundlers such as <i>Browserify</i>,
@@ -40,7 +40,7 @@
         configuration guide</a>.
     </p>
 
-    <h2>When to install using npm</h2>
+    <h2 class="heading-underline">When to install using npm</h2>
     <p>
         You should install the Design System using npm if you need to:
     </p>
@@ -50,7 +50,7 @@
         <li>host all assets yourself</li>
     </ul>
 
-    <h2>Alternative package managers</h2>
+    <h2 class="heading-underline">Alternative package managers</h2>
     <p>
         Any package manager that uses the <a href="https://www.npmjs.com/">npm Registry</a> is supported, but exact instructions may vary.
     </p>
