@@ -240,7 +240,13 @@ a:focus {
   box-shadow: 0 0 #fed47a, inset 0 -4px $black;
 }
 
-#main-navigation .nav-link:focus {
+.nav-pills .nav-link:focus {
+  background-color: $yellow;
+  color: $black;
+}
+
+#main-navigation .nav-link:focus,
+.accordion .nav-link:focus {
   color: $black;
 }
 
@@ -249,6 +255,14 @@ a:focus {
   background-color: initial;
   box-shadow: 0 0 $yellow-100, 2px 2px $black;
   outline: none;
+}
+
+.btn:focus-visible {
+  background-color: var(--bs-btn-hover-bg);
+  border-color: var(--bs-btn-hover-border-color);
+  box-shadow: var(--bs-btn-focus-box-shadow);
+  color: var(--bs-btn-hover-color);
+  outline: 0;
 }
 
 // Integrated classes
