@@ -29,7 +29,7 @@ The human-readable link label.
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if options.pageTitle is defined %}{{ options.pageTitle }} - {% endif %}{{ options.siteTitle }}</title>
+  <title>{% if options.pageTitle is defined and options.pageTitle != options.siteTitle %}{{ options.pageTitle }} - {% endif %}{{ options.siteTitle }}</title>
   <link rel="shortcut icon" href="https://www.nihr.ac.uk/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="/design-system.bundle.css">
   <link rel="stylesheet" href="/docs.bundle.css">
