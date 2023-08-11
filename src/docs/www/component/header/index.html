@@ -10,7 +10,7 @@
 <h2 class="heading-underline">Intended behaviour</h2>
 
 <p>
-    The header consists of the NIHR logo and an optional <a href="/component/search">Search component</a>. The logo
+    The header consists of the NIHR logo and an optional <a href="/component/search-form">Search Form</a>. The logo
     is also a link back to the current site's front page. Entering a search query will return results.
 </p>
 
@@ -39,11 +39,11 @@
   ]
 }) }}
 
-<h3>Header with search</h3>
+<h3>Header with Search Form</h3>
 {% set code %}
 {% raw %}
 {{ header({
-  'search': {
+  'searchForm': {
     'action': '#'
   }
 }) }}
@@ -65,7 +65,7 @@
 {% raw %}
 {{ header({
   'serviceTitle': 'Funding and Awards',
-  'search': {
+  'searchForm': {
     'action': '#'
   }
 }) }}
