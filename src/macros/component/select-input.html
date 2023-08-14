@@ -19,6 +19,7 @@
 {% set id = options.id | default(generateId()) %}
 <label for="{{ id }}" class="form-label">{{ options.label }}</label>
 <select
+        id="{{ id }}"
         class="form-select{% if options.invalid | default(false) %} is-invalid{% endif %}"
         aria-label="{{ options.label }}"
         {% if options.required | default(false) %}required{% endif %}
