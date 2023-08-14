@@ -153,16 +153,14 @@ module.exports = (env, args) => {
           test: /\.(png|gif|jpg|jpeg)$/,
           type: 'asset/resource',
           generator: {
-            outputPath: path.join('assets', 'images'),
+            filename: 'assets/images/[name][ext]',
           }
         },
         {
           test: /\.(ttf|woff2?)$/,
           type: 'asset/resource',
           generator: {
-            outputPath: path.join('assets', 'fonts'),
-            publicPath: 'assets/fonts/',
-            filename: '[name][ext]',
+            filename: 'assets/fonts/[name][ext]',
           }
         }
       ]
