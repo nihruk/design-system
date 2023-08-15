@@ -1,8 +1,8 @@
-{% from 'macros/component/search.html' import search %}
+{% from 'macros/component/search-form.html' import searchForm %}
 {#
 @macro header
-@param {object|null} [search=null]
-       The arguments to the Search component.
+@param {object|null} [searchForm=null]
+       The arguments to the Search Form component.
 @param {string|null} [serviceTitle=null]
        The title of the service site.  
 #}
@@ -16,9 +16,9 @@
                       alt="The NIHR logo">
                 </a>
             </div>
-            {% if options.search | default(null) %}
+            {% if options.searchForm | default(null) %}
               <div class="col-md-4">
-                  {{ search(options.search) }}
+                  {{ searchForm(options.searchForm) }}
               </div>
             {% endif %}
         </div>
