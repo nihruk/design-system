@@ -1,0 +1,53 @@
+{% from 'macros/component/callout-text.html' import calloutText %}
+{% from 'macros/component/hero.html' import hero %}
+{% from 'macros/component/search-form.html' import searchForm %}
+{% set pageTitle = 'Hero Search' %}
+{% extends 'docs/partials/page.html' %}
+{% block pageContent %}
+{% set heroBody %}
+<div class="row">
+    <div class="col-8">
+        <h1 class="text-white">Lorem ipsum Search</h1>
+        <p class="text-white">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse repellendus
+ducimus vel totam dolore doloremque officiis fugiat maxime, nam consectetur optio tempora
+repudiandae itaque excepturi consequuntur provident veritatis. Voluptatibus, enim?
+        </p>
+        {{ searchForm({
+            'action': '#',
+            'large': true
+        }) }}
+    </div>
+</div>
+{% endset %}
+{{ hero({
+    'body': heroBody | safe
+}) }}
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-8">
+            {{ calloutText({
+                'paragraphs': [
+                    {
+                        'body': '<a href="/pattern">Back to Patterns</a>' | safe
+                    }
+                ]
+            }) }}
+
+            <h2 class="heading-underline">When to use this pattern</h2>
+            <p>
+                On a landing page, where your users are most likely to want to continue their journey with a keyword
+                search.
+            </p>
+            <h2 class="heading-underline">Components</h2>
+            <p>
+                This pattern uses the following components:
+            </p>
+            <ul>
+                <li><a href="/component/hero">Hero</a></li>
+                <li><a href="/component/search">Search</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -32,7 +32,7 @@
 {% set code %}
 {% raw %}
 {{ hero({
-    'heroBackground': 'hero--coral'
+    'backgroundColor': 'coral'
 }) }}
 {% endraw %}
 {% endset %}
@@ -51,9 +51,7 @@
 
 {% set code %}
 {% raw %}
-{{ hero({
-    'heroBackground': 'hero--blue'
-}) }}
+{{ hero({}) }}
 {% endraw %}
 {% endset %}
 {{ example({
@@ -72,7 +70,6 @@
 {% set code %}
 {% raw %}
 {{ hero({
-    'heroBackground': 'hero--blue',
     'body': '
         <div class="row justify-content-center">
             <div class="text-center col-xl-7">
@@ -109,7 +106,7 @@
     'image': 'https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg'
 }) %}
 {{ hero({
-    'heroBackground': 'hero--coral',
+    'backgroundColor': 'coral',
     'body': ('<div class="row">' ~ textCard ~ imageCard ~ '</div>') | safe
 }) }}
 {% endraw %}  
@@ -141,7 +138,7 @@
     'backgroundColor': 'navy'
 }) %}
 {{ hero({
-    'heroBackground': 'hero--coral',
+    'backgroundColor': 'coral',
     'body': ('<div class="row">' ~ firstTextCard ~ secondTextCard ~ '</div>') | safe
 }) }}
 {% endraw %} 
@@ -171,7 +168,6 @@
     'body': '<p>Donec lacinia faucibus sapien, in varius metus iaculis eget. Sed pellentesque libero in imperdiet elementum.</p>' | safe
 }) %}
 {{ hero({
-    'heroBackground': 'hero--blue',
     'body': ('<div class="row">' ~ firstTextCard ~ secondTextCard ~ '</div>') | safe
 }) }}
 {% endraw %} 
@@ -196,7 +192,7 @@
     'image': 'https://www.nihr.ac.uk/images/news/head-up-collar.png'
 }) %}
 {{ hero({
-    'heroBackground': 'hero--coral',
+    'backgroundColor': 'coral',
     'body': ('<div class="row">' ~ imageCard ~ '</div>') | safe
 }) }}
 {% endraw %} 
@@ -224,7 +220,6 @@
     'image': 'https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg'
 }) %}
 {{ hero({
-    'heroBackground': 'hero--blue',
     'body': ('<div class="row">' ~ firstImageCard ~ secondImageCard ~ '</div>') | safe
 }) }}
 {% endraw %} 
@@ -239,4 +234,12 @@
         }
     ]
 }) }}
+
+<h2 class="heading-underline">Patterns</h2>
+<p>
+    This component is used in the following design patterns:
+</p>
+<ul>
+    <li><a href="/pattern/hero-search">Hero Search</a></li>
+</ul>
 {% endblock %}
