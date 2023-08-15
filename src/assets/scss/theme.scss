@@ -265,6 +265,10 @@ a:focus {
   outline: 0;
 }
 
+.accordion-button:focus {
+  border: 2px solid $black;
+}
+
 // Integrated classes
 
 .heading-underline {
