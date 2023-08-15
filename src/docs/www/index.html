@@ -5,42 +5,40 @@
 {% extends 'docs/partials/page.html' %}
 {% block pageContent %}
 
-<section>
-    {% set heroBody %}
-    <div class="row">
-        <div class="col-lg-8">
-            <h1 class="text-white">{{ pageTitle }}</h1>
-            <p class="lead text-white">
-                Design and build web applications for the <a href="https://nihr.ac.uk" class="text-white">NIHR</a> that are
-                <strong>accessible</strong>, <strong>user-friendly</strong>, and provide consistent
-                <strong>user journeys</strong>.
-            </p>
-        </div>
-        <div class="col-lg-4">
-            {% set cardBody %}
-            {{ actionLink({
-                'href': '/get-started',
-                'text': 'Get started',
-                'title': 'Get started with the Design System'
-            }) }}
-            <p class="mb-0">
-                or run <span class="d-block"><code
-                    class="user-select-all">npm install @nihruk/design-system</code></span>
-            </p>
-            {% endset %}
-            {{ card({
-                'body': cardBody | safe
-            }) }}
-        </div>
+{% set heroBody %}
+<div class="row">
+    <div class="col-lg-8">
+        <h1 class="text-white">{{ pageTitle }}</h1>
+        <p class="lead text-white">
+            Design and build web applications for the <a href="https://nihr.ac.uk" class="text-white">NIHR</a> that are
+            <strong>accessible</strong>, <strong>user-friendly</strong>, and provide consistent
+            <strong>user journeys</strong>.
+        </p>
     </div>
-    {% endset %}
-    {{ hero({
-        'body': heroBody | safe
-    }) }}
-</section>
+    <div class="col-lg-4">
+        {% set cardBody %}
+        {{ actionLink({
+            'href': '/get-started',
+            'text': 'Get started',
+            'title': 'Get started with the Design System'
+        }) }}
+        <p class="mb-0">
+            or run <span class="d-block"><code
+                class="user-select-all">npm install @nihruk/design-system</code></span>
+        </p>
+        {% endset %}
+        {{ card({
+            'body': cardBody | safe
+        }) }}
+    </div>
+</div>
+{% endset %}
+{{ hero({
+    'body': heroBody | safe
+}) }}
 <section class="mt-5">
     <div class="container">
-        <div class="row mt-5">
+        <div class="row">
             <div class="col-lg-4">
                 <h2 class="heading-underline">Styles</h2>
                 <p>
