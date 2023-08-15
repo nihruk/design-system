@@ -5,8 +5,11 @@ $bs-card-border-width: 0;
     box-shadow: 0 23px 35px 0 rgba(0 0 0 / 5%), 0 8.4px 23px 0 rgba(0 0 0 / 6%), 0 3.6px 13px 0 rgba(0 0 0 / 7%), 0 1px 5px 0 rgba(0 0 0 / 10%);
 }
 
-.card img:not(.card-img-top) {
+.card-img-fit {
     border-radius: 5px;
+    flex: 1;
+    object-fit: cover;
+    width: 100%;
 }
 
 .card--navy {
