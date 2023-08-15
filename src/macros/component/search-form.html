@@ -1,12 +1,12 @@
 {#
-@macro search
+@macro searchForm
 @param {string} action
        The form's action href.
 @param {boolean} [large=false]
        Whether to display a large Search component.
 #}
-{% macro search(options) %}
-<form class="search-component" action="{{ options.action }}">
+{% macro searchForm(options) %}
+<form class="search-form" action="{{ options.action }}">
   <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
     <div class="input-group{% if options.large | default(false) %} input-group-lg{% endif %}">
       <input type="text" class="form-control" placeholder="Search" value="" aria-label="Search">
