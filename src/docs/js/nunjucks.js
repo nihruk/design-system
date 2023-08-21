@@ -1,17 +1,17 @@
 'use strict'
 
-const nunjucks = require('nunjucks');
-const path = require('path');
-const highlight = require('highlight.js');
-const prettier = require('prettier');
-const fs = require('fs');
-const {lexer, parser} = require('nunjucks');
-const assert = require('assert');
-const {TOKEN_COMMENT} = require('nunjucks/src/lexer');
-const nodes = require('nunjucks/src/nodes');
-const commentParser = require('comment-parser');
-const marked = require('marked');
-const {SafeString} = require("nunjucks/src/runtime");
+const stdNunjucks = require('nunjucks')
+const dsNunjucks = require('../../assets/js/nunjucks')
+const path = require('path')
+const highlight = require('highlight.js')
+const prettier = require('prettier')
+const fs = require('fs')
+const {lexer, parser} = require('nunjucks')
+const assert = require('assert')
+const {TOKEN_COMMENT} = require('nunjucks/src/lexer')
+const nodes = require('nunjucks/src/nodes')
+const commentParser = require('comment-parser')
+const marked = require('marked')
 
 
 const _colours = [
@@ -218,15 +218,6 @@ const _colours = [
     }
 ]
 
-function normalizeUrlPath(urlPath) {
-    if (urlPath.endsWith('index.html')) {
-        urlPath = urlPath.slice(0, -10)
-    }
-    return '/' + urlPath.split('/')
-        .filter(x => x)
-        .join('/')
-}
-
 const deindentIndentationPattern = /^[ \t]*(?=\S)/gm
 
 function deindent(value) {
@@ -241,20 +232,16 @@ function deindent(value) {
 
 const nunjucksWwwFilePageUrlPathPrefixLength = path.resolve(__dirname, '..', 'www').length
 
-class Environment extends nunjucks.Environment {
+class Environment extends dsNunjucks.Environment {
     constructor(assetEmitterPlugin, _parentEnvironment = null) {
         super(
-            new nunjucks.FileSystemLoader(path.resolve(__dirname, '..', '..')),
-            {
-                noCache: true,
-                throwOnUndefined: true,
-            },
+            [
+                new stdNunjucks.FileSystemLoader(path.resolve(__dirname, '..', '..')),
+            ]
         )
         const environment = this
         this._parentEnvironment = _parentEnvironment
         this._assetEmitterPlugin = assetEmitterPlugin
-        this._lastGeneratedId = 0
-        this._currentPageUrlPath = null;
         this._renderedHtmlExampleIds = []
         this.addFilter('consoleLog', (...args) => {
             console.log(...args)
@@ -270,35 +257,9 @@ class Environment extends nunjucks.Environment {
         })
         this.addFilter('highlight', (code, language) => highlight.highlight(code, {language}).value)
         this.addFilter('prettier', (code, parser) => prettier.format(code, {parser}))
-        this.addGlobal('generateId', () => environment.generateId())
         this.addFilter('markdown', marked.parse)
         this.addFilter('nunjucks', code => environment.renderStringInChildEnvironment(code))
         this.addFilter('nunjucksMacroJsDocs', name => getMacroJsDocForFilePath(path.join(__dirname, '..', '..', 'macros', ...name.split('/')) + '.html'))
-        this.addFilter('htmlAttributes', attributes => {
-            let renderedAttributes = ' '
-            for (let [name, value] of Object.entries(attributes)) {
-                if (value === null) {
-                    continue
-                }
-                if (typeof value !== 'string' && value) {
-                    value = value.join(' ')
-                }
-                renderedAttributes += ` ${name}="${value}"`
-            }
-            return new SafeString(renderedAttributes.trimEnd())
-        })
-        this.addTest('activeCurrentUrl', urlPath => {
-            if (!environment._currentPageUrlPath) {
-                throw new Error('No page is being templated right now.')
-            }
-            return environment._currentPageUrlPath === normalizeUrlPath(urlPath)
-        })
-        this.addTest('activeParentUrl', urlPath => {
-            if (!environment._currentPageUrlPath) {
-                throw new Error('No page is being templated right now.')
-            }
-            return environment._currentPageUrlPath.startsWith(normalizeUrlPath(urlPath))
-        })
     }
 
     renderHtmlExample(renderableHtmlExample, exampleOptions) {
@@ -334,7 +295,7 @@ class Environment extends nunjucks.Environment {
         if (this._parentEnvironment) {
             return this._parentEnvironment.generateId()
         }
-        return 'ds-id-' + this._lastGeneratedId++
+        return super.generateId()
     }
 
     renderStringInChildEnvironment(code) {
@@ -342,13 +303,11 @@ class Environment extends nunjucks.Environment {
     }
 
     renderPageFile(filename) {
-        this._currentPageUrlPath = normalizeUrlPath(
-            filename.slice(nunjucksWwwFilePageUrlPathPrefixLength)
-                .split(path.sep)
-                .join('/')
-        )
+        this.currentPageUrlPath = filename.slice(nunjucksWwwFilePageUrlPathPrefixLength)
+            .split(path.sep)
+            .join('/')
         return this.render(filename, {
-            pageUrlPath: this._currentPageUrlPath,
+            pageUrlPath: this.currentPageUrlPath,
         })
     }
 }
