@@ -13,6 +13,10 @@ The human-readable link label.
        The human-readable page title. Defaults to the site title.
 @param {string} siteTitle
        The human-readable site title.
+@param {Array<str>} stylesheets
+       The public paths to each CSS file to link into the page.
+@param {Array<str>} scripts
+       The public paths to each JavaScript file to link into the page.
 @param {Array<PrimaryNavigationLink>} primaryNavigationLinks
        The primary navigation links to show.
 @param {string} pageContent
@@ -26,13 +30,17 @@ The human-readable link label.
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if options.pageTitle is defined and options.pageTitle != options.siteTitle %}{{ options.pageTitle }} - {% endif %}{{ options.siteTitle }}</title>
-  <link rel="shortcut icon" href="https://www.nihr.ac.uk/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="/design-system.bundle.css">
-  <link rel="stylesheet" href="/docs.bundle.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if options.pageTitle is defined and options.pageTitle != options.siteTitle %}{{ options.pageTitle }} - {% endif %}{{ options.siteTitle }}</title>
+    <link rel="shortcut icon" href="https://www.nihr.ac.uk/favicon.ico" type="image/x-icon">
+    {% for path in options.stylesheets %}
+        <link rel="stylesheet" href="{{ path }}">
+    {% endfor %}
+    {% for path in options.scripts %}
+        <script src="{{ path }}"></script>
+    {% endfor %}
 </head>
 <body class="bg-grey-10">
 {{ header(options.header | default({})) }}
