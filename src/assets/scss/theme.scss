@@ -224,7 +224,9 @@ main {
 // Focus
 
 a:focus,
-.nav-link:focus {
+.nav-link:focus,
+#main-navigation .nav-link:active:focus,
+#main-navigation .nav-link.active:focus {
   background-color: $yellow-100;
   color: $black;
   outline: 3px solid transparent;
@@ -236,7 +238,8 @@ a:focus {
   box-shadow: 0 0 $yellow-100,0 4px $black;
 }
 
-.nav-link:focus {
+.nav-link:focus,
+.nav-link.active:focus {
   box-shadow: 0 0 #fed47a, inset 0 -4px $black;
 }
 
@@ -246,7 +249,8 @@ a:focus {
 }
 
 #main-navigation .nav-link:focus,
-.accordion .nav-link:focus {
+.accordion .nav-link:focus,
+#main-navigation .nav-link:focus {
   color: $black;
 }
 
