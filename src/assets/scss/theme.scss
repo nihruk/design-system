@@ -250,17 +250,12 @@ a:focus {
 
 // Integrated classes
 
-.heading-underline {
-  &::after {
-    content: '';
-    display: block;
-    height: 0.375rem;
-    margin: 0.5rem 0;
-    position: absolute; // changed from relative to absolute
-    width: 3rem;
-  }
-
-  &--coral::after {
-    background: $coral;
-  }
+.heading-underline::after {
+  background: $call-to-action;
+  content: "";
+  display: block;
+  height: 0.375rem;
+  margin: 0.5rem 0;
+  position: relative;
+  width: 3rem;
 }

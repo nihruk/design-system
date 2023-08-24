@@ -8,7 +8,7 @@
     single line, such as their name or phone number.
   </p>
 
-  <h2>Intended behaviour</h2>
+  <h2 class="heading-underline">Intended behaviour</h2>
 
   <p>All text inputs must have labels, and in most cases the label should be visible.</p>
   <p>
@@ -59,21 +59,21 @@
     On fixed width inputs, the width will remain fixed on all screens unless it is wider than
     the viewport, in which case it will shrink to fit.
   </p>
-  <h2>When to use this component</h2>
+  <h2 class="heading-underline">When to use this component</h2>
 
   <p>
     Use the text input component when you need to let users enter text that’s no longer than a
     single line, such as their name or phone number.
   </p>
 
-  <h2>When not to use this component</h2>
+  <h2 class="heading-underline">When not to use this component</h2>
 
   <p>
     Do not use the text input component if you need to let users enter longer answers that
     might span multiple lines. In this case, you should use the textarea component.
   </p>
 
-  <h2>Examples</h2>
+  <h2 class="heading-underline">Variations</h2>
   <h3>Minimal input</h3>
   {{ example({
     'id': 'example-text-input-component-minimal',
@@ -83,7 +83,7 @@
         'nunjucksMacro': 'component/text-input',
         'code': "
 {{ textInput({
-  'label': 'Your full name'
+  'label': 'Lorem ipsum'
 }) }}
         "
       }
@@ -99,7 +99,7 @@
             'nunjucksMacro': 'component/text-input',
             'code': "
 {{ textInput({
-  'label': 'Your full name',
+  'label': 'Lorem ipsum',
   'required': true
 }) }}
             "
@@ -116,7 +116,7 @@
             'nunjucksMacro': 'component/text-input',
             'code': "
 {{ textInput({
-  'label': 'Your full name',
+  'label': 'Lorem ipsum',
   'invalid': true
 }) }}
             "
@@ -133,7 +133,7 @@
             'nunjucksMacro': 'component/text-input',
             'code': "
 {{ textInput({
-  'label': 'Your full name',
+  'label': 'Lorem ipsum',
   'disabled': true
 }) }}
             "
@@ -150,8 +150,8 @@
             'nunjucksMacro': 'component/text-input',
             'code': "
 {{ textInput({
-  'label': 'Your full name',
-  'value': 'Jane Doe'
+  'label': 'Lorem ipsum',
+  'value': 'Lorem ipsum'
 }) }}
             "
           }

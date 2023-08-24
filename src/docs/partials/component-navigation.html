@@ -1,19 +1,32 @@
-{% set heading = 'All components' %}
 {% set rootPath = '/component' %}
+
+<h2 class="h4">All components</h2>
+
+<h3 class="h5">Content</h3>
 {% set links = {
     '/accordion': 'Accordion',
-    '/action-link': 'Action Link',
-    '/button': 'Button',
     '/callout-text': 'Callout Text',
     '/card': 'Card',
+    '/hero': 'Hero',
+    '/table': 'Table'
+} %}
+{% include 'docs/partials/secondary-navigation.html' %}
+
+<h3 class="h5">Forms</h3>
+{% set links = {
+    '/button': 'Button',
     '/checkbox': 'Checkbox',
+    '/search-form': 'Search Form',
+    '/select-input': 'Select Input',
+    '/text-input': 'Text input'
+} %}
+{% include 'docs/partials/secondary-navigation.html' %}
+
+<h3 class="h5">Navigation</h3>
+{% set links = {
+    '/action-link': 'Action Link',
     '/footer': 'Footer',
     '/header': 'Header',
-    '/hero': 'Hero',
-    '/page': 'Page',
-    '/search': 'Search',
-    '/select-input': 'Select Input',
-    '/table': 'Table',
-    '/text-input': 'Text input'
+    '/page': 'Page'
 } %}
 {% include 'docs/partials/secondary-navigation.html' %}

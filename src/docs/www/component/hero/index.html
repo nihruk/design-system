@@ -8,16 +8,16 @@
     Heroes are coloured sections used to highlight important pieces of content. They are often, though not always, the first thing a user sees on a page.
 </p>
 
-<h2>Intended behaviour</h2>
+<h2 class="heading-underline">Intended behaviour</h2>
 
 <p>All content placed inside a hero must respect the <a href="https://design-system.nihr.ac.uk/style/layout">layout rules</a> for the design system.</p>
 
-<h2>When to use this component</h2>
+<h2 class="heading-underline">When to use this component</h2>
 
 <p>Heroes should be used to highlight and draw attention to related content that is important to a user.</p>
 <p>Where possible heroes should be placed above the fold, or high up on a page.</p>
 
-<h2>When not to use this component</h2>
+<h2 class="heading-underline">When not to use this component</h2>
 
 <ul>
     <li>Do not use a hero if the content is not related</li>
@@ -25,14 +25,14 @@
     <li>Do not use more than two heroes on a page</li>
 </ul>
 
-<h2>Examples</h2>
+<h2 class="heading-underline">Variations</h2>
 
 <h3>Coral hero</h3>
 
 {% set code %}
 {% raw %}
 {{ hero({
-    'heroBackground': 'hero--coral'
+    'backgroundColor': 'coral'
 }) }}
 {% endraw %}
 {% endset %}
@@ -51,9 +51,7 @@
 
 {% set code %}
 {% raw %}
-{{ hero({
-    'heroBackground': 'hero--blue'
-}) }}
+{{ hero({}) }}
 {% endraw %}
 {% endset %}
 {{ example({
@@ -72,12 +70,11 @@
 {% set code %}
 {% raw %}
 {{ hero({
-    'heroBackground': 'hero--blue',
     'body': '
         <div class="row justify-content-center">
             <div class="text-center col-xl-7">
-                <h1 class="text-white">NIHR Research Funding</h1>
-                <p class="text-white">This is some text to add context to the page title and provide more information.</p>
+                <h1 class="text-white">Lorem ipsum</h1>
+                <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida odio enim, eget congue neque dignissim nec.</p>
             </div>
         </div>
     ' | safe
@@ -102,14 +99,14 @@
 {% from 'macros/component/card.html' import card %}
 {% set textCard = card({
     'heading': 'Lorem ipsum',
-    'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida odio enim, eget congue neque dignissim nec.',
+    'body': '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida odio enim, eget congue neque dignissim nec.</p>' | safe,
     'backgroundColor': 'navy'
 }) %}
 {% set imageCard = card({
     'image': 'https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg'
 }) %}
 {{ hero({
-    'heroBackground': 'hero--coral',
+    'backgroundColor': 'coral',
     'body': ('<div class="row">' ~ textCard ~ imageCard ~ '</div>') | safe
 }) }}
 {% endraw %}  
@@ -132,16 +129,16 @@
 {% from 'macros/component/card.html' import card %}
 {% set firstTextCard = card({
     'heading': 'Lorem ipsum',
-    'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida odio enim, eget congue neque dignissim nec.',
+    'body': '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida odio enim, eget congue neque dignissim nec.</p>' | safe,
     'backgroundColor': 'navy'
 }) %}
 {% set secondTextCard = card({
     'heading': 'Donec lacinia',
-    'content': 'Donec lacinia faucibus sapien, in varius metus iaculis eget. Sed pellentesque libero in imperdiet elementum.',
+    'body': '<p>Donec lacinia faucibus sapien, in varius metus iaculis eget. Sed pellentesque libero in imperdiet elementum.</p>' | safe,
     'backgroundColor': 'navy'
 }) %}
 {{ hero({
-    'heroBackground': 'hero--coral',
+    'backgroundColor': 'coral',
     'body': ('<div class="row">' ~ firstTextCard ~ secondTextCard ~ '</div>') | safe
 }) }}
 {% endraw %} 
@@ -164,14 +161,13 @@
 {% from 'macros/component/card.html' import card %}
 {% set firstTextCard = card({
     'heading': 'Lorem ipsum',
-    'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida odio enim, eget congue neque dignissim nec.'
+    'body': '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce gravida odio enim, eget congue neque dignissim nec.</p>' | safe
 }) %}
 {% set secondTextCard = card({
     'heading': 'Donec lacinia',
-    'content': 'Donec lacinia faucibus sapien, in varius metus iaculis eget. Sed pellentesque libero in imperdiet elementum.'
+    'body': '<p>Donec lacinia faucibus sapien, in varius metus iaculis eget. Sed pellentesque libero in imperdiet elementum.</p>' | safe
 }) %}
 {{ hero({
-    'heroBackground': 'hero--blue',
     'body': ('<div class="row">' ~ firstTextCard ~ secondTextCard ~ '</div>') | safe
 }) }}
 {% endraw %} 
@@ -196,7 +192,7 @@
     'image': 'https://www.nihr.ac.uk/images/news/head-up-collar.png'
 }) %}
 {{ hero({
-    'heroBackground': 'hero--coral',
+    'backgroundColor': 'coral',
     'body': ('<div class="row">' ~ imageCard ~ '</div>') | safe
 }) }}
 {% endraw %} 
@@ -224,7 +220,6 @@
     'image': 'https://www.nihr.ac.uk/images/800-600/covid-nurses-hospital.jpg'
 }) %}
 {{ hero({
-    'heroBackground': 'hero--blue',
     'body': ('<div class="row">' ~ firstImageCard ~ secondImageCard ~ '</div>') | safe
 }) }}
 {% endraw %} 
@@ -239,4 +234,12 @@
         }
     ]
 }) }}
+
+<h2 class="heading-underline">Patterns</h2>
+<p>
+    This component is used in the following design patterns:
+</p>
+<ul>
+    <li><a href="/pattern/hero-search">Hero Search</a></li>
+</ul>
 {% endblock %}

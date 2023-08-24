@@ -1,15 +1,25 @@
 {% from 'docs/macros/component/colour-specification.html' import colourSpecification %}
+{% from 'macros/component/callout-text.html' import calloutText %}
 {% set pageTitle = 'All colours' %}
 {% extends 'docs/partials/page.html' %}
 
 {% block pageContent %}
+<div class="container">
   <div class="row">
-    <p>
-      <a href="/style/colour">Back to Colour</a>
-    </p>
+    <div class="col-8">
+      {{ calloutText({
+          'paragraphs': [
+              {
+                  'body': '<a href="/style/colour">Back to Colours</a>' | safe
+              }
+          ]
+      }) }}
+    </div>
+  </div>
+  <div class="row">
     {% for colour in _colours %}
       <section class="col-md-6 col-xl-4">
-        <h2>NIHR {{ colour.label }}</h2>
+        <h2 class="heading-underline">NIHR {{ colour.label }}</h2>
         {% for tint in colour.tints %}
           {% set tintLevel = 20 * loop.revindex %}
           <p id="colour--{{ colour.name }}--{{ tintLevel }}">
@@ -24,4 +34,5 @@
       </section>
     {% endfor %}
   </div>
+</div>
 {% endblock %}

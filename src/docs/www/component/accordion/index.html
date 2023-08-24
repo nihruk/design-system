@@ -3,124 +3,140 @@
 {% set pageTitle = 'Accordion' %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
-  <p class="lead">
-    Accordions collapse content that may not be relevant to all audiences.
-  </p>
 
-    {% set code %}
-        {% raw %}
+<p class="lead">
+  Accordions collapse content that may not be relevant to all audiences.
+</p>
+
+<h2 class="heading-underline">When to use this component</h2>
+
+<ul>
+  <li>To allow users to show and hide sections of content relevant to their needs</li>
+  <li>To give an overview of multiple, related pieces of content</li>
+  <li>To allow relevant information to be easily compared</li>
+</ul>
+
+<h2 class="heading-underline">When not to use this component</h2>
+
+<ul>
+    <li>For content that all users need to see</li>
+    <li>To make a page appear shorter</li> 
+    <li>Within another accordion</li>
+    <li>With very large amounts of content inside the accordion</li>
+</ul>
+
+<h2 class="heading-underline">Variations</h2>
+
+{% set code %}
+{% raw %}
 {{ accordion({
     'id': 'accordion-component-minimal',
     'items': [
       {
-        'header': 'More content',
+        'header': 'Lorem ipsum',
         'body': '
 <p>
-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla nisi veniam doloribus corrupti
-ut dolores debitis, quos excepturi assumenda sit praesentium ab culpa soluta, et asperiores?
-Autem ea quo repellendus.
+  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fusce gravida odio enim, eget congue neque dignissim nec.
 </p>
         ' | safe
       },
       {
-        'header': 'Even more content',
+        'header': 'Donec lacinia',
         'body': '
 <p>
-Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla nisi veniam doloribus corrupti
-ut dolores debitis, quos excepturi assumenda sit praesentium ab culpa soluta, et asperiores?
-Autem ea quo repellendus.
+  Donec lacinia faucibus sapien, in varius metus iaculis eget. Sed pellentesque libero in imperdiet elementum.
 </p>
         ' | safe
       }
     ]
 }) }}
-        {% endraw %}
-    {% endset %}
-    {{ example({
-        'id': 'example-accordion-component-minimal',
-        'examples': [
-          {
-            'type': 'nunjucks',
-            'nunjucksMacro': 'component/accordion',
-            'code': code
-          }
-        ]
-    }) }}
+{% endraw %}
+{% endset %}
+{{ example({
+    'id': 'example-accordion-component-minimal',
+    'examples': [
+      {
+        'type': 'nunjucks',
+        'nunjucksMacro': 'component/accordion',
+        'code': code
+      }
+    ]
+}) }}
 
-  <h2>Showing items by default</h2>
-    {% set code %}
-        {% raw %}
+<h2 class="heading-underline">Showing items by default</h2>
+{% set code %}
+{% raw %}
 {{ accordion({
     'id': 'accordion-component-show',
     'items': [
       {
-        'header': 'More content',
+        'header': 'Lorem ipsum',
         'body': '
 <p>
-Lorem ipsum, dolor sit amet.
+  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fusce gravida odio enim, eget congue neque dignissim nec.
 </p>
         ' | safe
       },
       {
-        'header': 'Even more content',
+        'header': 'Donec lacinia',
         'body': '
 <p>
-Lorem ipsum, dolor sit amet.
+  Donec lacinia faucibus sapien, in varius metus iaculis eget. Sed pellentesque libero in imperdiet elementum.
 </p>
         ' | safe,
         'show': true
       }
     ]
 }) }}
-        {% endraw %}
-    {% endset %}
-    {{ example({
-        'id': 'example-accordion-component-show',
-        'examples': [
-          {
-            'type': 'nunjucks',
-            'nunjucksMacro': 'component/accordion',
-            'code': code
-          }
-        ]
-    }) }}
+{% endraw %}
+{% endset %}
+{{ example({
+    'id': 'example-accordion-component-show',
+    'examples': [
+      {
+        'type': 'nunjucks',
+        'nunjucksMacro': 'component/accordion',
+        'code': code
+      }
+    ]
+}) }}
 
-  <h2>Mutually exclusive items</h2>
-    {% set code %}
-        {% raw %}
+<h2 class="heading-underline">Mutually exclusive items</h2>
+{% set code %}
+{% raw %}
 {{ accordion({
     'id': 'accordion-component-mutually-exclusive',
     'mutuallyExclusive': true,
     'items': [
       {
-        'header': 'More content',
+        'header': 'Lorem ipsum',
         'body': '
 <p>
-Lorem ipsum, dolor sit amet.
+  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fusce gravida odio enim, eget congue neque dignissim nec.
 </p>
         ' | safe,
         'show': true
       },
       {
-        'header': 'Even more content',
+        'header': 'Donec lacinia',
         'body': '
 <p>
-Lorem ipsum, dolor sit amet.
+  Donec lacinia faucibus sapien, in varius metus iaculis eget. Sed pellentesque libero in imperdiet elementum.
 </p>
         ' | safe
       }
     ]
 }) }}
-        {% endraw %}
-    {% endset %}
-    {{ example({
-        'id': 'example-accordion-component-mutually-exclusive',
-        'examples': [
-          {
-            'type': 'nunjucks',
-            'nunjucksMacro': 'component/accordion',
-            'code': code
-          }
-        ]
-    }) }}
+{% endraw %}
+{% endset %}
+{{ example({
+    'id': 'example-accordion-component-mutually-exclusive',
+    'examples': [
+      {
+        'type': 'nunjucks',
+        'nunjucksMacro': 'component/accordion',
+        'code': code
+      }
+    ]
+}) }}
 {% endblock %}

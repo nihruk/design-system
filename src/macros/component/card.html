@@ -2,8 +2,8 @@
     @macro card
     @param {string|null=null} heading
           The human-readable card heading.
-    @param {string|null=null} content
-          The human-readable content of the card.
+    @param {string|null=null} body
+          The Card's HTML body.
     @param {string|null} [image=null]
           Any image's src attribute value.
     @param {'white'|'navy'} [backgroundColor='white']
@@ -13,23 +13,23 @@
 <div class="col-md">
     <div class="card h-100 {% if options.backgroundColor | default('white') == 'navy' %}card--navy{% endif %}">
         {% if options.image | default(null) %}
-        <img
-            src="{{ options.image }}"
-            {% if options.heading or options.content %}
-                class="card-img-top"
-            {% else %}
-                class="card-img"
-            {% endif %}
-            alt=""
-        >
+            <img
+                src="{{ options.image }}"
+                {% if options.heading or options.body %}
+                    class="card-img-top"
+                {% else %}
+                    class="card-img-fit"
+                {% endif %}
+                alt=""
+            >
         {% endif %}
-        {% if options.heading or options.content %}
+        {% if options.heading or options.body %}
             <div class="card-body d-flex flex-column">
                 {% if options.heading %}
-                    <h2 class="card-title h3 heading-underline heading-underline--coral">{{ options.heading }}</h2>
+                    <h2 class="card-title h3 heading-underline">{{ options.heading }}</h2>
                 {% endif %}
-                {% if options.content %}
-                    <p class="card-text">{{ options.content }}</p>
+                {% if options.body %}
+                    <div class="card-text">{{ options.body }}</div>
                 {% endif %}
             </div>
         {% endif %}

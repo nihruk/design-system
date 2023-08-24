@@ -8,27 +8,30 @@
     Callout text helps users identify and understand the most important content on the page.
 </p>
 
-<h2>When to use this component</h2>
-
-<p>Use callout text to make content stand out on the page and allow users to identify key information, even if they do not read the whole page.</p>
-
-<h2>When not to use this component</h2>
+<h2 class="heading-underline">When to use this component</h2>
 
 <ul>
-    <li>Do not use callout text to signal the start of a user journey. Use an <a href="/component/action-link">Action Link</a> instead.</li>
+    <li>To make content stand out on a page</li>
+    <li>To highlight key information</li>
 </ul>
 
-<h2>Example</h2>
+<h2 class="heading-underline">When not to use this component</h2>
+
+<ul>
+    <li>To indicate the start of a user journey. Use an <a href="/component/action-link">Action Link</a> instead</li>
+</ul>
+
+<h2 class="heading-underline">Variation</h2>
 
 {% set code %}
 {% raw %}
 {{ calloutText({
     'paragraphs': [
         {
-        'body': 'Example content that will be emphasised because of its importance.'
+        'body': 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Phasellus pharetra pretium imperdiet.'
         },
         {
-        'body': 'A second paragraph of content you wish to emphasise.'
+        'body': 'Fusce vitae viverra ligula. Donec vestibulum ullamcorper augue id viverra.'
         }
     ]
 }) }}

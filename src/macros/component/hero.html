@@ -1,16 +1,16 @@
 {#
     @macro hero
-    @param {string|null} [heroBackground=null]
-          The supported background colour class of the hero, lower-case.    
+    @param {'navy'|'coral'} [backgroundColor='navy']
+          The hero's background color.
     @param {string|null} [body=null]
           The hero's main body content, if any.             
 #}
 {% macro hero(options) %}
-    <section class="hero {{ options.heroBackground }}" aria-description="hero section">
+    <section class="hero hero--{{ options.backgroundColor | default('navy') }}" aria-description="hero section">
         <div class="container">    
             {% if options.body %}
                 {{ options.body }}
             {% endif %}
         </div>
     </section>
-{% endmacro %} 
+{% endmacro %}

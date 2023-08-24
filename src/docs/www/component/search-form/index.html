@@ -1,19 +1,19 @@
-{% from 'macros/component/search.html' import search %}
+{% from 'macros/component/search-form.html' import searchForm %}
 {% from 'docs/macros/component/example.html' import example %}
-{% set pageTitle = 'Search' %}
+{% set pageTitle = 'Search Form' %}
 {% extends 'docs/partials/component-page.html' %}
 {% block componentPageContent %}
     <p class="lead">
-        Allow users to search for content by entering keywords.
+        The Search Form is an entrypoint into a search service by allowing users to enter keywords.
     </p>
 
-    <h2>Examples</h2>
+    <h2 class="heading-underline">Variations</h2>
 
     <h3>Default Search</h3>
 
     {% set code %}
 {% raw %}
-{{ search({
+{{ searchForm({
     'action': '#'
 }) }}
 {% endraw %}
@@ -23,7 +23,7 @@
       'examples': [
           {
               'type': 'nunjucks',
-              'nunjucksMacro': 'component/search',
+              'nunjucksMacro': 'component/search-form',
               'code': code
           }
       ]
@@ -33,7 +33,7 @@
 
     {% set code %}
 {% raw %}
-{{ search({
+{{ searchForm({
     'action': '#',
     'large': true
 }) }}
@@ -44,9 +44,17 @@
       'examples': [
           {
               'type': 'nunjucks',
-              'nunjucksMacro': 'component/search',
+              'nunjucksMacro': 'component/search-form',
               'code': code
           }
       ]
   }) }}
+
+<h2 class="heading-underline">Patterns</h2>
+<p>
+    This component is used in the following design patterns:
+</p>
+<ul>
+    <li><a href="/pattern/hero-search">Hero Search</a></li>
+</ul>
 {% endblock %}
