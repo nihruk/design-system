@@ -17,6 +17,15 @@
         padding-left: 0;
         font-size: 1.5rem;
         color: $navy;
+
+        &:focus {
+          background-color: $yellow-100!important;
+          box-shadow: 0 0 #fed47a, inset 0 -4px $black;
+          color: $black;
+          outline: 3px solid transparent;
+          text-decoration: none;
+          transition: 0s;
+        }
       }
     }
 
