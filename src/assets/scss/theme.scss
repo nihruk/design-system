@@ -225,10 +225,17 @@ main {
 
 a:focus,
 .nav-link:focus,
+#main-navigation .nav-link:focus:hover {
+  background-color: $yellow-100;
+  color: $black;
+  outline: 3px solid transparent;
+  text-decoration: none;
+  transition: 0s;
+}
+
 #main-navigation .nav-link:active:focus,
 #main-navigation .nav-link.active:focus {
   background-color: $yellow-100;
-  color: $black;
   outline: 3px solid transparent;
   text-decoration: none;
   transition: 0s;
