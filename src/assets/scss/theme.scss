@@ -249,8 +249,7 @@ a:focus {
 }
 
 #main-navigation .nav-link:focus,
-.accordion .nav-link:focus,
-#main-navigation .nav-link:focus {
+.accordion .nav-link:focus {
   color: $black;
 }
 
@@ -259,14 +258,6 @@ a:focus {
   background-color: initial;
   box-shadow: 0 0 $yellow-100, 2px 2px $black;
   outline: none;
-}
-
-.btn:focus-visible {
-  background-color: var(--bs-btn-hover-bg);
-  border-color: var(--bs-btn-hover-border-color);
-  box-shadow: var(--bs-btn-focus-box-shadow);
-  color: var(--bs-btn-hover-color);
-  outline: 0;
 }
 
 .accordion .accordion-item .accordion-header .accordion-button:focus {
