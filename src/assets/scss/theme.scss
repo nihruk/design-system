@@ -223,40 +223,17 @@ main {
 
 // Focus
 
-a:focus,
-.nav-link:focus,
-#main-navigation .nav-link:focus:hover {
+a:focus {
   background-color: $yellow-100;
+  box-shadow: 0 0 $yellow-100,0 4px $black;
   color: $black;
   outline: 3px solid transparent;
   text-decoration: none;
   transition: 0s;
-}
-
-#main-navigation .nav-link:active:focus,
-#main-navigation .nav-link.active:focus {
-  background-color: $yellow-100;
-  outline: 3px solid transparent;
-  text-decoration: none;
-  transition: 0s;
-}
-
-a:focus {
-  box-shadow: 0 0 $yellow-100,0 4px $black;
-}
-
-.nav-link:focus,
-.nav-link.active:focus {
-  box-shadow: 0 0 #fed47a, inset 0 -4px $black;
 }
 
 .nav-pills .nav-link:focus {
   background-color: $yellow;
-  color: $black;
-}
-
-#main-navigation .nav-link:focus,
-.accordion .nav-link:focus {
   color: $black;
 }
 
@@ -274,6 +251,10 @@ a:focus {
   outline: 3px solid transparent;
   text-decoration: none;
   transition: 0s;
+}
+
+.accordion .nav-link:focus {
+  color: $black;
 }
 
 // Integrated classes
