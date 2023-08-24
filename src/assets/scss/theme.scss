@@ -232,20 +232,11 @@ a:focus {
   transition: 0s;
 }
 
-.nav-pills .nav-link:focus {
-  background-color: $yellow;
-  color: $black;
-}
-
 .funded-by-department-of-health-and-social-care-logo:focus,
 .main-logo:focus {
   background-color: initial;
   box-shadow: 0 0 $yellow-100, 2px 2px $black;
   outline: none;
-}
-
-.accordion .nav-link:focus {
-  color: $black;
 }
 
 // Integrated classes
