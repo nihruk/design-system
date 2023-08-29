@@ -82,12 +82,12 @@
   .funded-by-department-of-health-and-social-care-logo {
     color: #fff;
 
+    img {
+      max-width: 10.2rem;
+    }
+
     &:focus img {
       filter: invert(1);
     }
-  }
-
-  .funded-by-department-of-health-and-social-care-logo img {
-    max-width: 10.2rem;
   }
 }
