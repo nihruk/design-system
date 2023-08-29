@@ -1,0 +1,8 @@
+.nav-pills .nav-link:focus {
+    background-color: $yellow-100;
+    box-shadow: 0 0 $yellow-100, inset 0 -4px $black;
+    color: $black;
+    outline: 3px solid transparent;
+    text-decoration: none;
+    transition: 0s;
+  }
