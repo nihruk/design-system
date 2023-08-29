@@ -224,8 +224,8 @@ main {
 // Focus
 
 a:focus {
-  background-color: $yellow-100;
-  box-shadow: 0 0 $yellow-100,0 4px $black;
+  background-color: $interaction-focus;
+  box-shadow: 0 0 $interaction-focus,0 4px $black;
   color: $black;
   outline: 3px solid transparent;
   text-decoration: none;
