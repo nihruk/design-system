@@ -81,6 +81,11 @@
 
   .funded-by-department-of-health-and-social-care-logo {
     color: #fff;
+
+    &:focus {
+      box-shadow: 0 4px $yellow;
+      outline: none;
+    }
   }
 
   .funded-by-department-of-health-and-social-care-logo img {

@@ -5,6 +5,11 @@
     img {
       max-width: 100%;
     }
+
+    &:focus {
+      box-shadow: 0 4px $yellow;
+      outline: none;
+    }
   }
 
   .search-form {

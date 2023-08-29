@@ -245,13 +245,6 @@ a:focus {
   transition: 0s;
 }
 
-.funded-by-department-of-health-and-social-care-logo:focus,
-.main-logo:focus {
-  background-color: initial;
-  box-shadow: 0 4px $yellow;
-  outline: none;
-}
-
 // Integrated classes
 
 .heading-underline::after {
