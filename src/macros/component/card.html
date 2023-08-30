@@ -1,15 +1,18 @@
 {#
-    @macro card
-    @param {string|null=null} heading
-          The human-readable card heading.
-    @param {string|null=null} body
-          The Card's HTML body.
-    @param {string|null} [image=null]
-          Any image's src attribute value.
-    @param {'white'|'navy'} [backgroundColor='white']
-          The card's background color.
+@macro card
+@param {string|null=null} heading
+      The human-readable card heading.
+@param {int} [headingLevel=2]
+       The `<hX>` heading to use, where the value is one of `2`, `3`, `4`, `5`, or `6`.
+@param {string|null=null} body
+      The Card's HTML body.
+@param {string|null} [image=null]
+      Any image's src attribute value.
+@param {'white'|'navy'} [backgroundColor='white']
+      The card's background color.
 #}
 {% macro card(options) %}
+{% set headingLevel = headingLevel | default(2) %}
 <div class="col-md">
     <div class="card h-100 {% if options.backgroundColor | default('white') == 'navy' %}card--navy{% endif %}">
         {% if options.image | default(null) %}
@@ -26,7 +29,7 @@
         {% if options.heading or options.body %}
             <div class="card-body d-flex flex-column">
                 {% if options.heading %}
-                    <h2 class="card-title h3 heading-underline">{{ options.heading }}</h2>
+                    <h{{ headingLevel }} class="card-title h3 heading-underline">{{ options.heading }}</h{{ headingLevel }}>
                 {% endif %}
                 {% if options.body %}
                     <div class="card-text">{{ options.body }}</div>
