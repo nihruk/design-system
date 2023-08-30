@@ -10,7 +10,7 @@
 <header class="pt-3 pb-3 bg-white main-header">
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 d-flex">
                 <a href="/" title="National Institute for Health and Care Research (NIHR)" class="main-logo"
                 ><img src="https://www.nihr.ac.uk/layout/4.0/assets/logos/nihr-master-logo-325px.png"
                       alt="The NIHR logo">
@@ -24,7 +24,7 @@
         </div>
         {% if options.serviceTitle | default(null) %}
             <div class="row">
-                <a href="/" class="text-decoration-none h4 mt-3 mb-0">{{ options.serviceTitle }}</a>
+                <a href="/" class="h4 service-header-link">{{ options.serviceTitle }}</a>
             </div>
         {% endif %}
     </div>

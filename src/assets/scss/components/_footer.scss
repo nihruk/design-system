@@ -32,6 +32,22 @@
     display: block;
   }
 
+  .bottom-nav {
+    @include media-breakpoint-up(lg) {
+      display: flex;
+    }
+
+    li {
+      color: #fff;
+      padding: 0.5rem 0;
+      margin: 0 1rem 0 0;
+
+      a {
+        padding: 0;
+      }
+    }
+  }
+
   .social-media-links {
     margin: 0;
     padding: 0;
@@ -54,30 +70,24 @@
         border: none;
         text-decoration: none;
       }
+
+      a:focus {
+        background-color: $interaction-focus;
+        box-shadow: none;
+        color: $black;
+      }
     }
   }
 
   .funded-by-department-of-health-and-social-care-logo {
     color: #fff;
-  }
 
-  .funded-by-department-of-health-and-social-care-logo img {
-    max-width: 10.2rem;
-  }
-
-  .bottom-nav {
-    @include media-breakpoint-up(lg) {
-      display: flex;
+    img {
+      max-width: 10.2rem;
     }
 
-    li {
-      color: #fff;
-      padding: 0.5rem 0;
-      margin: 0 1rem 0 0;
-
-      a {
-        padding: 0;
-      }
+    &:focus img {
+      filter: invert(1);
     }
   }
 }

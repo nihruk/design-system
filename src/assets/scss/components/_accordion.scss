@@ -17,6 +17,15 @@
         padding-left: 0;
         font-size: 1.5rem;
         color: $navy;
+
+        &:focus {
+          background-color: $interaction-focus;
+          box-shadow: 0 0 $interaction-focus, inset 0 -4px $black;
+          color: $black;
+          outline: 3px solid transparent;
+          text-decoration: none;
+          transition: 0s;
+        }
       }
     }
 
