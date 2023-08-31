@@ -1,228 +1,146 @@
-{% from 'macros/component/table.html' import table %}
 {% from 'docs/macros/component/example.html' import example %}
 {% set pageTitle = 'Text types' %}
 {% extends 'docs/partials/style-page.html' %}
 
-{% macro _textTypeTag(tag) %}
-  <code>{{ tag }}</code>
-{% endmacro %}
-
-{% macro _textTypeClass(class) %}
-  <code>.{{ class }}</code>
-{% endmacro %}
-
 {% block stylePageContent %}
-  <p class="lead">
+<p class="lead">
     Add semantic meaning and visual appearance to your text using our text types.
-  </p>
-  {{ table({
-    'caption': 'The available text types and how to apply them using HTML tags and classes.',
-    'head': [
-      [
+</p>
+
+<h2 class="heading-underline">Headings</h2>
+
+<p>
+    Write all headings in sentence case. That means words follow their own capitalisation rules (such as proper
+    nouns), and that only the first word of the heading is additionally capitalised.
+</p>
+<p>
+    Use the heading elements <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, <code>&lt;h3&gt;</code>, <code>&lt;h4&gt;</code>,
+    <code>&lt;h5&gt;</code>, <code>&lt;h6&gt;</code>, to hierarchically structure the content on a page.
+</p>
+<p>
+    If your visual content hierarchy differs from the markup, use the heading classes <code>.h1</code>,
+    <code>.h2</code>, <code>.h3</code>, <code>.h4</code>, <code>.h5</code>, and <code>.h6</code>, to make a heading of
+    one level <strong>visually</strong> appear as a heading of a different level.
+</p>
+<h3>Sections</h3>
+<p>
+    To visually help users understand the structure of your content, you can optionally add an
+    <a href="/style/colour#colour--attention">attention</a> marker to level 2 headings:
+</p>
+{{ example({
+    'id': 'example-text-style-heading-underline',
+    'examples': [
         {
-          'body': 'Tag',
-          'headerScope': 'col'
-        },
-        {
-          'body': 'Class',
-          'headerScope': 'col'
-        },
-        {
-          'body': 'Sample',
-          'headerScope': 'col'
+            'type': 'html',
+            'code': '
+<h2 class="heading-underline">Lorem ipsum</h2>
+            '
         }
-      ]
-    ],
-    'body': [
-      [
-        _textTypeTag('<h1>'),
-        _textTypeClass('h1'),
-        '<span class="h1">Funding Guidelines</span>' | safe
-      ],
-      [
-        _textTypeTag('<h2>'),
-        _textTypeClass('h2'),
-        '<span class="h2">Funding Guidelines</span>' | safe
-      ],
-      [
-        _textTypeTag('<h2>'),
-        _textTypeClass('heading-underline'),
-        '<span class="h2 heading-underline">Funding Guidelines</span>' | safe
-      ],
-      [
-        _textTypeTag('<h3>'),
-        _textTypeClass('h3'),
-        '<span class="h3">Funding Guidelines</span>' | safe
-      ],
-      [
-        _textTypeTag('<h3>'),
-        _textTypeClass('heading-underline'),
-        '<span class="h3 heading-underline">Funding Guidelines</span>' | safe
-      ],
-      [
-        _textTypeTag('<h4>'),
-        _textTypeClass('h4'),
-        '<span class="h4">Funding Guidelines</span>' | safe
-      ],
-      [
-        _textTypeTag('<h5>'),
-        _textTypeClass('h5'),
-        '<span class="h5">Funding Guidelines</span>' | safe
-      ],
-      [
-        _textTypeTag('<h6>'),
-        _textTypeClass('h6'),
-        '<span class="h6">Funding Guidelines</span>' | safe
-      ],
-      [
-        _textTypeTag('<p>'),
-        '',
-        '<p>Funding Guidelines</p>' | safe
-      ],
-      [
-        _textTypeTag('<p class="lead">'),
-        '',
-        '<p class="lead">Funding Guidelines</p>' | safe
-      ],
-      [
-        _textTypeTag('<a>'),
-        '',
-        '<p><a href="#">Funding Guidelines</a></p>' | safe
-      ],
-      [
-        _textTypeTag('<mark>'),
-        _textTypeClass('mark'),
-        '<p><span class="mark">Funding Guidelines</span></p>' | safe
-      ],
-      [
-        _textTypeTag('<small>'),
-        _textTypeClass('small'),
-        '<p><span class="small">Funding Guidelines</span></p>' | safe
-      ],
-      [
-        _textTypeTag('<del>'),
-        '',
-        '<p><del>Funding Guidelines</del></p>' | safe
-      ],
-      [
-        _textTypeTag('<s>'),
-        _textTypeClass('text-decoration-line-through'),
-        '<p><span class="text-decoration-line-through">Funding Guidelines</span></p>' | safe
-      ],
-      [
-        _textTypeTag('<ins>'),
-        '',
-        '<p><ins>Funding Guidelines</ins></p>' | safe
-      ],
-      [
-        _textTypeTag('<u>'),
-        _textTypeClass('text-decoration-underline'),
-        '<p><span class="text-decoration-underline">Funding Guidelines</span></p>' | safe
-      ],
-      [
-        _textTypeTag('<strong>'),
-        '',
-        '<p><strong>Funding Guidelines</strong></p>' | safe
-      ],
-      [
-        _textTypeTag('<b>'),
-        '',
-        '<p><b>Funding Guidelines</b></p>' | safe
-      ],
-      [
-        _textTypeTag('<em>'),
-        '',
-        '<p><em>Funding Guidelines</em></p>' | safe
-      ],
-      [
-        _textTypeTag('<i>'),
-        '',
-        '<p><i>Funding Guidelines</i></p>' | safe
-      ],
-      [
-        _textTypeTag('<abbr>'),
-        '',
-        '<p><abbr title="National Institute for Health and Care Research">NIHR</abbr></p>' | safe
-      ],
-      [
-        _textTypeTag('<abbr class="initialism">'),
-        '',
-        '<p><abbr title="National Institute for Health and Care Research" class="initialism">NIHR</abbr></p>' | safe
-      ]
     ]
-  }) }}
+}) }}
 
-  <h2 class="heading-underline">Headings</h2>
+<h2 class="heading-underline">Paragraph text</h2>
+<p>
+    Surround each paragraph of text with <code>&lt;p&gt;</code> tags. The first paragraph on a page may optionally be
+    displayed as a <em>lead paragraph</em>:
+</p>
+{{ example({
+    'id': 'example-text-style-lead-paragraph',
+    'examples': [
+        {
+            'type': 'html',
+            'code': '
+<p class="lead">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse metus ex, cursus ut neque at, varius aliquam
+    nisl. Nulla iaculis felis a dui mattis, sit amet molestie erat vestibulum.
+</p>
+<p>
+    Aenean in egestas mauris, eu fringilla felis. Cras iaculis suscipit vulputate. Aliquam eu nunc tortor. Nunc ut
+    interdum purus. Sed quis faucibus dolor.
+</p>
+            '
+        }
+    ]
+}) }}
 
-  <p>Write all headings in sentence case.</p>
-  <p>
-    Use heading tags, such as <code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, and so on, to tag the headings on a
-    page. Style headings consistently to create a clear content structure throughout your service.
-  </p>
-
-  <h2 class="heading-underline">Paragraph text</h2>
-
-  <h3>Importance and attention</h3>
-  <p>
+<h3>Importance and attention</h3>
+<p>
     You can use <code>&lt;strong&gt;</code> to mark text as important, or <code>&lt;b&gt;</code> to draw attention
     to text that is not otherwise important. For example:
-  </p>
-    {{ example({
-      'id': 'example-text-style-strong-and-b',
-      'examples': [
-            {
-              'type': 'html',
-              'code': '
-<p>
-  Your reference number is <strong>ABC12345678</strong>. Use this to track your application.
-  Updates will be sent to <b>name@example.com</b>.
 </p>
-              '
-            }
-        ]
-    }) }}
+{{ example({
+    'id': 'example-text-style-strong-and-b',
+    'examples': [
+        {
+            'type': 'html',
+            'code': '
+<p>
+    Your reference number is <strong>ABC12345678</strong>. Use this to track your application.
+    Updates will be sent to <b>name@example.com</b>.
+</p>
+            '
+        }
+    ]
+}) }}
 
-  <h3>Emphasis and idiomatic text</h3>
-  <p>
+<h3>Emphasis and idiomatic text</h3>
+<p>
     You can use <code>&lt;em&gt;</code> to emphasize text as one would do when speaking, or <code>&lt;i&gt;</code> to
     draw attention to mark idiomatic text, such as a name or a phrase that is not otherwise important. For example:
-  </p>
-    {{ example({
-      'id': 'example-text-style-em-and-i',
-      'examples': [
-            {
-              'type': 'html',
-              'code': '
-<p>
-  You <em>must</em> read some of the <i>National Institute for Health and Care Research</i>\'s new research!
 </p>
-              '
-            }
-        ]
-    }) }}
+{{ example({
+    'id': 'example-text-style-em-and-i',
+    'examples': [
+        {
+            'type': 'html',
+            'code': '
+<p>
+    You <em>must</em> read some of the <i>National Institute for Health and Care Research</i>\'s new research!
+</p>
+            '
+        }
+    ]
+}) }}
 
-  <h3>Links</h3>
-  <p>
+<h3>Links</h3>
+<p>
     Links are blue and underlined by default. If your link is at the end of a sentence or
     paragraph, make sure that the linked text does not include the full stop.
-  </p>
-    {{ example({
-      'id': 'example-text-style-links',
-      'examples': [
-            {
-              'type': 'html',
-              'code': '
-<p>
-  Now that your application has been submitted, you can <a href="#">view its progress</a>.
 </p>
-              '
-            }
-        ]
-    }) }}
+{{ example({
+    'id': 'example-text-style-links',
+    'examples': [
+        {
+            'type': 'html',
+            'code': '
+<p>
+    Now that your application has been submitted, you can <a href="#">view its progress</a>.
+</p>
+            '
+        }
+    ]
+}) }}
 
-  <h2 class="heading-underline">Readability</h2>
-  <p>
-    Use these elements and styles sparingly. Overuse will make it difficult for users to know which parts of your
-    content they need to pay the most attention to.
-  </p>
+<h3>Abbreviations and acronyms</h3>
+<p>
+    Use abbreviations in your content by wrapping them in <code>&lt;abbr&gt;</code>.
+</p>
+<p>
+    If the abbreviation's full meaning is not explained earlier in the document or in the abbreviation's surrounding
+    content, you <strong>should</strong> add the abbreviation's full meaning in the element's <code>title</code>
+    attribute:
+</p>
+{{ example({
+    'id': 'example-text-style-abbr-title',
+    'examples': [
+        {
+            'type': 'html',
+            'code': '
+<p>
+    <abbr title="National Institute for Health and Care Research">NIHR</abbr>
+</p>
+            '
+        }
+    ]
+}) }}
 {% endblock %}
