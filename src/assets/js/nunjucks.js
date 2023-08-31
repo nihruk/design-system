@@ -21,14 +21,29 @@ class Environment extends stdNunjucks.Environment {
         this._lastGeneratedId = 0
         this._currentPageUrlPath = null;
         this.addGlobal('generateId', () => environment.generateId())
+        const filterHtmlAttributeValue = (value) => {
+            if (value === null) {
+                return false
+            }
+            if (typeof value !== 'string') {
+                return false
+            }
+            if (value.trim() === '') {
+                return false
+            }
+            return true
+        }
         this.addFilter('htmlAttributes', attributes => {
             let renderedAttributes = ' '
             for (let [name, value] of Object.entries(attributes)) {
-                if (value === null) {
-                    continue
-                }
-                if (typeof value !== 'string' && value) {
-                    value = value.join(' ')
+                if (!filterHtmlAttributeValue(value)) {
+                    if (!Array.isArray(value)) {
+                        continue
+                    }
+                    value = value.filter(filterHtmlAttributeValue).join(' ')
+                    if (!value) {
+                        continue
+                    }
                 }
                 renderedAttributes += ` ${name}="${value}"`
             }
