@@ -3,8 +3,13 @@
     padding: 0;
 
     .nav-item {
+      height: 4.375rem;
       padding: 1.25rem 1rem;
+  
+    &:has(.nav-link.active) {
+      border-bottom: 4px solid $navy;
     }
+    }  
 
     .nav-link {
       color: $navy;
@@ -16,7 +21,6 @@
       font-size: $font-size-lg;
       }
 
-      &.active,
       &:hover {
         color: $navy;
         text-decoration: underline;
@@ -30,6 +34,10 @@
         outline: 3px solid transparent;
         text-decoration: none;
         transition: 0s;
+      }
+
+      &:not(:hover):not(:active) {
+        text-decoration: none;
       }
     }
   }
