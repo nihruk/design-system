@@ -25,5 +25,10 @@
       text-decoration: none;
       transition: 0s;
     }
+
+    .nav-link:hover {
+      text-decoration: underline;
+      text-decoration-thickness: max(3px, 0.1875rem, 0.12em);
+    }
   }
 }
