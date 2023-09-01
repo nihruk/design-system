@@ -5,6 +5,10 @@
     .nav-item {
       height: 4.375rem;
       padding: 1.25rem 1rem;
+
+    &:first-child {
+      padding: 1.25rem 1rem 1.25rem 0;
+    }  
   
     &:has(.nav-link.active) {
       border-bottom: 4px solid $navy;
