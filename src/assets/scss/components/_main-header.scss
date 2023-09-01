@@ -16,7 +16,7 @@
   .service-header-link {
     margin-top: 1.5rem;
     margin-bottom: 0;
-    margin-left: 0.75rem;
+    margin-left: calc(var(--bs-gutter-x)*.5);
     padding: 0;
     text-decoration: none;
     width: max-content;
