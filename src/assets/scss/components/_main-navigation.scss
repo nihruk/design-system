@@ -40,7 +40,7 @@
         transition: 0s;
       }
 
-      &:not(:hover):not(:active) {
+      &:not(:hover) {
         text-decoration: none;
       }
     }
