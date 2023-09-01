@@ -52,6 +52,7 @@
     margin: 0;
     padding: 0;
     display: flex;
+    
     @include media-breakpoint-down(md) {
       justify-content: space-between;
     }
