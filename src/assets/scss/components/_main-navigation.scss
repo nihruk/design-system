@@ -2,11 +2,15 @@
   @include media-breakpoint-up(lg) {
     padding: 0;
 
-    .nav-link {
+    .nav-item {
       padding: 1.25rem 1rem;
+    }
+
+    .nav-link {
+      color: $navy;
       font-size: $font-size-sm;
       font-weight: bold;
-      color: $navy;
+      padding: 0;
 
       @include media-breakpoint-up(lg) {
       font-size: $font-size-lg;
@@ -14,8 +18,9 @@
 
       &.active,
       &:hover {
-        background-color: $navy;
-        color: #fff;
+        color: $navy;
+        text-decoration: underline;
+        text-decoration-thickness: max(3px, 0.1875rem, 0.12em);
       }
       
       &:focus {
