@@ -17,6 +17,11 @@
       color: inherit;
     }
 
+    .nav-link:hover {
+      text-decoration: underline;
+      text-decoration-thickness: max(3px, 0.1875rem, 0.12em);
+    }
+
     .nav-link:focus {
       background-color: $interaction-focus;
       box-shadow: 0 0 $interaction-focus, inset 0 -4px $black;
@@ -24,11 +29,10 @@
       outline: 3px solid transparent;
       text-decoration: none;
       transition: 0s;
-    }
 
-    .nav-link:hover {
-      text-decoration: underline;
-      text-decoration-thickness: max(3px, 0.1875rem, 0.12em);
+      &:not(:hover) {
+        text-decoration: none;
+      }
     }
   }
 }
