@@ -1,10 +1,7 @@
 .secondary-navigation {
   li {
     padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
-
-    &:has(.nav-link.active) {
-      border-left: 4px solid $navy;
-    }
+    position: relative;
 
     .nav-link {
       display: inline-flex;
@@ -14,7 +11,20 @@
     .nav-link.active, 
     .show>.nav-link {
       background-color: inherit;
-      color: inherit;
+      color: $navy;
+    }
+
+    .nav-link.active:after {
+      box-shadow: inset 4px 0px 0px 0px #193e72;
+    }
+
+    .nav-link:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
     }
 
     .nav-link:hover {
