@@ -10,12 +10,15 @@
        The ID of the component's root HTML element.
 @param {boolean} [mutuallyExclusive=false]
        Whether only one item can be shown at a time.
+@param {int} [headingLevel=2]
+       The `<hX>` heading to use, where the value is one of `2`, `3`, `4`, `5`, or `6`.
 #}
 {% macro accordion(options) %}
+{% set headingLevel = headingLevel | default(2) %}
 <div class="accordion" id="{{ options.id }}">
   {% for item in options.items %}
     <div class="accordion-item">
-      <h2 class="accordion-header" id="panel-heading--{{ options.id }}--{{ loop.index }}">
+      <h{{ headingLevel }} class="accordion-header" id="panel-heading--{{ options.id }}--{{ loop.index }}">
         <button
           class="accordion-button{% if not item.show %} collapsed{% endif %}"
           type="button"
@@ -26,7 +29,7 @@
         >
           {{ item.header }}
         </button>
-      </h2>
+      </h{{ headingLevel }}>
       <div
         id="panel-collapse--{{ options.id }}--{{ loop.index }}"
         class="accordion-collapse collapse{% if item.show | default(false) %} show{% endif %}"
