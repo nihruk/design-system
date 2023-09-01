@@ -5,6 +5,7 @@
     .nav-item {
       height: 4.375rem;
       padding: 1.25rem 1rem;
+      position: relative;
 
     &:first-child {
       padding: 1.25rem 1rem 1.25rem 0;
@@ -23,6 +24,15 @@
 
       @include media-breakpoint-up(lg) {
       font-size: $font-size-lg;
+      }
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
       }
 
       &:hover {
