@@ -14,17 +14,14 @@
       color: $navy;
     }
 
-    .nav-link.active:after {
-      box-shadow: inset 4px 0px 0px 0px #193e72;
+    .nav-link.active::after {
+      box-shadow: inset 4px 0 0 0 #193e72;
     }
 
-    .nav-link:after {
+    .nav-link::after {
       content: "";
       position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
+      inset: 0;
     }
 
     .nav-link:hover {
