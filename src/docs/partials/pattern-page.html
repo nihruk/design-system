@@ -1,18 +1,20 @@
 {% extends 'docs/partials/page.html' %}
 {% block pageContent %}
 <div class="container">
-  <div class="row">
-    <h1>{{ pageTitle }}</h1>
-    <nav class="col-lg-4 d-none d-lg-block">
-      {% include 'docs/partials/pattern-navigation.html' %}
-    </nav>
-    <div class="col-lg-8">
-      {% block patternPageContent %}
-      {% endblock %}
+    <div class="row">
+        <h1>{{ pageTitle }}</h1>
+        <nav class="col-lg-3 d-none d-lg-block">
+            <h2 class="visually-hidden">All patterns</h2>
+            {% include 'docs/partials/pattern-navigation.html' %}
+        </nav>
+        <div class="col-lg-8">
+            {% block patternPageContent %}
+            {% endblock %}
+        </div>
+        <nav class="col d-lg-none">
+            <h2 class="h4">All patterns</h2>
+            {% include 'docs/partials/pattern-navigation.html' %}
+        </nav>
     </div>
-    <nav class="col d-lg-none">
-      {% include 'docs/partials/pattern-navigation.html' %}
-    </nav>
-  </div>
 </div>
 {% endblock %}
