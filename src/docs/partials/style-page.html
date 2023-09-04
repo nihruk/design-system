@@ -2,17 +2,19 @@
 {% block pageContent %}
 <div class="container">
     <div class="row">
-      <h1>{{ pageTitle }}</h1>
-      <nav class="col-lg-4 d-none d-lg-block">
-        {% include 'docs/partials/style-navigation.html' %}
-      </nav>
-      <div class="col-lg-8">
-        {% block stylePageContent %}
-        {% endblock %}
-      </div>
-      <nav class="col d-lg-none">
-        {% include 'docs/partials/style-navigation.html' %}
-      </nav>
+        <h1>{{ pageTitle }}</h1>
+        <nav class="col-lg-3 d-none d-lg-block">
+            <h2 class="visually-hidden">All styles</h2>
+            {% include 'docs/partials/style-navigation.html' %}
+        </nav>
+        <div class="col-lg-8">
+            {% block stylePageContent %}
+            {% endblock %}
+        </div>
+        <nav class="col d-lg-none">
+            <h2 class="h4">All styles</h2>
+            {% include 'docs/partials/style-navigation.html' %}
+        </nav>
     </div>
-  </div>
+</div>
 {% endblock %}

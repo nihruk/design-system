@@ -3,7 +3,8 @@
 <div class="container">
     <div class="row">
       <h1>{{ pageTitle }}</h1>
-      <nav class="col-lg-4 d-none d-lg-block">
+      <nav class="col-lg-3 d-none d-lg-block">
+        <h2 class="visually-hidden">All instructions</h2>
         {% include 'docs/partials/get-started-navigation.html' %}
       </nav>
       <div class="col-lg-8">
@@ -11,6 +12,7 @@
         {% endblock %}
       </div>
       <nav class="col d-lg-none">
+        <h2 class="h4">All instructions</h2>
         {% include 'docs/partials/get-started-navigation.html' %}
       </nav>
     </div>
