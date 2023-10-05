@@ -9,21 +9,9 @@ $form-check-input-width: 2em;
 $form-check-min-height: 2em;
 $form-check-margin-bottom: 0.5rem;
 
-.form-check {
-    position: relative;
-}
 
 .form-check .form-check-input[type=checkbox] {
     border-radius: 0;
-    cursor: pointer;
-    position: absolute;
-    z-index: 1;
-    top: -2px;
-    left: -2px;
-    width: 44px;
-    height: 44px;
-    margin: 0;
-    opacity: 0;
 }
 
 .form-check .form-check-label {
