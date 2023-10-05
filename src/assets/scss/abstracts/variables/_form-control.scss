@@ -3,8 +3,12 @@
 $input-border-color: $navy;
 $input-placeholder-color: $navy-80;
 $input-border-radius-lg: 37px;
-$form-check-input-border: 1px solid rgba($navy, 1);
+$form-check-input-border: 2px solid rgba($black, 1);
 
 $form-check-input-width: 2em;
 $form-check-min-height: 2em;
 $form-check-margin-bottom: 0.5rem;
+
+.form-check .form-check-input[type=checkbox] {
+    border-radius: 0;
+}
