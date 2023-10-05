@@ -15,12 +15,7 @@ $form-check-margin-bottom: 0.5rem;
 
 .form-check .form-check-label {
     margin-bottom: 0;
-    font-size: 1.125rem; // 18px
-    line-height: 1.333; // 24px
-
-    @include media-breakpoint-up(lg) {
-        @include font-size(1.375rem); // 22px
-        line-height: 1.4545; // 32px
-      }
+    font-size: 1.375rem; // 22px
+    line-height: 1.4545; // 32px
 }
 
