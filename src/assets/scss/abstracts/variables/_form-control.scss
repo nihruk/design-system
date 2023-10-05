@@ -19,6 +19,12 @@ $form-check-margin-bottom: 0.5rem;
     top: 4px;
 }
 
+.form-check-input:focus {
+    /*border-color: ;*/
+    box-shadow: 0 0 0 0.25rem $interaction-focus;
+    outline: 0;
+}
+
 .form-check .form-check-label {
     margin-bottom: 0;
     font-size: 1.375rem; // 22px
