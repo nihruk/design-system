@@ -8,7 +8,7 @@ $form-check-input-checked-color: black;
 $form-check-input-checked-bg-color: white;
 $form-check-input-checked-border-color: black;
 $form-check-input-focus-border: $input-focus-border-color;
-$form-check-input-focus-box-shadow: 0 0 0 0.25rem $interaction-focus;
+$form-check-input-focus-box-shadow: $interaction-focus;
 
 $form-check-input-width: 2em;
 $form-check-min-height: 2em;
