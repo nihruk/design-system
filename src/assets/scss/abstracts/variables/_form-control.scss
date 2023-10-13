@@ -22,11 +22,15 @@ $form-check-margin-bottom: 0.5rem;
 .form-check .form-check-input[type="checkbox"] {
     border-radius: 0;
     position: absolute;
-    top: 4px;
+    bottom: 1px;
+    height: 44px;
+    width: 44px;
 }
 
 .form-check .form-check-label {
+    line-height: 1.4545;
     margin-bottom: 0;
+    padding: 5px 5px 10px 16px;
     touch-action: manipulation;
   }
 
