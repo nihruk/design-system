@@ -3,8 +3,34 @@
 $input-border-color: $navy;
 $input-placeholder-color: $navy-80;
 $input-border-radius-lg: 37px;
-$form-check-input-border: 1px solid rgba($navy, 1);
+$form-check-input-border: 2px solid rgba($black, 1);
+$form-check-input-border-radius: 4px;
+$form-check-input-checked-color: $black;
+$form-check-input-checked-bg-color: white;
+$form-check-input-checked-border-color: $black;
+$form-check-input-focus-border: $black;
+$form-check-input-focus-box-shadow: 0 0 0 0.25rem $interaction-focus;
 
 $form-check-input-width: 2em;
 $form-check-min-height: 2em;
 $form-check-margin-bottom: 0.5rem;
+
+.form-check {
+    position: relative;
+}
+
+.form-check .form-check-input[type="checkbox"] {
+    border-radius: 0;
+    position: absolute;
+    bottom: 1px;
+    height: 44px;
+    width: 44px;
+}
+
+.form-check .form-check-label {
+    line-height: 1.4545;
+    margin-bottom: 0;
+    padding: 5px 5px 10px 16px;
+    touch-action: manipulation;
+  }
+
