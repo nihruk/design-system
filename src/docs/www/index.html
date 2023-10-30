@@ -1,7 +1,7 @@
 {% from 'macros/component/action-link.html' import actionLink %}
 {% from 'macros/component/card.html' import card %}
 {% from 'macros/component/hero.html' import hero %}
-{% set pageTitle = 'Design System for the NIHR' %}
+{% set pageTitle = 'Test Design System' %}
 {% extends 'docs/partials/page.html' %}
 {% block pageContent %}
 
@@ -10,26 +10,10 @@
     <div class="col-lg-8">
         <h1 class="text-white">{{ pageTitle }}</h1>
         <p class="lead text-white">
-            Design and build web applications for the <a href="https://nihr.ac.uk" class="text-white">NIHR</a> that are
-            <strong>accessible</strong>, <strong>user-friendly</strong>, and provide consistent
-            <strong>user journeys</strong>.
+            This design system is no longer being maintained and will shortly be discontinued.
         </p>
     </div>
     <div class="col-lg-4">
-        {% set cardBody %}
-        {{ actionLink({
-            'href': '/get-started',
-            'text': 'Get started',
-            'title': 'Get started with the Design System'
-        }) }}
-        <p class="mb-0">
-            or run <span class="d-block"><code
-                class="user-select-all">npm install @nihruk/design-system</code></span>
-        </p>
-        {% endset %}
-        {{ card({
-            'body': cardBody | safe
-        }) }}
     </div>
 </div>
 {% endset %}
