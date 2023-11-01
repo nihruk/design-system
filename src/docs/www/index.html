@@ -1,7 +1,7 @@
 {% from 'macros/component/action-link.html' import actionLink %}
 {% from 'macros/component/card.html' import card %}
 {% from 'macros/component/hero.html' import hero %}
-{% set pageTitle = 'Design System for the NIHR' %}
+{% set pageTitle = 'NETSCC Design System' %}
 {% extends 'docs/partials/page.html' %}
 {% block pageContent %}
 
@@ -10,26 +10,10 @@
     <div class="col-lg-8">
         <h1 class="text-white">{{ pageTitle }}</h1>
         <p class="lead text-white">
-            Design and build web applications for the <a href="https://nihr.ac.uk" class="text-white">NIHR</a> that are
-            <strong>accessible</strong>, <strong>user-friendly</strong>, and provide consistent
-            <strong>user journeys</strong>.
+            This was proof of concept project for NETSCC websites which has now ended and efforts on a new NIHR Universal Design System have now commenced through the NIHR Digital Strategy Implementation Programme, which NETSCC will be actively supporting.
         </p>
     </div>
     <div class="col-lg-4">
-        {% set cardBody %}
-        {{ actionLink({
-            'href': '/get-started',
-            'text': 'Get started',
-            'title': 'Get started with the Design System'
-        }) }}
-        <p class="mb-0">
-            or run <span class="d-block"><code
-                class="user-select-all">npm install @nihruk/design-system</code></span>
-        </p>
-        {% endset %}
-        {{ card({
-            'body': cardBody | safe
-        }) }}
     </div>
 </div>
 {% endset %}
@@ -61,7 +45,7 @@
                 </p>
             </div>
             <div class="col-lg-4">
-                <h2 class="heading-underline">The Design System is</h2>
+                <h2 class="heading-underline">The NETSCC Design System is</h2>
                 <ul>
                     <li>consistent with NIHR corporate branding</li>
                     <li><a href="https://www.w3.org/TR/WCAG/">WCAG 2.1</a> AA compliant</li>
