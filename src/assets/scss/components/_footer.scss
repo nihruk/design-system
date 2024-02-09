@@ -52,10 +52,18 @@
     margin: 0;
     padding: 0;
     display: flex;
+    
+    @include media-breakpoint-down(md) {
+      justify-content: space-between;
+    }
 
     li {
       list-style: none;
       margin-right: 15px;
+
+      &:last-of-type {
+        margin-right: 0
+      }
 
       a {
         background-color: #fff;
